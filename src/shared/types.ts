@@ -14,6 +14,10 @@ export type MostProbableDigitsByPosition = {
   [position: number]: NumberStat[];
 };
 
+export enum DateFormat {
+  European = 'DD.MM.YYYY',
+}
+
 export enum LottoType {
   EURO = 'EURO',
   VIKINGLOTTO = 'VIKINGLOTTO',
@@ -22,10 +26,6 @@ export enum LottoType {
   JOKKER = 'JOKKER',
 }
 
-export enum NumberType {
-  PRIMARY = 'PRIMARY',
-  SECONDARY = 'SECONDARY',
-}
 export type PageName = 'Eurojackpot' | 'VikingLotto' | 'Bingo' | 'Keno' | 'Jokker';
 
 export const pageRoutes: Record<PageName, string> = {

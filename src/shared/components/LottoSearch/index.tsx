@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 
 import { AppDispatch } from '../../../app/store';
 import { calculateLottoProbability } from '../../../features/lottoProbability/lottoThunks';
-import { DateFormat } from '../../utils/dates';
+import { DateFormat } from '../../types';
 import { SearchLottoProbabilityButton } from '../SearchLottoProbabilityButton';
 import { buildLottoSearchDto } from '../SearchLottoProbabilityButton/helpers/buildLottoSearchDto';
 import { LottoSearchProps } from './types';
