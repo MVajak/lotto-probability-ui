@@ -12,7 +12,7 @@ import Typography from '@mui/material/Typography';
 import * as React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { PageName, pageRoutes } from '../shared/types';
+import { PageName, pageRoutes } from '../../types';
 import LottoLogo from './assets/logo.png';
 
 const pages: PageName[] = ['Eurojackpot', 'VikingLotto', 'Bingo', 'Keno', 'Jokker'];

@@ -2,7 +2,7 @@ import { Box, Container, Grid, styled } from '@mui/material';
 import Paper from '@mui/material/Paper';
 import React from 'react';
 
-import ResponsiveHeader from '../ResponsiveHeader';
+import ResponsiveHeader from '../shared/components/ResponsiveHeader';
 import { LottoPageProps } from './types';
 
 const Item = styled(Paper)(({ theme }) => ({
