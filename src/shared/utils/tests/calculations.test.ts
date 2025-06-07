@@ -1,6 +1,6 @@
 import { Big } from 'big.js';
 
-import { convertToPercentage, safeBig } from '../calculations'; // update the path
+import { convertToPercentage, safeBig } from '../calculations';
 
 describe('CALCULATIONS', () => {
   describe('safeBig', () => {

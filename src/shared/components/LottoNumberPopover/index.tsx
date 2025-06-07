@@ -15,11 +15,11 @@ export const LottoNumberPopover = ({
 }: LottoNumberPopoverProps): React.JSX.Element => {
   const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
 
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>): void => {
     setAnchorEl(event.currentTarget);
   };
 
-  const handleClose = () => {
+  const handleClose = (): void => {
     setAnchorEl(null);
   };
 
@@ -47,11 +47,11 @@ export const LottoNumberPopover = ({
         }}
       >
         <Grid sx={{ p: 1, maxWidth: '416px' }}>
-          <Grid container>
+          <Grid container data-testid={`count-${id}-statistics`}>
             <Typography sx={{ p: 0.25, fontWeight: 600 }}>Count: </Typography>
             <Typography sx={{ p: 0.25 }}>{count}</Typography>
           </Grid>
-          <Grid container>
+          <Grid container data-testid={`probability-${id}-statistics`}>
             <Typography sx={{ p: 0.25, fontWeight: 600 }}>Probability: </Typography>
             <Typography sx={{ p: 0.25 }}>{convertToPercentage(probability)}</Typography>
           </Grid>
@@ -59,8 +59,8 @@ export const LottoNumberPopover = ({
             <Grid>
               <Typography sx={{ p: 0.25, fontWeight: 600 }}>Numbers with same probability:</Typography>
               <Grid>
-                {leftoverNumbers.map((stat, index) => (
-                  <LottoNumber key={index} digit={stat.digit} />
+                {leftoverNumbers.map((stat, numberIndex) => (
+                  <LottoNumber key={numberIndex} digit={stat.digit} />
                 ))}
               </Grid>
             </Grid>

@@ -20,7 +20,7 @@ describe('LottoNumber', () => {
   };
 
   beforeEach(() => {
-    onClickMock.mockClear();
+    jest.clearAllMocks();
   });
 
   test('should render button with digit', () => {

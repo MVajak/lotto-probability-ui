@@ -7,18 +7,11 @@ module.exports = {
     '!src/**/*.d.ts',
     '!src/**/types.ts',
     '!src/**/constants.ts',
+    '!src/**/test-utils/**',
     '!src/index.tsx',
     '!src/App.tsx',
     '!src/reportWebVitals.ts',
     '!src/setupTests.ts',
-  ],
-  coveragePathIgnorePatterns: [
-    '/src/index.tsx$',
-    '/src/App.tsx$',
-    '/src/reportWebVitals.ts$',
-    '/src/setupTests.ts$',
-    'src/**/types.ts',
-    'src/**/constants.ts',
   ],
   coverageThreshold: {
     global: {
@@ -34,8 +27,5 @@ module.exports = {
   transform: {
     '^.+\\.(ts|tsx)$': 'ts-jest',
   },
-  testMatch: [
-    '**/__tests__/**/*.+(ts|tsx|js)',
-    '**/?(*.)+(spec|test).+(ts|tsx|js)',
-  ],
+  testMatch: ['**/?(*.)+(spec|test).[jt]s?(x)'],
 };

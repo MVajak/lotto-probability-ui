@@ -9,7 +9,14 @@ export const Loader = ({ shouldShow }: LoaderProps): React.JSX.Element | null =>
   }
 
   return (
-    <Grid padding={8} display="flex" justifyContent="center" alignItems="center" size={{ xs: 12 }}>
+    <Grid
+      data-testid="lotto-loader"
+      padding={8}
+      display="flex"
+      justifyContent="center"
+      alignItems="center"
+      size={{ xs: 12 }}
+    >
       <CircularProgress />
     </Grid>
   );

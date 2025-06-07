@@ -17,6 +17,10 @@ export function getTopProbabilityStats(data: NumberStat[], minCount: number): Nu
 }
 
 export function getMostProbableDigitsByPosition(data: NumberStat[]): MostProbableDigitsByPosition {
+  if (!data.length) {
+    return {};
+  }
+
   const grouped = data.reduce<Record<number, NumberStat[]>>((acc, item) => {
     if (item.position === null || item.position === undefined) {
       return acc;

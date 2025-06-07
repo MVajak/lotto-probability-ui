@@ -6,10 +6,10 @@ import { LottoNumberProps } from './types';
 export const LottoNumber = ({ index, digit, onClick, showBadge, style }: LottoNumberProps): React.JSX.Element => {
   const id = `lotto-number-${index}`;
 
-  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>): void => {
     e.stopPropagation();
-    onClick?.(e)
-  }
+    onClick?.(e);
+  };
 
   const renderButton = (): React.JSX.Element => (
     <Button
@@ -36,17 +36,15 @@ export const LottoNumber = ({ index, digit, onClick, showBadge, style }: LottoNu
   }
 
   return (
-    <>
-      <Badge
-        color="warning"
-        data-testid={`lotto-button-badge-${index}`}
-        overlap="circular"
-        badgeContent="!"
-        sx={{ cursor: 'help' }}
-        onClick={handleClick}
-      >
-        {renderButton()}
-      </Badge>
-    </>
+    <Badge
+      color="warning"
+      data-testid={`lotto-button-badge-${index}`}
+      overlap="circular"
+      badgeContent="!"
+      sx={{ cursor: 'help' }}
+      onClick={handleClick}
+    >
+      {renderButton()}
+    </Badge>
   );
 };
