@@ -31,8 +31,8 @@ export const LottoSearch = ({ lottoType }: LottoSearchProps): React.JSX.Element 
       <Grid size={{ xs: 12 }}>
         <Divider textAlign="center">SEARCH</Divider>
       </Grid>
-      <Grid container size={{ xs: 12 }} padding={2}>
-        <Grid size={{ xs: 6, sm: 4 }}>
+      <Grid container size={{ xs: 12 }} padding={1}>
+        <Grid size={{ xs: 6, sm: 4 }} padding={1}>
           <DatePicker
             label="Date from"
             value={dateFromValue}
@@ -41,7 +41,7 @@ export const LottoSearch = ({ lottoType }: LottoSearchProps): React.JSX.Element 
             onChange={(newValue) => setDateFromValue(newValue)}
           />
         </Grid>
-        <Grid size={{ xs: 6, sm: 4 }}>
+        <Grid size={{ xs: 6, sm: 4 }} padding={1}>
           <DatePicker
             label="Date to"
             value={dateToValue}
