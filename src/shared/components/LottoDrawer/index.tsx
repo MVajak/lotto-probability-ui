@@ -10,7 +10,7 @@ import { LottoDrawerProps } from './types';
 
 const UnassignedPosition = 'unassigned';
 
-export const LottoDrawer = ({ isOpen, onClose, numberStats }: LottoDrawerProps): React.JSX.Element => {
+export const LottoDrawer = ({ isOpen, onClose, numberStats, style }: LottoDrawerProps): React.JSX.Element => {
   const numberStatsByPositions = groupBy(numberStats, (stat) => stat.position ?? UnassignedPosition);
   const handleDrawerClose = useCallback((): void => {
     onClose();
@@ -50,7 +50,7 @@ export const LottoDrawer = ({ isOpen, onClose, numberStats }: LottoDrawerProps):
                   p: 1,
                 }}
               >
-                <LottoNumber index={`${positionIndex}-${statIndex}`} digit={stat.digit} />
+                <LottoNumber index={`${positionIndex}-${statIndex}`} digit={stat.digit} style={style?.digitButton} />
                 <Grid sx={{ paddingLeft: 2 }}>
                   <Grid container data-testid={`count-${positionIndex}-${statIndex}-statistics`}>
                     <Typography sx={{ p: 0.25, fontWeight: 600 }}>Count: </Typography>

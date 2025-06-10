@@ -62,7 +62,11 @@ export const LottoProbabilityResults = (props: LottoProbabilityResultsProps): Re
     <Grid container size={{ xs: 12 }} padding={2}>
       {numberStatsResults.map((statResult, containerIndex) => (
         <Grid key={containerIndex} size={{ xs: 12, ...statResult.style?.container }}>
-          <LottoNumberResultsWrapper allNumberStats={statResult.allNumberStats} title={statResult.title}>
+          <LottoNumberResultsWrapper
+            allNumberStats={statResult.allNumberStats}
+            title={statResult.title}
+            style={statResult.style}
+          >
             <>
               {statResult.displayNumberStats.map((stat, index) =>
                 renderLottoNumbers(

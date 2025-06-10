@@ -60,7 +60,7 @@ export const LottoNumberPopover = ({
               <Typography sx={{ p: 0.25, fontWeight: 600 }}>Numbers with same probability:</Typography>
               <Grid>
                 {leftoverNumbers.map((stat, numberIndex) => (
-                  <LottoNumber key={numberIndex} digit={stat.digit} />
+                  <LottoNumber key={numberIndex} digit={stat.digit} style={style} />
                 ))}
               </Grid>
             </Grid>

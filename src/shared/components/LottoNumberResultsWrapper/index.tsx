@@ -8,12 +8,13 @@ export const LottoNumberResultsWrapper = ({
   children,
   allNumberStats,
   title,
+  style,
 }: LottoNumberResultsWrapperProps): React.JSX.Element => {
   return (
     <Grid size={{ xs: 12 }}>
       <Typography sx={{ p: 2, fontWeight: 600 }}>{title}</Typography>
       {children}
-      <LottoButtonDrawer buttonText={'See more...'} numberStats={allNumberStats} />
+      <LottoButtonDrawer buttonText={'See more...'} numberStats={allNumberStats} style={style} />
     </Grid>
   );
 };
