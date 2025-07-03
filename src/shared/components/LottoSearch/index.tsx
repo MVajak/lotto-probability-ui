@@ -2,6 +2,7 @@ import { Divider, Grid } from '@mui/material';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import dayjs, { Dayjs } from 'dayjs';
 import React, { useCallback, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 
 import { AppDispatch } from '../../../app/store';
@@ -14,6 +15,7 @@ import { LottoSearchProps } from './types';
 export const LottoSearch = ({ lottoType }: LottoSearchProps): React.JSX.Element => {
   const [dateFromValue, setDateFromValue] = useState<Dayjs | null>(dayjs().subtract(1, 'month'));
   const [dateToValue, setDateToValue] = useState<Dayjs | null>(dayjs());
+  const { t } = useTranslation();
 
   const dispatch = useDispatch<AppDispatch>();
 
@@ -29,12 +31,12 @@ export const LottoSearch = ({ lottoType }: LottoSearchProps): React.JSX.Element 
   return (
     <Grid container size={{ xs: 12 }}>
       <Grid size={{ xs: 12 }}>
-        <Divider textAlign="center">SEARCH</Divider>
+        <Divider textAlign="center">{t('search.search')}</Divider>
       </Grid>
       <Grid container size={{ xs: 12 }} padding={1}>
         <Grid size={{ xs: 6, sm: 4 }} padding={1}>
           <DatePicker
-            label="Date from"
+            label={t('search.dateFrom')}
             value={dateFromValue}
             format={DateFormat.European}
             maxDate={dateToValue ?? undefined}
@@ -43,14 +45,14 @@ export const LottoSearch = ({ lottoType }: LottoSearchProps): React.JSX.Element 
         </Grid>
         <Grid size={{ xs: 6, sm: 4 }} padding={1}>
           <DatePicker
-            label="Date to"
+            label={t('search.dateTo')}
             value={dateToValue}
             format={DateFormat.European}
             minDate={dateFromValue ?? undefined}
             onChange={(newValue) => setDateToValue(newValue)}
           />
         </Grid>
-        <Grid size={{ xs: 12, sm: 4 }} spacing={5}>
+        <Grid size={{ xs: 12, sm: 4 }} spacing={5} sx={{ mt: 1 }}>
           <SearchLottoProbabilityButton onClick={handleSearch} />
         </Grid>
       </Grid>

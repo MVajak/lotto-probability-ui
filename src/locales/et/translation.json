@@ -1,0 +1,43 @@
+{
+  "info": {
+    "gameRules": "Mängu reeglid",
+    "buyTickets": "Osta pilet",
+    "EURO": "Kokku on 50 primaarnumbrit, millest kasutaja peab valima 5. Lisaks on 12 lisanumbrit, millest kasutaja peab valima kaks. Valitud numbrite asukoht ei ole oluline.",
+    "VIKINGLOTTO": "Kokku on 48 primaarnumbrit, millest kasutaja peab valima 6. Lisaks on 5 lisanumbrit, millest  kasutaja peab valima ühe. Valitud numbrite asukoht ei ole oluline.",
+    "BINGO": "Kokku on 75 numbrit, millest kasutaja peab valima 25. Lisaks jackpotile on olemas 5 erinevat mängu: keskruudumäng, nurkademäng, diagonaalidemäng, täismäng ja üks puudu mäng.",
+    "KENO": "Kokku on 68 numbrit, mille hulgast kasutaja saab valida numbrid 1–10. Valitud numbrite asukoht ei ole oluline.",
+    "JOKKER": "Kasutajad peavad valima 7 numbrit vahemikust 0–9 ja numbrite valimise järjestus peab olema õige.",
+    "generalDescription": "Süsteem arvutab {{lottoName}} loto numbrite esinemise tõenäosuse ajalooliste andmete põhjal ning kuvab parimaid numbreid. Saate määrata ise kuupäevad, mille vahemikus ajaloolisi andmeid kasutatakse."
+  },
+  "search": {
+    "search": "OTSING",
+    "dateFrom": "Kuupäevast",
+    "dateTo": "Kuupäevani",
+    "calculate": "Kalkuleeri"
+  },
+  "result": {
+    "totalDraws": "Kokku: {{totalDraws}} loosimist",
+    "nothingToShow": "Pole midagi kuvada...",
+    "primaryNumbers": "Primaarnumbrid",
+    "secondaryNumbers": "Lisanumbrid",
+    "bingo": {
+      "centerGame": "Keskruudumäng",
+      "cornerGame": "Nurkademäng",
+      "diagonalGame": "Diagonaalidemäng",
+      "fullGame": "Täismäng"
+    },
+    "numbersWithSameProbability": "Numbrid sama tõenäosusega",
+    "seeMore": "Vaata rohkem..."
+  },
+  "statisticsDrawer": {
+    "statistics": "Statistika",
+    "showOnlyAppearingNumbers": "Näita ainult esinenud numbreid",
+    "position": "Positsioon",
+    "sortBy": "Sorteeri"
+  },
+  "general": {
+    "digit": "Number",
+    "count": "Kogus",
+    "probability": "Tõenäosus"
+  }
+}

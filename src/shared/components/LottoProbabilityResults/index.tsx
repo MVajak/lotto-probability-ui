@@ -2,6 +2,7 @@ import { Grid, Typography } from '@mui/material';
 import { Theme } from '@mui/material/styles';
 import { SxProps } from '@mui/system';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { NumberStat } from '../../types';
 import { safeBig } from '../../utils/calculations';
@@ -10,7 +11,9 @@ import { LottoNumberResultsWrapper } from '../LottoNumberResultsWrapper';
 import { LottoProbabilityResultsProps } from './types';
 
 export const LottoProbabilityResults = (props: LottoProbabilityResultsProps): React.JSX.Element | null => {
+  const { t } = useTranslation();
   const { totalDraws, numberStatsResults, shouldShow } = props;
+
   if (!shouldShow) {
     return null;
   }
@@ -18,7 +21,7 @@ export const LottoProbabilityResults = (props: LottoProbabilityResultsProps): Re
   if (safeBig(totalDraws).lte(0)) {
     return (
       <Grid size={{ xs: 12 }} padding={8}>
-        <Typography>Nothing to show...</Typography>
+        <Typography>{t('result.nothingToShow', { totalDraws })}</Typography>
       </Grid>
     );
   }
@@ -64,7 +67,7 @@ export const LottoProbabilityResults = (props: LottoProbabilityResultsProps): Re
         <Grid key={containerIndex} size={{ xs: 12, ...statResult.style?.container }}>
           <LottoNumberResultsWrapper
             allNumberStats={statResult.allNumberStats}
-            title={statResult.title}
+            titleKey={statResult.titleKey}
             style={statResult.style}
           >
             <>

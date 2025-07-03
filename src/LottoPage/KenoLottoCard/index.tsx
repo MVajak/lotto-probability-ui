@@ -1,5 +1,6 @@
 import { Divider, Grid } from '@mui/material';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
 import { isLoadingSelector, lottoTotalDrawsSelector } from '../../features/lottoProbability/selectors';
@@ -16,6 +17,7 @@ export const KenoLottoCard = () => {
   const lottoMainNumbers = useSelector(kenoLottoMainNumbersSelector);
   const winningNumberStats = useSelector(kenoLottoWinningNumberStatsSelector);
   const totalDraws = useSelector(lottoTotalDrawsSelector);
+  const { t } = useTranslation();
 
   const mainDisplayNumbers = lottoMainNumbers.winningNumberStats.slice(0, MAX_PRIMARY_NUMBERS);
   const hiddenMainDisplayNumbers = lottoMainNumbers.winningNumberStats.slice(MAX_PRIMARY_NUMBERS);
@@ -29,7 +31,7 @@ export const KenoLottoCard = () => {
         <LottoSearch lottoType={LottoType.KENO} />
       </Grid>
       <Grid size={{ xs: 12 }}>
-        <Divider textAlign="center">Total: {totalDraws} draws</Divider>
+        <Divider textAlign="center">{t('result.totalDraws', { totalDraws })}</Divider>
       </Grid>
       <Grid container size={{ xs: 12 }} sx={{ textAlign: 'center' }}>
         <Loader shouldShow={isLoading} />
@@ -38,7 +40,7 @@ export const KenoLottoCard = () => {
           totalDraws={totalDraws}
           numberStatsResults={[
             {
-              title: 'Primary numbers',
+              titleKey: 'result.primaryNumbers',
               maxNumbersCount: MAX_PRIMARY_NUMBERS,
               allNumberStats: winningNumberStats,
               displayNumberStats: mainDisplayNumbers,

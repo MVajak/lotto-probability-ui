@@ -7,6 +7,6 @@ import { NumberStat } from '../../types';
 export interface LottoNumberResultsWrapperProps {
   children: React.JSX.Element;
   allNumberStats: NumberStat[];
-  title: string;
+  titleKey: string;
   style?: { digitButton?: SxProps<Theme> };
 }

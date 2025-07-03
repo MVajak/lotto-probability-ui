@@ -1,5 +1,6 @@
 import { Divider, Grid } from '@mui/material';
 import React, { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { AppDispatch } from '../../app/store';
@@ -24,6 +25,7 @@ export const VikingLottoCard = () => {
   const winningNumberStats = useSelector(vikingLottoWinningNumberStatsSelector);
   const secWinningNumberStats = useSelector(vikingLottoSecWinningNumberStatsSelector);
   const totalDraws = useSelector(lottoTotalDrawsSelector);
+  const { t } = useTranslation();
 
   useEffect(() => {
     return () => {
@@ -49,7 +51,7 @@ export const VikingLottoCard = () => {
         <LottoSearch lottoType={LottoType.VIKINGLOTTO} />
       </Grid>
       <Grid size={{ xs: 12 }}>
-        <Divider textAlign="center">Total: {totalDraws} draws</Divider>
+        <Divider textAlign="center">{t('result.totalDraws', { totalDraws })}</Divider>
       </Grid>
       <Grid container size={{ xs: 12 }} sx={{ textAlign: 'center' }}>
         <Loader shouldShow={isLoading} />
@@ -58,7 +60,7 @@ export const VikingLottoCard = () => {
           totalDraws={totalDraws}
           numberStatsResults={[
             {
-              title: 'Primary numbers',
+              titleKey: 'result.primaryNumbers',
               maxNumbersCount: MAX_PRIMARY_NUMBERS,
               allNumberStats: winningNumberStats,
               displayNumberStats: mainDisplayNumbers,
@@ -66,7 +68,7 @@ export const VikingLottoCard = () => {
               style: { container: { sm: 6 } },
             },
             {
-              title: 'Secondary numbers',
+              titleKey: 'result.secondaryNumbers',
               maxNumbersCount: MAX_SECONDARY_NUMBERS,
               allNumberStats: secWinningNumberStats,
               displayNumberStats: secDisplayNumbers,

@@ -17,7 +17,7 @@ export const LottoButtonDrawer = ({ buttonText, numberStats, style }: LottoButto
 
   return (
     <Grid>
-      <Button onClick={handleMainDrawerOpen} sx={{ textTransform: 'capitalize' }}>
+      <Button onClick={handleMainDrawerOpen} sx={{ textTransform: 'unset' }}>
         {buttonText}
       </Button>
       <LottoDrawer isOpen={isDrawerOpen} onClose={handleMainDrawerClose} numberStats={numberStats} style={style} />

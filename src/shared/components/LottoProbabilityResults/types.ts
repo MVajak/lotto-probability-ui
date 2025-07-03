@@ -4,7 +4,7 @@ import { SxProps } from '@mui/system';
 import { NumberStat } from '../../types';
 
 export interface LottoNumberResults {
-  title: string;
+  titleKey: string;
   allNumberStats: NumberStat[];
   displayNumberStats: NumberStat[];
   hiddenNumberStats: NumberStat[];

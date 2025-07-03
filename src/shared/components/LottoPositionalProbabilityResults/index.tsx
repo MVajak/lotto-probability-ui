@@ -42,7 +42,7 @@ export const LottoPositionalProbabilityResults = (
   return (
     <Grid container size={{ xs: 12 }} padding={2}>
       <Grid size={{ xs: 12 }}>
-        <LottoNumberResultsWrapper allNumberStats={allNumberStats} title={'Primary numbers'}>
+        <LottoNumberResultsWrapper allNumberStats={allNumberStats} titleKey={'result.primaryNumbers'}>
           <>{Object.entries(numberStatsByPosition).map(([, stats], index) => renderLottoNumbers(stats, index))}</>
         </LottoNumberResultsWrapper>
       </Grid>

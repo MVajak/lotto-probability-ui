@@ -1,5 +1,6 @@
 import { Divider, Grid } from '@mui/material';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
 import { isLoadingSelector, lottoTotalDrawsSelector } from '../../features/lottoProbability/selectors';
@@ -16,6 +17,7 @@ export const JokkerLottoCard = () => {
   const mostProbableNumbersByPosition = useSelector(jokkerLottoMostProbableNumbersByPositionSelector);
   const winningNumberStats = useSelector(jokkerLottoWinningNumberStatsSelector);
   const totalDraws = useSelector(lottoTotalDrawsSelector);
+  const { t } = useTranslation();
 
   return (
     <Grid container spacing={2}>
@@ -26,7 +28,7 @@ export const JokkerLottoCard = () => {
         <LottoSearch lottoType={LottoType.JOKKER} />
       </Grid>
       <Grid size={{ xs: 12 }}>
-        <Divider textAlign="center">Total: {totalDraws} draws</Divider>
+        <Divider textAlign="center">{t('result.totalDraws', { totalDraws })}</Divider>
       </Grid>
       <Grid container size={{ xs: 12 }} sx={{ textAlign: 'center' }}>
         <Loader shouldShow={isLoading} />

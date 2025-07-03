@@ -1,9 +1,12 @@
 import { Divider, Grid, Link, Typography } from '@mui/material';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
-import { LottoDescription, LottoInfoProps, LottoName } from './types';
+import { LottoInfoProps, LottoName } from './types';
 
 export const LottoInfo = ({ lottoType, linkBuyTickets, linkGameRules }: LottoInfoProps): React.JSX.Element => {
+  const { t } = useTranslation();
+
   const lottoName = LottoName[lottoType];
 
   return (
@@ -16,11 +19,10 @@ export const LottoInfo = ({ lottoType, linkBuyTickets, linkGameRules }: LottoInf
       <Grid container size={{ xs: 12 }} padding={2}>
         <Grid container size={{ xs: 12 }}>
           <Typography sx={{ p: 2 }} data-testid={`lotto-${lottoName}-description`}>
-            {LottoDescription[lottoType]}
+            {t(`info.${lottoType}`)}
           </Typography>
           <Typography sx={{ p: 2 }} data-testid={`lotto-${lottoName}-default-description`}>
-            The system calculates the probability of {lottoName} numbers based on historical data. You can search for
-            historical data by dates or by draw numbers.
+            {t('info.generalDescription', { lottoName })}
           </Typography>
         </Grid>
         <Grid container size={{ xs: 12 }} sx={{ px: 2 }}>
@@ -28,18 +30,20 @@ export const LottoInfo = ({ lottoType, linkBuyTickets, linkGameRules }: LottoInf
             data-testid={`lotto-${lottoName}-rules`}
             href={linkGameRules}
             underline="hover"
+            target={`_blank`}
             sx={{ lineHeight: '20px', pr: 1 }}
           >
-            Game rules
+            {t('info.gameRules')}
           </Link>
           <Divider orientation="vertical" flexItem />
           <Link
             data-testid={`lotto-${lottoName}-tickets`}
             href={linkBuyTickets}
             underline="hover"
+            target={`_blank`}
             sx={{ lineHeight: '20px', pl: 1 }}
           >
-            Buy tickets
+            {t('info.buyTickets')}
           </Link>
         </Grid>
       </Grid>

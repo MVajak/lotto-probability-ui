@@ -1,0 +1,43 @@
+{
+  "info": {
+    "gameRules": "Game rules",
+    "buyTickets": "Buy tickets",
+    "EURO": "There are 50 primary numbers in total, from which the user must choose 5. In addition, there are 12 secondary numbers, and the user must select 2. The position of the chosen numbers does not matter.",
+    "VIKINGLOTTO": "There are 48 primary numbers in total, from which the user must choose 6. In addition, there are 5 secondary numbers, and the user must select 1. The position of the chosen numbers does not matter.",
+    "BINGO": "There are 75 numbers in total, from which the user must choose 25. The game offers five modes: Center Square, Corners, Diagonals, Full Card, and One-Missing.",
+    "KENO": "There are 68 numbers in total, from which the user can choose 1-10. The position of the chosen numbers does not matter.",
+    "JOKKER": "Users must select 7 numbers from the range 0–9, and the sequence in which the numbers are chosen must be correct.",
+    "generalDescription": "The system calculates the probability of {{lottoName}} numbers based on historical data and suggests the best numbers to choose. You can search for historical data by dates."
+  },
+  "search": {
+    "search": "SEARCH",
+    "dateFrom": "Date from",
+    "dateTo": "Date to",
+    "calculate": "Calculate"
+  },
+  "result": {
+    "totalDraws": "Total: {{totalDraws}} draws",
+    "nothingToShow": "Nothing to show...",
+    "primaryNumbers": "Primary numbers",
+    "secondaryNumbers": "Secondary numbers",
+    "bingo": {
+      "centerGame": "Center Game",
+      "cornerGame": "Corner Game",
+      "diagonalGame": "Diagonal Game",
+      "fullGame": "Full Game"
+    },
+    "numbersWithSameProbability": "Numbers with same probability",
+    "seeMore": "See more..."
+  },
+  "statisticsDrawer": {
+    "statistics": "Statistics",
+    "showOnlyAppearingNumbers": "Show only appearing numbers",
+    "position": "Position",
+    "sortBy": "Sort by"
+  },
+  "general": {
+    "digit": "Digit",
+    "count": "Count",
+    "probability": "Probability"
+  }
+}

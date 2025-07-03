@@ -1,5 +1,6 @@
 import { Grid, Typography } from '@mui/material';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { LottoButtonDrawer } from '../LottoButtonDrawer';
 import { LottoNumberResultsWrapperProps } from './types';
@@ -7,14 +8,16 @@ import { LottoNumberResultsWrapperProps } from './types';
 export const LottoNumberResultsWrapper = ({
   children,
   allNumberStats,
-  title,
+  titleKey,
   style,
 }: LottoNumberResultsWrapperProps): React.JSX.Element => {
+  const { t } = useTranslation();
+
   return (
     <Grid size={{ xs: 12 }}>
-      <Typography sx={{ p: 2, fontWeight: 600 }}>{title}</Typography>
+      <Typography sx={{ p: 2, fontWeight: 600 }}>{t(titleKey)}</Typography>
       {children}
-      <LottoButtonDrawer buttonText={'See more...'} numberStats={allNumberStats} style={style} />
+      <LottoButtonDrawer buttonText={t('result.seeMore')} numberStats={allNumberStats} style={style} />
     </Grid>
   );
 };

@@ -9,3 +9,10 @@ export interface LottoDrawerProps {
   numberStats: NumberStat[];
   style?: { digitButton?: SxProps<Theme> };
 }
+
+export enum SortingType {
+  DigitAsc = 'DigitAsc',
+  DigitDesc = 'DigitDesc',
+  ProbabilityAsc = 'ProbabilityAsc',
+  ProbabilityDesc = 'ProbabilityDesc',
+}
