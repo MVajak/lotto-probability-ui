@@ -13,7 +13,9 @@ import i18n from 'i18next';
 import * as React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { Locale } from '../../../locales/types';
+import { Language } from '../../../locales/types';
+import { LocalStorageKey } from '../../constants';
+import { useLocalStorage } from '../../hooks/useLocalStorage';
 import { PageName, pageRoutes } from '../../types';
 import FlagEstonia from './assets/flag_estonia.svg';
 import FlagUK from './assets/flag_united_kingdom.svg';
@@ -23,7 +25,7 @@ const pages: PageName[] = ['Eurojackpot', 'VikingLotto', 'Bingo', 'Keno', 'Jokke
 
 function ResponsiveHeader() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
-  const [language, setLanguage] = React.useState<Locale>(Locale.ET);
+  const [language, setLanguage] = useLocalStorage<Language>(LocalStorageKey.LANGUAGE, Language.EN);
 
   const navigate = useNavigate();
 
@@ -41,7 +43,7 @@ function ResponsiveHeader() {
   };
 
   const handleLanguageChange = async (event: SelectChangeEvent) => {
-    const changedLanguage: Locale = event.target.value as Locale;
+    const changedLanguage: Language = event.target.value as Language;
 
     await i18n.changeLanguage(changedLanguage);
     setLanguage(changedLanguage);
@@ -111,10 +113,10 @@ function ResponsiveHeader() {
                     value={language}
                     onChange={handleLanguageChange}
                   >
-                    <MenuItem value={Locale.ET}>
+                    <MenuItem value={Language.ET}>
                       <img src={FlagEstonia} alt="ET" width={25} height={15} />
                     </MenuItem>
-                    <MenuItem value={Locale.EN}>
+                    <MenuItem value={Language.EN}>
                       <img src={FlagUK} alt="EN" width={25} height={15} />
                     </MenuItem>
                   </Select>
@@ -158,10 +160,10 @@ function ResponsiveHeader() {
                 value={language}
                 onChange={handleLanguageChange}
               >
-                <MenuItem value={Locale.ET}>
+                <MenuItem value={Language.ET}>
                   <img src={FlagEstonia} alt="ET" width={25} height={15} />
                 </MenuItem>
-                <MenuItem value={Locale.EN}>
+                <MenuItem value={Language.EN}>
                   <img src={FlagUK} alt="EN" width={25} height={15} />
                 </MenuItem>
               </Select>
