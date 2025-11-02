@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
 import { isLoadingSelector, lottoTotalDrawsSelector } from '../../features/lottoProbability/selectors';
+import { InContentAd } from '../../shared/components/InContentAd';
 import { Loader } from '../../shared/components/Loader';
 import { LottoInfo } from '../../shared/components/LottoInfo';
 import { LottoPositionalProbabilityResults } from '../../shared/components/LottoPositionalProbabilityResults';
@@ -21,10 +22,13 @@ export const JokkerLottoCard = () => {
 
   return (
     <Grid container spacing={2}>
-      <Grid container size={{ xs: 12 }}>
+      <Grid size={{ xs: 12 }}>
         <LottoInfo lottoType={LottoType.JOKKER} linkBuyTickets={LINK_BUY_TICKETS} linkGameRules={LINK_GAME_RULES} />
       </Grid>
-      <Grid container size={{ xs: 12 }} sx={{ textAlign: 'center' }}>
+      <Grid size={{ xs: 12 }}>
+        <InContentAd />
+      </Grid>
+      <Grid size={{ xs: 12 }} sx={{ textAlign: 'center' }}>
         <LottoSearch lottoType={LottoType.JOKKER} />
       </Grid>
       <Grid size={{ xs: 12 }}>

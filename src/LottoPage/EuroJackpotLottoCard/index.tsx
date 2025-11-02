@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch } from '../../app/store';
 import { resetState } from '../../features/lottoProbability/lottoProbabilitySlice';
 import { isLoadingSelector, lottoTotalDrawsSelector } from '../../features/lottoProbability/selectors';
+import { InContentAd } from '../../shared/components/InContentAd';
 import { Loader } from '../../shared/components/Loader';
 import { LottoInfo } from '../../shared/components/LottoInfo';
 import { LottoProbabilityResults } from '../../shared/components/LottoProbabilityResults';
@@ -40,10 +41,13 @@ export const EuroJackpotLottoCard = () => {
 
   return (
     <Grid container spacing={2}>
-      <Grid container size={{ xs: 12 }}>
+      <Grid size={{ xs: 12 }}>
         <LottoInfo lottoType={LottoType.EURO} linkBuyTickets={LINK_BUY_TICKETS} linkGameRules={LINK_GAME_RULES} />
       </Grid>
-      <Grid container size={{ xs: 12 }} sx={{ textAlign: 'center' }}>
+      <Grid size={{ xs: 12 }}>
+        <InContentAd />
+      </Grid>
+      <Grid size={{ xs: 12 }} sx={{ textAlign: 'center' }}>
         <LottoSearch lottoType={LottoType.EURO} />
       </Grid>
       <Grid size={{ xs: 12 }}>

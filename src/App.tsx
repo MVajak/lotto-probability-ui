@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 
 import { LottoPage } from './LottoPage';
 import { BingoLottoCard } from './LottoPage/BingoLottoCard';
@@ -12,6 +12,7 @@ import { pageRoutes } from './shared/types';
 function App() {
   return (
     <Routes>
+      <Route path="/" element={<Navigate to={pageRoutes.Eurojackpot} replace />} />
       <Route
         path={pageRoutes.Eurojackpot}
         element={
