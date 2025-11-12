@@ -1,6 +1,7 @@
 import React from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 
+import { LoginPage } from './LoginPage';
 import { LottoPage } from './LottoPage';
 import { BingoLottoCard } from './LottoPage/BingoLottoCard';
 import { EuroJackpotLottoCard } from './LottoPage/EuroJackpotLottoCard';
@@ -13,6 +14,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Navigate to={pageRoutes.Eurojackpot} replace />} />
+      <Route path={pageRoutes.Login} element={<LoginPage />} />
       <Route
         path={pageRoutes.Eurojackpot}
         element={

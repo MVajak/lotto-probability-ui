@@ -39,5 +39,16 @@
     "digit": "Digit",
     "count": "Count",
     "probability": "Probability"
+  },
+  "login": {
+    "title": "Login",
+    "description": "Enter your email address and we'll send you a magic link to sign in.",
+    "emailLabel": "Email address",
+    "emailRequired": "Email is required",
+    "emailInvalid": "Please enter a valid email address",
+    "sendMagicLink": "Send Magic Link",
+    "sending": "Sending...",
+    "emailSentSuccess": "Magic link sent successfully!",
+    "checkYourEmail": "Please check your email and click the link to continue."
   }
 }

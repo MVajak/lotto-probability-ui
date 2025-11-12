@@ -26,7 +26,7 @@ export enum LottoType {
   JOKKER = 'JOKKER',
 }
 
-export type PageName = 'Eurojackpot' | 'VikingLotto' | 'Bingo' | 'Keno' | 'Jokker';
+export type PageName = 'Eurojackpot' | 'VikingLotto' | 'Bingo' | 'Keno' | 'Jokker' | 'Login';
 
 export const pageRoutes: Record<PageName, string> = {
   Eurojackpot: '/eurojackpot',
@@ -34,4 +34,5 @@ export const pageRoutes: Record<PageName, string> = {
   Bingo: '/bingo',
   Keno: '/keno',
   Jokker: '/jokker',
+  Login: '/login',
 };

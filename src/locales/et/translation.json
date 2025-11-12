@@ -39,5 +39,16 @@
     "digit": "Number",
     "count": "Kogus",
     "probability": "Tõenäosus"
+  },
+  "login": {
+    "title": "Logi sisse",
+    "description": "Sisesta oma e-posti aadress ja saadame sulle võlulingi sisselogimiseks.",
+    "emailLabel": "E-posti aadress",
+    "emailRequired": "E-post on kohustuslik",
+    "emailInvalid": "Palun sisesta kehtiv e-posti aadress",
+    "sendMagicLink": "Saada võlulink",
+    "sending": "Saadan...",
+    "emailSentSuccess": "Võlulink edukalt saadetud!",
+    "checkYourEmail": "Palun kontrolli oma e-posti ja klõpsa lingil jätkamiseks."
   }
 }

@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 
+import authReducer from '../features/auth/authSlice';
 import lottoProbabilityReducer from '../features/lottoProbability/lottoProbabilitySlice';
 
 export const store = configureStore({
   reducer: {
+    auth: authReducer,
     lottoProbability: lottoProbabilityReducer,
   },
 });
