@@ -6,11 +6,11 @@ describe('PROBABILITY', () => {
   describe('getTopProbabilityStats', () => {
     const minCount = 3;
     const numberStats = createStubInstances<NumberStat>([
-      { digit: 1, probability: 0.2 },
-      { digit: 2, probability: 0.8 },
-      { digit: 3, probability: 0.5 },
-      { digit: 4, probability: 0.8 },
-      { digit: 5, probability: 0.3 },
+      { digit: 1, frequency: 0.2 },
+      { digit: 2, frequency: 0.8 },
+      { digit: 3, frequency: 0.5 },
+      { digit: 4, frequency: 0.8 },
+      { digit: 5, frequency: 0.3 },
     ]);
 
     test('should return empty array when input data is empty', () => {
@@ -19,8 +19,8 @@ describe('PROBABILITY', () => {
 
     test('should return original data when data.length <= minCount', () => {
       const numberStatsLocal = createStubInstances<NumberStat>([
-        { digit: 1, probability: 0.4 },
-        { digit: 2, probability: 0.3 },
+        { digit: 1, frequency: 0.4 },
+        { digit: 2, frequency: 0.3 },
       ]);
 
       expect(getTopProbabilityStats(numberStatsLocal, minCount)).toEqual(numberStatsLocal);
@@ -44,18 +44,18 @@ describe('PROBABILITY', () => {
     test('should sort input data descendingly by probability', () => {
       const result = getTopProbabilityStats(numberStats, minCount);
       for (let i = 0; i < result.length - 1; i++) {
-        expect(result[i].probability).toBeGreaterThanOrEqual(result[i + 1].probability);
+        expect(result[i].frequency).toBeGreaterThanOrEqual(result[i + 1].frequency);
       }
     });
   });
 
   describe('getMostProbableDigitsByPosition', () => {
     const numberStats = createStubInstances<NumberStat>([
-      { digit: 1, position: 0, probability: 0.2 },
-      { digit: 2, position: 0, probability: 0.8 },
-      { digit: 3, position: 0, probability: 0.8 },
-      { digit: 4, position: 1, probability: 0.4 },
-      { digit: 5, position: 1, probability: 0.9 },
+      { digit: 1, position: 0, frequency: 0.2 },
+      { digit: 2, position: 0, frequency: 0.8 },
+      { digit: 3, position: 0, frequency: 0.8 },
+      { digit: 4, position: 1, frequency: 0.4 },
+      { digit: 5, position: 1, frequency: 0.9 },
     ]);
 
     test('returns most probable digits per position', () => {
@@ -69,9 +69,9 @@ describe('PROBABILITY', () => {
 
     test('ignores entries with null or undefined position', () => {
       const numberStatsLocal = createStubInstances<NumberStat>([
-        { digit: 1, position: 0, probability: 0.9 },
-        { digit: 2, position: null, probability: 1.0 },
-        { digit: 3, position: undefined, probability: 0.6 },
+        { digit: 1, position: 0, frequency: 0.9 },
+        { digit: 2, position: null, frequency: 1.0 },
+        { digit: 3, position: undefined, frequency: 0.6 },
       ]);
       const result = getMostProbableDigitsByPosition(numberStatsLocal);
 
@@ -92,7 +92,7 @@ describe('PROBABILITY', () => {
     });
 
     test('handles single entry correctly', () => {
-      const numberStatsLocal = createStubInstances<NumberStat>([{ digit: 9, position: 2, probability: 0.99 }]);
+      const numberStatsLocal = createStubInstances<NumberStat>([{ digit: 9, position: 2, frequency: 0.99 }]);
       const result = getMostProbableDigitsByPosition(numberStatsLocal);
 
       expect(result[2]).toHaveLength(1);
@@ -101,9 +101,9 @@ describe('PROBABILITY', () => {
 
     test('handles all items with unique positions', () => {
       const uniquePositions: NumberStat[] = createStubInstances<NumberStat>([
-        { digit: 1, position: 0, probability: 0.1 },
-        { digit: 2, position: 1, probability: 0.2 },
-        { digit: 3, position: 2, probability: 0.3 },
+        { digit: 1, position: 0, frequency: 0.1 },
+        { digit: 2, position: 1, frequency: 0.2 },
+        { digit: 3, position: 2, frequency: 0.3 },
       ]);
 
       const result = getMostProbableDigitsByPosition(uniquePositions);

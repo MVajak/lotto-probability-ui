@@ -10,10 +10,10 @@ export function getTopProbabilityStats(data: NumberStat[], minCount: number): Nu
     return data;
   }
 
-  const sorted = [...data].sort((a, b) => b.probability - a.probability);
-  const thresholdProb = sorted[minCount - 1].probability;
+  const sorted = [...data].sort((a, b) => b.frequency - a.frequency);
+  const thresholdProb = sorted[minCount - 1].frequency;
 
-  return sorted.filter((item) => item.probability >= thresholdProb);
+  return sorted.filter((item) => item.frequency >= thresholdProb);
 }
 
 export function getMostProbableDigitsByPosition(data: NumberStat[]): MostProbableDigitsByPosition {
@@ -34,8 +34,8 @@ export function getMostProbableDigitsByPosition(data: NumberStat[]): MostProbabl
   }, {});
 
   return Object.entries(grouped).reduce<MostProbableDigitsByPosition>((result, [posStr, stats]) => {
-    const maxProb = Math.max(...stats.map((s) => s.probability));
-    result[+posStr] = stats.filter((s) => s.probability === maxProb);
+    const maxProb = Math.max(...stats.map((s) => s.frequency));
+    result[+posStr] = stats.filter((s) => s.frequency === maxProb);
     return result;
   }, {});
 }

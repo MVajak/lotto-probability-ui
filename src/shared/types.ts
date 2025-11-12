@@ -2,7 +2,7 @@ export interface NumberStat {
   position: number | null;
   digit: number;
   count: number;
-  probability: number;
+  frequency: number;
 }
 
 export interface WinningNumberStat {

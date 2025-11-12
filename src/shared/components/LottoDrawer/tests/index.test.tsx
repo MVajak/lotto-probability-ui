@@ -9,8 +9,8 @@ import { LottoDrawerProps } from '../types';
 describe('LottoDrawer', () => {
   const onCloseMock = jest.fn();
   const numberStats = createStubInstances<NumberStat>([
-    { digit: 1, count: 10, probability: 0.25, position: 0 },
-    { digit: 2, count: 5, probability: 0.15, position: 0 },
+    { digit: 1, count: 10, frequency: 0.25, position: 0 },
+    { digit: 2, count: 5, frequency: 0.15, position: 0 },
   ]);
   const propsMock: LottoDrawerProps = {
     isOpen: true,
@@ -61,7 +61,7 @@ describe('LottoDrawer', () => {
   });
 
   it('should render unassigned position without position title', () => {
-    const numberStats = createStubInstances<NumberStat>([{ digit: 9, count: 8, probability: 0.2, position: null }]);
+    const numberStats = createStubInstances<NumberStat>([{ digit: 9, count: 8, frequency: 0.2, position: null }]);
 
     renderLottoDrawer({ ...propsMock, numberStats: numberStats });
 

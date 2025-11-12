@@ -8,7 +8,7 @@ import { LottoNumberPopoverProps } from './types';
 
 export const LottoNumberPopover = ({
   index,
-  probability,
+  frequency,
   digit,
   count,
   leftoverNumbers,
@@ -55,7 +55,7 @@ export const LottoNumberPopover = ({
           </Grid>
           <Grid container data-testid={`probability-${id}-statistics`}>
             <Typography sx={{ p: 0.25, fontWeight: 600 }}>{t('general.probability')}: </Typography>
-            <Typography sx={{ p: 0.25 }}>{convertToPercentage(probability)}</Typography>
+            <Typography sx={{ p: 0.25 }}>{convertToPercentage(frequency)}</Typography>
           </Grid>
           {leftoverNumbers?.length ? (
             <Grid>

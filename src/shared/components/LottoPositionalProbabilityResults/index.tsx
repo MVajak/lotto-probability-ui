@@ -25,13 +25,13 @@ export const LottoPositionalProbabilityResults = (
   }
 
   const renderLottoNumbers = (stats: NumberStat[], index: number) => {
-    const { probability, count, digit } = stats[0];
+    const { frequency, count, digit } = stats[0];
     const hiddenNumberStats = stats.slice(1);
     return (
       <LottoNumberPopover
         key={index}
         index={index}
-        probability={probability}
+        frequency={frequency}
         count={count}
         digit={digit}
         leftoverNumbers={hiddenNumberStats}

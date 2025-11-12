@@ -57,9 +57,9 @@ export const LottoDrawer = ({ isOpen, onClose, numberStats, style }: LottoDrawer
         case SortingType.DigitDesc:
           return b.digit - a.digit;
         case SortingType.ProbabilityAsc:
-          return a.probability - b.probability;
+          return a.frequency - b.frequency;
         case SortingType.ProbabilityDesc:
-          return b.probability - a.probability;
+          return b.frequency - a.frequency;
         default:
           return 0;
       }
@@ -135,7 +135,7 @@ export const LottoDrawer = ({ isOpen, onClose, numberStats, style }: LottoDrawer
                   </Grid>
                   <Grid container data-testid={`probability-${positionIndex}-${statIndex}-statistics`}>
                     <Typography sx={{ p: 0.25, fontWeight: 600 }}>{t('general.probability')}: </Typography>
-                    <Typography sx={{ p: 0.25 }}>{convertToPercentage(stat.probability)}</Typography>
+                    <Typography sx={{ p: 0.25 }}>{convertToPercentage(stat.frequency)}</Typography>
                   </Grid>
                 </Grid>
               </Grid>

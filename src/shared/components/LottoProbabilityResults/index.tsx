@@ -33,14 +33,14 @@ export const LottoProbabilityResults = (props: LottoProbabilityResultsProps): Re
     maxNumbersCount: number,
     style?: SxProps<Theme>
   ) => {
-    const { probability, count, digit } = stat;
+    const { frequency, count, digit } = stat;
 
     if (safeBig(index).plus(1).eq(maxNumbersCount)) {
       return (
         <LottoNumberPopover
           key={index}
           index={index}
-          probability={probability}
+          frequency={frequency}
           count={count}
           digit={digit}
           leftoverNumbers={hiddenNumberStats}
@@ -53,7 +53,7 @@ export const LottoProbabilityResults = (props: LottoProbabilityResultsProps): Re
       <LottoNumberPopover
         key={index}
         index={index}
-        probability={probability}
+        frequency={frequency}
         count={count}
         digit={digit}
         style={style}

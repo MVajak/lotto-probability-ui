@@ -7,7 +7,7 @@ import { LottoNumberPopoverProps } from '../types';
 describe('LottoNumberPopover', () => {
   const defaultProps: LottoNumberPopoverProps = {
     index: 0,
-    probability: 0.25,
+    frequency: 0.25,
     digit: 7,
     count: 3,
     leftoverNumbers: [],

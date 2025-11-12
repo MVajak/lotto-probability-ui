@@ -7,7 +7,7 @@ export interface LottoNumberPopoverProps {
   index: number;
   digit: number;
   count: number;
-  probability: number;
+  frequency: number;
   showBadge?: boolean;
   leftoverNumbers?: NumberStat[];
   style?: SxProps<Theme>;
