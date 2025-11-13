@@ -50,5 +50,15 @@
     "sending": "Sending...",
     "emailSentSuccess": "Magic link sent successfully!",
     "checkYourEmail": "Please check your email and click the link to continue."
+  },
+  "verify": {
+    "verifying": "Verifying your link",
+    "pleaseWait": "Please wait while we verify your magic link...",
+    "verificationSuccessful": "Verification Successful!",
+    "redirecting": "Redirecting you to the application...",
+    "verificationFailed": "Verification Failed",
+    "invalidLink": "Invalid Link",
+    "noTokenProvided": "No verification token was provided. Please check your email and click the magic link.",
+    "backToLogin": "Back to Login"
   }
 }

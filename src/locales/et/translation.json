@@ -50,5 +50,15 @@
     "sending": "Saadan...",
     "emailSentSuccess": "Võlulink edukalt saadetud!",
     "checkYourEmail": "Palun kontrolli oma e-posti ja klõpsa lingil jätkamiseks."
+  },
+  "verify": {
+    "verifying": "Lingi kinnitamine",
+    "pleaseWait": "Palun oota, kuni kinnitame sinu võlulinki...",
+    "verificationSuccessful": "Kinnitamine õnnestus!",
+    "redirecting": "Suuname sind rakendusesse...",
+    "verificationFailed": "Kinnitamine ebaõnnestus",
+    "invalidLink": "Kehtetu link",
+    "noTokenProvided": "Kinnituskood puudub. Palun kontrolli oma e-posti ja klõpsa võlulinkil.",
+    "backToLogin": "Tagasi sisselogimisse"
   }
 }

@@ -1,5 +1,6 @@
 import './index.css';
 import './i18n';
+import './shared/utils/axiosInterceptor';
 
 import { createTheme, ThemeProvider } from '@mui/material';
 import { LocalizationProvider } from '@mui/x-date-pickers';
@@ -15,15 +16,13 @@ import { store } from './app/store';
 const lightTheme = createTheme({ palette: { mode: 'light' } });
 const root = ReactDOM.createRoot(document.getElementById('root')!);
 root.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <Provider store={store}>
-        <LocalizationProvider dateAdapter={AdapterDayjs}>
-          <ThemeProvider theme={lightTheme}>
-            <App />
-          </ThemeProvider>
-        </LocalizationProvider>
-      </Provider>
-    </BrowserRouter>
-  </React.StrictMode>
+  <BrowserRouter>
+    <Provider store={store}>
+      <LocalizationProvider dateAdapter={AdapterDayjs}>
+        <ThemeProvider theme={lightTheme}>
+          <App />
+        </ThemeProvider>
+      </LocalizationProvider>
+    </Provider>
+  </BrowserRouter>
 );

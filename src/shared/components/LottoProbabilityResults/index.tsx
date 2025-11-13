@@ -50,14 +50,7 @@ export const LottoProbabilityResults = (props: LottoProbabilityResultsProps): Re
     }
 
     return (
-      <LottoNumberPopover
-        key={index}
-        index={index}
-        frequency={frequency}
-        count={count}
-        digit={digit}
-        style={style}
-      />
+      <LottoNumberPopover key={index} index={index} frequency={frequency} count={count} digit={digit} style={style} />
     );
   };
 
