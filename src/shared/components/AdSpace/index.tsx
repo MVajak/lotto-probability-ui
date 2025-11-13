@@ -131,11 +131,7 @@ export const AdSpace: React.FC<AdSpaceProps> = ({ position }) => {
   if (position === 'top-mobile') {
     return (
       <MobileBannerAdContainer elevation={0}>
-        <GoogleAd
-          slot={process.env.REACT_APP_ADSENSE_MOBILE_SLOT || '1234567890'}
-          format="horizontal"
-          responsive
-        />
+        <GoogleAd slot={process.env.REACT_APP_ADSENSE_MOBILE_SLOT || '1234567890'} format="horizontal" responsive />
       </MobileBannerAdContainer>
     );
   }
@@ -143,11 +139,7 @@ export const AdSpace: React.FC<AdSpaceProps> = ({ position }) => {
   if (position === 'in-content') {
     return (
       <InContentAdContainer elevation={0}>
-        <GoogleAd
-          slot={process.env.REACT_APP_ADSENSE_INCONTENT_SLOT || '0987654321'}
-          format="horizontal"
-          responsive
-        />
+        <GoogleAd slot={process.env.REACT_APP_ADSENSE_INCONTENT_SLOT || '0987654321'} format="horizontal" responsive />
       </InContentAdContainer>
     );
   }
