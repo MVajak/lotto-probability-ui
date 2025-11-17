@@ -40,16 +40,22 @@
     "count": "Count",
     "probability": "Probability"
   },
+  "authLayout": {
+    "title": "Smart Lottery Analytics",
+    "subtitle": "Data-Driven Number Selection",
+    "features": "Frequency Analysis • Wilson Confidence Interval • Probability Calculation"
+  },
   "login": {
-    "title": "Login",
-    "description": "Enter your email address and we'll send you a magic link to sign in.",
+    "title": "Sign in",
+    "checkYourInbox": "Check your inbox",
     "emailLabel": "Email address",
     "emailRequired": "Email is required",
     "emailInvalid": "Please enter a valid email address",
     "sendMagicLink": "Send Magic Link",
     "sending": "Sending...",
-    "emailSentSuccess": "Magic link sent successfully!",
-    "checkYourEmail": "Please check your email and click the link to continue."
+    "sentToEmail": "We just sent a magic link to <strong>{{email}}</strong>",
+    "checkYourEmail": "Please check your email and click the link to continue.",
+    "back": "Back"
   },
   "verify": {
     "verifying": "Verifying your link",

@@ -1,3 +1,5 @@
+import { AuthTokens } from '../../features/auth/types';
+
 const ACCESS_TOKEN_KEY = 'accessToken';
 const REFRESH_TOKEN_KEY = 'refreshToken';
 
@@ -10,9 +12,9 @@ export const tokenStorage = {
     return localStorage.getItem(REFRESH_TOKEN_KEY);
   },
 
-  setTokens: (accessToken: string, refreshToken: string): void => {
-    localStorage.setItem(ACCESS_TOKEN_KEY, accessToken);
-    localStorage.setItem(REFRESH_TOKEN_KEY, refreshToken);
+  setTokens: (tokens: AuthTokens): void => {
+    localStorage.setItem(ACCESS_TOKEN_KEY, tokens.accessToken);
+    localStorage.setItem(REFRESH_TOKEN_KEY, tokens.refreshToken);
   },
 
   clearTokens: (): void => {

@@ -40,16 +40,22 @@
     "count": "Kogus",
     "probability": "Tõenäosus"
   },
+  "authLayout": {
+    "title": "Nutikas lotoanalüütika",
+    "subtitle": "Andmepõhine numbrite valimine",
+    "features": "Sagedusanalüüs • Wilsoni usaldusvahemik • Tõenäosuse arvutamine"
+  },
   "login": {
     "title": "Logi sisse",
-    "description": "Sisesta oma e-posti aadress ja saadame sulle võlulingi sisselogimiseks.",
+    "checkYourInbox": "Kontrolli postkasti",
     "emailLabel": "E-posti aadress",
     "emailRequired": "E-post on kohustuslik",
     "emailInvalid": "Palun sisesta kehtiv e-posti aadress",
     "sendMagicLink": "Saada võlulink",
     "sending": "Saadan...",
-    "emailSentSuccess": "Võlulink edukalt saadetud!",
-    "checkYourEmail": "Palun kontrolli oma e-posti ja klõpsa lingil jätkamiseks."
+    "sentToEmail": "Saatsime just võlulingi aadressile <strong>{{email}}</strong>",
+    "checkYourEmail": "Palun kontrolli oma e-posti ja klõpsa lingil jätkamiseks.",
+    "back": "Tagasi"
   },
   "verify": {
     "verifying": "Lingi kinnitamine",

@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 interface ErrorLayoutProps {
   title: string;
-  message: string;
+  message?: string;
   actionLabel?: string;
   actionPath?: string;
 }

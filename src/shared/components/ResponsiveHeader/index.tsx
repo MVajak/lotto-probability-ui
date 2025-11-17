@@ -1,5 +1,5 @@
 import MenuIcon from '@mui/icons-material/Menu';
-import { Divider, FormControl, Grid, Select, SelectChangeEvent } from '@mui/material';
+import { Divider, Grid } from '@mui/material';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -9,23 +9,17 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import i18n from 'i18next';
 import * as React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { Language } from '../../../locales/types';
-import { LocalStorageKey } from '../../constants';
-import { useLocalStorage } from '../../hooks/useLocalStorage';
 import { PageName, pageRoutes } from '../../types';
-import FlagEstonia from './assets/flag_estonia.svg';
-import FlagUK from './assets/flag_united_kingdom.svg';
+import { LanguageSelector } from '../LanguageSelector';
 import LottoLogo from './assets/logo.png';
 
 const pages: PageName[] = ['Eurojackpot', 'VikingLotto', 'Bingo', 'Keno', 'Jokker'];
 
 function ResponsiveHeader() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
-  const [language, setLanguage] = useLocalStorage<Language>(LocalStorageKey.LANGUAGE, Language.EN);
 
   const navigate = useNavigate();
 
@@ -40,13 +34,6 @@ function ResponsiveHeader() {
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
-  };
-
-  const handleLanguageChange = async (event: SelectChangeEvent) => {
-    const changedLanguage: Language = event.target.value as Language;
-
-    await i18n.changeLanguage(changedLanguage);
-    setLanguage(changedLanguage);
   };
 
   return (
@@ -105,22 +92,8 @@ function ResponsiveHeader() {
                 </MenuItem>
               ))}
               <Divider textAlign="center" />
-              <Grid sx={{ display: { xs: 'flex', md: 'none', justifyContent: 'center' } }}>
-                <FormControl sx={{ my: 1 }} size="small">
-                  <Select
-                    labelId="select-language-label"
-                    id="select-language"
-                    value={language}
-                    onChange={handleLanguageChange}
-                  >
-                    <MenuItem value={Language.ET}>
-                      <img src={FlagEstonia} alt="ET" width={25} height={15} />
-                    </MenuItem>
-                    <MenuItem value={Language.EN}>
-                      <img src={FlagUK} alt="EN" width={25} height={15} />
-                    </MenuItem>
-                  </Select>
-                </FormControl>
+              <Grid sx={{ display: { xs: 'flex', md: 'none' }, justifyContent: 'center', my: 1 }}>
+                <LanguageSelector />
               </Grid>
             </Menu>
           </Box>
@@ -152,22 +125,8 @@ function ResponsiveHeader() {
               </Button>
             ))}
           </Box>
-          <Grid sx={{ display: { xs: 'none', md: 'flex' } }}>
-            <FormControl sx={{ my: 1, width: '100%' }} size="small">
-              <Select
-                labelId="select-language-label"
-                id="select-language"
-                value={language}
-                onChange={handleLanguageChange}
-              >
-                <MenuItem value={Language.ET}>
-                  <img src={FlagEstonia} alt="ET" width={25} height={15} />
-                </MenuItem>
-                <MenuItem value={Language.EN}>
-                  <img src={FlagUK} alt="EN" width={25} height={15} />
-                </MenuItem>
-              </Select>
-            </FormControl>
+          <Grid sx={{ display: { xs: 'none', md: 'flex' }, my: 1 }}>
+            <LanguageSelector />
           </Grid>
         </Toolbar>
       </Container>
