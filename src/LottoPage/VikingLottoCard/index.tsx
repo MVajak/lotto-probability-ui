@@ -40,7 +40,7 @@ export const VikingLottoCard = () => {
   const hiddenSecDisplayNumbers = lottoMainNumbers.secWinningNumberStats.slice(MAX_SECONDARY_NUMBERS);
 
   return (
-    <Grid container spacing={2}>
+    <>
       <Grid size={{ xs: 12 }}>
         <LottoInfo
           lottoType={LottoType.VIKINGLOTTO}
@@ -82,6 +82,6 @@ export const VikingLottoCard = () => {
           ]}
         />
       </Grid>
-    </Grid>
+    </>
   );
 };

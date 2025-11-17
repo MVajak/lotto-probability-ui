@@ -66,5 +66,19 @@
     "invalidLink": "Kehtetu link",
     "noTokenProvided": "Kinnituskood puudub. Palun kontrolli oma e-posti ja klõpsa võlulinkil.",
     "backToLogin": "Tagasi sisselogimisse"
+  },
+  "userMenu": {
+    "profile": "Profiil",
+    "subscription": "Tellimus",
+    "logout": "Logi välja",
+    "language": "Keel"
+  },
+  "profile": {
+    "title": "Profiil",
+    "comingSoon": "Profiili lehekülg tulekul..."
+  },
+  "subscription": {
+    "title": "Tellimus",
+    "comingSoon": "Tellimuse lehekülg tulekul..."
   }
 }

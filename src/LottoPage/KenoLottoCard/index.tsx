@@ -24,7 +24,7 @@ export const KenoLottoCard = () => {
   const hiddenMainDisplayNumbers = lottoMainNumbers.winningNumberStats.slice(MAX_PRIMARY_NUMBERS);
 
   return (
-    <Grid container spacing={2}>
+    <>
       <Grid size={{ xs: 12 }}>
         <LottoInfo lottoType={LottoType.KENO} linkBuyTickets={LINK_BUY_TICKETS} linkGameRules={LINK_GAME_RULES} />
       </Grid>
@@ -53,6 +53,6 @@ export const KenoLottoCard = () => {
           ]}
         />
       </Grid>
-    </Grid>
+    </>
   );
 };

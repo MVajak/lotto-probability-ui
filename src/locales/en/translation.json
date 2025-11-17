@@ -66,5 +66,19 @@
     "invalidLink": "Invalid Link",
     "noTokenProvided": "No verification token was provided. Please check your email and click the magic link.",
     "backToLogin": "Back to Login"
+  },
+  "userMenu": {
+    "profile": "Profile",
+    "subscription": "Subscription",
+    "logout": "Log out",
+    "language": "Language"
+  },
+  "profile": {
+    "title": "Profile",
+    "comingSoon": "Profile page coming soon..."
+  },
+  "subscription": {
+    "title": "Subscription",
+    "comingSoon": "Subscription page coming soon..."
   }
 }

@@ -21,7 +21,7 @@ export const JokkerLottoCard = () => {
   const { t } = useTranslation();
 
   return (
-    <Grid container spacing={2}>
+    <>
       <Grid size={{ xs: 12 }}>
         <LottoInfo lottoType={LottoType.JOKKER} linkBuyTickets={LINK_BUY_TICKETS} linkGameRules={LINK_GAME_RULES} />
       </Grid>
@@ -43,6 +43,6 @@ export const JokkerLottoCard = () => {
           numberStatsByPosition={mostProbableNumbersByPosition}
         />
       </Grid>
-    </Grid>
+    </>
   );
 };

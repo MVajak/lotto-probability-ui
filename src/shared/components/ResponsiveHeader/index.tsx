@@ -1,47 +1,20 @@
-import MenuIcon from '@mui/icons-material/Menu';
-import { Divider, Grid } from '@mui/material';
+import { Grid } from '@mui/material';
 import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
-import IconButton from '@mui/material/IconButton';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import * as React from 'react';
-import { useNavigate } from 'react-router-dom';
 
-import { PageName, pageRoutes } from '../../types';
-import { LanguageSelector } from '../LanguageSelector';
-import LottoLogo from './assets/logo.png';
-
-const pages: PageName[] = ['Eurojackpot', 'VikingLotto', 'Bingo', 'Keno', 'Jokker'];
+import { UserMenu } from '../UserMenu';
 
 function ResponsiveHeader() {
-  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
-
-  const navigate = useNavigate();
-
-  const handleNavClick = (page: PageName) => {
-    handleCloseNavMenu();
-    navigate(pageRoutes[page]);
-  };
-
-  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElNav(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
 
   return (
     <AppBar position="static" sx={{ backgroundColor: '#00347f' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Grid sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }}>
-            <img src={LottoLogo} alt="Lotto Logo" width={50} height={50} />
+            <img src="/img/logo_lotto.png" alt="Lotto Logo" style={{ maxWidth: '50px', height: 'auto' }} />
           </Grid>
           <Typography
             variant="h6"
@@ -49,6 +22,7 @@ function ResponsiveHeader() {
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
+              flexGrow: 1,
               fontFamily: 'monospace',
               fontWeight: 700,
               letterSpacing: '.3rem',
@@ -59,52 +33,12 @@ function ResponsiveHeader() {
             LOTTO
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{ display: { xs: 'block', md: 'none' } }}
-            >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={() => handleNavClick(page)}>
-                  <Typography sx={{ textAlign: 'center' }}>{page}</Typography>
-                </MenuItem>
-              ))}
-              <Divider textAlign="center" />
-              <Grid sx={{ display: { xs: 'flex', md: 'none' }, justifyContent: 'center', my: 1 }}>
-                <LanguageSelector />
-              </Grid>
-            </Menu>
-          </Box>
           <Grid sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }}>
-            <img src={LottoLogo} alt="Lotto Logo" width={50} height={50} />
+            <img src="/img/logo_lotto.png" alt="Lotto Logo" style={{ maxWidth: '50px', height: 'auto' }} />
           </Grid>
           <Typography
             variant="h5"
             noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
@@ -118,15 +52,8 @@ function ResponsiveHeader() {
           >
             LOTTO
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
-              <Button key={page} onClick={() => handleNavClick(page)} sx={{ my: 2, color: 'white', display: 'block' }}>
-                {page}
-              </Button>
-            ))}
-          </Box>
-          <Grid sx={{ display: { xs: 'none', md: 'flex' }, my: 1 }}>
-            <LanguageSelector />
+          <Grid sx={{ display: 'flex', my: 1 }}>
+            <UserMenu />
           </Grid>
         </Toolbar>
       </Container>

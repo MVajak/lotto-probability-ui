@@ -32,7 +32,7 @@ export const MagicLinkVerifyPage: React.FC = () => {
     // Redirect to Eurojackpot page after successful authentication and user data is loaded
     if (isAuthenticated && user) {
       const timer = setTimeout(() => {
-        navigate(pageRoutes.Eurojackpot);
+        navigate(pageRoutes.Home);
       }, 1000);
 
       return () => clearTimeout(timer);

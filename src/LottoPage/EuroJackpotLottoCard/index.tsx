@@ -40,7 +40,7 @@ export const EuroJackpotLottoCard = () => {
   const hiddenSecDisplayNumbers = lottoMainNumbers.secWinningNumberStats.slice(MAX_SECONDARY_NUMBERS);
 
   return (
-    <Grid container spacing={2}>
+    <>
       <Grid size={{ xs: 12 }}>
         <LottoInfo lottoType={LottoType.EURO} linkBuyTickets={LINK_BUY_TICKETS} linkGameRules={LINK_GAME_RULES} />
       </Grid>
@@ -78,6 +78,6 @@ export const EuroJackpotLottoCard = () => {
           ]}
         />
       </Grid>
-    </Grid>
+    </>
   );
 };

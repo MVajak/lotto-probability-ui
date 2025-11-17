@@ -56,7 +56,7 @@ export const BingoLottoCard = () => {
   const hiddenFullGameNumbers = mainWinningNumberStats.fullNumberStats.slice(MAX_FULL_NUMBERS);
 
   return (
-    <Grid container spacing={2}>
+    <>
       <Grid size={{ xs: 12 }}>
         <LottoInfo lottoType={LottoType.BINGO} linkBuyTickets={LINK_BUY_TICKETS} linkGameRules={LINK_GAME_RULES} />
       </Grid>
@@ -122,6 +122,6 @@ export const BingoLottoCard = () => {
           ]}
         />
       </Grid>
-    </Grid>
+    </>
   );
 };
