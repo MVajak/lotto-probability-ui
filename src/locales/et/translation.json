@@ -71,7 +71,8 @@
     "profile": "Profiil",
     "subscription": "Tellimus",
     "logout": "Logi välja",
-    "language": "Keel"
+    "language": "Keel",
+    "region": "Piirkond"
   },
   "profile": {
     "title": "Profiil",

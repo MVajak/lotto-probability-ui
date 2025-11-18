@@ -12,6 +12,7 @@ import { useNavigate } from 'react-router-dom';
 import { logout } from '../../../features/auth/authSlice';
 import { pageRoutes } from '../../types';
 import { LanguageSelector } from '../LanguageSelector';
+import { RegionSelector } from '../RegionSelector';
 
 export const UserMenu: React.FC = () => {
   const { t } = useTranslation();
@@ -79,11 +80,19 @@ export const UserMenu: React.FC = () => {
           {t('userMenu.logout')}
         </MenuItem>
         <Divider />
-        <Box sx={{ px: 2, py: 1 }}>
-          <Typography variant="caption" color="text.secondary" display="block" gutterBottom>
-            {t('userMenu.language')}
-          </Typography>
-          <LanguageSelector size="small" />
+        <Box sx={{ px: 2, py: 1.5, display: 'flex', gap: 2 }}>
+          <Box sx={{ flex: 1 }}>
+            <Typography variant="caption" color="text.secondary" display="block" gutterBottom>
+              {t('userMenu.language')}
+            </Typography>
+            <LanguageSelector size="small" />
+          </Box>
+          <Box sx={{ flex: 1 }}>
+            <Typography variant="caption" color="text.secondary" display="block" gutterBottom>
+              {t('userMenu.region')}
+            </Typography>
+            <RegionSelector size="small" />
+          </Box>
         </Box>
       </Menu>
     </>

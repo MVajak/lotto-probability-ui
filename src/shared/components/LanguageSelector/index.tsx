@@ -3,10 +3,10 @@ import i18n from 'i18next';
 import React from 'react';
 
 import { Language } from '../../../locales/types';
+import FlagEstonia from '../../assets/flags/flag_estonia.svg';
+import FlagUK from '../../assets/flags/flag_united_kingdom.svg';
 import { LocalStorageKey } from '../../constants';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
-import FlagEstonia from './assets/flag_estonia.svg';
-import FlagUK from './assets/flag_united_kingdom.svg';
 
 interface LanguageSelectorProps {
   size?: 'small' | 'medium';

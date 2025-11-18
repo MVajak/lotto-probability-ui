@@ -71,7 +71,8 @@
     "profile": "Profile",
     "subscription": "Subscription",
     "logout": "Log out",
-    "language": "Language"
+    "language": "Language",
+    "region": "Region"
   },
   "profile": {
     "title": "Profile",
