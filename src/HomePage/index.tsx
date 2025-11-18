@@ -7,8 +7,8 @@ import { EuroJackpotLottoCard } from '../LottoPage/EuroJackpotLottoCard';
 import { JokkerLottoCard } from '../LottoPage/JokkerLottoCard';
 import { KenoLottoCard } from '../LottoPage/KenoLottoCard';
 import { VikingLottoCard } from '../LottoPage/VikingLottoCard';
-import { LotteryTypeSelector } from '../shared/components/LotteryTypeSelector';
 import { LottoType } from '../shared/types';
+import { LotterySelector } from './components/LotterySelector';
 
 export const HomePage: React.FC = () => {
   const [selectedLottery, setSelectedLottery] = useState<LottoType>(LottoType.EURO);
@@ -34,10 +34,7 @@ export const HomePage: React.FC = () => {
     <LottoPage>
       <Grid container spacing={2}>
         <Grid size={{ xs: 12 }}>
-          <LotteryTypeSelector
-            selectedLottery={selectedLottery}
-            onLotteryChange={setSelectedLottery}
-          />
+          <LotterySelector selectedLottery={selectedLottery} onLotteryChange={setSelectedLottery} />
         </Grid>
         {renderLottoCard()}
       </Grid>

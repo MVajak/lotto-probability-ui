@@ -80,5 +80,9 @@
   "subscription": {
     "title": "Subscription",
     "comingSoon": "Subscription page coming soon..."
+  },
+  "home": {
+    "selectLottery": "Select Lottery Game",
+    "selectLotteryDescription": "Choose a lottery game to view probability analysis and number statistics"
   }
 }

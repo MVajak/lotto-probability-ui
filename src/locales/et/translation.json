@@ -80,5 +80,9 @@
   "subscription": {
     "title": "Tellimus",
     "comingSoon": "Tellimuse lehekülg tulekul..."
+  },
+  "home": {
+    "selectLottery": "Vali lotomäng",
+    "selectLotteryDescription": "Vali lotomäng, et näha tõenäosusanalüüsi ja numbristatistikat"
   }
 }
