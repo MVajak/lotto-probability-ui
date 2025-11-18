@@ -6,6 +6,6 @@ export interface LottoNumberProps {
   digit: number;
   index?: number | string;
   showBadge?: boolean;
-  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  onClick?: (event: React.MouseEvent<HTMLElement>) => void;
   style?: SxProps<Theme>;
 }

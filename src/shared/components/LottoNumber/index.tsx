@@ -1,38 +1,81 @@
-import { Badge, Button } from '@mui/material';
+import { Badge, Box } from '@mui/material';
 import React from 'react';
 
 import { LottoNumberProps } from './types';
 
 export const LottoNumber = ({ index, digit, onClick, showBadge, style }: LottoNumberProps): React.JSX.Element => {
   const id = `lotto-number-${index}`;
+  const ballSize = 42;
 
-  const handleClick = (e: React.MouseEvent<HTMLButtonElement>): void => {
+  const handleClick = (e: React.MouseEvent<HTMLElement>): void => {
     e.stopPropagation();
-    onClick?.(e);
+    if (onClick) {
+      onClick(e);
+    }
   };
 
-  const renderButton = (): React.JSX.Element => (
-    <Button
+  const renderBall = (): React.JSX.Element => (
+    <Box
       aria-describedby={id}
-      variant="contained"
       data-testid={`lotto-button-${index}`}
-      onClick={(event) => handleClick(event)}
+      onClick={handleClick}
       sx={{
-        borderRadius: '50%',
-        width: 42,
-        height: 42,
-        minWidth: 0,
+        position: 'relative',
+        width: ballSize,
+        height: ballSize,
         margin: '4px',
-        cursor: 'auto',
+        cursor: onClick ? 'pointer' : 'auto',
+        display: 'inline-block',
+        verticalAlign: 'middle',
         ...style,
       }}
     >
-      {digit}
-    </Button>
+      <svg width={ballSize} height={ballSize} viewBox={`0 0 ${ballSize} ${ballSize}`}>
+        <defs>
+          {/* Ball gradient */}
+          <radialGradient id={`ballGradient-${index}`}>
+            <stop offset="0%" stopColor="#ffd700" />
+            <stop offset="60%" stopColor="#ffaa00" />
+            <stop offset="100%" stopColor="#ff8800" />
+          </radialGradient>
+
+          {/* Shine gradient */}
+          <radialGradient id={`shineGradient-${index}`}>
+            <stop offset="0%" stopColor="#ffffff" stopOpacity="0.4" />
+            <stop offset="100%" stopColor="#ffffff" stopOpacity="0" />
+          </radialGradient>
+        </defs>
+
+        {/* Main ball */}
+        <circle cx={ballSize / 2} cy={ballSize / 2} r={ballSize / 2 - 2} fill={`url(#ballGradient-${index})`} />
+
+        {/* Shine effect */}
+        <circle
+          cx={ballSize / 2 - (ballSize / 2) * 0.27}
+          cy={ballSize / 2 - (ballSize / 2) * 0.27}
+          r={(ballSize / 2) * 0.27}
+          fill={`url(#shineGradient-${index})`}
+        />
+
+        {/* Number on ball */}
+        <text
+          x={ballSize / 2}
+          y={ballSize / 2}
+          textAnchor="middle"
+          dominantBaseline="central"
+          fill="#1a1a2e"
+          fontSize="18"
+          fontWeight="bold"
+          fontFamily="sans-serif"
+        >
+          {digit}
+        </text>
+      </svg>
+    </Box>
   );
 
   if (!showBadge) {
-    return renderButton();
+    return renderBall();
   }
 
   return (
@@ -41,10 +84,18 @@ export const LottoNumber = ({ index, digit, onClick, showBadge, style }: LottoNu
       data-testid={`lotto-button-badge-${index}`}
       overlap="circular"
       badgeContent="!"
-      sx={{ cursor: 'help' }}
+      sx={{
+        cursor: 'help',
+        display: 'inline-block',
+        verticalAlign: 'middle',
+        '& .MuiBadge-badge': {
+          right: 8,
+          top: 12,
+        },
+      }}
       onClick={handleClick}
     >
-      {renderButton()}
+      {renderBall()}
     </Badge>
   );
 };
