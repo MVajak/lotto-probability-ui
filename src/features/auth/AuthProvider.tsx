@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import { pageRoutes } from '../../shared/types';
 import { getMe } from './authThunks';
 
 interface AuthProviderProps {
@@ -30,7 +31,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     const isPublicRoute = PUBLIC_ROUTES.includes(location.pathname);
 
     if (!isAuthenticated && !isPublicRoute) {
-      navigate('/login');
+      navigate(pageRoutes.Login);
     }
   }, [isAuthenticated, location.pathname, navigate]);
 
