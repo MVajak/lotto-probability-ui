@@ -1,8 +1,10 @@
 import { Divider, Grid } from '@mui/material';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
+import { AppDispatch } from '../../app/store';
+import { resetState } from '../../features/lottoProbability/lottoProbabilitySlice';
 import { isLoadingSelector, lottoTotalDrawsSelector } from '../../features/lottoProbability/selectors';
 import { InContentAd } from '../../shared/components/InContentAd';
 import { Loader } from '../../shared/components/Loader';
@@ -14,11 +16,18 @@ import { LINK_BUY_TICKETS, LINK_GAME_RULES, MAX_PRIMARY_NUMBERS } from './consta
 import { kenoLottoMainNumbersSelector, kenoLottoWinningNumberStatsSelector } from './selectors';
 
 export const KenoLottoCard = () => {
+  const dispatch = useDispatch<AppDispatch>();
   const isLoading = useSelector(isLoadingSelector);
   const lottoMainNumbers = useSelector(kenoLottoMainNumbersSelector);
   const winningNumberStats = useSelector(kenoLottoWinningNumberStatsSelector);
   const totalDraws = useSelector(lottoTotalDrawsSelector);
   const { t } = useTranslation();
+
+  useEffect(() => {
+    return () => {
+      dispatch(resetState());
+    };
+  }, [dispatch]);
 
   const mainDisplayNumbers = lottoMainNumbers.winningNumberStats.slice(0, MAX_PRIMARY_NUMBERS);
   const hiddenMainDisplayNumbers = lottoMainNumbers.winningNumberStats.slice(MAX_PRIMARY_NUMBERS);

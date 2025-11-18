@@ -1,4 +1,4 @@
-import { Divider, Grid, useTheme } from '@mui/material';
+import { Divider, Grid } from '@mui/material';
 import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
@@ -29,7 +29,6 @@ import {
 } from './selectors';
 
 export const BingoLottoCard = () => {
-  const theme = useTheme();
   const dispatch = useDispatch<AppDispatch>();
   const isLoading = useSelector(isLoadingSelector);
   const centerSquareNumberStats = useSelector(centerSquareGameWinningNumberStatsSelector);
@@ -83,7 +82,6 @@ export const BingoLottoCard = () => {
               hiddenNumberStats: hiddenCenterSquareNumbers,
               style: {
                 container: { sm: 4 },
-                digitButton: { backgroundColor: theme.palette.error.main },
               },
             },
             {
@@ -94,7 +92,6 @@ export const BingoLottoCard = () => {
               hiddenNumberStats: hiddenCornerSquareNumbers,
               style: {
                 container: { sm: 8 },
-                digitButton: { backgroundColor: theme.palette.primary.light },
               },
             },
             {
@@ -105,7 +102,6 @@ export const BingoLottoCard = () => {
               hiddenNumberStats: hiddenDiagonalSquareNumbers,
               style: {
                 container: { sm: 4 },
-                digitButton: { backgroundColor: theme.palette.success.light },
               },
             },
             {
@@ -116,7 +112,6 @@ export const BingoLottoCard = () => {
               hiddenNumberStats: hiddenFullGameNumbers,
               style: {
                 container: { sm: 8 },
-                digitButton: { backgroundColor: theme.palette.warning.light },
               },
             },
           ]}

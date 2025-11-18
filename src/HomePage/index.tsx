@@ -36,7 +36,9 @@ export const HomePage: React.FC = () => {
         <Grid size={{ xs: 12 }}>
           <LotterySelector selectedLottery={selectedLottery} onLotteryChange={setSelectedLottery} />
         </Grid>
-        {renderLottoCard()}
+        <Grid size={{ xs: 12 }} key={selectedLottery}>
+          {renderLottoCard()}
+        </Grid>
       </Grid>
     </LottoPage>
   );
