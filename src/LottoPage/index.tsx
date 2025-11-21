@@ -41,7 +41,7 @@ export const LottoPage = ({ children }: LottoPageProps) => {
 
           {/* Main Content */}
           <Box sx={{ flex: 1 }}>
-            <Item elevation={12}>
+            <Item elevation={0}>
               <ResponsiveHeader />
               {children}
             </Item>

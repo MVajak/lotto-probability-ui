@@ -10,3 +10,52 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
+
+/* DatePicker Input Field Styling */
+.MuiPickersInputBase-root.MuiPickersOutlinedInput-root {
+  border-radius: 50px !important;
+  padding: 6px 14px !important;
+}
+
+.MuiPickersOutlinedInput-notchedOutline {
+  border-radius: 50px !important;
+}
+
+.MuiPickersInputBase-root.MuiPickersOutlinedInput-root .MuiPickersSectionList-root {
+  padding: 0 !important;
+}
+
+/* DatePicker Calendar Day Buttons */
+button.MuiPickersDay-root {
+  border-radius: 50% !important;
+  transition: all 0.2s ease-in-out !important;
+}
+
+button.MuiPickersDay-root:hover {
+  background-color: rgba(25, 118, 210, 0.08) !important;
+}
+
+button.MuiPickersDay-root.Mui-selected {
+  background-color: #1976d2 !important;
+  font-weight: 600 !important;
+}
+
+/* Calendar Navigation Buttons */
+button.MuiPickersCalendarHeader-switchViewButton,
+button.MuiPickersArrowSwitcher-button {
+  border-radius: 50% !important;
+  transition: all 0.2s ease-in-out !important;
+}
+
+/* Year and Month Selection Buttons */
+button.MuiPickersYear-yearButton,
+button.MuiPickersMonth-monthButton {
+  border-radius: 50px !important;
+  transition: all 0.2s ease-in-out !important;
+}
+
+button.MuiPickersYear-yearButton.Mui-selected,
+button.MuiPickersMonth-monthButton.Mui-selected {
+  background-color: #1976d2 !important;
+  font-weight: 600 !important;
+}

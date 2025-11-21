@@ -1,8 +1,32 @@
+export interface ConfidenceInterval {
+  lower: number;
+  upper: number;
+  confidenceLevel: number;
+}
+
+export interface Deviation {
+  absolute: number;
+  relative: number;
+  isSignificant: boolean;
+}
+
+export interface Interpretation {
+  status: 'hot' | 'normal' | 'cold';
+  percentDifference: number;
+  appearedCount: number;
+  totalDraws: number;
+}
+
 export interface NumberStat {
   position: number | null;
   digit: number;
   count: number;
+  totalDraws?: number;
   frequency: number;
+  confidenceInterval?: ConfidenceInterval;
+  theoreticalProbability?: number;
+  deviation?: Deviation;
+  interpretation?: Interpretation;
 }
 
 export interface WinningNumberStat {

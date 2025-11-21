@@ -1,10 +1,10 @@
 import { Theme } from '@mui/material/styles';
 import { SxProps } from '@mui/system';
 
-import { LottoDrawerProps } from '../LottoDrawer/types';
+import { NumberStat } from '../../types';
 
-export interface LottoButtonDrawerProps {
+export interface LottoNumbersButtonProps {
   buttonText: string;
-  numberStats: LottoDrawerProps['numberStats'];
+  numberStats: NumberStat[];
   style?: { digitButton?: SxProps<Theme> };
 }

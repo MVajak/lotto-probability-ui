@@ -1,13 +1,11 @@
-import { Divider, Grid } from '@mui/material';
+import { Grid } from '@mui/material';
 import React, { useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { AppDispatch } from '../../app/store';
 import { resetState } from '../../features/lottoProbability/lottoProbabilitySlice';
 import { isLoadingSelector, lottoTotalDrawsSelector } from '../../features/lottoProbability/selectors';
 import { InContentAd } from '../../shared/components/InContentAd';
-import { Loader } from '../../shared/components/Loader';
 import { LottoInfo } from '../../shared/components/LottoInfo';
 import { LottoProbabilityResults } from '../../shared/components/LottoProbabilityResults';
 import { LottoSearch } from '../../shared/components/LottoSearch';
@@ -37,7 +35,6 @@ export const BingoLottoCard = () => {
   const fullGameNumberStats = useSelector(fullGameWinningNumberStatsSelector);
   const mainWinningNumberStats = useSelector(mainWinningNumberStatsSelector);
   const totalDraws = useSelector(lottoTotalDrawsSelector);
-  const { t } = useTranslation();
 
   useEffect(() => {
     return () => {
@@ -65,13 +62,9 @@ export const BingoLottoCard = () => {
       <Grid size={{ xs: 12 }} sx={{ textAlign: 'center' }}>
         <LottoSearch lottoType={LottoType.BINGO} />
       </Grid>
-      <Grid size={{ xs: 12 }}>
-        <Divider textAlign="center">{t('result.totalDraws', { totalDraws })}</Divider>
-      </Grid>
       <Grid container size={{ xs: 12 }} sx={{ textAlign: 'center' }}>
-        <Loader shouldShow={isLoading} />
         <LottoProbabilityResults
-          shouldShow={!isLoading}
+          isLoading={isLoading}
           totalDraws={totalDraws}
           numberStatsResults={[
             {

@@ -2,7 +2,7 @@ import { MostProbableDigitsByPosition, NumberStat } from '../../types';
 
 export interface LottoPositionalProbabilityResultsProps {
   totalDraws: number;
-  shouldShow: boolean;
+  isLoading: boolean;
   numberStatsByPosition: MostProbableDigitsByPosition;
   allNumberStats: NumberStat[];
 }

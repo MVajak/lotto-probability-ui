@@ -14,6 +14,6 @@ export interface LottoNumberResults {
 
 export interface LottoProbabilityResultsProps {
   totalDraws: number;
-  shouldShow: boolean;
+  isLoading: boolean;
   numberStatsResults: LottoNumberResults[];
 }

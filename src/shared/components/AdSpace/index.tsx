@@ -16,12 +16,11 @@ const SHOW_PLACEHOLDER = process.env.REACT_APP_SHOW_AD_PLACEHOLDERS === 'true';
 const SideAdContainer = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(2),
   backgroundColor: '#f5f5f5',
-  height: '600px',
+  height: '850px',
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'center',
-  position: 'sticky',
   top: theme.spacing(2),
   border: '1px dashed #ccc',
 }));

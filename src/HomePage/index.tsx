@@ -7,6 +7,7 @@ import { EuroJackpotLottoCard } from '../LottoPage/EuroJackpotLottoCard';
 import { JokkerLottoCard } from '../LottoPage/JokkerLottoCard';
 import { KenoLottoCard } from '../LottoPage/KenoLottoCard';
 import { VikingLottoCard } from '../LottoPage/VikingLottoCard';
+import { CardWrapper } from '../shared/components/CardWrapper';
 import { LocalStorageKey, Region, REGION_LOTTERY_TYPES } from '../shared/constants';
 import { useLocalStorage } from '../shared/hooks/useLocalStorage';
 import { LottoType } from '../shared/types';
@@ -67,9 +68,11 @@ export const HomePage: React.FC = () => {
 
   return (
     <LottoPage>
-      <Grid container spacing={2}>
+      <Grid>
         <Grid size={{ xs: 12 }}>
-          <LotterySelector selectedLottery={selectedLottery} onLotteryChange={setSelectedLottery} />
+          <CardWrapper>
+            <LotterySelector selectedLottery={selectedLottery} onLotteryChange={setSelectedLottery} />
+          </CardWrapper>
         </Grid>
         <Grid size={{ xs: 12 }} key={selectedLottery}>
           {renderLottoCard()}

@@ -18,6 +18,7 @@
   "result": {
     "totalDraws": "Total: {{totalDraws}} draws",
     "nothingToShow": "Nothing to show...",
+    "noResults": "Select dates and search for statistics",
     "primaryNumbers": "Primary numbers",
     "secondaryNumbers": "Secondary numbers",
     "bingo": {
@@ -38,7 +39,8 @@
   "general": {
     "digit": "Digit",
     "count": "Count",
-    "probability": "Probability"
+    "probability": "Probability",
+    "frequency": "Frequency"
   },
   "authLayout": {
     "title": "Smart Lottery Analytics",

@@ -13,7 +13,68 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import { store } from './app/store';
 
-const lightTheme = createTheme({ palette: { mode: 'light' } });
+const lightTheme = createTheme({
+  palette: { mode: 'light' },
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          borderRadius: 50,
+          textTransform: 'none',
+          fontWeight: 600,
+          padding: '8px 20px',
+          fontSize: '0.875rem',
+          boxShadow: 'none',
+          transition: 'all 0.2s ease-in-out',
+        },
+        outlined: {
+          borderWidth: 2,
+          '&:hover': {
+            borderWidth: 2,
+          },
+        },
+      },
+    },
+    MuiOutlinedInput: {
+      styleOverrides: {
+        root: {
+          borderRadius: 50,
+          transition: 'all 0.2s ease-in-out',
+          '&:hover .MuiOutlinedInput-notchedOutline': {
+            borderWidth: 2,
+          },
+          '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+            borderWidth: 2,
+          },
+        },
+        notchedOutline: {
+          borderWidth: 1.5,
+        },
+        input: {
+          padding: '10px 14px',
+          height: 'auto',
+        },
+      },
+    },
+    MuiInputLabel: {
+      styleOverrides: {
+        outlined: {
+          transform: 'translate(14px, 10px) scale(1)',
+          '&.MuiInputLabel-shrink': {
+            transform: 'translate(14px, -9px) scale(0.75)',
+          },
+        },
+      },
+    },
+    MuiSelect: {
+      styleOverrides: {
+        select: {
+          padding: '10px 14px',
+        },
+      },
+    },
+  },
+});
 const root = ReactDOM.createRoot(document.getElementById('root')!);
 root.render(
   <BrowserRouter>

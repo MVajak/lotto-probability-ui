@@ -1,0 +1,53 @@
+import React, { useState } from 'react';
+
+import { LottoNumber } from '../LottoNumber';
+import { LottoNumberDrawer } from '../LottoNumberDrawer';
+import { LottoNumberButtonProps } from './types';
+
+export const LottoNumberButton = ({
+  index,
+  frequency,
+  digit,
+  count,
+  leftoverNumbers,
+  style,
+  numberStat,
+}: LottoNumberButtonProps): React.JSX.Element => {
+  const [drawerOpen, setDrawerOpen] = useState(false);
+
+  const handleClick = (): void => {
+    setDrawerOpen(true);
+  };
+
+  const handleDrawerClose = (): void => {
+    setDrawerOpen(false);
+  };
+
+  const showBadge = Boolean(leftoverNumbers?.length);
+
+  // Construct a full NumberStat object
+  const fullNumberStat = numberStat || {
+    position: null,
+    digit,
+    count,
+    frequency,
+  };
+
+  return (
+    <>
+      <LottoNumber
+        digit={digit}
+        index={`drawer-trigger-${index}`}
+        onClick={handleClick}
+        showBadge={showBadge}
+        style={style}
+      />
+      <LottoNumberDrawer
+        open={drawerOpen}
+        onClose={handleDrawerClose}
+        numberStat={fullNumberStat}
+        relatedNumbers={leftoverNumbers}
+      />
+    </>
+  );
+};

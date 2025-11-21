@@ -18,6 +18,7 @@
   "result": {
     "totalDraws": "Kokku: {{totalDraws}} loosimist",
     "nothingToShow": "Pole midagi kuvada...",
+    "noResults": "Vali kuupäevad ja otsi",
     "primaryNumbers": "Primaarnumbrid",
     "secondaryNumbers": "Lisanumbrid",
     "bingo": {
@@ -38,7 +39,8 @@
   "general": {
     "digit": "Number",
     "count": "Kogus",
-    "probability": "Tõenäosus"
+    "probability": "Tõenäosus",
+    "frequency": "Sagedus"
   },
   "authLayout": {
     "title": "Nutikas lotoanalüütika",

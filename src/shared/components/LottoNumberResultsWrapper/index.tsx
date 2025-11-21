@@ -2,7 +2,7 @@ import { Grid, Typography } from '@mui/material';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { LottoButtonDrawer } from '../LottoButtonDrawer';
+import { LottoNumbersButton } from '../LottoNumbersButton';
 import { LottoNumberResultsWrapperProps } from './types';
 
 export const LottoNumberResultsWrapper = ({
@@ -17,7 +17,7 @@ export const LottoNumberResultsWrapper = ({
     <Grid size={{ xs: 12 }}>
       <Typography sx={{ p: 2, fontWeight: 600 }}>{t(titleKey)}</Typography>
       {children}
-      <LottoButtonDrawer buttonText={t('result.seeMore')} numberStats={allNumberStats} style={style} />
+      <LottoNumbersButton buttonText={t('result.seeMore')} numberStats={allNumberStats} style={style} />
     </Grid>
   );
 };
