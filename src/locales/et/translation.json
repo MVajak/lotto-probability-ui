@@ -79,8 +79,34 @@
     "comingSoon": "Profiili lehekülg tulekul..."
   },
   "subscription": {
-    "title": "Tellimus",
-    "comingSoon": "Tellimuse lehekülg tulekul..."
+    "title": "Vali oma pakett",
+    "subtitle": "Vali oma lotoanalüüsi vajadustele sobiv pakett",
+    "popular": "POPULAARNE",
+    "perMonth": "/ kuus",
+    "currentPlan": "Praegune pakett",
+    "choosePlan": "Vali pakett",
+    "free": {
+      "name": "Tasuta",
+      "price": "$0",
+      "feature1": "2 kuu lotostatistika",
+      "feature2": "Põhiline sagedusanalüüs",
+      "feature3": "Reklaamidega kogemus"
+    },
+    "pro": {
+      "name": "Pro",
+      "feature1": "Reklaame ei ole",
+      "feature2": "2 aastat lotoandmeid",
+      "feature3": "Wilsoni usaldusvahemiku analüüs",
+      "feature4": "Standardhälbe mõõdikud"
+    },
+    "premium": {
+      "name": "Premium",
+      "feature1": "Kõik Pro funktsioonid",
+      "feature2": "Interaktiivsed analüüsigraafikud",
+      "feature3": "Täiustatud visualiseerimise tööriistad",
+      "feature4": "5 aastat lotoandmeid",
+      "feature5": "Prioriteetne tugi"
+    }
   },
   "home": {
     "selectLottery": "Vali lotomäng",

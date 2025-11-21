@@ -79,8 +79,32 @@
     "comingSoon": "Profile page coming soon..."
   },
   "subscription": {
-    "title": "Subscription",
-    "comingSoon": "Subscription page coming soon..."
+    "title": "Choose Your Plan",
+    "subtitle": "Select the perfect plan for your lottery analysis needs",
+    "popular": "POPULAR",
+    "perMonth": "/ month",
+    "currentPlan": "Current Plan",
+    "choosePlan": "Choose Plan",
+    "free": {
+      "name": "Free",
+      "price": "$0",
+      "feature1": "2 months of lottery statistics",
+      "feature2": "Basic frequency analysis",
+      "feature3": "Ad-supported experience"
+    },
+    "pro": {
+      "name": "Pro",
+      "feature1": "No advertisements",
+      "feature2": "2 years of lottery data",
+      "feature3": "Wilson confidence interval analysis",
+      "feature4": "Standard deviation metrics"
+    },
+    "premium": {
+      "name": "Premium",
+      "feature1": "Interactive analysis graphs",
+      "feature2": "Advanced visualization tools",
+      "feature3": "5 years of lottery data"
+    }
   },
   "home": {
     "selectLottery": "Select Lottery Game",
