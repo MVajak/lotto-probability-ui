@@ -7,4 +7,5 @@ export interface LottoNumberGroupProps {
   numbers: NumberStat[];
   index: string | number;
   style?: SxProps<Theme>;
+  maxVisible?: number;
 }

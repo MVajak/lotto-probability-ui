@@ -1,9 +1,9 @@
-import { Badge, Box } from '@mui/material';
+import { Box } from '@mui/material';
 import React from 'react';
 
 import { LottoNumberProps } from './types';
 
-export const LottoNumber = ({ index, digit, onClick, showBadge, style }: LottoNumberProps): React.JSX.Element => {
+export const LottoNumber = ({ index, digit, onClick, style }: LottoNumberProps): React.JSX.Element => {
   const id = `lotto-number-${index}`;
   const ballSize = 42;
 
@@ -14,7 +14,7 @@ export const LottoNumber = ({ index, digit, onClick, showBadge, style }: LottoNu
     }
   };
 
-  const renderBall = (): React.JSX.Element => (
+  return (
     <Box
       aria-describedby={id}
       data-testid={`lotto-button-${index}`}
@@ -72,30 +72,5 @@ export const LottoNumber = ({ index, digit, onClick, showBadge, style }: LottoNu
         </text>
       </svg>
     </Box>
-  );
-
-  if (!showBadge) {
-    return renderBall();
-  }
-
-  return (
-    <Badge
-      color="warning"
-      data-testid={`lotto-button-badge-${index}`}
-      overlap="circular"
-      badgeContent="!"
-      sx={{
-        cursor: 'help',
-        display: 'inline-block',
-        verticalAlign: 'middle',
-        '& .MuiBadge-badge': {
-          right: 8,
-          top: 12,
-        },
-      }}
-      onClick={handleClick}
-    >
-      {renderBall()}
-    </Badge>
   );
 };

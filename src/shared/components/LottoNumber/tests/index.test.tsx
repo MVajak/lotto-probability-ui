@@ -9,11 +9,9 @@ describe('LottoNumber', () => {
   const propsMock: LottoNumberProps = {
     digit: 5,
     index: 0,
-    showBadge: true,
     onClick: onClickMock,
   };
   const buttonTestId = `lotto-button-${propsMock.index}`;
-  const badgeTestId = `lotto-button-badge-${propsMock.index}`;
 
   const renderLottoNumbers = (props = propsMock) => {
     render(<LottoNumber {...props} />);
@@ -33,23 +31,6 @@ describe('LottoNumber', () => {
     renderLottoNumbers();
 
     fireEvent.click(screen.getByTestId(buttonTestId));
-
-    expect(onClickMock).toHaveBeenCalledTimes(1);
-  });
-
-  test('should render badge when showBadge is true', () => {
-    renderLottoNumbers({ ...propsMock, showBadge: true });
-
-    expect(screen.getByTestId(badgeTestId)).toBeInTheDocument();
-    expect(screen.getByTestId(badgeTestId)).toHaveTextContent('!');
-    expect(screen.getByTestId(buttonTestId)).toHaveTextContent('5');
-  });
-
-  test('should call onClick when badge is clicked', () => {
-    renderLottoNumbers({ ...propsMock, showBadge: true });
-
-    const badge = screen.getByTestId(badgeTestId);
-    fireEvent.click(badge);
 
     expect(onClickMock).toHaveBeenCalledTimes(1);
   });

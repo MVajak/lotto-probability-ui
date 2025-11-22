@@ -2,8 +2,8 @@ import { CircularProgress, Divider, Grid, Typography } from '@mui/material';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { NumberStat } from '../../types';
 import { safeBig } from '../../utils/calculations';
+import { analyzeGroupsForDisplay, groupNumbersByFrequency } from '../../utils/numberGrouping';
 import { CardWrapper } from '../CardWrapper';
 import { LottoNumberGroup } from '../LottoNumberGroup';
 import { LottoNumberResultsWrapper } from '../LottoNumberResultsWrapper';
@@ -12,21 +12,6 @@ import { LottoProbabilityResultsProps } from './types';
 export const LottoProbabilityResults = (props: LottoProbabilityResultsProps): React.JSX.Element => {
   const { t } = useTranslation();
   const { totalDraws, numberStatsResults, isLoading } = props;
-
-  // Group numbers by frequency for better UX
-  const groupNumbersByFrequency = (stats: NumberStat[]): NumberStat[][] => {
-    const grouped: { [key: number]: NumberStat[] } = {};
-
-    stats.forEach(stat => {
-      if (!grouped[stat.frequency]) {
-        grouped[stat.frequency] = [];
-      }
-      grouped[stat.frequency].push(stat);
-    });
-
-    // Sort groups by frequency (descending) and return as array of arrays
-    return Object.values(grouped).sort((a, b) => b[0].frequency - a[0].frequency);
-  };
 
   const hasResults = safeBig(totalDraws).gt(0);
 
@@ -64,9 +49,14 @@ export const LottoProbabilityResults = (props: LottoProbabilityResultsProps): Re
           {hasResults ? (
             <Grid container size={{ xs: 12 }} padding={2}>
               {numberStatsResults.map((statResult, containerIndex) => {
-                // Take only the top N numbers and group them by frequency
-                const topStats = statResult.allNumberStats.slice(0, statResult.maxNumbersCount);
-                const groupedNumbers = groupNumbersByFrequency(topStats);
+                // First group all numbers by frequency
+                const allGroupedNumbers = groupNumbersByFrequency(statResult.allNumberStats);
+
+                // Then determine which groups to show and which is the cutoff group
+                const { groupsToShow, cutoffGroupIndex, maxVisibleInCutoffGroup } = analyzeGroupsForDisplay(
+                  allGroupedNumbers,
+                  statResult.maxNumbersCount
+                );
 
                 return (
                   <Grid key={containerIndex} size={{ xs: 12, ...statResult.style?.container }}>
@@ -76,14 +66,22 @@ export const LottoProbabilityResults = (props: LottoProbabilityResultsProps): Re
                       style={statResult.style}
                     >
                       <>
-                        {groupedNumbers.map((group, groupIndex) => (
-                          <LottoNumberGroup
-                            key={`group-${containerIndex}-${groupIndex}`}
-                            numbers={group}
-                            index={`${containerIndex}-${groupIndex}`}
-                            style={statResult.style?.digitButton}
-                          />
-                        ))}
+                        {groupsToShow.map((group, groupIndex) => {
+                          // Only apply maxVisible to the cutoff group
+                          const maxVisible = groupIndex === cutoffGroupIndex
+                            ? maxVisibleInCutoffGroup ?? undefined
+                            : undefined;
+
+                          return (
+                            <LottoNumberGroup
+                              key={`group-${containerIndex}-${groupIndex}`}
+                              numbers={group}
+                              index={`${containerIndex}-${groupIndex}`}
+                              style={statResult.style?.digitButton}
+                              maxVisible={maxVisible}
+                            />
+                          );
+                        })}
                       </>
                     </LottoNumberResultsWrapper>
                   </Grid>

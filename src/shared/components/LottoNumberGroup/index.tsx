@@ -1,17 +1,25 @@
-import { Box, Chip } from '@mui/material';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { Box, Chip, IconButton, Tooltip } from '@mui/material';
 import React, { useState } from 'react';
 
 import { LottoNumber } from '../LottoNumber';
 import { LottoNumberDrawer } from '../LottoNumberDrawer';
 import { LottoNumberGroupProps } from './types';
 
-export const LottoNumberGroup = ({ numbers, index, style }: LottoNumberGroupProps): React.JSX.Element => {
+export const LottoNumberGroup = ({ numbers, index, style, maxVisible }: LottoNumberGroupProps): React.JSX.Element => {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [selectedNumberIndex, setSelectedNumberIndex] = useState(0);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   if (numbers.length === 0) {
     return <></>;
   }
+
+  // Determine how many numbers to show
+  const shouldShowExpandButton = maxVisible && numbers.length > maxVisible;
+  const initialNumbers = shouldShowExpandButton ? numbers.slice(0, maxVisible) : numbers;
+  const hiddenNumbers = shouldShowExpandButton ? numbers.slice(maxVisible) : [];
+  const hiddenCount = hiddenNumbers.length;
 
   // If only one number, display it normally
   if (numbers.length === 1) {
@@ -54,13 +62,16 @@ export const LottoNumberGroup = ({ numbers, index, style }: LottoNumberGroupProp
           sx={{
             display: 'flex',
             gap: 0.5,
-            padding: '4px',
+            padding: '3px',
             borderRadius: '24px',
             backgroundColor: 'rgba(25, 118, 210, 0.08)',
             border: '2px dashed rgba(25, 118, 210, 0.3)',
+            alignItems: 'center',
+            flexWrap: 'wrap',
           }}
         >
-          {numbers.map((num, idx) => (
+          {/* Always visible numbers */}
+          {initialNumbers.map((num, idx) => (
             <LottoNumber
               key={idx}
               digit={num.digit}
@@ -72,6 +83,58 @@ export const LottoNumberGroup = ({ numbers, index, style }: LottoNumberGroupProp
               style={{ margin: 0, ...style }}
             />
           ))}
+
+          {/* Collapsible hidden numbers */}
+          {shouldShowExpandButton && hiddenNumbers.length > 0 && isExpanded && (
+            <>
+              {hiddenNumbers.map((num, idx) => (
+                <LottoNumber
+                  key={idx + initialNumbers.length}
+                  digit={num.digit}
+                  index={`group-${index}-${idx + initialNumbers.length}`}
+                  onClick={() => {
+                    setSelectedNumberIndex(idx + initialNumbers.length);
+                    setDrawerOpen(true);
+                  }}
+                  style={{
+                    margin: 0,
+                    animation: 'fadeIn 0.1s ease-in-out',
+                    '@keyframes fadeIn': {
+                      '0%': {
+                        opacity: 0,
+                      },
+                      '100%': {
+                        opacity: 1,
+                      },
+                    },
+                    ...style,
+                  }}
+                />
+              ))}
+            </>
+          )}
+
+          {/* Show expand/collapse button if there are hidden numbers */}
+          {shouldShowExpandButton && (
+            <Tooltip title={isExpanded ? 'Show less' : `Show ${hiddenCount} more tied number${hiddenCount > 1 ? 's' : ''}`}>
+              <IconButton
+                size="small"
+                onClick={() => setIsExpanded(!isExpanded)}
+                sx={{
+                  width: 32,
+                  height: 32,
+                  backgroundColor: 'rgba(25, 118, 210, 0.15)',
+                  transition: 'transform 0.3s ease-in-out',
+                  transform: isExpanded ? 'rotate(180deg)' : 'rotate(0deg)',
+                  '&:hover': {
+                    backgroundColor: 'rgba(25, 118, 210, 0.25)',
+                  },
+                }}
+              >
+                <ExpandMoreIcon fontSize="small" />
+              </IconButton>
+            </Tooltip>
+          )}
         </Box>
 
         {/* Small label indicating they're tied */}
