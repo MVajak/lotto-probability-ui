@@ -1,4 +1,4 @@
-import { Grid } from '@mui/material';
+import { Box, Grid } from '@mui/material';
 import AppBar from '@mui/material/AppBar';
 import Container from '@mui/material/Container';
 import Toolbar from '@mui/material/Toolbar';
@@ -49,7 +49,6 @@ function ResponsiveHeader() {
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
-              flexGrow: 1,
               fontWeight: 700,
               letterSpacing: '.2rem',
               color: 'inherit',
@@ -63,6 +62,7 @@ function ResponsiveHeader() {
           >
             LOTTO
           </Typography>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }} />
 
           <Grid
             sx={{
@@ -85,7 +85,6 @@ function ResponsiveHeader() {
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
-              flexGrow: 1,
               fontWeight: 700,
               letterSpacing: '.2rem',
               color: 'inherit',
@@ -99,6 +98,7 @@ function ResponsiveHeader() {
           >
             LOTTO
           </Typography>
+          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }} />
           <Grid sx={{ display: 'flex', my: 1 }}>
             <UserMenu />
           </Grid>
