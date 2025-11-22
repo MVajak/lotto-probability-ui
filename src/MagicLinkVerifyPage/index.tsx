@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 
 import { useAppDispatch, useAppSelector } from '../app/hooks';
-import { verifyMagicLink } from '../features/auth/authThunks';
+import { getMe, verifyMagicLink } from '../features/auth/authThunks';
 import { AuthLayout } from '../shared/components/AuthLayout';
 import { ErrorLayout } from '../shared/components/ErrorLayout';
 import { LoadingLayout } from '../shared/components/LoadingLayout';
@@ -24,8 +24,17 @@ export const MagicLinkVerifyPage: React.FC = () => {
       return;
     }
 
-    // Verify the magic link token
-    dispatch(verifyMagicLink({ token }));
+    // Verify the magic link token and fetch user data
+    const verifyAndFetchUser = async () => {
+      const result = await dispatch(verifyMagicLink({ token }));
+
+      // If verification was successful, fetch user data
+      if (verifyMagicLink.fulfilled.match(result)) {
+        dispatch(getMe());
+      }
+    };
+
+    void verifyAndFetchUser();
   }, [dispatch, token]);
 
   useEffect(() => {
