@@ -29,11 +29,18 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({ size = 'smal
         id="select-language"
         value={language}
         onChange={handleLanguageChange}
+        sx={{
+          '& .MuiSelect-select': {
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          },
+        }}
       >
-        <MenuItem value={Language.ET}>
+        <MenuItem value={Language.ET} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
           <img src={FlagEstonia} alt="ET" width={25} height={15} />
         </MenuItem>
-        <MenuItem value={Language.EN}>
+        <MenuItem value={Language.EN} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
           <img src={FlagUK} alt="EN" width={25} height={15} />
         </MenuItem>
       </Select>

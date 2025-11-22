@@ -13,7 +13,7 @@
     "search": "SEARCH",
     "dateFrom": "Date from",
     "dateTo": "Date to",
-    "calculate": "Calculate"
+    "calculate": "Search"
   },
   "result": {
     "totalDraws": "Total: {{totalDraws}} draws",

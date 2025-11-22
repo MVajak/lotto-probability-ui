@@ -43,14 +43,26 @@ export const RegionSelector: React.FC<RegionSelectorProps> = ({ size = 'small' }
 
   return (
     <FormControl size={size}>
-      <Select labelId="select-region-label" id="select-region" value={region} onChange={handleRegionChange}>
-        <MenuItem value={Region.EE}>
+      <Select
+        labelId="select-region-label"
+        id="select-region"
+        value={region}
+        onChange={handleRegionChange}
+        sx={{
+          '& .MuiSelect-select': {
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          },
+        }}
+      >
+        <MenuItem value={Region.EE} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
           <img src={FlagEstonia} alt="Estonia" width={25} height={15} />
         </MenuItem>
-        <MenuItem value={Region.UK}>
+        <MenuItem value={Region.UK} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
           <img src={FlagUK} alt="United Kingdom" width={25} height={15} />
         </MenuItem>
-        <MenuItem value={Region.US}>
+        <MenuItem value={Region.US} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
           <img src={FlagUSA} alt="United States" width={25} height={15} />
         </MenuItem>
       </Select>

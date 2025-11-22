@@ -2,6 +2,7 @@ import './index.css';
 import './i18n';
 import './shared/utils/axiosInterceptor';
 
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { createTheme, ThemeProvider } from '@mui/material';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
@@ -67,9 +68,17 @@ const lightTheme = createTheme({
       },
     },
     MuiSelect: {
+      defaultProps: {
+        IconComponent: KeyboardArrowDownIcon,
+      },
       styleOverrides: {
         select: {
           padding: '10px 14px',
+        },
+        icon: {
+          transition: 'transform 0.2s ease-in-out',
+          fontSize: '1.2rem',
+          fontWeight: 300,
         },
       },
     },

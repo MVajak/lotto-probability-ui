@@ -13,7 +13,7 @@
     "search": "OTSING",
     "dateFrom": "Kuupäevast",
     "dateTo": "Kuupäevani",
-    "calculate": "Kalkuleeri"
+    "calculate": "Otsi"
   },
   "result": {
     "totalDraws": "Kokku: {{totalDraws}} loosimist",
