@@ -5,6 +5,7 @@ import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { NumberStat } from '../../types';
+import { findRelatedNumbers } from '../../utils/numberGrouping';
 import { LottoNumberDialog } from '../LottoNumberDialog';
 import { LottoNumbersFilter } from './LottoNumbersFilter';
 import { PositionGroup } from './PositionGroup';
@@ -70,6 +71,12 @@ export const LottoNumbersDialog = ({ isOpen, onClose, numberStats, style }: Lott
     setSortByValue(SortingType.DigitAsc);
     setFilteredStats(handleSorting(false, SortingType.DigitAsc));
   };
+
+  // Calculate related numbers (numbers with same frequency as selected)
+  const relatedNumbers = useMemo(() => {
+    if (!selectedStat) return [];
+    return findRelatedNumbers(selectedStat, filteredStats);
+  }, [selectedStat, filteredStats]);
 
   return (
     <Dialog
@@ -141,7 +148,7 @@ export const LottoNumbersDialog = ({ isOpen, onClose, numberStats, style }: Lott
         open={drawerOpen}
         onClose={() => setDrawerOpen(false)}
         numberStat={selectedStat}
-        relatedNumbers={[]}
+        relatedNumbers={relatedNumbers}
       />
     </Dialog>
   );

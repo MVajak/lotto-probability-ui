@@ -3,6 +3,7 @@ import { Box, Chip, IconButton, Tooltip } from '@mui/material';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
+import { findRelatedNumbers } from '../../utils/numberGrouping';
 import { LottoNumber } from '../LottoNumber';
 import { LottoNumberDialog } from '../LottoNumberDialog';
 import { LottoNumberGroupProps } from './types';
@@ -159,7 +160,7 @@ export const LottoNumberGroup = ({ numbers, index, style, maxVisible }: LottoNum
         open={drawerOpen}
         onClose={() => setDrawerOpen(false)}
         numberStat={numbers[selectedNumberIndex]}
-        relatedNumbers={numbers.filter((_, idx) => idx !== selectedNumberIndex)}
+        relatedNumbers={findRelatedNumbers(numbers[selectedNumberIndex], numbers)}
       />
     </>
   );

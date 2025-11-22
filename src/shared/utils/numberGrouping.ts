@@ -19,6 +19,21 @@ export const groupNumbersByFrequency = (stats: NumberStat[]): NumberStat[][] => 
   return Object.values(grouped).sort((a, b) => b[0].frequency - a[0].frequency);
 };
 
+/**
+ * Finds all numbers that have the same frequency as the selected number
+ * @param selectedStat The selected number statistic
+ * @param allStats Array of all number statistics to search through
+ * @returns Array of numbers with same frequency (excluding the selected number), sorted by digit ascending
+ */
+export const findRelatedNumbers = (selectedStat: NumberStat, allStats: NumberStat[]): NumberStat[] => {
+  return allStats
+    .filter((stat) =>
+      stat.digit !== selectedStat.digit &&
+      stat.frequency === selectedStat.frequency
+    )
+    .sort((a, b) => a.digit - b.digit);
+};
+
 export interface GroupDisplayAnalysis {
   groupsToShow: NumberStat[][];
   cutoffGroupIndex: number | null;
