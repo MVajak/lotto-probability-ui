@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { LottoNumber } from '../LottoNumber';
-import { LottoNumberDrawer } from '../LottoNumberDrawer';
+import { LottoNumberDialog } from '../LottoNumberDialog';
 import { LottoNumberGroupProps } from './types';
 
 export const LottoNumberGroup = ({ numbers, index, style, maxVisible }: LottoNumberGroupProps): React.JSX.Element => {
@@ -36,7 +36,7 @@ export const LottoNumberGroup = ({ numbers, index, style, maxVisible }: LottoNum
           }}
           style={style}
         />
-        <LottoNumberDrawer
+        <LottoNumberDialog
           open={drawerOpen}
           onClose={() => setDrawerOpen(false)}
           numberStat={numbers[selectedNumberIndex]}
@@ -155,7 +155,7 @@ export const LottoNumberGroup = ({ numbers, index, style, maxVisible }: LottoNum
           }}
         />
       </Box>
-      <LottoNumberDrawer
+      <LottoNumberDialog
         open={drawerOpen}
         onClose={() => setDrawerOpen(false)}
         numberStat={numbers[selectedNumberIndex]}

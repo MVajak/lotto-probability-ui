@@ -5,7 +5,7 @@ import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { NumberStat } from '../../types';
-import { LottoNumberDrawer } from '../LottoNumberDrawer';
+import { LottoNumberDialog } from '../LottoNumberDialog';
 import { LottoNumbersFilter } from './LottoNumbersFilter';
 import { PositionGroup } from './PositionGroup';
 import { LottoNumbersDialogProps, SortingType } from './types';
@@ -137,7 +137,7 @@ export const LottoNumbersDialog = ({ isOpen, onClose, numberStats, style }: Lott
           />
         ))}
       </DialogContent>
-      <LottoNumberDrawer
+      <LottoNumberDialog
         open={drawerOpen}
         onClose={() => setDrawerOpen(false)}
         numberStat={selectedStat}

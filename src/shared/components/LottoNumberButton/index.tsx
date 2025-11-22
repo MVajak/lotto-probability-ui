@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import { LottoNumber } from '../LottoNumber';
-import { LottoNumberDrawer } from '../LottoNumberDrawer';
+import { LottoNumberDialog } from '../LottoNumberDialog';
 import { LottoNumberButtonProps } from './types';
 
 export const LottoNumberButton = ({
@@ -39,7 +39,7 @@ export const LottoNumberButton = ({
         onClick={handleClick}
         style={style}
       />
-      <LottoNumberDrawer
+      <LottoNumberDialog
         open={drawerOpen}
         onClose={handleDrawerClose}
         numberStat={fullNumberStat}
