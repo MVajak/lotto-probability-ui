@@ -23,8 +23,6 @@ export const LottoNumberButton = ({
     setDrawerOpen(false);
   };
 
-  const showBadge = Boolean(leftoverNumbers?.length);
-
   // Construct a full NumberStat object
   const fullNumberStat = numberStat || {
     position: null,
@@ -39,7 +37,6 @@ export const LottoNumberButton = ({
         digit={digit}
         index={`drawer-trigger-${index}`}
         onClick={handleClick}
-        showBadge={showBadge}
         style={style}
       />
       <LottoNumberDrawer
