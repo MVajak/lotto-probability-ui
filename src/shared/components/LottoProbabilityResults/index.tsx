@@ -1,13 +1,11 @@
 import { CircularProgress, Divider, Grid, Typography } from '@mui/material';
-import { Theme } from '@mui/material/styles';
-import { SxProps } from '@mui/system';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { NumberStat } from '../../types';
 import { safeBig } from '../../utils/calculations';
 import { CardWrapper } from '../CardWrapper';
-import { LottoNumberButton } from '../LottoNumberButton';
+import { LottoNumberGroup } from '../LottoNumberGroup';
 import { LottoNumberResultsWrapper } from '../LottoNumberResultsWrapper';
 import { LottoProbabilityResultsProps } from './types';
 
@@ -15,41 +13,19 @@ export const LottoProbabilityResults = (props: LottoProbabilityResultsProps): Re
   const { t } = useTranslation();
   const { totalDraws, numberStatsResults, isLoading } = props;
 
-  const renderLottoNumbers = (
-    index: number,
-    stat: NumberStat,
-    hiddenNumberStats: NumberStat[],
-    maxNumbersCount: number,
-    style?: SxProps<Theme>
-  ) => {
-    const { frequency, count, digit } = stat;
+  // Group numbers by frequency for better UX
+  const groupNumbersByFrequency = (stats: NumberStat[]): NumberStat[][] => {
+    const grouped: { [key: number]: NumberStat[] } = {};
 
-    if (safeBig(index).plus(1).eq(maxNumbersCount)) {
-      return (
-        <LottoNumberButton
-          key={index}
-          index={index}
-          frequency={frequency}
-          count={count}
-          digit={digit}
-          leftoverNumbers={hiddenNumberStats}
-          style={style}
-          numberStat={stat}
-        />
-      );
-    }
+    stats.forEach(stat => {
+      if (!grouped[stat.frequency]) {
+        grouped[stat.frequency] = [];
+      }
+      grouped[stat.frequency].push(stat);
+    });
 
-    return (
-      <LottoNumberButton
-        key={index}
-        index={index}
-        frequency={frequency}
-        count={count}
-        digit={digit}
-        style={style}
-        numberStat={stat}
-      />
-    );
+    // Sort groups by frequency (descending) and return as array of arrays
+    return Object.values(grouped).sort((a, b) => b[0].frequency - a[0].frequency);
   };
 
   const hasResults = safeBig(totalDraws).gt(0);
@@ -87,27 +63,32 @@ export const LottoProbabilityResults = (props: LottoProbabilityResultsProps): Re
         >
           {hasResults ? (
             <Grid container size={{ xs: 12 }} padding={2}>
-              {numberStatsResults.map((statResult, containerIndex) => (
-                <Grid key={containerIndex} size={{ xs: 12, ...statResult.style?.container }}>
-                  <LottoNumberResultsWrapper
-                    allNumberStats={statResult.allNumberStats}
-                    titleKey={statResult.titleKey}
-                    style={statResult.style}
-                  >
-                    <>
-                      {statResult.displayNumberStats.map((stat, index) =>
-                        renderLottoNumbers(
-                          index,
-                          stat,
-                          statResult.hiddenNumberStats,
-                          statResult.maxNumbersCount,
-                          statResult.style?.digitButton
-                        )
-                      )}
-                    </>
-                  </LottoNumberResultsWrapper>
-                </Grid>
-              ))}
+              {numberStatsResults.map((statResult, containerIndex) => {
+                // Take only the top N numbers and group them by frequency
+                const topStats = statResult.allNumberStats.slice(0, statResult.maxNumbersCount);
+                const groupedNumbers = groupNumbersByFrequency(topStats);
+
+                return (
+                  <Grid key={containerIndex} size={{ xs: 12, ...statResult.style?.container }}>
+                    <LottoNumberResultsWrapper
+                      allNumberStats={statResult.allNumberStats}
+                      titleKey={statResult.titleKey}
+                      style={statResult.style}
+                    >
+                      <>
+                        {groupedNumbers.map((group, groupIndex) => (
+                          <LottoNumberGroup
+                            key={`group-${containerIndex}-${groupIndex}`}
+                            numbers={group}
+                            index={`${containerIndex}-${groupIndex}`}
+                            style={statResult.style?.digitButton}
+                          />
+                        ))}
+                      </>
+                    </LottoNumberResultsWrapper>
+                  </Grid>
+                );
+              })}
             </Grid>
           ) : (
             <Grid size={{ xs: 12 }} padding={2}>
