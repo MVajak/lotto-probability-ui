@@ -17,11 +17,27 @@ function ResponsiveHeader() {
   };
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: '#00347f' }}>
+    <AppBar
+      position="static"
+      sx={{
+        background: 'linear-gradient(135deg, #00347f 0%, #004ba3 100%)',
+        borderRadius: 3,
+        mb: 2,
+        boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.15)',
+      }}
+    >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Grid
-            sx={{ display: { xs: 'none', md: 'flex' }, mr: 1, cursor: 'pointer' }}
+            sx={{
+              display: { xs: 'none', md: 'flex' },
+              mr: 1,
+              cursor: 'pointer',
+              transition: 'transform 0.2s ease-in-out',
+              '&:hover': {
+                transform: 'scale(1.05)',
+              },
+            }}
             onClick={handleLogoClick}
           >
             <img src="/img/logo_lotto.png" alt="Lotto Logo" style={{ maxWidth: '50px', height: 'auto' }} />
@@ -34,18 +50,30 @@ function ResponsiveHeader() {
               mr: 2,
               display: { xs: 'none', md: 'flex' },
               flexGrow: 1,
-              fontFamily: 'monospace',
               fontWeight: 700,
-              letterSpacing: '.3rem',
+              letterSpacing: '.2rem',
               color: 'inherit',
               textDecoration: 'none',
+              cursor: 'pointer',
+              transition: 'opacity 0.2s ease-in-out',
+              '&:hover': {
+                opacity: 0.85,
+              },
             }}
           >
             LOTTO
           </Typography>
 
           <Grid
-            sx={{ display: { xs: 'flex', md: 'none' }, mr: 1, cursor: 'pointer' }}
+            sx={{
+              display: { xs: 'flex', md: 'none' },
+              mr: 1,
+              cursor: 'pointer',
+              transition: 'transform 0.2s ease-in-out',
+              '&:hover': {
+                transform: 'scale(1.05)',
+              },
+            }}
             onClick={handleLogoClick}
           >
             <img src="/img/logo_lotto.png" alt="Lotto Logo" style={{ maxWidth: '50px', height: 'auto' }} />
@@ -58,11 +86,15 @@ function ResponsiveHeader() {
               mr: 2,
               display: { xs: 'flex', md: 'none' },
               flexGrow: 1,
-              fontFamily: 'monospace',
               fontWeight: 700,
-              letterSpacing: '.3rem',
+              letterSpacing: '.2rem',
               color: 'inherit',
               textDecoration: 'none',
+              cursor: 'pointer',
+              transition: 'opacity 0.2s ease-in-out',
+              '&:hover': {
+                opacity: 0.85,
+              },
             }}
           >
             LOTTO
