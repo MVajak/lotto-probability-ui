@@ -1,22 +1,13 @@
 import CloseIcon from '@mui/icons-material/Close';
-import {
-  Box,
-  Dialog,
-  DialogContent,
-  DialogTitle,
-  Grid,
-  IconButton,
-  Typography,
-} from '@mui/material';
+import { Box, Dialog, DialogContent, DialogTitle, IconButton, Typography } from '@mui/material';
 import groupBy from 'lodash/groupBy';
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { NumberStat } from '../../types';
-import { convertToPercentage, safeBig } from '../../utils/calculations';
-import { LottoNumber } from '../LottoNumber';
 import { LottoNumberDrawer } from '../LottoNumberDrawer';
 import { LottoNumbersFilter } from './LottoNumbersFilter';
+import { PositionGroup } from './PositionGroup';
 import { LottoNumbersDialogProps, SortingType } from './types';
 
 const UnassignedPosition = 'unassigned';
@@ -30,6 +21,35 @@ export const LottoNumbersDialog = ({ isOpen, onClose, numberStats, style }: Lott
   const { t } = useTranslation();
 
   const numberStatsByPositions = groupBy(filteredStats, (stat) => stat.position ?? UnassignedPosition);
+
+  // Calculate max frequency for normalization
+  const maxFrequency = useMemo(() => {
+    return Math.max(...filteredStats.map((stat) => stat.frequency), 0.0001);
+  }, [filteredStats]);
+
+  function handleSorting(showOnlyAppearing: boolean, sortingValue: SortingType): NumberStat[] {
+    const newFilteredStats = showOnlyAppearing ? numberStats.filter((stat) => stat.count !== 0) : numberStats;
+
+    return [...newFilteredStats].sort((a, b) => {
+      switch (sortingValue) {
+        case SortingType.DigitAsc:
+          return a.digit - b.digit;
+        case SortingType.DigitDesc:
+          return b.digit - a.digit;
+        case SortingType.FrequencyAsc:
+          return a.frequency - b.frequency;
+        case SortingType.FrequencyDesc:
+          return b.frequency - a.frequency;
+        default:
+          return 0;
+      }
+    });
+  }
+
+  // Sync filteredStats when numberStats prop changes
+  useEffect(() => {
+    setFilteredStats(handleSorting(shouldExcludeZeroCounts, sortByValue));
+  }, [numberStats, shouldExcludeZeroCounts, sortByValue]);
 
   const handleDialogClose = useCallback((): void => {
     onClose();
@@ -51,25 +71,6 @@ export const LottoNumbersDialog = ({ isOpen, onClose, numberStats, style }: Lott
     setFilteredStats(handleSorting(false, SortingType.DigitAsc));
   };
 
-  function handleSorting(showOnlyAppearing: boolean, sortingValue: SortingType): NumberStat[] {
-    const newFilteredStats = showOnlyAppearing ? numberStats.filter((stat) => stat.count !== 0) : numberStats;
-
-    return [...newFilteredStats].sort((a, b) => {
-      switch (sortingValue) {
-        case SortingType.DigitAsc:
-          return a.digit - b.digit;
-        case SortingType.DigitDesc:
-          return b.digit - a.digit;
-        case SortingType.FrequencyAsc:
-          return a.frequency - b.frequency;
-        case SortingType.FrequencyDesc:
-          return b.frequency - a.frequency;
-        default:
-          return 0;
-      }
-    });
-  }
-
   return (
     <Dialog
       open={isOpen}
@@ -86,8 +87,23 @@ export const LottoNumbersDialog = ({ isOpen, onClose, numberStats, style }: Lott
         },
       }}
     >
-      <DialogTitle sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', pb: 1 }}>
-        <Typography variant="h6" fontWeight={600}>
+      <DialogTitle
+        sx={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          pb: 2,
+          pt: 2.5,
+          position: 'sticky',
+          top: 0,
+          zIndex: 10,
+          bgcolor: 'background.paper',
+          borderBottom: 1,
+          borderColor: 'divider',
+          boxShadow: '0 2px 8px rgba(0, 0, 0, 0.05)',
+        }}
+      >
+        <Typography variant="h5" fontWeight={700} sx={{ color: 'primary.main' }}>
           {t('statisticsDrawer.statistics')}
         </Typography>
         <Box sx={{ display: 'flex', gap: 1 }}>
@@ -104,58 +120,21 @@ export const LottoNumbersDialog = ({ isOpen, onClose, numberStats, style }: Lott
         </Box>
       </DialogTitle>
 
-      <DialogContent dividers>
-
+      <DialogContent dividers sx={{ bgcolor: 'grey.50' }}>
         {/* Numbers Grid */}
         {Object.entries(numberStatsByPositions).map(([position, stats], positionIndex) => (
-          <Box key={`position-container-${positionIndex}`} sx={{ mb: 3 }}>
-            {position !== UnassignedPosition ? (
-              <Typography data-testid={`position-${positionIndex}-title`} sx={{ px: 1, mb: 1, fontWeight: 600 }}>
-                {t('statisticsDrawer.position')}: {safeBig(position).plus(1).toNumber()}
-              </Typography>
-            ) : null}
-            <Grid container spacing={1} sx={{ px: 1 }}>
-              {stats.map((stat, statIndex) => (
-                <Grid
-                  key={`statistics-container-${positionIndex}-${statIndex}`}
-                  size={{ xs: 6, sm: 4, md: 3 }}
-                >
-                  <Box
-                    onClick={() => {
-                      setSelectedStat(stat);
-                      setDrawerOpen(true);
-                    }}
-                    sx={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: 1,
-                      p: 1,
-                      border: 1,
-                      borderColor: 'divider',
-                      borderRadius: 1,
-                      backgroundColor: 'background.paper',
-                      cursor: 'pointer',
-                      '&:hover': { backgroundColor: 'action.hover' },
-                    }}
-                  >
-                    <LottoNumber
-                      digit={stat.digit}
-                      index={`dialog-${positionIndex}-${statIndex}`}
-                      style={style?.digitButton}
-                    />
-                    <Box sx={{ flexGrow: 1, minWidth: 0 }}>
-                      <Typography variant="caption" color="text.secondary" display="block" noWrap>
-                        {t('general.count')}: {stat.count}
-                      </Typography>
-                      <Typography variant="caption" color="text.secondary" display="block" noWrap>
-                        {t('general.probability')}: {convertToPercentage(stat.frequency)}
-                      </Typography>
-                    </Box>
-                  </Box>
-                </Grid>
-              ))}
-            </Grid>
-          </Box>
+          <PositionGroup
+            key={`position-container-${positionIndex}`}
+            position={position}
+            stats={stats}
+            positionIndex={positionIndex}
+            maxFrequency={maxFrequency}
+            onStatClick={(stat) => {
+              setSelectedStat(stat);
+              setDrawerOpen(true);
+            }}
+            style={style}
+          />
         ))}
       </DialogContent>
       <LottoNumberDrawer

@@ -11,7 +11,7 @@ export interface Deviation {
 }
 
 export interface Interpretation {
-  status: 'hot' | 'normal' | 'cold';
+  status: 'frequent' | 'normal' | 'rare';
   percentDifference: number;
   appearedCount: number;
   totalDraws: number;

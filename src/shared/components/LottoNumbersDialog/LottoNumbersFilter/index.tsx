@@ -10,7 +10,7 @@ import {
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { SortingType } from './types';
+import { SortingType } from '../types';
 
 interface LottoNumbersFilterProps {
   shouldExcludeZeroCounts: boolean;
@@ -38,7 +38,7 @@ export const LottoNumbersFilter: React.FC<LottoNumbersFilterProps> = ({
       {/* Compact Chip Trigger */}
       <Chip
         icon={<SortIcon />}
-        label={hasActiveFilters ? 'Filtered' : 'Sort & Filter'}
+        label={hasActiveFilters ? t('statisticsDrawer.filtered') : t('statisticsDrawer.sortAndFilter')}
         onClick={(e) => setAnchorEl(e.currentTarget)}
         color={hasActiveFilters ? 'primary' : 'default'}
         variant={hasActiveFilters ? 'filled' : 'outlined'}
@@ -79,12 +79,12 @@ export const LottoNumbersFilter: React.FC<LottoNumbersFilterProps> = ({
           {/* Header */}
           <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <Typography variant="subtitle1" fontWeight={600}>
-              Sort & Filter
+              {t('statisticsDrawer.sortAndFilter')}
             </Typography>
             {hasActiveFilters && (
               <Chip
                 icon={<ClearIcon sx={{ fontSize: 16 }} />}
-                label="Clear"
+                label={t('statisticsDrawer.clear')}
                 size="small"
                 onClick={onClearFilters}
                 sx={{ height: 24 }}
@@ -95,7 +95,7 @@ export const LottoNumbersFilter: React.FC<LottoNumbersFilterProps> = ({
           {/* Filter Section */}
           <Box>
             <Typography variant="caption" color="text.secondary" sx={{ mb: 1, display: 'block', fontWeight: 500 }}>
-              Display
+              {t('statisticsDrawer.display')}
             </Typography>
             <Chip
               label={t('statisticsDrawer.showOnlyAppearingNumbers')}
@@ -109,7 +109,7 @@ export const LottoNumbersFilter: React.FC<LottoNumbersFilterProps> = ({
           {/* Sort Section */}
           <Box>
             <Typography variant="caption" color="text.secondary" sx={{ mb: 1, display: 'block', fontWeight: 500 }}>
-              Sort By
+              {t('statisticsDrawer.sortBy')}
             </Typography>
             <Box
               sx={{

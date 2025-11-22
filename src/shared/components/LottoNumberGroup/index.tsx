@@ -1,12 +1,14 @@
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Box, Chip, IconButton, Tooltip } from '@mui/material';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { LottoNumber } from '../LottoNumber';
 import { LottoNumberDrawer } from '../LottoNumberDrawer';
 import { LottoNumberGroupProps } from './types';
 
 export const LottoNumberGroup = ({ numbers, index, style, maxVisible }: LottoNumberGroupProps): React.JSX.Element => {
+  const { t } = useTranslation();
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [selectedNumberIndex, setSelectedNumberIndex] = useState(0);
   const [isExpanded, setIsExpanded] = useState(false);
@@ -116,7 +118,7 @@ export const LottoNumberGroup = ({ numbers, index, style, maxVisible }: LottoNum
 
           {/* Show expand/collapse button if there are hidden numbers */}
           {shouldShowExpandButton && (
-            <Tooltip title={isExpanded ? 'Show less' : `Show ${hiddenCount} more tied number${hiddenCount > 1 ? 's' : ''}`}>
+            <Tooltip title={isExpanded ? t('general.showLess') : t('general.showMoreTiedNumbers', { count: hiddenCount })}>
               <IconButton
                 size="small"
                 onClick={() => setIsExpanded(!isExpanded)}
@@ -139,7 +141,7 @@ export const LottoNumberGroup = ({ numbers, index, style, maxVisible }: LottoNum
 
         {/* Small label indicating they're tied */}
         <Chip
-          label={`Tied (${numbers.length})`}
+          label={`${t('general.tied')} (${numbers.length})`}
           size="small"
           sx={{
             height: '18px',

@@ -15,7 +15,8 @@ import {
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { NumberStat } from '../../types';
+import { CATEGORY_COLORS } from '../../constants';
+import { Interpretation, NumberStat } from '../../types';
 import { convertToPercentage } from '../../utils/calculations';
 import { LottoNumber } from '../LottoNumber';
 
@@ -36,37 +37,32 @@ export const LottoNumberDrawer: React.FC<LottoNumberDrawerProps> = ({
 
   if (!numberStat) return null;
 
-  const getStatusColor = (status?: 'hot' | 'normal' | 'cold') => {
+  const getStatusIcon = (status?: Interpretation['status']) => {
     switch (status) {
-      case 'hot':
-        return 'error';
-      case 'cold':
-        return 'info';
-      default:
-        return 'default';
-    }
-  };
-
-  const getStatusIcon = (status?: 'hot' | 'normal' | 'cold') => {
-    switch (status) {
-      case 'hot':
+      case 'frequent':
         return <TrendingUpIcon fontSize="small" />;
-      case 'cold':
+      case 'rare':
         return <TrendingDownIcon fontSize="small" />;
       default:
         return <TrendingFlatIcon fontSize="small" />;
     }
   };
 
-  const getStatusLabel = (status?: 'hot' | 'normal' | 'cold') => {
+  const getStatusLabel = (status?: Interpretation['status']) => {
     switch (status) {
-      case 'hot':
-        return 'Hot Number (Appearing More)';
-      case 'cold':
-        return 'Cold Number (Appearing Less)';
+      case 'frequent':
+        return t('numberStats.frequentNumber');
+      case 'rare':
+        return t('numberStats.rareNumber');
       default:
-        return 'Normal Distribution';
+        return t('numberStats.normalDistribution');
     }
+  };
+
+  const getStatusBgColor = (status?: Interpretation['status']): string => {
+    if (!status || status === 'normal') return 'rgba(156, 163, 175, 0.1)';
+    const colors = CATEGORY_COLORS[status];
+    return colors.gradient;
   };
 
   return (
@@ -85,7 +81,7 @@ export const LottoNumberDrawer: React.FC<LottoNumberDrawerProps> = ({
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
             <LottoNumber digit={numberStat.digit} index={`drawer-${numberStat.digit}`} />
             <Typography variant="h5" fontWeight="bold">
-              Number {numberStat.digit}
+              {t('general.number')} {numberStat.digit}
             </Typography>
           </Box>
           <IconButton onClick={onClose} size="small">
@@ -99,8 +95,20 @@ export const LottoNumberDrawer: React.FC<LottoNumberDrawerProps> = ({
             <Chip
               icon={getStatusIcon(numberStat.interpretation.status)}
               label={getStatusLabel(numberStat.interpretation.status)}
-              color={getStatusColor(numberStat.interpretation.status)}
-              sx={{ width: '100%', justifyContent: 'flex-start', fontSize: '0.9rem', fontWeight: 'bold', py: 2.5 }}
+              sx={{
+                width: '100%',
+                justifyContent: 'flex-start',
+                fontSize: '0.9rem',
+                fontWeight: 'bold',
+                py: 2.5,
+                bgcolor: numberStat.interpretation.status && numberStat.interpretation.status !== 'normal'
+                  ? CATEGORY_COLORS[numberStat.interpretation.status].primary
+                  : '#9ca3af',
+                color: 'white',
+                '& .MuiChip-icon': {
+                  color: 'white',
+                },
+              }}
             />
           </Paper>
         )}
@@ -108,7 +116,7 @@ export const LottoNumberDrawer: React.FC<LottoNumberDrawerProps> = ({
         {/* Basic Statistics */}
         <Paper sx={{ p: 2, mb: 2 }}>
           <Typography variant="subtitle1" fontWeight="bold" gutterBottom>
-            Basic Statistics
+            {t('numberStats.basicStatistics')}
           </Typography>
           <Divider sx={{ mb: 2 }} />
           <Grid container spacing={2}>
@@ -121,7 +129,7 @@ export const LottoNumberDrawer: React.FC<LottoNumberDrawerProps> = ({
               </Typography>
               {numberStat.totalDraws && (
                 <Typography variant="caption" color="text.secondary">
-                  out of {numberStat.totalDraws} draws
+                  {t('numberStats.outOfDraws', { totalDraws: numberStat.totalDraws })}
                 </Typography>
               )}
             </Grid>
@@ -133,7 +141,7 @@ export const LottoNumberDrawer: React.FC<LottoNumberDrawerProps> = ({
                 {convertToPercentage(numberStat.frequency)}
               </Typography>
               <Typography variant="caption" color="text.secondary">
-                observed frequency
+                {t('numberStats.observedFrequency')}
               </Typography>
             </Grid>
           </Grid>
@@ -143,16 +151,18 @@ export const LottoNumberDrawer: React.FC<LottoNumberDrawerProps> = ({
         {numberStat.confidenceInterval && (
           <Paper sx={{ p: 2, mb: 2 }}>
             <Typography variant="subtitle1" fontWeight="bold" gutterBottom>
-              Wilson Confidence Interval
+              {t('numberStats.wilsonConfidenceInterval')}
             </Typography>
             <Divider sx={{ mb: 2 }} />
             <Typography variant="caption" color="text.secondary" display="block" gutterBottom>
-              {Math.round(numberStat.confidenceInterval.confidenceLevel * 100)}% confidence that true probability is between:
+              {t('numberStats.confidenceRange', {
+                confidence: Math.round(numberStat.confidenceInterval.confidenceLevel * 100)
+              })}
             </Typography>
             <Box sx={{ mt: 2 }}>
               <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 1 }}>
                 <Typography variant="body2" color="text.secondary">
-                  Lower Bound
+                  {t('numberStats.lowerBound')}
                 </Typography>
                 <Typography variant="h6" fontWeight="bold">
                   {convertToPercentage(numberStat.confidenceInterval.lower)}
@@ -160,7 +170,7 @@ export const LottoNumberDrawer: React.FC<LottoNumberDrawerProps> = ({
               </Box>
               <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <Typography variant="body2" color="text.secondary">
-                  Upper Bound
+                  {t('numberStats.upperBound')}
                 </Typography>
                 <Typography variant="h6" fontWeight="bold">
                   {convertToPercentage(numberStat.confidenceInterval.upper)}
@@ -174,30 +184,30 @@ export const LottoNumberDrawer: React.FC<LottoNumberDrawerProps> = ({
         {numberStat.theoreticalProbability !== undefined && (
           <Paper sx={{ p: 2, mb: 2 }}>
             <Typography variant="subtitle1" fontWeight="bold" gutterBottom>
-              Expected vs Observed
+              {t('numberStats.expectedVsObserved')}
             </Typography>
             <Divider sx={{ mb: 2 }} />
             <Grid container spacing={2}>
               <Grid size={{ xs: 6 }}>
                 <Typography variant="caption" color="text.secondary">
-                  Theoretical
+                  {t('numberStats.theoretical')}
                 </Typography>
                 <Typography variant="h5" fontWeight="bold">
                   {convertToPercentage(numberStat.theoreticalProbability)}
                 </Typography>
                 <Typography variant="caption" color="text.secondary">
-                  expected probability
+                  {t('numberStats.expectedProbability')}
                 </Typography>
               </Grid>
               <Grid size={{ xs: 6 }}>
                 <Typography variant="caption" color="text.secondary">
-                  Observed
+                  {t('numberStats.observed')}
                 </Typography>
                 <Typography variant="h5" fontWeight="bold" color="primary">
                   {convertToPercentage(numberStat.frequency)}
                 </Typography>
                 <Typography variant="caption" color="text.secondary">
-                  actual frequency
+                  {t('numberStats.actualFrequency')}
                 </Typography>
               </Grid>
             </Grid>
@@ -208,13 +218,13 @@ export const LottoNumberDrawer: React.FC<LottoNumberDrawerProps> = ({
         {numberStat.deviation && (
           <Paper sx={{ p: 2, mb: 2 }}>
             <Typography variant="subtitle1" fontWeight="bold" gutterBottom>
-              Deviation Analysis
+              {t('numberStats.deviationAnalysis')}
             </Typography>
             <Divider sx={{ mb: 2 }} />
             <Box sx={{ mb: 2 }}>
               <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 1.5 }}>
                 <Typography variant="body2" color="text.secondary">
-                  Absolute Deviation
+                  {t('numberStats.absoluteDeviation')}
                 </Typography>
                 <Typography variant="body1" fontWeight="bold">
                   {convertToPercentage(numberStat.deviation.absolute)}
@@ -222,22 +232,22 @@ export const LottoNumberDrawer: React.FC<LottoNumberDrawerProps> = ({
               </Box>
               <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 1.5 }}>
                 <Typography variant="body2" color="text.secondary">
-                  Relative Deviation
+                  {t('numberStats.relativeDeviation')}
                 </Typography>
                 <Typography variant="body1" fontWeight="bold">
                   {numberStat.deviation.relative.toFixed(2)}x
                 </Typography>
               </Box>
               <Chip
-                label={numberStat.deviation.isSignificant ? 'Statistically Significant' : 'Not Significant'}
+                label={numberStat.deviation.isSignificant ? t('numberStats.statisticallySignificant') : t('numberStats.notSignificant')}
                 color={numberStat.deviation.isSignificant ? 'warning' : 'default'}
                 size="small"
               />
             </Box>
             <Typography variant="caption" color="text.secondary" display="block">
               {numberStat.deviation.isSignificant
-                ? 'This deviation is unlikely to occur by random chance alone.'
-                : 'This deviation is within the expected range of random variation.'}
+                ? t('numberStats.significantDescription')
+                : t('numberStats.notSignificantDescription')}
             </Typography>
           </Paper>
         )}
@@ -246,37 +256,34 @@ export const LottoNumberDrawer: React.FC<LottoNumberDrawerProps> = ({
         {numberStat.interpretation && (
           <Paper sx={{ p: 2, mb: 2 }}>
             <Typography variant="subtitle1" fontWeight="bold" gutterBottom>
-              Analysis Summary
+              {t('numberStats.analysisSummary')}
             </Typography>
             <Divider sx={{ mb: 2 }} />
-            <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
-              This number appeared <strong>{numberStat.interpretation.appearedCount}</strong> times in{' '}
-              <strong>{numberStat.interpretation.totalDraws}</strong> draws.
-            </Typography>
+            <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }} dangerouslySetInnerHTML={{
+              __html: t('numberStats.appearedTimes', {
+                count: numberStat.interpretation.appearedCount,
+                total: numberStat.interpretation.totalDraws
+              })
+            }} />
             {numberStat.interpretation.percentDifference !== 0 && (
               <Box
                 sx={{
                   p: 2,
                   borderRadius: 1,
-                  backgroundColor:
-                    numberStat.interpretation.status === 'hot'
-                      ? 'error.light'
-                      : numberStat.interpretation.status === 'cold'
-                        ? 'info.light'
-                        : 'grey.100',
+                  background: getStatusBgColor(numberStat.interpretation.status),
                 }}
               >
-                <Typography variant="body2" fontWeight="bold">
-                  {numberStat.interpretation.percentDifference > 0 ? (
-                    <>
-                      Appearing <span style={{ color: 'red', fontSize: '1.2em' }}>{numberStat.interpretation.percentDifference}%</span> more than expected
-                    </>
-                  ) : (
-                    <>
-                      Appearing <span style={{ color: 'blue', fontSize: '1.2em' }}>{Math.abs(numberStat.interpretation.percentDifference)}%</span> less than expected
-                    </>
-                  )}
-                </Typography>
+                <Typography variant="body2" fontWeight="bold" dangerouslySetInnerHTML={{
+                  __html: numberStat.interpretation.percentDifference > 0
+                    ? t('numberStats.appearingMoreThanExpected', {
+                        color: CATEGORY_COLORS.frequent.primary,
+                        percent: numberStat.interpretation.percentDifference
+                      })
+                    : t('numberStats.appearingLessThanExpected', {
+                        color: CATEGORY_COLORS.rare.primary,
+                        percent: Math.abs(numberStat.interpretation.percentDifference)
+                      })
+                }} />
               </Box>
             )}
           </Paper>
@@ -300,10 +307,10 @@ export const LottoNumberDrawer: React.FC<LottoNumberDrawerProps> = ({
         {/* Future: Graphs Section Placeholder */}
         <Paper sx={{ p: 2, mb: 2, backgroundColor: 'background.default' }}>
           <Typography variant="subtitle1" fontWeight="bold" gutterBottom color="text.secondary">
-            📊 Historical Trends (Coming Soon)
+            {t('numberStats.historicalTrends')}
           </Typography>
           <Typography variant="caption" color="text.secondary">
-            Frequency over time, distribution charts, and pattern analysis will appear here.
+            {t('numberStats.historicalTrendsDescription')}
           </Typography>
         </Paper>
       </Box>
