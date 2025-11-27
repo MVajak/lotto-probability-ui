@@ -1,7 +1,7 @@
 import { Box } from '@mui/material';
-import React from 'react';
+import type React from 'react';
 
-import { LottoNumberProps } from './types';
+import type { LottoNumberProps } from './types';
 
 export const LottoNumber = ({ index, digit, onClick, style }: LottoNumberProps): React.JSX.Element => {
   const id = `lotto-number-${index}`;

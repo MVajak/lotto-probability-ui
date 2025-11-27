@@ -1,6 +1,6 @@
-import axios, { AxiosError, InternalAxiosRequestConfig } from 'axios';
+import axios, { type AxiosError, type InternalAxiosRequestConfig } from 'axios';
 
-import { AuthTokens } from '../../features/auth/types';
+import type { AuthTokens } from '../../features/auth/types';
 import { tokenStorage } from './tokenStorage';
 
 // Flag to prevent infinite refresh loops

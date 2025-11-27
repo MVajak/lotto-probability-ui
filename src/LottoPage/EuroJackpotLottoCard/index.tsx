@@ -1,8 +1,8 @@
 import { Grid } from '@mui/material';
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { AppDispatch } from '../../app/store';
+import type { AppDispatch } from '../../app/store';
 import { resetState } from '../../features/lottoProbability/lottoProbabilitySlice';
 import { isLoadingSelector, lottoTotalDrawsSelector } from '../../features/lottoProbability/selectors';
 import { InContentAd } from '../../shared/components/InContentAd';

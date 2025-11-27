@@ -1,7 +1,7 @@
 import { createSelector } from '@reduxjs/toolkit';
 
 import { lottoProbabilityResultSelector } from '../../features/lottoProbability/selectors';
-import { NumberStat, WinningNumberStat } from '../../shared/types';
+import type { NumberStat, WinningNumberStat } from '../../shared/types';
 import { getTopProbabilityStats } from '../../shared/utils/probability';
 import { MAX_PRIMARY_NUMBERS, MAX_SECONDARY_NUMBERS } from './constants';
 

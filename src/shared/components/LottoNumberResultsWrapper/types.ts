@@ -1,8 +1,8 @@
-import { Theme } from '@mui/material/styles';
-import { SxProps } from '@mui/system';
-import React from 'react';
+import type { Theme } from '@mui/material/styles';
+import type { SxProps } from '@mui/system';
+import type React from 'react';
 
-import { NumberStat } from '../../types';
+import type { NumberStat } from '../../types';
 
 export interface LottoNumberResultsWrapperProps {
   children: React.JSX.Element;

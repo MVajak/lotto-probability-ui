@@ -1,7 +1,7 @@
 import { CircularProgress, Grid } from '@mui/material';
-import React from 'react';
+import type React from 'react';
 
-import { LoaderProps } from './types';
+import type { LoaderProps } from './types';
 
 export const Loader = ({ shouldShow }: LoaderProps): React.JSX.Element | null => {
   if (!shouldShow) {

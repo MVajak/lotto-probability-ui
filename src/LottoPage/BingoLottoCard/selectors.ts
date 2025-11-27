@@ -1,7 +1,7 @@
 import { createSelector } from '@reduxjs/toolkit';
 
 import { lottoProbabilityResultSelector } from '../../features/lottoProbability/selectors';
-import { NumberStat } from '../../shared/types';
+import type { NumberStat } from '../../shared/types';
 import { getTopProbabilityStats } from '../../shared/utils/probability';
 import {
   CENTER_SQUARE_GAME_WIN_CLASS,
@@ -13,7 +13,7 @@ import {
   MAX_DIAGONAL_NUMBERS,
   MAX_FULL_NUMBERS,
 } from './constants';
-import { BingoMainNumberStats } from './types';
+import type { BingoMainNumberStats } from './types';
 
 export const centerSquareGameWinningNumberStatsSelector = createSelector(
   [lottoProbabilityResultSelector],

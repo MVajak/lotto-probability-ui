@@ -2,11 +2,11 @@ import LightbulbIcon from '@mui/icons-material/Lightbulb';
 import TrendingDownIcon from '@mui/icons-material/TrendingDown';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import { Box, Card, CardContent, Stack, Typography } from '@mui/material';
-import React from 'react';
+import type React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { CATEGORY_COLORS } from '../../../../constants';
-import { NumberStat } from '../../../../types';
+import type { NumberStat } from '../../../../types';
 
 interface AnalysisSummaryCardProps {
   numberStat: NumberStat;
@@ -65,13 +65,13 @@ export const AnalysisSummaryCard: React.FC<AnalysisSummaryCardProps> = ({ number
               '& strong': {
                 color: 'primary.main',
                 fontSize: '1.1em',
-              }
+              },
             }}
             dangerouslySetInnerHTML={{
               __html: t('numberStats.appearedTimes', {
                 count: numberStat.interpretation.appearedCount,
-                total: numberStat.interpretation.totalDraws
-              })
+                total: numberStat.interpretation.totalDraws,
+              }),
             }}
           />
         </Box>
@@ -115,18 +115,18 @@ export const AnalysisSummaryCard: React.FC<AnalysisSummaryCardProps> = ({ number
                   lineHeight: 1.6,
                   '& span': {
                     display: 'inline-block',
-                  }
+                  },
                 }}
                 dangerouslySetInnerHTML={{
                   __html: isMoreFrequent
                     ? t('numberStats.appearingMoreThanExpected', {
                         color: CATEGORY_COLORS.frequent.primary,
-                        percent: numberStat.interpretation.percentDifference
+                        percent: numberStat.interpretation.percentDifference,
                       })
                     : t('numberStats.appearingLessThanExpected', {
                         color: CATEGORY_COLORS.rare.primary,
-                        percent: Math.abs(numberStat.interpretation.percentDifference)
-                      })
+                        percent: Math.abs(numberStat.interpretation.percentDifference),
+                      }),
                 }}
               />
             </Stack>

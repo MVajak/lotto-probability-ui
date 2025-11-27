@@ -1,6 +1,6 @@
 import CheckIcon from '@mui/icons-material/Check';
 import { Box, Button, Card, CardContent, Container, Divider, Grid, Paper, Typography } from '@mui/material';
-import React from 'react';
+import type React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import ResponsiveHeader from '../shared/components/ResponsiveHeader';
@@ -21,11 +21,7 @@ export const SubscriptionPage: React.FC = () => {
       name: t('subscription.free.name'),
       price: t('subscription.free.price'),
       period: '',
-      features: [
-        t('subscription.free.feature1'),
-        t('subscription.free.feature2'),
-        t('subscription.free.feature3'),
-      ],
+      features: [t('subscription.free.feature1'), t('subscription.free.feature2'), t('subscription.free.feature3')],
     },
     {
       name: t('subscription.pro.name'),
@@ -100,7 +96,9 @@ export const SubscriptionPage: React.FC = () => {
                         </Typography>
                       </Box>
                     )}
-                    <CardContent sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column', pt: tier.highlighted ? 4 : 2 }}>
+                    <CardContent
+                      sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column', pt: tier.highlighted ? 4 : 2 }}
+                    >
                       <Typography variant="h5" component="div" gutterBottom align="center" fontWeight="bold">
                         {tier.name}
                       </Typography>

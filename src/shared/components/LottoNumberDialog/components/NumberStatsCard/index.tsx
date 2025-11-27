@@ -2,11 +2,11 @@ import TrendingDownIcon from '@mui/icons-material/TrendingDown';
 import TrendingFlatIcon from '@mui/icons-material/TrendingFlat';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import { Card, CardContent, Chip, Grid, Typography } from '@mui/material';
-import React from 'react';
+import type React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { CATEGORY_COLORS } from '../../../../constants';
-import { Interpretation, NumberStat } from '../../../../types';
+import type { Interpretation, NumberStat } from '../../../../types';
 import { convertToPercentage } from '../../../../utils/calculations';
 
 interface NumberStatsCardProps {
@@ -72,58 +72,99 @@ export const NumberStatsCard: React.FC<NumberStatsCardProps> = ({ numberStat }) 
           <Grid>
             <Grid container spacing={2}>
               <Grid size={{ xs: 6, sm: 3 }}>
-                <Typography variant="caption" color="text.secondary" display="block" gutterBottom sx={{ fontWeight: 500 }}>
+                <Typography
+                  variant="caption"
+                  color="text.secondary"
+                  display="block"
+                  gutterBottom
+                  sx={{ fontWeight: 500 }}
+                >
                   {t('general.count')}
                 </Typography>
                 <Typography variant="h5" fontWeight="bold" color="primary">
                   {numberStat.count}
                 </Typography>
-                <Typography variant="caption" color="text.secondary" sx={{ fontSize: '0.7rem', display: 'block', mt: 0.5, opacity: 0.8 }}>
+                <Typography
+                  variant="caption"
+                  color="text.secondary"
+                  sx={{ fontSize: '0.7rem', display: 'block', mt: 0.5, opacity: 0.8 }}
+                >
                   {t('numberStats.countHelp')}
                 </Typography>
               </Grid>
               <Grid size={{ xs: 6, sm: 3 }}>
-                <Typography variant="caption" color="text.secondary" display="block" gutterBottom sx={{ fontWeight: 500 }}>
+                <Typography
+                  variant="caption"
+                  color="text.secondary"
+                  display="block"
+                  gutterBottom
+                  sx={{ fontWeight: 500 }}
+                >
                   {t('general.frequency')}
                 </Typography>
                 <Typography variant="h5" fontWeight="bold" color="primary">
                   {convertToPercentage(numberStat.frequency)}
                 </Typography>
-                <Typography variant="caption" color="text.secondary" sx={{ fontSize: '0.7rem', display: 'block', mt: 0.5, opacity: 0.8 }}>
+                <Typography
+                  variant="caption"
+                  color="text.secondary"
+                  sx={{ fontSize: '0.7rem', display: 'block', mt: 0.5, opacity: 0.8 }}
+                >
                   {t('numberStats.probabilityHelp')}
                 </Typography>
               </Grid>
               {numberStat.theoreticalProbability !== undefined && (
                 <Grid size={{ xs: 6, sm: 3 }}>
-                  <Typography variant="caption" color="text.secondary" display="block" gutterBottom sx={{ fontWeight: 500 }}>
+                  <Typography
+                    variant="caption"
+                    color="text.secondary"
+                    display="block"
+                    gutterBottom
+                    sx={{ fontWeight: 500 }}
+                  >
                     {t('numberStats.theoretical')}
                   </Typography>
                   <Typography variant="h5" fontWeight="bold">
                     {convertToPercentage(numberStat.theoreticalProbability)}
                   </Typography>
-                  <Typography variant="caption" color="text.secondary" sx={{ fontSize: '0.7rem', display: 'block', mt: 0.5, opacity: 0.8 }}>
+                  <Typography
+                    variant="caption"
+                    color="text.secondary"
+                    sx={{ fontSize: '0.7rem', display: 'block', mt: 0.5, opacity: 0.8 }}
+                  >
                     {t('numberStats.theoreticalHelp')}
                   </Typography>
                 </Grid>
               )}
-              {numberStat.interpretation?.percentDifference !== undefined && numberStat.interpretation.percentDifference !== 0 && (
-                <Grid size={{ xs: 6, sm: 3 }}>
-                  <Typography variant="caption" color="text.secondary" display="block" gutterBottom sx={{ fontWeight: 500 }}>
-                    Difference
-                  </Typography>
-                  <Typography
-                    variant="h5"
-                    fontWeight="bold"
-                    color={numberStat.interpretation.percentDifference > 0 ? 'error' : 'info'}
-                  >
-                    {numberStat.interpretation.percentDifference > 0 ? '+' : ''}
-                    {numberStat.interpretation.percentDifference}%
-                  </Typography>
-                  <Typography variant="caption" color="text.secondary" sx={{ fontSize: '0.7rem', display: 'block', mt: 0.5, opacity: 0.8 }}>
-                    {t('numberStats.differenceHelp')}
-                  </Typography>
-                </Grid>
-              )}
+              {numberStat.interpretation?.percentDifference !== undefined &&
+                numberStat.interpretation.percentDifference !== 0 && (
+                  <Grid size={{ xs: 6, sm: 3 }}>
+                    <Typography
+                      variant="caption"
+                      color="text.secondary"
+                      display="block"
+                      gutterBottom
+                      sx={{ fontWeight: 500 }}
+                    >
+                      Difference
+                    </Typography>
+                    <Typography
+                      variant="h5"
+                      fontWeight="bold"
+                      color={numberStat.interpretation.percentDifference > 0 ? 'error' : 'info'}
+                    >
+                      {numberStat.interpretation.percentDifference > 0 ? '+' : ''}
+                      {numberStat.interpretation.percentDifference}%
+                    </Typography>
+                    <Typography
+                      variant="caption"
+                      color="text.secondary"
+                      sx={{ fontSize: '0.7rem', display: 'block', mt: 0.5, opacity: 0.8 }}
+                    >
+                      {t('numberStats.differenceHelp')}
+                    </Typography>
+                  </Grid>
+                )}
             </Grid>
           </Grid>
         </Grid>

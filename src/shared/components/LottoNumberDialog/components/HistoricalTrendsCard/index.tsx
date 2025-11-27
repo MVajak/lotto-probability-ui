@@ -3,10 +3,10 @@ import TrendingDownIcon from '@mui/icons-material/TrendingDown';
 import TrendingFlatIcon from '@mui/icons-material/TrendingFlat';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import { Box, Card, CardContent, Chip, CircularProgress, Divider, Grid, Stack, Typography } from '@mui/material';
-import React from 'react';
+import type React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { NumberHistoryDto } from '../../../../../features/lottoProbability/types';
+import type { NumberHistoryDto } from '../../../../../features/lottoProbability/types';
 
 interface HistoricalTrendsCardProps {
   numberHistory: NumberHistoryDto | null;
@@ -214,10 +214,10 @@ export const HistoricalTrendsCard: React.FC<HistoricalTrendsCardProps> = ({ numb
         {/* Interpretation Helper */}
         <Box sx={{ mt: 2, p: 1.5, bgcolor: 'info.50', borderRadius: 1 }}>
           <Typography variant="caption" color="text.secondary">
-            <strong>Pattern Interpretation:</strong> {autocorrelation.interpretation === 'random' ?
-              'No significant patterns detected - appearances are random as expected in a fair lottery.' :
-              `Detected ${autocorrelation.interpretation} pattern - this may indicate clustering or dispersion in appearances.`
-            }
+            <strong>Pattern Interpretation:</strong>{' '}
+            {autocorrelation.interpretation === 'random'
+              ? 'No significant patterns detected - appearances are random as expected in a fair lottery.'
+              : `Detected ${autocorrelation.interpretation} pattern - this may indicate clustering or dispersion in appearances.`}
           </Typography>
         </Box>
       </CardContent>

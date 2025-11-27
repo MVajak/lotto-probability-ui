@@ -1,5 +1,5 @@
-import { LottoSearchDto } from '../../../../features/lottoProbability/types';
-import { LottoSearchDtoWithRequiredType } from '../types';
+import type { LottoSearchDto } from '../../../../features/lottoProbability/types';
+import type { LottoSearchDtoWithRequiredType } from '../types';
 
 export const buildLottoSearchDto = (dto: LottoSearchDtoWithRequiredType): LottoSearchDto => {
   const { dateFrom, dateTo, lottoType } = dto;

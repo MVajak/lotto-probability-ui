@@ -1,7 +1,8 @@
-import { FormControl, MenuItem, Select, SelectChangeEvent } from '@mui/material';
-import React, { useEffect, useMemo } from 'react';
+import { FormControl, MenuItem, Select, type SelectChangeEvent } from '@mui/material';
+import type React from 'react';
+import { useEffect, useMemo } from 'react';
 
-import { LocalStorageKey, Region, REGION_LOTTERY_TYPES } from '../../constants';
+import { LocalStorageKey, REGION_LOTTERY_TYPES, Region } from '../../constants';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
 import { LottoType } from '../../types';
 
@@ -31,10 +32,7 @@ const LOTTERY_NAMES: Record<LottoType, string> = {
   [LottoType.US_CASH4LIFE]: 'Cash4Life',
 };
 
-export const LotteryTypeSelector: React.FC<LotteryTypeSelectorProps> = ({
-  selectedLottery,
-  onLotteryChange,
-}) => {
+export const LotteryTypeSelector: React.FC<LotteryTypeSelectorProps> = ({ selectedLottery, onLotteryChange }) => {
   const [region] = useLocalStorage<Region>(LocalStorageKey.REGION, Region.EE);
 
   const availableLotteries = useMemo(() => {
@@ -48,7 +46,7 @@ export const LotteryTypeSelector: React.FC<LotteryTypeSelectorProps> = ({
     if (!lotteries.includes(selectedLottery)) {
       onLotteryChange(lotteries[0]);
     }
-  }, [region]);
+  }, [region, onLotteryChange, selectedLottery]);
 
   const handleChange = (event: SelectChangeEvent) => {
     const selectedType = event.target.value as LottoType;

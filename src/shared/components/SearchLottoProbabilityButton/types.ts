@@ -1,6 +1,6 @@
-import { LottoSearchDto } from '../../../features/lottoProbability/types';
-import { LottoType } from '../../types';
-import { NullablePartial } from '../../utils/types';
+import type { LottoSearchDto } from '../../../features/lottoProbability/types';
+import type { LottoType } from '../../types';
+import type { NullablePartial } from '../../utils/types';
 
 export type LottoSearchDtoWithRequiredType = {
   lottoType: LottoType;

@@ -1,5 +1,5 @@
 import { Alert, Box, Button, Typography } from '@mui/material';
-import React from 'react';
+import type React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 
 interface EmailSentSuccessProps {
@@ -13,7 +13,11 @@ export const EmailSentSuccess: React.FC<EmailSentSuccessProps> = ({ email, onBac
   return (
     <>
       <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-        <img src="/img/logo_lotto.png" alt="Lotto Logo" style={{ maxWidth: '120px', height: 'auto', padding: '16px' }} />
+        <img
+          src="/img/logo_lotto.png"
+          alt="Lotto Logo"
+          style={{ maxWidth: '120px', height: 'auto', padding: '16px' }}
+        />
       </Box>
       <Typography variant="h5" component="h5" gutterBottom align="center">
         {t('login.checkYourInbox')}
@@ -26,8 +30,8 @@ export const EmailSentSuccess: React.FC<EmailSentSuccessProps> = ({ email, onBac
             display: 'flex',
             justifyContent: 'center',
             '& .MuiAlert-icon': {
-              marginRight: 1
-            }
+              marginRight: 1,
+            },
           }}
         >
           <Trans i18nKey="login.sentToEmail" values={{ email }} components={{ strong: <strong /> }} />

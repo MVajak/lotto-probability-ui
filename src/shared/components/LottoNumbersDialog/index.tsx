@@ -1,19 +1,25 @@
 import CloseIcon from '@mui/icons-material/Close';
 import { Box, Dialog, DialogContent, DialogTitle, IconButton, Typography } from '@mui/material';
 import groupBy from 'lodash/groupBy';
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import type React from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { NumberStat } from '../../types';
+import type { NumberStat } from '../../types';
 import { findRelatedNumbers } from '../../utils/numberGrouping';
 import { LottoNumberDialog } from '../LottoNumberDialog';
 import { LottoNumbersFilter } from './LottoNumbersFilter';
 import { PositionGroup } from './PositionGroup';
-import { LottoNumbersDialogProps, SortingType } from './types';
+import { type LottoNumbersDialogProps, SortingType } from './types';
 
 const UnassignedPosition = 'unassigned';
 
-export const LottoNumbersDialog = ({ isOpen, onClose, numberStats, style }: LottoNumbersDialogProps): React.JSX.Element => {
+export const LottoNumbersDialog = ({
+  isOpen,
+  onClose,
+  numberStats,
+  style,
+}: LottoNumbersDialogProps): React.JSX.Element => {
   const [filteredStats, setFilteredStats] = useState<NumberStat[]>(numberStats);
   const [shouldExcludeZeroCounts, setShouldExcludeZeroCounts] = useState<boolean>(false);
   const [sortByValue, setSortByValue] = useState<SortingType>(SortingType.DigitAsc);
@@ -50,7 +56,7 @@ export const LottoNumbersDialog = ({ isOpen, onClose, numberStats, style }: Lott
   // Sync filteredStats when numberStats prop changes
   useEffect(() => {
     setFilteredStats(handleSorting(shouldExcludeZeroCounts, sortByValue));
-  }, [numberStats, shouldExcludeZeroCounts, sortByValue]);
+  }, [shouldExcludeZeroCounts, sortByValue, handleSorting]);
 
   const handleDialogClose = useCallback((): void => {
     onClose();

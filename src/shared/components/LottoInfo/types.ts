@@ -1,4 +1,4 @@
-import { LottoType } from '../../types';
+import type { LottoType } from '../../types';
 
 export interface LottoInfoProps {
   lottoType: LottoType;

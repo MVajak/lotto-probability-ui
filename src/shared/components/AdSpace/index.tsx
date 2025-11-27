@@ -1,5 +1,5 @@
 import { Box, Paper, styled, Typography } from '@mui/material';
-import React from 'react';
+import type React from 'react';
 
 import { GoogleAd } from './GoogleAd';
 

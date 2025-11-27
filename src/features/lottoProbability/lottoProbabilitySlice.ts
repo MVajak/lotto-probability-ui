@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 import { calculateLottoProbability, fetchNumberHistory } from './lottoThunks';
-import { LottoProbabilityState } from './types';
+import type { LottoProbabilityState } from './types';
 
 const initialState: LottoProbabilityState = {
   lottoProbabilityResult: {

@@ -1,8 +1,7 @@
 import { createSelector } from '@reduxjs/toolkit';
 
 import { lottoProbabilityResultSelector } from '../../features/lottoProbability/selectors';
-import { NumberStat } from '../../shared/types';
-import { MostProbableDigitsByPosition } from '../../shared/types';
+import type { MostProbableDigitsByPosition, NumberStat } from '../../shared/types';
 import { getMostProbableDigitsByPosition } from '../../shared/utils/probability';
 
 export const jokkerLottoWinningNumberStatsSelector = createSelector(

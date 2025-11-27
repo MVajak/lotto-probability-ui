@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import { tokenStorage } from '../../shared/utils/tokenStorage';
 import { getMe, requestMagicLink, verifyMagicLink } from './authThunks';
-import { AuthState } from './types';
+import type { AuthState } from './types';
 
 const initialState: AuthState = {
   isLoading: false,

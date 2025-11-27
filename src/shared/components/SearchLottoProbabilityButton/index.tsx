@@ -1,8 +1,8 @@
 import { Button } from '@mui/material';
-import React from 'react';
+import type React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { SearchLottoProbabilityButtonProps } from './types';
+import type { SearchLottoProbabilityButtonProps } from './types';
 
 export const SearchLottoProbabilityButton = ({ onClick }: SearchLottoProbabilityButtonProps): React.JSX.Element => {
   const { t } = useTranslation();

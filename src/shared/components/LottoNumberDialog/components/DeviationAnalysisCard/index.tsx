@@ -1,9 +1,9 @@
 import ShowChartIcon from '@mui/icons-material/ShowChart';
 import { Box, Card, CardContent, Chip, Stack, Typography } from '@mui/material';
-import React from 'react';
+import type React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { NumberStat } from '../../../../types';
+import type { NumberStat } from '../../../../types';
 import { convertToPercentage } from '../../../../utils/calculations';
 
 interface DeviationAnalysisCardProps {
@@ -24,11 +24,24 @@ export const DeviationAnalysisCard: React.FC<DeviationAnalysisCardProps> = ({ nu
             {t('numberStats.deviationAnalysis')}
           </Typography>
         </Stack>
-        <Typography variant="body2" color="text.secondary" sx={{ mb: 2, fontStyle: 'italic', bgcolor: 'warning.50', p: 1.5, borderRadius: 1 }}>
+        <Typography
+          variant="body2"
+          color="text.secondary"
+          sx={{ mb: 2, fontStyle: 'italic', bgcolor: 'warning.50', p: 1.5, borderRadius: 1 }}
+        >
           {t('numberStats.deviationAnalysisHelp')}
         </Typography>
         <Stack spacing={2}>
-          <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', p: 2, bgcolor: 'grey.50', borderRadius: 2 }}>
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              p: 2,
+              bgcolor: 'grey.50',
+              borderRadius: 2,
+            }}
+          >
             <Typography variant="body2" color="text.secondary">
               {t('numberStats.absoluteDeviation')}
             </Typography>
@@ -36,7 +49,16 @@ export const DeviationAnalysisCard: React.FC<DeviationAnalysisCardProps> = ({ nu
               {convertToPercentage(numberStat.deviation.absolute)}
             </Typography>
           </Box>
-          <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', p: 2, bgcolor: 'grey.50', borderRadius: 2 }}>
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              p: 2,
+              bgcolor: 'grey.50',
+              borderRadius: 2,
+            }}
+          >
             <Typography variant="body2" color="text.secondary">
               {t('numberStats.relativeDeviation')}
             </Typography>
@@ -45,7 +67,11 @@ export const DeviationAnalysisCard: React.FC<DeviationAnalysisCardProps> = ({ nu
             </Typography>
           </Box>
           <Chip
-            label={numberStat.deviation.isSignificant ? t('numberStats.statisticallySignificant') : t('numberStats.notSignificant')}
+            label={
+              numberStat.deviation.isSignificant
+                ? t('numberStats.statisticallySignificant')
+                : t('numberStats.notSignificant')
+            }
             color={numberStat.deviation.isSignificant ? 'warning' : 'success'}
             sx={{ fontWeight: 'bold' }}
           />

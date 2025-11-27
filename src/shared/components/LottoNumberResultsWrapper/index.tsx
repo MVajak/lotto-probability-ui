@@ -1,9 +1,9 @@
 import { Grid, Typography } from '@mui/material';
-import React from 'react';
+import type React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { LottoNumbersButton } from '../LottoNumbersButton';
-import { LottoNumberResultsWrapperProps } from './types';
+import type { LottoNumberResultsWrapperProps } from './types';
 
 export const LottoNumberResultsWrapper = ({
   children,

@@ -1,6 +1,6 @@
-import { FormControl, MenuItem, Select, SelectChangeEvent } from '@mui/material';
+import { FormControl, MenuItem, Select, type SelectChangeEvent } from '@mui/material';
 import i18n from 'i18next';
-import React from 'react';
+import type React from 'react';
 
 import { Language } from '../../../locales/types';
 import FlagEstonia from '../../assets/flags/flag_estonia.svg';

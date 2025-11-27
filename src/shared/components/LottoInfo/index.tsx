@@ -1,9 +1,9 @@
 import { Divider, Grid, Link, Typography } from '@mui/material';
-import React from 'react';
+import type React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { CardWrapper } from '../CardWrapper';
-import { LottoInfoProps, LottoName } from './types';
+import { type LottoInfoProps, LottoName } from './types';
 
 export const LottoInfo = ({ lottoType, linkBuyTickets, linkGameRules }: LottoInfoProps): React.JSX.Element => {
   const { t } = useTranslation();
@@ -32,7 +32,7 @@ export const LottoInfo = ({ lottoType, linkBuyTickets, linkGameRules }: LottoInf
               data-testid={`lotto-${lottoName}-rules`}
               href={linkGameRules}
               underline="hover"
-              target={`_blank`}
+              target={'_blank'}
               sx={{ lineHeight: '20px', pr: 1 }}
             >
               {t('info.gameRules')}
@@ -42,7 +42,7 @@ export const LottoInfo = ({ lottoType, linkBuyTickets, linkGameRules }: LottoInf
               data-testid={`lotto-${lottoName}-tickets`}
               href={linkBuyTickets}
               underline="hover"
-              target={`_blank`}
+              target={'_blank'}
               sx={{ lineHeight: '20px', pl: 1 }}
             >
               {t('info.buyTickets')}

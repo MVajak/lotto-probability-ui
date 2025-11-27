@@ -1,6 +1,6 @@
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import { Box, Typography } from '@mui/material';
-import React from 'react';
+import type React from 'react';
 
 interface SuccessLayoutProps {
   title: string;

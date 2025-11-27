@@ -1,13 +1,14 @@
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Box, Chip, IconButton, Tooltip } from '@mui/material';
-import React, { useState } from 'react';
+import type React from 'react';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { NumberStat } from '../../types';
+import type { NumberStat } from '../../types';
 import { findRelatedNumbers } from '../../utils/numberGrouping';
 import { LottoNumber } from '../LottoNumber';
 import { LottoNumberDialog } from '../LottoNumberDialog';
-import { LottoNumberGroupProps } from './types';
+import type { LottoNumberGroupProps } from './types';
 
 export const LottoNumberGroup = ({ numbers, index, style, maxVisible }: LottoNumberGroupProps): React.JSX.Element => {
   const { t } = useTranslation();
@@ -21,7 +22,7 @@ export const LottoNumberGroup = ({ numbers, index, style, maxVisible }: LottoNum
 
   // Handle clicking a related number in the dialog
   const handleNumberChange = (newStat: NumberStat) => {
-    const newIndex = numbers.findIndex(n => n.digit === newStat.digit);
+    const newIndex = numbers.findIndex((n) => n.digit === newStat.digit);
     if (newIndex !== -1) {
       setSelectedNumberIndex(newIndex);
     }
@@ -98,38 +99,39 @@ export const LottoNumberGroup = ({ numbers, index, style, maxVisible }: LottoNum
           ))}
 
           {/* Collapsible hidden numbers */}
-          {shouldShowExpandButton && hiddenNumbers.length > 0 && isExpanded && (
-            <>
-              {hiddenNumbers.map((num, idx) => (
-                <LottoNumber
-                  key={idx + initialNumbers.length}
-                  digit={num.digit}
-                  index={`group-${index}-${idx + initialNumbers.length}`}
-                  onClick={() => {
-                    setSelectedNumberIndex(idx + initialNumbers.length);
-                    setDrawerOpen(true);
-                  }}
-                  style={{
-                    margin: 0,
-                    animation: 'fadeIn 0.1s ease-in-out',
-                    '@keyframes fadeIn': {
-                      '0%': {
-                        opacity: 0,
-                      },
-                      '100%': {
-                        opacity: 1,
-                      },
+          {shouldShowExpandButton &&
+            hiddenNumbers.length > 0 &&
+            isExpanded &&
+            hiddenNumbers.map((num, idx) => (
+              <LottoNumber
+                key={idx + initialNumbers.length}
+                digit={num.digit}
+                index={`group-${index}-${idx + initialNumbers.length}`}
+                onClick={() => {
+                  setSelectedNumberIndex(idx + initialNumbers.length);
+                  setDrawerOpen(true);
+                }}
+                style={{
+                  margin: 0,
+                  animation: 'fadeIn 0.1s ease-in-out',
+                  '@keyframes fadeIn': {
+                    '0%': {
+                      opacity: 0,
                     },
-                    ...style,
-                  }}
-                />
-              ))}
-            </>
-          )}
+                    '100%': {
+                      opacity: 1,
+                    },
+                  },
+                  ...style,
+                }}
+              />
+            ))}
 
           {/* Show expand/collapse button if there are hidden numbers */}
           {shouldShowExpandButton && (
-            <Tooltip title={isExpanded ? t('general.showLess') : t('general.showMoreTiedNumbers', { count: hiddenCount })}>
+            <Tooltip
+              title={isExpanded ? t('general.showLess') : t('general.showMoreTiedNumbers', { count: hiddenCount })}
+            >
               <IconButton
                 size="small"
                 onClick={() => setIsExpanded(!isExpanded)}

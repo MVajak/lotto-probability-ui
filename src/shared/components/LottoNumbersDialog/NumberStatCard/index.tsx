@@ -1,12 +1,12 @@
 import AcUnitIcon from '@mui/icons-material/AcUnit';
 import LocalFireDepartmentIcon from '@mui/icons-material/LocalFireDepartment';
 import { Box, Card, CardContent, Chip, LinearProgress, Typography } from '@mui/material';
-import { SxProps, Theme } from '@mui/material/styles';
-import React from 'react';
+import type { SxProps, Theme } from '@mui/material/styles';
+import type React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { CATEGORY_COLORS } from '../../../constants';
-import { Interpretation, NumberStat } from '../../../types';
+import type { Interpretation, NumberStat } from '../../../types';
 import { convertToPercentage } from '../../../utils/calculations';
 import { LottoNumber } from '../../LottoNumber';
 

@@ -1,5 +1,4 @@
-import { NumberStat } from '../types';
-import { MostProbableDigitsByPosition } from '../types';
+import type { MostProbableDigitsByPosition, NumberStat } from '../types';
 
 export function getTopProbabilityStats(data: NumberStat[], minCount: number): NumberStat[] {
   if (!data.length) {

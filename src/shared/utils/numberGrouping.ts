@@ -1,4 +1,4 @@
-import { NumberStat } from '../types';
+import type { NumberStat } from '../types';
 
 /**
  * Groups numbers by their frequency value
@@ -8,7 +8,7 @@ import { NumberStat } from '../types';
 export const groupNumbersByFrequency = (stats: NumberStat[]): NumberStat[][] => {
   const grouped: { [key: number]: NumberStat[] } = {};
 
-  stats.forEach(stat => {
+  stats.forEach((stat) => {
     if (!grouped[stat.frequency]) {
       grouped[stat.frequency] = [];
     }
@@ -27,10 +27,7 @@ export const groupNumbersByFrequency = (stats: NumberStat[]): NumberStat[][] => 
  */
 export const findRelatedNumbers = (selectedStat: NumberStat, allStats: NumberStat[]): NumberStat[] => {
   return allStats
-    .filter((stat) =>
-      stat.digit !== selectedStat.digit &&
-      stat.frequency === selectedStat.frequency
-    )
+    .filter((stat) => stat.digit !== selectedStat.digit && stat.frequency === selectedStat.frequency)
     .sort((a, b) => a.digit - b.digit);
 };
 
@@ -79,9 +76,7 @@ export const analyzeGroupsForDisplay = (groups: NumberStat[][], maxCount: number
   }
 
   // Show groups up to and including the last one we processed
-  const groupsToShow = lastGroupIndex >= 0
-    ? groups.slice(0, lastGroupIndex + 1)
-    : [];
+  const groupsToShow = lastGroupIndex >= 0 ? groups.slice(0, lastGroupIndex + 1) : [];
 
   return { groupsToShow, cutoffGroupIndex, maxVisibleInCutoffGroup };
 };

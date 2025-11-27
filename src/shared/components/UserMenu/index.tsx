@@ -46,11 +46,7 @@ export const UserMenu: React.FC = () => {
 
   return (
     <>
-      <IconButton
-        onClick={handleClick}
-        size="small"
-        sx={{ color: 'inherit', display: 'flex', gap: 0.5 }}
-      >
+      <IconButton onClick={handleClick} size="small" sx={{ color: 'inherit', display: 'flex', gap: 0.5 }}>
         <SettingsIcon sx={{ fontSize: 24 }} />
         <KeyboardArrowDownIcon fontSize="small" />
       </IconButton>

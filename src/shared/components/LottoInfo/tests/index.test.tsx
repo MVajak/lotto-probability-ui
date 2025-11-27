@@ -1,9 +1,8 @@
 import { render, screen } from '@testing-library/react';
-import React from 'react';
 
 import { LottoType } from '../../../types';
 import { LottoInfo } from '../index';
-import { LottoInfoProps, LottoName } from '../types';
+import { type LottoInfoProps, LottoName } from '../types';
 
 describe('LottoInfo', () => {
   const propsMock: LottoInfoProps = {

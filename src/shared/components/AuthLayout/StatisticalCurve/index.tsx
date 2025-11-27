@@ -1,5 +1,5 @@
 import { useMediaQuery, useTheme } from '@mui/material';
-import React from 'react';
+import type React from 'react';
 
 interface StatisticalCurveProps {
   width?: number;
@@ -11,13 +11,13 @@ interface StatisticalCurveProps {
 }
 
 export const StatisticalCurve: React.FC<StatisticalCurveProps> = ({
-                                                             width = 800,
-                                                             height = 200,
-                                                             startX,
-                                                             endX,
-                                                             baseY = 100,
-                                                             className = ''
-                                                           }) => {
+  width = 800,
+  height = 200,
+  startX,
+  endX,
+  baseY = 100,
+  className = '',
+}) => {
   const theme = useTheme();
   const isLargeScreen = useMediaQuery(theme.breakpoints.up('lg'));
 
@@ -70,10 +70,10 @@ export const StatisticalCurve: React.FC<StatisticalCurveProps> = ({
 
         {/* Glow effect for data points */}
         <filter id="dataPointGlow">
-          <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+          <feGaussianBlur stdDeviation="2" result="coloredBlur" />
           <feMerge>
-            <feMergeNode in="coloredBlur"/>
-            <feMergeNode in="SourceGraphic"/>
+            <feMergeNode in="coloredBlur" />
+            <feMergeNode in="SourceGraphic" />
           </feMerge>
         </filter>
       </defs>

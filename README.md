@@ -10,6 +10,7 @@ A React-based lottery probability calculator built with Vite and TypeScript.
 - **UI Library**: Material-UI (MUI) v7
 - **State Management**: Redux Toolkit
 - **Testing**: Vitest
+- **Linting & Formatting**: Biome
 - **Internationalization**: i18next
 
 ## Prerequisites
@@ -54,15 +55,15 @@ Useful for testing the production build before deployment.
 
 ### `pnpm lint`
 
-Runs ESLint to check for code quality issues.
+Runs Biome to check for code quality issues and formatting.
 
 ### `pnpm lint:fix`
 
-Automatically fixes ESLint errors where possible.
+Automatically fixes linting errors and formats code using Biome.
 
-### `pnpm prettier`
+### `pnpm format`
 
-Formats code using Prettier.
+Formats code only (without linting) using Biome.
 
 ## Learn More
 
@@ -70,3 +71,4 @@ Formats code using Prettier.
 - [React Documentation](https://react.dev/)
 - [TypeScript Documentation](https://www.typescriptlang.org/)
 - [Material-UI Documentation](https://mui.com/)
+- [Biome Documentation](https://biomejs.dev/)

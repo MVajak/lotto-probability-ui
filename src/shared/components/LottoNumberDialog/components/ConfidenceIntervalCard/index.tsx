@@ -1,9 +1,9 @@
 import ShowChartIcon from '@mui/icons-material/ShowChart';
 import { Box, Card, CardContent, LinearProgress, Stack, Typography } from '@mui/material';
-import React from 'react';
+import type React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { NumberStat } from '../../../../types';
+import type { NumberStat } from '../../../../types';
 import { convertToPercentage } from '../../../../utils/calculations';
 
 interface ConfidenceIntervalCardProps {
@@ -24,9 +24,13 @@ export const ConfidenceIntervalCard: React.FC<ConfidenceIntervalCardProps> = ({ 
             {t('numberStats.wilsonConfidenceInterval')}
           </Typography>
         </Stack>
-        <Typography variant="body2" color="text.secondary" sx={{ mb: 2, fontStyle: 'italic', bgcolor: 'info.50', p: 1.5, borderRadius: 1 }}>
+        <Typography
+          variant="body2"
+          color="text.secondary"
+          sx={{ mb: 2, fontStyle: 'italic', bgcolor: 'info.50', p: 1.5, borderRadius: 1 }}
+        >
           {t('numberStats.wilsonConfidenceIntervalHelp', {
-            confidence: Math.round(numberStat.confidenceInterval.confidenceLevel * 100)
+            confidence: Math.round(numberStat.confidenceInterval.confidenceLevel * 100),
           })}
         </Typography>
         <Box sx={{ mt: 3 }}>

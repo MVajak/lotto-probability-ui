@@ -1,11 +1,11 @@
 import { Box, Grid, Typography } from '@mui/material';
-import React from 'react';
+import type React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Interpretation, NumberStat } from '../../../types';
+import type { Interpretation, NumberStat } from '../../../types';
 import { safeBig } from '../../../utils/calculations';
 import { NumberStatCard } from '../NumberStatCard';
-import { LottoNumbersDialogStyle } from '../types';
+import type { LottoNumbersDialogStyle } from '../types';
 
 interface PositionGroupProps {
   position: string;

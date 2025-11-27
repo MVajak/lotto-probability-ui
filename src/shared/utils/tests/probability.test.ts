@@ -1,5 +1,5 @@
 import { createStubInstances } from '../../test-utils/mocking';
-import { NumberStat } from '../../types';
+import type { NumberStat } from '../../types';
 import { getMostProbableDigitsByPosition, getTopProbabilityStats } from '../probability';
 
 describe('PROBABILITY', () => {

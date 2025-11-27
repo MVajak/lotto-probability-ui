@@ -1,8 +1,7 @@
 import { fireEvent, render, screen } from '@testing-library/react';
-import React from 'react';
 
 import { LottoNumber } from '../index';
-import { LottoNumberProps } from '../types';
+import type { LottoNumberProps } from '../types';
 
 describe('LottoNumber', () => {
   const onClickMock = jest.fn();

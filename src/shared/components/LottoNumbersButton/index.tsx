@@ -1,8 +1,9 @@
 import { Button, Grid } from '@mui/material';
-import React, { useCallback, useState } from 'react';
+import type React from 'react';
+import { useCallback, useState } from 'react';
 
 import { LottoNumbersDialog } from '../LottoNumbersDialog';
-import { LottoNumbersButtonProps } from './types';
+import type { LottoNumbersButtonProps } from './types';
 
 export const LottoNumbersButton = ({ buttonText, numberStats, style }: LottoNumbersButtonProps): React.JSX.Element => {
   const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
@@ -17,9 +18,7 @@ export const LottoNumbersButton = ({ buttonText, numberStats, style }: LottoNumb
 
   return (
     <Grid>
-      <Button onClick={handleDialogOpen}>
-        {buttonText}
-      </Button>
+      <Button onClick={handleDialogOpen}>{buttonText}</Button>
       <LottoNumbersDialog isOpen={isDialogOpen} onClose={handleDialogClose} numberStats={numberStats} style={style} />
     </Grid>
   );

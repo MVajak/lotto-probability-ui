@@ -1,5 +1,6 @@
 import { Alert, Box, Button, TextField, Typography } from '@mui/material';
-import React, { useState } from 'react';
+import type React from 'react';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 interface LoginFormProps {
@@ -46,7 +47,11 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onSubmit, isLoading, error
   return (
     <>
       <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-        <img src="/img/logo_lotto.png" alt="Lotto Logo" style={{ maxWidth: '120px', height: 'auto', padding: '16px' }} />
+        <img
+          src="/img/logo_lotto.png"
+          alt="Lotto Logo"
+          style={{ maxWidth: '120px', height: 'auto', padding: '16px' }}
+        />
       </Box>
       <Typography variant="h5" component="h5" gutterBottom align="center">
         {t('login.title')}

@@ -1,4 +1,4 @@
-import { MostProbableDigitsByPosition, NumberStat } from '../../types';
+import type { MostProbableDigitsByPosition, NumberStat } from '../../types';
 
 export interface LottoPositionalProbabilityResultsProps {
   totalDraws: number;

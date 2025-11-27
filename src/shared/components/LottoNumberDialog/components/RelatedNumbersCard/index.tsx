@@ -1,9 +1,9 @@
 import LinkIcon from '@mui/icons-material/Link';
 import { Box, Card, CardContent, Chip, Stack, Typography } from '@mui/material';
-import React from 'react';
+import type React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { NumberStat } from '../../../../types';
+import type { NumberStat } from '../../../../types';
 import { LottoNumber } from '../../../LottoNumber';
 
 interface RelatedNumbersCardProps {
@@ -24,7 +24,6 @@ export const RelatedNumbersCard: React.FC<RelatedNumbersCardProps> = ({ relatedN
         bgcolor: 'background.paper',
       }}
     >
-
       <CardContent sx={{ p: 3 }}>
         <Stack direction="row" alignItems="center" spacing={1.5} sx={{ mb: 2 }}>
           <Box
@@ -77,9 +76,11 @@ export const RelatedNumbersCard: React.FC<RelatedNumbersCardProps> = ({ relatedN
               style={{
                 cursor: onNumberClick ? 'pointer' : 'default',
                 transition: 'transform 0.2s ease-in-out',
-                '&:hover': onNumberClick ? {
-                  transform: 'scale(1.1)',
-                } : {},
+                '&:hover': onNumberClick
+                  ? {
+                      transform: 'scale(1.1)',
+                    }
+                  : {},
               }}
             />
           ))}

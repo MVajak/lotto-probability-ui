@@ -1,7 +1,7 @@
 import { Paper } from '@mui/material';
-import React from 'react';
+import type React from 'react';
 
-import { CardWrapperProps } from './types';
+import type { CardWrapperProps } from './types';
 
 export const CardWrapper: React.FC<CardWrapperProps> = ({ children, sx }) => {
   return (
@@ -12,7 +12,7 @@ export const CardWrapper: React.FC<CardWrapperProps> = ({ children, sx }) => {
         p: 2,
         my: 1,
         boxShadow: { xs: '0px 4px 12px rgba(0, 0, 0, 0.15)' },
-        ...sx
+        ...sx,
       }}
     >
       {children}

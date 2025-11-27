@@ -1,13 +1,8 @@
 import ClearIcon from '@mui/icons-material/Clear';
 import SortIcon from '@mui/icons-material/Sort';
-import {
-  Box,
-  Chip,
-  Popover,
-  Stack,
-  Typography,
-} from '@mui/material';
-import React, { useState } from 'react';
+import { Box, Chip, Popover, Stack, Typography } from '@mui/material';
+import type React from 'react';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { SortingType } from '../types';
@@ -71,8 +66,8 @@ export const LottoNumbersFilter: React.FC<LottoNumbersFilterProps> = ({
               maxWidth: 350,
               borderRadius: 2,
               boxShadow: 3,
-            }
-          }
+            },
+          },
         }}
       >
         <Stack spacing={2.5}>

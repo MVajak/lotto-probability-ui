@@ -1,5 +1,5 @@
 import { CircularProgress, Divider, Grid, Typography } from '@mui/material';
-import React from 'react';
+import type React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { safeBig } from '../../utils/calculations';
@@ -7,7 +7,7 @@ import { analyzeGroupsForDisplay, groupNumbersByFrequency } from '../../utils/nu
 import { CardWrapper } from '../CardWrapper';
 import { LottoNumberGroup } from '../LottoNumberGroup';
 import { LottoNumberResultsWrapper } from '../LottoNumberResultsWrapper';
-import { LottoProbabilityResultsProps } from './types';
+import type { LottoProbabilityResultsProps } from './types';
 
 export const LottoProbabilityResults = (props: LottoProbabilityResultsProps): React.JSX.Element => {
   const { t } = useTranslation();
@@ -18,7 +18,7 @@ export const LottoProbabilityResults = (props: LottoProbabilityResultsProps): Re
   return (
     <CardWrapper sx={{ width: '100%' }}>
       <Divider textAlign="center">{t('result.totalDraws', { totalDraws })}</Divider>
-      <div style={{ position: 'relative'}}>
+      <div style={{ position: 'relative' }}>
         {isLoading && (
           <Grid
             size={{ xs: 12 }}
@@ -65,24 +65,21 @@ export const LottoProbabilityResults = (props: LottoProbabilityResultsProps): Re
                       titleKey={statResult.titleKey}
                       style={statResult.style}
                     >
-                      <>
-                        {groupsToShow.map((group, groupIndex) => {
-                          // Only apply maxVisible to the cutoff group
-                          const maxVisible = groupIndex === cutoffGroupIndex
-                            ? maxVisibleInCutoffGroup ?? undefined
-                            : undefined;
+                      {groupsToShow.map((group, groupIndex) => {
+                        // Only apply maxVisible to the cutoff group
+                        const maxVisible =
+                          groupIndex === cutoffGroupIndex ? (maxVisibleInCutoffGroup ?? undefined) : undefined;
 
-                          return (
-                            <LottoNumberGroup
-                              key={`group-${containerIndex}-${groupIndex}`}
-                              numbers={group}
-                              index={`${containerIndex}-${groupIndex}`}
-                              style={statResult.style?.digitButton}
-                              maxVisible={maxVisible}
-                            />
-                          );
-                        })}
-                      </>
+                        return (
+                          <LottoNumberGroup
+                            key={`group-${containerIndex}-${groupIndex}`}
+                            numbers={group}
+                            index={`${containerIndex}-${groupIndex}`}
+                            style={statResult.style?.digitButton}
+                            maxVisible={maxVisible}
+                          />
+                        );
+                      })}
                     </LottoNumberResultsWrapper>
                   </Grid>
                 );

@@ -1,4 +1,4 @@
-import { LottoType, NumberStat } from '../../shared/types';
+import type { LottoType, NumberStat } from '../../shared/types';
 
 export interface LottoProbabilityState {
   lottoProbabilityResult: LottoProbabilityDto;

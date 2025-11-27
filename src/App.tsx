@@ -1,4 +1,3 @@
-import React from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 
 import { AuthProvider } from './features/auth/AuthProvider';
@@ -6,8 +5,8 @@ import { HomePage } from './HomePage';
 import { LoginPage } from './LoginPage';
 import { MagicLinkVerifyPage } from './MagicLinkVerifyPage';
 import { ProfilePage } from './ProfilePage';
-import { pageRoutes } from './shared/types';
 import { SubscriptionPage } from './SubscriptionPage';
+import { pageRoutes } from './shared/types';
 
 function App() {
   return (

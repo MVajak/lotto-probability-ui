@@ -1,5 +1,5 @@
 import { useMediaQuery, useTheme } from '@mui/material';
-import React from 'react';
+import type React from 'react';
 
 interface LotteryBall {
   x: number;
@@ -15,12 +15,7 @@ interface LotteryBallsProps {
   className?: string;
 }
 
-export const LotteryBalls: React.FC<LotteryBallsProps> = ({
-                                                     width = 800,
-                                                     height = 400,
-                                                     ballSize,
-                                                     className = ''
-                                                   }) => {
+export const LotteryBalls: React.FC<LotteryBallsProps> = ({ width = 800, height = 400, ballSize, className = '' }) => {
   const theme = useTheme();
   const isLargeScreen = useMediaQuery(theme.breakpoints.up('lg'));
 
@@ -35,7 +30,7 @@ export const LotteryBalls: React.FC<LotteryBallsProps> = ({
         { x: 410, y: 220, num: '42', freq: 91 },
         { x: 590, y: 180, num: '15', freq: 68 },
         { x: 770, y: 210, num: '31', freq: 79 },
-        { x: 950, y: 170, num: '49', freq: 88 }
+        { x: 950, y: 170, num: '49', freq: 88 },
       ]
     : [
         { x: 50, y: 200, num: '7', freq: 85 },
@@ -43,7 +38,7 @@ export const LotteryBalls: React.FC<LotteryBallsProps> = ({
         { x: 310, y: 220, num: '42', freq: 91 },
         { x: 440, y: 180, num: '15', freq: 68 },
         { x: 570, y: 210, num: '31', freq: 79 },
-        { x: 700, y: 170, num: '49', freq: 88 }
+        { x: 700, y: 170, num: '49', freq: 88 },
       ];
 
   return (
@@ -125,20 +120,10 @@ export const LotteryBalls: React.FC<LotteryBallsProps> = ({
         return (
           <g key={`ball-${index}`}>
             {/* Glow effect - larger circle with radial gradient */}
-            <circle
-              cx={ball.x}
-              cy={ball.y}
-              r={responsiveBallSize + 15}
-              fill="url(#glowGradient)"
-            />
+            <circle cx={ball.x} cy={ball.y} r={responsiveBallSize + 15} fill="url(#glowGradient)" />
 
             {/* Main ball */}
-            <circle
-              cx={ball.x}
-              cy={ball.y}
-              r={responsiveBallSize}
-              fill="url(#ballGradient)"
-            />
+            <circle cx={ball.x} cy={ball.y} r={responsiveBallSize} fill="url(#ballGradient)" />
 
             {/* Shine effect */}
             <circle
@@ -174,13 +159,7 @@ export const LotteryBalls: React.FC<LotteryBallsProps> = ({
 
             {/* Frequency bar fill (only the percentage filled) */}
             {fillWidth > 0 && (
-              <rect
-                x={ball.x - barWidth / 2}
-                y={barY}
-                width={fillWidth}
-                height={barHeight}
-                fill="url(#barGradient)"
-              />
+              <rect x={ball.x - barWidth / 2} y={barY} width={fillWidth} height={barHeight} fill="url(#barGradient)" />
             )}
 
             {/* Frequency percentage text */}

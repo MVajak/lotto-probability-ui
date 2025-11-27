@@ -7,7 +7,7 @@ export function safeBig(value?: string | number | null | Big): Big {
 
   if (typeof value === 'string') {
     const trimmed = value.trim();
-    return trimmed === '' || isNaN(Number(trimmed)) ? Big(0) : Big(trimmed);
+    return trimmed === '' || Number.isNaN(Number(trimmed)) ? Big(0) : Big(trimmed);
   }
 
   return Big(value);

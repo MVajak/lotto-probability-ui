@@ -1,6 +1,6 @@
-import { Theme } from '@mui/material/styles';
-import { SxProps } from '@mui/system';
-import React from 'react';
+import type { Theme } from '@mui/material/styles';
+import type { SxProps } from '@mui/system';
+import type React from 'react';
 
 export interface LottoNumberProps {
   digit: number;
