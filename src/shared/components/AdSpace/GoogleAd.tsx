@@ -35,7 +35,7 @@ export const GoogleAd: React.FC<GoogleAdProps> = ({ slot, format, responsive }) 
     <ins
       className="adsbygoogle"
       style={{ display: 'block' }}
-      data-ad-client={process.env.REACT_APP_ADSENSE_CLIENT_ID || 'ca-pub-XXXXXXXXXXXXXXXX'}
+      data-ad-client={import.meta.env.VITE_ADSENSE_CLIENT_ID || 'ca-pub-XXXXXXXXXXXXXXXX'}
       data-ad-slot={slot}
       data-ad-format={format || 'auto'}
       data-full-width-responsive={responsive ? 'true' : 'false'}

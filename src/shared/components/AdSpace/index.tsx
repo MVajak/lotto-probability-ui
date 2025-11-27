@@ -8,10 +8,10 @@ interface AdSpaceProps {
 }
 
 // Check if we should show placeholders or real ads
-// Controlled by REACT_APP_SHOW_AD_PLACEHOLDERS environment variable
+// Controlled by VITE_SHOW_AD_PLACEHOLDERS environment variable
 // Development (.env): true - shows placeholder ads
 // Production (.env.production): false - shows real Google AdSense ads
-const SHOW_PLACEHOLDER = process.env.REACT_APP_SHOW_AD_PLACEHOLDERS === 'true';
+const SHOW_PLACEHOLDER = import.meta.env.VITE_SHOW_AD_PLACEHOLDERS === 'true';
 
 const SideAdContainer = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(2),
@@ -130,7 +130,7 @@ export const AdSpace: React.FC<AdSpaceProps> = ({ position }) => {
   if (position === 'top-mobile') {
     return (
       <MobileBannerAdContainer elevation={0}>
-        <GoogleAd slot={process.env.REACT_APP_ADSENSE_MOBILE_SLOT || '1234567890'} format="horizontal" responsive />
+        <GoogleAd slot={import.meta.env.VITE_ADSENSE_MOBILE_SLOT || '1234567890'} format="horizontal" responsive />
       </MobileBannerAdContainer>
     );
   }
@@ -138,14 +138,14 @@ export const AdSpace: React.FC<AdSpaceProps> = ({ position }) => {
   if (position === 'in-content') {
     return (
       <InContentAdContainer elevation={0}>
-        <GoogleAd slot={process.env.REACT_APP_ADSENSE_INCONTENT_SLOT || '0987654321'} format="horizontal" responsive />
+        <GoogleAd slot={import.meta.env.VITE_ADSENSE_INCONTENT_SLOT || '0987654321'} format="horizontal" responsive />
       </InContentAdContainer>
     );
   }
 
   return (
     <SideAdContainer elevation={0}>
-      <GoogleAd slot={process.env.REACT_APP_ADSENSE_SIDEBAR_SLOT || '1122334455'} format="vertical" />
+      <GoogleAd slot={import.meta.env.VITE_ADSENSE_SIDEBAR_SLOT || '1122334455'} format="vertical" />
     </SideAdContainer>
   );
 };

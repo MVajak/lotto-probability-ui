@@ -7,7 +7,7 @@ import { AuthTokens, GetMeResponseDto, MagicLinkRequestDto, MagicLinkResponseDto
 export const requestMagicLink = createAsyncThunk<MagicLinkResponseDto, MagicLinkRequestDto>(
   'auth/requestMagicLink',
   async (payload: MagicLinkRequestDto) => {
-    const apiUrl = process.env.REACT_APP_API_URL;
+    const apiUrl = import.meta.env.VITE_API_URL;
     const response = await axios.post<MagicLinkResponseDto>(`${apiUrl}/auth/request-magic-link`, payload);
     return response.data;
   }
@@ -16,7 +16,7 @@ export const requestMagicLink = createAsyncThunk<MagicLinkResponseDto, MagicLink
 export const verifyMagicLink = createAsyncThunk<AuthTokens, VerifyMagicLinkDto>(
   'auth/verifyMagicLink',
   async (payload: VerifyMagicLinkDto) => {
-    const apiUrl = process.env.REACT_APP_API_URL;
+    const apiUrl = import.meta.env.VITE_API_URL;
     const response = await axios.get<AuthTokens>(`${apiUrl}/auth/verify`, {
       params: { token: payload.token },
     });
@@ -29,7 +29,7 @@ export const verifyMagicLink = createAsyncThunk<AuthTokens, VerifyMagicLinkDto>(
 );
 
 export const getMe = createAsyncThunk<GetMeResponseDto>('auth/getMe', async () => {
-  const apiUrl = process.env.REACT_APP_API_URL;
+  const apiUrl = import.meta.env.VITE_API_URL;
   const response = await axios.get<GetMeResponseDto>(`${apiUrl}/auth/me`);
   return response.data;
 });
