@@ -181,11 +181,11 @@ export const HistoricalTrendsCard: React.FC<HistoricalTrendsCardProps> = ({ numb
               Monthly Appearances
             </Typography>
             <Box sx={{ display: 'flex', gap: 0.5, mt: 1, overflowX: 'auto', pb: 1 }}>
-              {trends.timeSeries.map((point, index) => {
+              {trends.timeSeries.map((point) => {
                 const isAboveExpected = point.appearances > point.expectedAppearances;
                 return (
                   <Box
-                    key={index}
+                    key={point.month}
                     sx={{
                       minWidth: 60,
                       p: 1,

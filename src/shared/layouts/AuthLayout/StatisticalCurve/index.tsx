@@ -61,6 +61,8 @@ export const StatisticalCurve: React.FC<StatisticalCurveProps> = ({
       className={className}
       style={{ overflow: 'visible' }}
       preserveAspectRatio="xMinYMid meet"
+      role="img"
+      aria-label="Decorative statistical curve visualization"
     >
       <defs>
         {/* Gradient for the curve */}
@@ -90,9 +92,9 @@ export const StatisticalCurve: React.FC<StatisticalCurveProps> = ({
       />
 
       {/* Data points on the curve */}
-      {dataPoints.map((point, index) => (
+      {dataPoints.map((point) => (
         <circle
-          key={`datapoint-${index}`}
+          key={`datapoint-${point.x}-${point.y}`}
           cx={point.x}
           cy={point.y}
           r="4"

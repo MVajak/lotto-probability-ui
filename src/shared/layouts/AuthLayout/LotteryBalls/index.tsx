@@ -50,6 +50,8 @@ export const LotteryBalls: React.FC<LotteryBallsProps> = ({ width = 800, height 
       className={className}
       style={{ overflow: 'visible' }}
       preserveAspectRatio="xMinYMid meet"
+      role="img"
+      aria-label="Decorative lottery balls with frequency indicators"
     >
       <defs>
         {/* Ball gradient */}
@@ -98,7 +100,7 @@ export const LotteryBalls: React.FC<LotteryBallsProps> = ({ width = 800, height 
 
         return (
           <line
-            key={`line-${index}`}
+            key={`line-${ball.num}-${nextBall.num}`}
             x1={x1}
             y1={y1}
             x2={x2}
@@ -112,14 +114,14 @@ export const LotteryBalls: React.FC<LotteryBallsProps> = ({ width = 800, height 
       })}
 
       {/* Lottery balls */}
-      {balls.map((ball, index) => {
+      {balls.map((ball) => {
         const barWidth = 60;
         const barHeight = 6;
         const barY = ball.y + responsiveBallSize + 12;
         const fillWidth = (ball.freq / 100) * barWidth;
 
         return (
-          <g key={`ball-${index}`}>
+          <g key={`ball-${ball.num}`}>
             {/* Glow effect - larger circle with radial gradient */}
             <circle cx={ball.x} cy={ball.y} r={responsiveBallSize + 15} fill="url(#glowGradient)" />
 

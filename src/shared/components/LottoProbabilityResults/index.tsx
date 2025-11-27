@@ -49,7 +49,7 @@ export const LottoProbabilityResults = (props: LottoProbabilityResultsProps): Re
         >
           {hasResults ? (
             <Grid container size={{ xs: 12 }} padding={2}>
-              {numberStatsResults.map((statResult, containerIndex) => {
+              {numberStatsResults.map((statResult) => {
                 // First group all numbers by frequency
                 const allGroupedNumbers = groupNumbersByFrequency(statResult.allNumberStats);
 
@@ -60,7 +60,7 @@ export const LottoProbabilityResults = (props: LottoProbabilityResultsProps): Re
                 );
 
                 return (
-                  <Grid key={containerIndex} size={{ xs: 12, ...statResult.style?.container }}>
+                  <Grid key={statResult.titleKey} size={{ xs: 12, ...statResult.style?.container }}>
                     <LottoNumberResultsWrapper
                       allNumberStats={statResult.allNumberStats}
                       titleKey={statResult.titleKey}
@@ -70,12 +70,14 @@ export const LottoProbabilityResults = (props: LottoProbabilityResultsProps): Re
                         // Only apply maxVisible to the cutoff group
                         const maxVisible =
                           groupIndex === cutoffGroupIndex ? (maxVisibleInCutoffGroup ?? undefined) : undefined;
+                        // Use frequency value from the group's first element as part of the key
+                        const groupFrequency = group[0]?.frequency ?? groupIndex;
 
                         return (
                           <LottoNumberGroup
-                            key={`group-${containerIndex}-${groupIndex}`}
+                            key={`group-${statResult.titleKey}-freq-${groupFrequency}`}
                             numbers={group}
-                            index={`${containerIndex}-${groupIndex}`}
+                            index={`${statResult.titleKey}-${groupIndex}`}
                             style={statResult.style?.digitButton}
                             maxVisible={maxVisible}
                           />

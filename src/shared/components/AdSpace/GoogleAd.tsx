@@ -25,8 +25,10 @@ interface GoogleAdProps {
 export const GoogleAd: React.FC<GoogleAdProps> = ({ slot, format, responsive }) => {
   useEffect(() => {
     try {
+      // Initialize adsbygoogle array if it doesn't exist
+      window.adsbygoogle = window.adsbygoogle || [];
       // Push ad to AdSense
-      (window.adsbygoogle = window.adsbygoogle || []).push({});
+      window.adsbygoogle.push({});
     } catch (e) {
       console.error('AdSense error:', e);
     }

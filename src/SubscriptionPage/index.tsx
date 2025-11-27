@@ -7,6 +7,7 @@ import { Box, Button, Card, CardContent, Container, Divider, Grid, Paper, Typogr
 import ResponsiveHeader from '../shared/components/ResponsiveHeader';
 
 interface SubscriptionTier {
+  id: string;
   name: string;
   price: string;
   period: string;
@@ -19,12 +20,14 @@ export const SubscriptionPage: React.FC = () => {
 
   const subscriptionTiers: SubscriptionTier[] = [
     {
+      id: 'free',
       name: t('subscription.free.name'),
       price: t('subscription.free.price'),
       period: '',
       features: [t('subscription.free.feature1'), t('subscription.free.feature2'), t('subscription.free.feature3')],
     },
     {
+      id: 'pro',
       name: t('subscription.pro.name'),
       price: '$2.49',
       period: t('subscription.perMonth'),
@@ -37,6 +40,7 @@ export const SubscriptionPage: React.FC = () => {
       highlighted: true,
     },
     {
+      id: 'premium',
       name: t('subscription.premium.name'),
       price: '$3.99',
       period: t('subscription.perMonth'),
@@ -65,8 +69,8 @@ export const SubscriptionPage: React.FC = () => {
             </Typography>
 
             <Grid container spacing={3} justifyContent="center">
-              {subscriptionTiers.map((tier, index) => (
-                <Grid key={index} size={{ xs: 12, md: 4 }}>
+              {subscriptionTiers.map((tier) => (
+                <Grid key={tier.id} size={{ xs: 12, md: 4 }}>
                   <Card
                     raised={tier.highlighted}
                     sx={{
@@ -116,8 +120,8 @@ export const SubscriptionPage: React.FC = () => {
                       </Box>
                       <Divider sx={{ my: 2 }} />
                       <Box sx={{ flexGrow: 1 }}>
-                        {tier.features.map((feature, featureIndex) => (
-                          <Box key={featureIndex} sx={{ display: 'flex', alignItems: 'flex-start', mb: 1.5 }}>
+                        {tier.features.map((feature) => (
+                          <Box key={feature} sx={{ display: 'flex', alignItems: 'flex-start', mb: 1.5 }}>
                             <CheckIcon sx={{ color: 'success.main', mr: 1, mt: 0.5, fontSize: 20 }} />
                             <Typography variant="body2">{feature}</Typography>
                           </Box>

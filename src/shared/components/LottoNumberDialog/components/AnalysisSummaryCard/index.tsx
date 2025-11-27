@@ -63,18 +63,27 @@ export const AnalysisSummaryCard: React.FC<AnalysisSummaryCardProps> = ({ number
             variant="body1"
             sx={{
               lineHeight: 1.6,
-              '& strong': {
-                color: 'primary.main',
-                fontSize: '1.1em',
-              },
             }}
-            dangerouslySetInnerHTML={{
-              __html: t('numberStats.appearedTimes', {
-                count: numberStat.interpretation.appearedCount,
-                total: numberStat.interpretation.totalDraws,
-              }),
-            }}
-          />
+          >
+            {t('numberStats.appearedTimes', {
+              count: numberStat.interpretation.appearedCount,
+              total: numberStat.interpretation.totalDraws,
+            })
+              .split(/(\d+)/g)
+              .map((part) =>
+                /^\d+$/.test(part) ? (
+                  <Box
+                    key={`num-${part}`}
+                    component="span"
+                    sx={{ color: 'primary.main', fontSize: '1.1em', fontWeight: 700 }}
+                  >
+                    {part}
+                  </Box>
+                ) : (
+                  <span key={`text-${part}`}>{part}</span>
+                )
+              )}
+          </Typography>
         </Box>
 
         {/* Deviation highlight with icon */}
@@ -114,22 +123,52 @@ export const AnalysisSummaryCard: React.FC<AnalysisSummaryCardProps> = ({ number
                 sx={{
                   flex: 1,
                   lineHeight: 1.6,
-                  '& span': {
-                    display: 'inline-block',
-                  },
                 }}
-                dangerouslySetInnerHTML={{
-                  __html: isMoreFrequent
-                    ? t('numberStats.appearingMoreThanExpected', {
-                        color: CATEGORY_COLORS.frequent.primary,
-                        percent: numberStat.interpretation.percentDifference,
-                      })
-                    : t('numberStats.appearingLessThanExpected', {
-                        color: CATEGORY_COLORS.rare.primary,
-                        percent: Math.abs(numberStat.interpretation.percentDifference),
-                      }),
-                }}
-              />
+              >
+                {isMoreFrequent
+                  ? t('numberStats.appearingMoreThanExpected', {
+                      percent: numberStat.interpretation.percentDifference,
+                    })
+                      .split(/(\d+%)/g)
+                      .map((part) =>
+                        /^\d+%$/.test(part) ? (
+                          <Box
+                            key={`freq-${part}`}
+                            component="span"
+                            sx={{
+                              color: CATEGORY_COLORS.frequent.primary,
+                              fontSize: '1.2em',
+                              fontWeight: 700,
+                            }}
+                          >
+                            {part}
+                          </Box>
+                        ) : (
+                          <span key={`text-${part}`}>{part}</span>
+                        )
+                      )
+                  : t('numberStats.appearingLessThanExpected', {
+                      percent: Math.abs(numberStat.interpretation.percentDifference),
+                    })
+                      .split(/(\d+%)/g)
+                      .map((part) =>
+                        /^\d+%$/.test(part) ? (
+                          <Box
+                            key={`rare-${part}`}
+                            component="span"
+                            sx={{
+                              color: CATEGORY_COLORS.rare.primary,
+                              fontSize: '1.2em',
+                              fontWeight: 700,
+                            }}
+                          >
+                            {part}
+                          </Box>
+                        ) : (
+                          <span key={`text-${part}`}>{part}</span>
+                        )
+                      )}
+              </Typography>
             </Stack>
           </Box>
         )}

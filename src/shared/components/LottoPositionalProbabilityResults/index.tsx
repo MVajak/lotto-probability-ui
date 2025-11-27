@@ -51,7 +51,7 @@ export const LottoPositionalProbabilityResults = (props: LottoPositionalProbabil
             <Grid container size={{ xs: 12 }} padding={2}>
               <Grid size={{ xs: 12 }}>
                 <LottoNumberResultsWrapper allNumberStats={allNumberStats} titleKey={'result.primaryNumbers'}>
-                  {Object.entries(numberStatsByPosition).map(([, stats], positionIndex) => {
+                  {Object.entries(numberStatsByPosition).map(([position, stats]) => {
                     // For each position, group by frequency and apply display logic
                     const maxCount = 3; // Show top 3 numbers per position
                     const allGroupedNumbers = groupNumbersByFrequency(stats);
@@ -61,17 +61,19 @@ export const LottoPositionalProbabilityResults = (props: LottoPositionalProbabil
                     );
 
                     return (
-                      <React.Fragment key={positionIndex}>
+                      <React.Fragment key={`position-${position}`}>
                         {groupsToShow.map((group, groupIndex) => {
                           // Only apply maxVisible to the cutoff group
                           const maxVisible =
                             groupIndex === cutoffGroupIndex ? (maxVisibleInCutoffGroup ?? undefined) : undefined;
+                          // Use frequency value from the group's first element as part of the key
+                          const groupFrequency = group[0]?.frequency ?? groupIndex;
 
                           return (
                             <LottoNumberGroup
-                              key={`position-${positionIndex}-group-${groupIndex}`}
+                              key={`position-${position}-freq-${groupFrequency}`}
                               numbers={group}
-                              index={`${positionIndex}-${groupIndex}`}
+                              index={`${position}-${groupIndex}`}
                               maxVisible={maxVisible}
                             />
                           );

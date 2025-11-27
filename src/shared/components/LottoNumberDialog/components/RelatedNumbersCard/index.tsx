@@ -68,11 +68,11 @@ export const RelatedNumbersCard: React.FC<RelatedNumbersCardProps> = ({ relatedN
             borderColor: 'grey.200',
           }}
         >
-          {relatedNumbers.map((stat, index) => (
+          {relatedNumbers.map((stat) => (
             <LottoNumber
-              key={index}
+              key={stat.digit}
               digit={stat.digit}
-              index={`related-dialog-${index}`}
+              index={`related-dialog-${stat.digit}`}
               onClick={onNumberClick ? () => onNumberClick(stat) : undefined}
               style={{
                 cursor: onNumberClick ? 'pointer' : 'default',

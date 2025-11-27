@@ -31,7 +31,13 @@ export const LottoNumber = ({ index, digit, onClick, style }: LottoNumberProps):
         ...style,
       }}
     >
-      <svg width={ballSize} height={ballSize} viewBox={`0 0 ${ballSize} ${ballSize}`}>
+      <svg
+        width={ballSize}
+        height={ballSize}
+        viewBox={`0 0 ${ballSize} ${ballSize}`}
+        role="img"
+        aria-label={`Lottery number ${digit}`}
+      >
         <defs>
           {/* Ball gradient */}
           <radialGradient id={`ballGradient-${index}`}>

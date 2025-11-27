@@ -35,24 +35,27 @@ export const LottoNumbersDialog = ({
     return Math.max(...filteredStats.map((stat) => stat.frequency), 0.0001);
   }, [filteredStats]);
 
-  function handleSorting(showOnlyAppearing: boolean, sortingValue: SortingType): NumberStat[] {
-    const newFilteredStats = showOnlyAppearing ? numberStats.filter((stat) => stat.count !== 0) : numberStats;
+  const handleSorting = useCallback(
+    (showOnlyAppearing: boolean, sortingValue: SortingType): NumberStat[] => {
+      const newFilteredStats = showOnlyAppearing ? numberStats.filter((stat) => stat.count !== 0) : numberStats;
 
-    return [...newFilteredStats].sort((a, b) => {
-      switch (sortingValue) {
-        case SortingType.DigitAsc:
-          return a.digit - b.digit;
-        case SortingType.DigitDesc:
-          return b.digit - a.digit;
-        case SortingType.FrequencyAsc:
-          return a.frequency - b.frequency;
-        case SortingType.FrequencyDesc:
-          return b.frequency - a.frequency;
-        default:
-          return 0;
-      }
-    });
-  }
+      return [...newFilteredStats].sort((a, b) => {
+        switch (sortingValue) {
+          case SortingType.DigitAsc:
+            return a.digit - b.digit;
+          case SortingType.DigitDesc:
+            return b.digit - a.digit;
+          case SortingType.FrequencyAsc:
+            return a.frequency - b.frequency;
+          case SortingType.FrequencyDesc:
+            return b.frequency - a.frequency;
+          default:
+            return 0;
+        }
+      });
+    },
+    [numberStats]
+  );
 
   // Sync filteredStats when numberStats prop changes
   useEffect(() => {
@@ -136,12 +139,12 @@ export const LottoNumbersDialog = ({
 
       <DialogContent dividers sx={{ bgcolor: 'grey.50' }}>
         {/* Numbers Grid */}
-        {Object.entries(numberStatsByPositions).map(([position, stats], positionIndex) => (
+        {Object.entries(numberStatsByPositions).map(([position, stats]) => (
           <PositionGroup
-            key={`position-container-${positionIndex}`}
+            key={`position-container-${position}`}
             position={position}
             stats={stats}
-            positionIndex={positionIndex}
+            positionIndex={Number(position === UnassignedPosition ? -1 : position)}
             maxFrequency={maxFrequency}
             onStatClick={(stat) => {
               setSelectedStat(stat);

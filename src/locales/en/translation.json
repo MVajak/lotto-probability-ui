@@ -85,9 +85,9 @@
     "significantDescription": "This difference is unlikely to be just random luck - there might be a real pattern here.",
     "notSignificantDescription": "This difference could easily happen by chance - it's within normal random variation.",
     "analysisSummary": "What Does This Mean?",
-    "appearedTimes": "This number appeared <strong>{{count}}</strong> times in <strong>{{total}}</strong> draws.",
-    "appearingMoreThanExpected": "Appearing <span style=\"color: {{color}}; font-size: 1.2em\">{{percent}}%</span> more than expected",
-    "appearingLessThanExpected": "Appearing <span style=\"color: {{color}}; font-size: 1.2em\">{{percent}}%</span> less than expected",
+    "appearedTimes": "This number appeared {{count}} times in {{total}} draws.",
+    "appearingMoreThanExpected": "Appearing {{percent}}% more than expected",
+    "appearingLessThanExpected": "Appearing {{percent}}% less than expected",
     "historicalTrends": "📊 Historical Trends (Coming Soon)",
     "historicalTrendsDescription": "Frequency over time, distribution charts, and pattern analysis will appear here."
   },

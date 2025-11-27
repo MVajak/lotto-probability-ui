@@ -11,14 +11,14 @@ import { LottoNumber } from '../LottoNumber';
 import { LottoNumberDialog } from '../LottoNumberDialog';
 import type { LottoNumberGroupProps } from './types';
 
-export const LottoNumberGroup = ({ numbers, index, style, maxVisible }: LottoNumberGroupProps): React.JSX.Element => {
+export const LottoNumberGroup = ({ numbers, index, style, maxVisible }: LottoNumberGroupProps): React.JSX.Element | null => {
   const { t } = useTranslation();
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [selectedNumberIndex, setSelectedNumberIndex] = useState(0);
   const [isExpanded, setIsExpanded] = useState(false);
 
   if (numbers.length === 0) {
-    return <></>;
+    return null;
   }
 
   // Handle clicking a related number in the dialog
@@ -86,13 +86,13 @@ export const LottoNumberGroup = ({ numbers, index, style, maxVisible }: LottoNum
           }}
         >
           {/* Always visible numbers */}
-          {initialNumbers.map((num, idx) => (
+          {initialNumbers.map((num) => (
             <LottoNumber
-              key={idx}
+              key={num.digit}
               digit={num.digit}
-              index={`group-${index}-${idx}`}
+              index={`group-${index}-${num.digit}`}
               onClick={() => {
-                setSelectedNumberIndex(idx);
+                setSelectedNumberIndex(numbers.findIndex((n) => n.digit === num.digit));
                 setDrawerOpen(true);
               }}
               style={{ margin: 0, ...style }}
@@ -103,13 +103,13 @@ export const LottoNumberGroup = ({ numbers, index, style, maxVisible }: LottoNum
           {shouldShowExpandButton &&
             hiddenNumbers.length > 0 &&
             isExpanded &&
-            hiddenNumbers.map((num, idx) => (
+            hiddenNumbers.map((num) => (
               <LottoNumber
-                key={idx + initialNumbers.length}
+                key={num.digit}
                 digit={num.digit}
-                index={`group-${index}-${idx + initialNumbers.length}`}
+                index={`group-${index}-${num.digit}`}
                 onClick={() => {
-                  setSelectedNumberIndex(idx + initialNumbers.length);
+                  setSelectedNumberIndex(numbers.findIndex((n) => n.digit === num.digit));
                   setDrawerOpen(true);
                 }}
                 style={{

@@ -49,19 +49,19 @@ export const PositionGroup: React.FC<PositionGroupProps> = ({
         </Typography>
       ) : null}
       <Grid container spacing={2} sx={{ px: 2 }}>
-        {stats.map((stat, statIndex) => {
+        {stats.map((stat) => {
           // Use backend's category if available, otherwise default to 'normal'
           const category: Interpretation['status'] = stat.interpretation?.status || 'normal';
           const normalizedFrequency = (stat.frequency / maxFrequency) * 100;
 
           return (
-            <Grid key={`statistics-container-${positionIndex}-${statIndex}`} size={{ xs: 6, sm: 4, md: 3 }}>
+            <Grid key={`statistics-container-${positionIndex}-${stat.digit}`} size={{ xs: 6, sm: 4, md: 3 }}>
               <NumberStatCard
                 stat={stat}
                 category={category}
                 normalizedFrequency={normalizedFrequency}
                 onClick={() => onStatClick(stat)}
-                index={`dialog-${positionIndex}-${statIndex}`}
+                index={`dialog-${positionIndex}-${stat.digit}`}
                 style={style?.digitButton}
               />
             </Grid>
