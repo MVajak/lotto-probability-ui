@@ -1,8 +1,9 @@
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { Box, Chip, IconButton, Tooltip } from '@mui/material';
 import type React from 'react';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { Box, Chip, IconButton, Tooltip } from '@mui/material';
 
 import type { NumberStat } from '../../types';
 import { findRelatedNumbers } from '../../utils/numberGrouping';

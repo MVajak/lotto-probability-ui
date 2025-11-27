@@ -16,6 +16,19 @@
     "lineEnding": "lf",
     "lineWidth": 120
   },
+  "assist": {
+    "enabled": true,
+    "actions": {
+      "source": {
+        "organizeImports": {
+          "level": "on",
+          "options": {
+            "groups": [["react", "react-*"], ":BLANK_LINE:", ["@mui/**"], ":BLANK_LINE:", ["../**", "./**"]]
+          }
+        }
+      }
+    }
+  },
   "linter": {
     "enabled": true,
     "rules": {

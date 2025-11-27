@@ -1,7 +1,8 @@
-import ShowChartIcon from '@mui/icons-material/ShowChart';
-import { Box, Card, CardContent, Chip, Stack, Typography } from '@mui/material';
 import type React from 'react';
 import { useTranslation } from 'react-i18next';
+
+import ShowChartIcon from '@mui/icons-material/ShowChart';
+import { Box, Card, CardContent, Chip, Stack, Typography } from '@mui/material';
 
 import type { NumberStat } from '../../../../types';
 import { convertToPercentage } from '../../../../utils/calculations';

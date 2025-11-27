@@ -1,6 +1,7 @@
-import { Divider, Grid, Link, Typography } from '@mui/material';
 import type React from 'react';
 import { useTranslation } from 'react-i18next';
+
+import { Divider, Grid, Link, Typography } from '@mui/material';
 
 import { CardWrapper } from '../CardWrapper';
 import { type LottoInfoProps, LottoName } from './types';

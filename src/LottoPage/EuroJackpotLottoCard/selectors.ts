@@ -1,9 +1,8 @@
-import { createSelector } from '@reduxjs/toolkit';
-
 import { lottoProbabilityResultSelector } from '../../features/lottoProbability/selectors';
 import type { NumberStat, WinningNumberStat } from '../../shared/types';
 import { getTopProbabilityStats } from '../../shared/utils/probability';
 import { MAX_PRIMARY_NUMBERS, MAX_SECONDARY_NUMBERS } from './constants';
+import { createSelector } from '@reduxjs/toolkit';
 
 export const euroJackpotLottoWinningNumberStatsSelector = createSelector(
   [lottoProbabilityResultSelector],

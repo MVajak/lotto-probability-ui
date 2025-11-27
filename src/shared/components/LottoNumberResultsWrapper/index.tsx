@@ -1,6 +1,7 @@
-import { Grid, Typography } from '@mui/material';
 import type React from 'react';
 import { useTranslation } from 'react-i18next';
+
+import { Grid, Typography } from '@mui/material';
 
 import { LottoNumbersButton } from '../LottoNumbersButton';
 import type { LottoNumberResultsWrapperProps } from './types';

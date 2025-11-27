@@ -1,5 +1,3 @@
-import { createSelector } from '@reduxjs/toolkit';
-
 import { lottoProbabilityResultSelector } from '../../features/lottoProbability/selectors';
 import type { NumberStat } from '../../shared/types';
 import { getTopProbabilityStats } from '../../shared/utils/probability';
@@ -14,6 +12,7 @@ import {
   MAX_FULL_NUMBERS,
 } from './constants';
 import type { BingoMainNumberStats } from './types';
+import { createSelector } from '@reduxjs/toolkit';
 
 export const centerSquareGameWinningNumberStatsSelector = createSelector(
   [lottoProbabilityResultSelector],

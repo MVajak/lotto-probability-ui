@@ -1,12 +1,13 @@
-import { FormControl, MenuItem, Select, type SelectChangeEvent } from '@mui/material';
-import i18n from 'i18next';
 import type React from 'react';
+
+import { FormControl, MenuItem, Select, type SelectChangeEvent } from '@mui/material';
 
 import { Language } from '../../../locales/types';
 import FlagEstonia from '../../assets/flags/flag_estonia.svg';
 import FlagUK from '../../assets/flags/flag_united_kingdom.svg';
 import { LocalStorageKey } from '../../constants';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
+import i18n from 'i18next';
 
 interface LanguageSelectorProps {
   size?: 'small' | 'medium';

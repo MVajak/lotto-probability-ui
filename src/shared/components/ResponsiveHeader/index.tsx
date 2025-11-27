@@ -1,9 +1,10 @@
+import { useNavigate } from 'react-router-dom';
+
 import { Box, Grid } from '@mui/material';
 import AppBar from '@mui/material/AppBar';
 import Container from '@mui/material/Container';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import { useNavigate } from 'react-router-dom';
 
 import { pageRoutes } from '../../types';
 import { UserMenu } from '../UserMenu';

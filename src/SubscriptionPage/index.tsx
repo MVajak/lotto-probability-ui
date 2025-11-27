@@ -1,7 +1,8 @@
-import CheckIcon from '@mui/icons-material/Check';
-import { Box, Button, Card, CardContent, Container, Divider, Grid, Paper, Typography } from '@mui/material';
 import type React from 'react';
 import { useTranslation } from 'react-i18next';
+
+import CheckIcon from '@mui/icons-material/Check';
+import { Box, Button, Card, CardContent, Container, Divider, Grid, Paper, Typography } from '@mui/material';
 
 import ResponsiveHeader from '../shared/components/ResponsiveHeader';
 

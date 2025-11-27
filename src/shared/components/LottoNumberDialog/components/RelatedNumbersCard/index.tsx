@@ -1,7 +1,8 @@
-import LinkIcon from '@mui/icons-material/Link';
-import { Box, Card, CardContent, Chip, Stack, Typography } from '@mui/material';
 import type React from 'react';
 import { useTranslation } from 'react-i18next';
+
+import LinkIcon from '@mui/icons-material/Link';
+import { Box, Card, CardContent, Chip, Stack, Typography } from '@mui/material';
 
 import type { NumberStat } from '../../../../types';
 import { LottoNumber } from '../../../LottoNumber';

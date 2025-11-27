@@ -1,6 +1,7 @@
-import { Box } from '@mui/material';
 import type React from 'react';
 import { useEffect, useState } from 'react';
+
+import { Box } from '@mui/material';
 
 import { useAppDispatch, useAppSelector } from '../app/hooks';
 import { resetAuthState } from '../features/auth/authSlice';

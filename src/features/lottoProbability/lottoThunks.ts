@@ -1,7 +1,6 @@
+import type { LottoSearchDto, NumberHistoryDto, NumberHistoryRequestDto } from './types';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-
-import type { LottoSearchDto, NumberHistoryDto, NumberHistoryRequestDto } from './types';
 
 export const calculateLottoProbability = createAsyncThunk('/lotto-probability', async (payload: LottoSearchDto) => {
   const apiUrl = import.meta.env.VITE_API_URL;

@@ -1,6 +1,7 @@
-import { FormControl, MenuItem, Select, type SelectChangeEvent } from '@mui/material';
 import type React from 'react';
 import { useEffect, useMemo } from 'react';
+
+import { FormControl, MenuItem, Select, type SelectChangeEvent } from '@mui/material';
 
 import { LocalStorageKey, REGION_LOTTERY_TYPES, Region } from '../../constants';
 import { useLocalStorage } from '../../hooks/useLocalStorage';

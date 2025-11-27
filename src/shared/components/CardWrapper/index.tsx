@@ -1,5 +1,6 @@
-import { Paper } from '@mui/material';
 import type React from 'react';
+
+import { Paper } from '@mui/material';
 
 import type { CardWrapperProps } from './types';
 

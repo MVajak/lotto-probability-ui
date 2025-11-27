@@ -1,6 +1,7 @@
-import { Box, FormControl, Typography } from '@mui/material';
 import type React from 'react';
 import { useTranslation } from 'react-i18next';
+
+import { Box, FormControl, Typography } from '@mui/material';
 
 import { LotteryTypeSelector } from '../../../shared/components/LotteryTypeSelector';
 import type { LottoType } from '../../../shared/types';

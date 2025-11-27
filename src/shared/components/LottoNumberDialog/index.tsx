@@ -1,8 +1,9 @@
-import CloseIcon from '@mui/icons-material/Close';
-import { Box, Dialog, DialogContent, Grid, IconButton, Typography } from '@mui/material';
 import type React from 'react';
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+
+import CloseIcon from '@mui/icons-material/Close';
+import { Box, Dialog, DialogContent, Grid, IconButton, Typography } from '@mui/material';
 
 import { useAppDispatch, useAppSelector } from '../../../app/hooks';
 import { fetchNumberHistory } from '../../../features/lottoProbability/lottoThunks';

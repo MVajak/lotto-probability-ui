@@ -1,9 +1,10 @@
+import type React from 'react';
+import { useTranslation } from 'react-i18next';
+
 import LightbulbIcon from '@mui/icons-material/Lightbulb';
 import TrendingDownIcon from '@mui/icons-material/TrendingDown';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import { Box, Card, CardContent, Stack, Typography } from '@mui/material';
-import type React from 'react';
-import { useTranslation } from 'react-i18next';
 
 import { CATEGORY_COLORS } from '../../../../constants';
 import type { NumberStat } from '../../../../types';

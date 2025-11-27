@@ -1,5 +1,6 @@
-import { Box, CircularProgress, Typography } from '@mui/material';
 import type React from 'react';
+
+import { Box, CircularProgress, Typography } from '@mui/material';
 
 interface LoadingLayoutProps {
   title: string;

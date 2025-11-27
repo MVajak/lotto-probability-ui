@@ -1,5 +1,5 @@
-import type { Theme } from '@mui/material/styles';
 import type { SxProps } from '@mui/material';
+import type { Theme } from '@mui/material/styles';
 
 import type { NumberStat } from '../../types';
 

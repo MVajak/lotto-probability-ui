@@ -1,9 +1,10 @@
-import ClearIcon from '@mui/icons-material/Clear';
-import SortIcon from '@mui/icons-material/Sort';
-import { Box, Chip, Popover, Stack, Typography } from '@mui/material';
 import type React from 'react';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+
+import ClearIcon from '@mui/icons-material/Clear';
+import SortIcon from '@mui/icons-material/Sort';
+import { Box, Chip, Popover, Stack, Typography } from '@mui/material';
 
 import { SortingType } from '../types';
 

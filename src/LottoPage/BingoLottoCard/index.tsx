@@ -1,6 +1,7 @@
-import { Grid } from '@mui/material';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
+import { Grid } from '@mui/material';
 
 import type { AppDispatch } from '../../app/store';
 import { resetState } from '../../features/lottoProbability/lottoProbabilitySlice';

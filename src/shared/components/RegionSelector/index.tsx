@@ -1,5 +1,6 @@
-import { FormControl, MenuItem, Select, type SelectChangeEvent } from '@mui/material';
 import type React from 'react';
+
+import { FormControl, MenuItem, Select, type SelectChangeEvent } from '@mui/material';
 
 import FlagEstonia from '../../assets/flags/flag_estonia.svg';
 import FlagUK from '../../assets/flags/flag_united_kingdom.svg';

@@ -1,9 +1,10 @@
+import type React from 'react';
+import { useTranslation } from 'react-i18next';
+
 import TrendingDownIcon from '@mui/icons-material/TrendingDown';
 import TrendingFlatIcon from '@mui/icons-material/TrendingFlat';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import { Card, CardContent, Chip, Grid, Typography } from '@mui/material';
-import type React from 'react';
-import { useTranslation } from 'react-i18next';
 
 import { CATEGORY_COLORS } from '../../../../constants';
 import type { Interpretation, NumberStat } from '../../../../types';

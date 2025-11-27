@@ -1,6 +1,7 @@
-import { CircularProgress, Divider, Grid, Typography } from '@mui/material';
 import type React from 'react';
 import { useTranslation } from 'react-i18next';
+
+import { CircularProgress, Divider, Grid, Typography } from '@mui/material';
 
 import { safeBig } from '../../utils/calculations';
 import { analyzeGroupsForDisplay, groupNumbersByFrequency } from '../../utils/numberGrouping';

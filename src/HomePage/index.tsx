@@ -1,6 +1,7 @@
-import { Grid, Typography } from '@mui/material';
 import type React from 'react';
 import { useEffect, useState } from 'react';
+
+import { Grid, Typography } from '@mui/material';
 
 import { LottoPage } from '../LottoPage';
 import { BingoLottoCard } from '../LottoPage/BingoLottoCard';

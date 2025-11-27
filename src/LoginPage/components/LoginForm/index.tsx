@@ -1,7 +1,8 @@
-import { Alert, Box, Button, TextField, Typography } from '@mui/material';
 import type React from 'react';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+
+import { Alert, Box, Button, TextField, Typography } from '@mui/material';
 
 interface LoginFormProps {
   onSubmit: (email: string) => void;

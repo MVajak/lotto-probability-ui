@@ -1,6 +1,7 @@
-import { Alert, Box, Button, Typography } from '@mui/material';
 import type React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
+
+import { Alert, Box, Button, Typography } from '@mui/material';
 
 interface EmailSentSuccessProps {
   email: string;

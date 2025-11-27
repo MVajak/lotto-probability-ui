@@ -1,10 +1,11 @@
+import type React from 'react';
+import { useTranslation } from 'react-i18next';
+
 import ShowChartIcon from '@mui/icons-material/ShowChart';
 import TrendingDownIcon from '@mui/icons-material/TrendingDown';
 import TrendingFlatIcon from '@mui/icons-material/TrendingFlat';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import { Box, Card, CardContent, Chip, CircularProgress, Divider, Grid, Stack, Typography } from '@mui/material';
-import type React from 'react';
-import { useTranslation } from 'react-i18next';
 
 import type { NumberHistoryDto } from '../../../../../features/lottoProbability/types';
 

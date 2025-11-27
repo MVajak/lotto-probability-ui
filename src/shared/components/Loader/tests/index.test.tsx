@@ -1,7 +1,6 @@
-import { render, screen } from '@testing-library/react';
-
 import { Loader } from '../index';
 import type { LoaderProps } from '../types';
+import { render, screen } from '@testing-library/react';
 
 describe('Loader', () => {
   const propsMock: LoaderProps = {

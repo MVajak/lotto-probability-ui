@@ -1,10 +1,10 @@
-import { Divider, Grid } from '@mui/material';
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-import dayjs, { type Dayjs } from 'dayjs';
 import type React from 'react';
 import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
+
+import { Divider, Grid } from '@mui/material';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 
 import type { AppDispatch } from '../../../app/store';
 import { calculateLottoProbability } from '../../../features/lottoProbability/lottoThunks';
@@ -13,6 +13,7 @@ import { CardWrapper } from '../CardWrapper';
 import { SearchLottoProbabilityButton } from '../SearchLottoProbabilityButton';
 import { buildLottoSearchDto } from '../SearchLottoProbabilityButton/helpers/buildLottoSearchDto';
 import type { LottoSearchProps } from './types';
+import dayjs, { type Dayjs } from 'dayjs';
 
 export const LottoSearch = ({ lottoType }: LottoSearchProps): React.JSX.Element => {
   const [dateFromValue, setDateFromValue] = useState<Dayjs | null>(dayjs().subtract(1, 'month'));

@@ -1,9 +1,10 @@
+import type React from 'react';
+import { useTranslation } from 'react-i18next';
+
 import AcUnitIcon from '@mui/icons-material/AcUnit';
 import LocalFireDepartmentIcon from '@mui/icons-material/LocalFireDepartment';
 import { Box, Card, CardContent, Chip, LinearProgress, Typography } from '@mui/material';
 import type { SxProps, Theme } from '@mui/material/styles';
-import type React from 'react';
-import { useTranslation } from 'react-i18next';
 
 import { CATEGORY_COLORS } from '../../../constants';
 import type { Interpretation, NumberStat } from '../../../types';

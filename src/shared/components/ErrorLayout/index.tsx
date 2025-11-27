@@ -1,7 +1,8 @@
-import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
-import { Box, Button, Typography } from '@mui/material';
 import type React from 'react';
 import { useNavigate } from 'react-router-dom';
+
+import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
+import { Box, Button, Typography } from '@mui/material';
 
 interface ErrorLayoutProps {
   title: string;

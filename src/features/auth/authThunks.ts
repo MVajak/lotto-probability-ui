@@ -1,6 +1,3 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
-
 import { tokenStorage } from '../../shared/utils/tokenStorage';
 import type {
   AuthTokens,
@@ -9,6 +6,8 @@ import type {
   MagicLinkResponseDto,
   VerifyMagicLinkDto,
 } from './types';
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
 
 export const requestMagicLink = createAsyncThunk<MagicLinkResponseDto, MagicLinkRequestDto>(
   'auth/requestMagicLink',

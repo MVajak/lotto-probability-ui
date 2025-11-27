@@ -2,16 +2,17 @@ import './index.css';
 import './i18n';
 import './shared/utils/axiosInterceptor';
 
+import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
+
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { createTheme, ThemeProvider } from '@mui/material';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import ReactDOM from 'react-dom/client';
-import { Provider } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
 
 import App from './App';
 import { store } from './app/store';
+import ReactDOM from 'react-dom/client';
 
 const lightTheme = createTheme({
   palette: { mode: 'light' },

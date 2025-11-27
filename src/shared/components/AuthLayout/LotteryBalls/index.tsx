@@ -1,5 +1,6 @@
-import { useMediaQuery, useTheme } from '@mui/material';
 import type React from 'react';
+
+import { useMediaQuery, useTheme } from '@mui/material';
 
 interface LotteryBall {
   x: number;

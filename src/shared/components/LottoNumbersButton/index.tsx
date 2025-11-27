@@ -1,6 +1,7 @@
-import { Button, Grid } from '@mui/material';
 import type React from 'react';
 import { useCallback, useState } from 'react';
+
+import { Button, Grid } from '@mui/material';
 
 import { LottoNumbersDialog } from '../LottoNumbersDialog';
 import type { LottoNumbersButtonProps } from './types';

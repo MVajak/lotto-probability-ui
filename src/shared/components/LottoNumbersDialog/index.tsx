@@ -1,9 +1,9 @@
-import CloseIcon from '@mui/icons-material/Close';
-import { Box, Dialog, DialogContent, DialogTitle, IconButton, Typography } from '@mui/material';
-import groupBy from 'lodash/groupBy';
 import type React from 'react';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+
+import CloseIcon from '@mui/icons-material/Close';
+import { Box, Dialog, DialogContent, DialogTitle, IconButton, Typography } from '@mui/material';
 
 import type { NumberStat } from '../../types';
 import { findRelatedNumbers } from '../../utils/numberGrouping';
@@ -11,6 +11,7 @@ import { LottoNumberDialog } from '../LottoNumberDialog';
 import { LottoNumbersFilter } from './LottoNumbersFilter';
 import { PositionGroup } from './PositionGroup';
 import { type LottoNumbersDialogProps, SortingType } from './types';
+import groupBy from 'lodash/groupBy';
 
 const UnassignedPosition = 'unassigned';
 
