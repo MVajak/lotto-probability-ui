@@ -14,7 +14,7 @@ REACT_APP_SHOW_AD_PLACEHOLDERS=true
 ```
 
 ```bash
-npm start
+pnpm dev
 ```
 
 **What you'll see:**
@@ -51,7 +51,7 @@ REACT_APP_ADSENSE_SIDEBAR_SLOT=4105112575
 #### Step 2: Restart Development Server
 
 ```bash
-npm start
+pnpm dev
 ```
 
 #### Step 3: What You'll See
@@ -73,13 +73,13 @@ To test with your actual AdSense account on localhost, you need to expose your l
 
 1. **Install ngrok**
    ```bash
-   npm install -g ngrok
+   pnpm add -g ngrok
    # or download from https://ngrok.com/download
    ```
 
 2. **Start your app**
    ```bash
-   npm start
+   pnpm dev
    ```
 
 3. **Create tunnel in another terminal**
@@ -211,17 +211,17 @@ Before deploying to production:
 
 ```bash
 # Development with placeholders
-npm start
+pnpm dev
 
 # Test integration with Google test ads
 # (set REACT_APP_SHOW_AD_PLACEHOLDERS=false in .env.local first)
-npm start
+pnpm dev
 
 # Production build
-npm run build
+pnpm run build
 
 # Preview production build locally
-npx serve -s build
+pnpm preview
 ```
 
 ---

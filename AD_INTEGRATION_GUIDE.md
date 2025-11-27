@@ -70,7 +70,7 @@ REACT_APP_ADSENSE_SIDEBAR_SLOT=1122334455
 The code in `src/shared/components/AdSpace/index.tsx` (lines 135, 147, 157) will automatically use these environment variables.
 
 ### Step 5: Deploy and Verify
-1. Build your app: `npm run build`
+1. Build your app: `pnpm run build`
 2. Deploy to your production domain
 3. Wait 24-48 hours for ads to start showing (AdSense needs time to crawl your site)
 
@@ -182,7 +182,7 @@ REACT_APP_ADSENSE_SIDEBAR_SLOT=1122334455
 
 **Still seeing placeholders in production?**
 - Check that `.env.production` has `REACT_APP_SHOW_AD_PLACEHOLDERS=false`
-- Rebuild your app: `npm run build`
+- Rebuild your app: `pnpm run build`
 - Clear browser cache and hard reload (Ctrl+Shift+R / Cmd+Shift+R)
 
 ---
