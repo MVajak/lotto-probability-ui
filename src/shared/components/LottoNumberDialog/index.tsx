@@ -1,15 +1,18 @@
 import CloseIcon from '@mui/icons-material/Close';
-import ShowChartIcon from '@mui/icons-material/ShowChart';
-import { Box, Card, CardContent, Dialog, DialogContent, Grid, IconButton, Typography } from '@mui/material';
-import React from 'react';
+import { Box, Dialog, DialogContent, Grid, IconButton, Typography } from '@mui/material';
+import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
+import { useAppDispatch, useAppSelector } from '../../../app/hooks';
+import { fetchNumberHistory } from '../../../features/lottoProbability/lottoThunks';
+import { isLoadingHistorySelector, numberHistorySelector, searchParamsSelector } from '../../../features/lottoProbability/selectors';
 import { NumberStat } from '../../types';
 import { LottoNumber } from '../LottoNumber';
 import {
   AnalysisSummaryCard,
   ConfidenceIntervalCard,
   DeviationAnalysisCard,
+  HistoricalTrendsCard,
   NumberStatsCard,
   RelatedNumbersCard,
 } from './components';
@@ -19,6 +22,7 @@ interface LottoNumberDialogProps {
   onClose: () => void;
   numberStat: NumberStat | null;
   relatedNumbers?: NumberStat[];
+  onNumberChange?: (numberStat: NumberStat) => void;
 }
 
 export const LottoNumberDialog: React.FC<LottoNumberDialogProps> = ({
@@ -26,8 +30,26 @@ export const LottoNumberDialog: React.FC<LottoNumberDialogProps> = ({
   onClose,
   numberStat,
   relatedNumbers = [],
+  onNumberChange,
 }) => {
   const { t } = useTranslation();
+  const dispatch = useAppDispatch();
+  const searchParams = useAppSelector(searchParamsSelector);
+  const numberHistory = useAppSelector(numberHistorySelector);
+  const isLoadingHistory = useAppSelector(isLoadingHistorySelector);
+
+  // Fetch number history when dialog opens or number changes
+  useEffect(() => {
+    if (open && numberStat && searchParams) {
+      dispatch(fetchNumberHistory({
+        lottoType: searchParams.lottoType,
+        number: numberStat.digit,
+        dateFrom: searchParams.dateFrom,
+        dateTo: searchParams.dateTo,
+        position: numberStat.position ?? undefined,
+      }));
+    }
+  }, [open, numberStat?.digit, searchParams, dispatch]);
 
   if (!numberStat) return null;
 
@@ -103,29 +125,18 @@ export const LottoNumberDialog: React.FC<LottoNumberDialogProps> = ({
 
           {/* Related Numbers */}
           <Grid size={{ xs: 12, md: numberStat.interpretation ? 6 : 12 }}>
-            <RelatedNumbersCard relatedNumbers={relatedNumbers} />
+            <RelatedNumbersCard
+              relatedNumbers={relatedNumbers}
+              onNumberClick={onNumberChange}
+            />
           </Grid>
 
-          {/* Graph Placeholder */}
+          {/* Historical Trends */}
           <Grid size={{ xs: 12 }}>
-            <Card
-              elevation={0}
-              sx={{
-                bgcolor: 'background.paper',
-                border: '2px dashed',
-                borderColor: 'divider',
-              }}
-            >
-              <CardContent sx={{ p: 3, textAlign: 'center' }}>
-                <ShowChartIcon sx={{ fontSize: 48, color: 'text.secondary', mb: 1.5, opacity: 0.5 }} />
-                <Typography variant="subtitle1" fontWeight="600" color="text.secondary" gutterBottom>
-                  {t('numberStats.historicalTrends')}
-                </Typography>
-                <Typography variant="body2" color="text.secondary" sx={{ opacity: 0.7 }}>
-                  {t('numberStats.historicalTrendsDescription')}
-                </Typography>
-              </CardContent>
-            </Card>
+            <HistoricalTrendsCard
+              numberHistory={numberHistory}
+              isLoading={isLoadingHistory}
+            />
           </Grid>
         </Grid>
       </DialogContent>

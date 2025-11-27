@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { calculateLottoProbability } from './lottoThunks';
+import { calculateLottoProbability, fetchNumberHistory } from './lottoThunks';
 import { LottoProbabilityState } from './types';
 
 const initialState: LottoProbabilityState = {
@@ -9,8 +9,11 @@ const initialState: LottoProbabilityState = {
     totalDraws: 0,
     probabilityNumbers: [],
   },
+  searchParams: null,
   isLoading: false,
   error: null,
+  numberHistory: null,
+  isLoadingHistory: false,
 };
 
 const lottoProbabilitySlice = createSlice({
@@ -21,9 +24,10 @@ const lottoProbabilitySlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(calculateLottoProbability.pending, (state) => {
+      .addCase(calculateLottoProbability.pending, (state, action) => {
         state.isLoading = true;
         state.error = null;
+        state.searchParams = action.meta.arg;
       })
       .addCase(calculateLottoProbability.fulfilled, (state, action) => {
         state.isLoading = false;
@@ -32,6 +36,17 @@ const lottoProbabilitySlice = createSlice({
       .addCase(calculateLottoProbability.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.error.message || 'Failed to calculate';
+      })
+      .addCase(fetchNumberHistory.pending, (state) => {
+        state.isLoadingHistory = true;
+      })
+      .addCase(fetchNumberHistory.fulfilled, (state, action) => {
+        state.isLoadingHistory = false;
+        state.numberHistory = action.payload;
+      })
+      .addCase(fetchNumberHistory.rejected, (state) => {
+        state.isLoadingHistory = false;
+        state.numberHistory = null;
       });
   },
 });

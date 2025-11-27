@@ -3,6 +3,7 @@ import { Box, Chip, IconButton, Tooltip } from '@mui/material';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
+import { NumberStat } from '../../types';
 import { findRelatedNumbers } from '../../utils/numberGrouping';
 import { LottoNumber } from '../LottoNumber';
 import { LottoNumberDialog } from '../LottoNumberDialog';
@@ -17,6 +18,14 @@ export const LottoNumberGroup = ({ numbers, index, style, maxVisible }: LottoNum
   if (numbers.length === 0) {
     return <></>;
   }
+
+  // Handle clicking a related number in the dialog
+  const handleNumberChange = (newStat: NumberStat) => {
+    const newIndex = numbers.findIndex(n => n.digit === newStat.digit);
+    if (newIndex !== -1) {
+      setSelectedNumberIndex(newIndex);
+    }
+  };
 
   // Determine how many numbers to show
   const shouldShowExpandButton = maxVisible && numbers.length > maxVisible;
@@ -42,6 +51,7 @@ export const LottoNumberGroup = ({ numbers, index, style, maxVisible }: LottoNum
           onClose={() => setDrawerOpen(false)}
           numberStat={numbers[selectedNumberIndex]}
           relatedNumbers={[]}
+          onNumberChange={handleNumberChange}
         />
       </>
     );
@@ -161,6 +171,7 @@ export const LottoNumberGroup = ({ numbers, index, style, maxVisible }: LottoNum
         onClose={() => setDrawerOpen(false)}
         numberStat={numbers[selectedNumberIndex]}
         relatedNumbers={findRelatedNumbers(numbers[selectedNumberIndex], numbers)}
+        onNumberChange={handleNumberChange}
       />
     </>
   );

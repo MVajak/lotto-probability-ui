@@ -149,6 +149,7 @@ export const LottoNumbersDialog = ({ isOpen, onClose, numberStats, style }: Lott
         onClose={() => setDrawerOpen(false)}
         numberStat={selectedStat}
         relatedNumbers={relatedNumbers}
+        onNumberChange={(newStat) => setSelectedStat(newStat)}
       />
     </Dialog>
   );

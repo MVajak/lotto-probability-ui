@@ -8,9 +8,10 @@ import { LottoNumber } from '../../../LottoNumber';
 
 interface RelatedNumbersCardProps {
   relatedNumbers: NumberStat[];
+  onNumberClick?: (numberStat: NumberStat) => void;
 }
 
-export const RelatedNumbersCard: React.FC<RelatedNumbersCardProps> = ({ relatedNumbers }) => {
+export const RelatedNumbersCard: React.FC<RelatedNumbersCardProps> = ({ relatedNumbers, onNumberClick }) => {
   const { t } = useTranslation();
 
   if (relatedNumbers.length === 0) return null;
@@ -68,7 +69,19 @@ export const RelatedNumbersCard: React.FC<RelatedNumbersCardProps> = ({ relatedN
           }}
         >
           {relatedNumbers.map((stat, index) => (
-            <LottoNumber key={index} digit={stat.digit} index={`related-dialog-${index}`} />
+            <LottoNumber
+              key={index}
+              digit={stat.digit}
+              index={`related-dialog-${index}`}
+              onClick={onNumberClick ? () => onNumberClick(stat) : undefined}
+              style={{
+                cursor: onNumberClick ? 'pointer' : 'default',
+                transition: 'transform 0.2s ease-in-out',
+                '&:hover': onNumberClick ? {
+                  transform: 'scale(1.1)',
+                } : {},
+              }}
+            />
           ))}
         </Box>
       </CardContent>
