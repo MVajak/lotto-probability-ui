@@ -6,8 +6,8 @@ import { Box } from '@mui/material';
 import { useAppDispatch, useAppSelector } from '../app/hooks';
 import { resetAuthState } from '../features/auth/authSlice';
 import { requestMagicLink } from '../features/auth/authThunks';
-import { AuthLayout } from '../shared/components/AuthLayout';
 import { LanguageSelector } from '../shared/components/LanguageSelector';
+import { AuthLayout } from '../shared/layouts/AuthLayout';
 import { EmailSentSuccess, LoginForm } from './components';
 
 export const LoginPage: React.FC = () => {

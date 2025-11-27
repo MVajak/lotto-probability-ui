@@ -5,10 +5,10 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 
 import { useAppDispatch, useAppSelector } from '../app/hooks';
 import { getMe, verifyMagicLink } from '../features/auth/authThunks';
-import { AuthLayout } from '../shared/components/AuthLayout';
-import { ErrorLayout } from '../shared/components/ErrorLayout';
-import { LoadingLayout } from '../shared/components/LoadingLayout';
-import { SuccessLayout } from '../shared/components/SuccessLayout';
+import { AuthLayout } from '../shared/layouts/AuthLayout';
+import { ErrorLayout } from '../shared/layouts/ErrorLayout';
+import { LoadingLayout } from '../shared/layouts/LoadingLayout';
+import { SuccessLayout } from '../shared/layouts/SuccessLayout';
 import { pageRoutes } from '../shared/types';
 
 export const MagicLinkVerifyPage: React.FC = () => {
