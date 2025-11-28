@@ -1,4 +1,4 @@
-import type { LottoType, NumberStat } from '../../shared/types';
+import type { LottoType, NumberStat } from '@/shared/types.ts';
 
 export interface LottoProbabilityState {
   lottoProbabilityResult: LottoProbabilityDto;
@@ -84,7 +84,7 @@ export interface NumberHistoryDto {
     interpretation: 'memoryless' | 'persistent' | 'alternating';
   };
   occurrences: Array<{
-    drawId: number;
+    drawId: string;
     drawDate: string;
     drawLabel: string;
     allNumbers: number[];

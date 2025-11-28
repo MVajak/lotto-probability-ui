@@ -11,7 +11,12 @@ import { LottoNumber } from '../LottoNumber';
 import { LottoNumberDialog } from '../LottoNumberDialog';
 import type { LottoNumberGroupProps } from './types';
 
-export const LottoNumberGroup = ({ numbers, index, style, maxVisible }: LottoNumberGroupProps): React.JSX.Element | null => {
+export const LottoNumberGroup = ({
+  numbers,
+  index,
+  style,
+  maxVisible,
+}: LottoNumberGroupProps): React.JSX.Element | null => {
   const { t } = useTranslation();
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [selectedNumberIndex, setSelectedNumberIndex] = useState(0);

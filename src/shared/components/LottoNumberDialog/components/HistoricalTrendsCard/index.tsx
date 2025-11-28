@@ -2,12 +2,19 @@ import type React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import ShowChartIcon from '@mui/icons-material/ShowChart';
-import TrendingDownIcon from '@mui/icons-material/TrendingDown';
-import TrendingFlatIcon from '@mui/icons-material/TrendingFlat';
-import TrendingUpIcon from '@mui/icons-material/TrendingUp';
-import { Box, Card, CardContent, Chip, CircularProgress, Divider, Grid, Stack, Typography } from '@mui/material';
+import { Box, Card, CardContent, CircularProgress, Divider, Stack, Typography } from '@mui/material';
 
-import type { NumberHistoryDto } from '../../../../../features/lottoProbability/types';
+import {
+  AutocorrelationChart,
+  DroughtStreakChart,
+  InsufficientDataWarning,
+  MarkovHeatmap,
+  MonthlyAppearancesChart,
+  PatternAnalysisChips,
+  StatsSummaryGrid,
+  TimelineScatterPlot,
+} from './components';
+import type { NumberHistoryDto } from '@/features/lottoProbability/types.ts';
 
 interface HistoricalTrendsCardProps {
   numberHistory: NumberHistoryDto | null;
@@ -53,31 +60,13 @@ export const HistoricalTrendsCard: React.FC<HistoricalTrendsCardProps> = ({ numb
     );
   }
 
-  const { trends, autocorrelation, markovChain } = numberHistory;
-
-  const getInterpretationIcon = (interpretation: string) => {
-    if (interpretation === 'random' || interpretation === 'memoryless') {
-      return <TrendingFlatIcon />;
-    }
-    if (interpretation === 'clustered' || interpretation === 'persistent') {
-      return <TrendingUpIcon />;
-    }
-    return <TrendingDownIcon />;
-  };
-
-  const getInterpretationColor = (interpretation: string) => {
-    if (interpretation === 'random' || interpretation === 'memoryless') {
-      return 'info';
-    }
-    if (interpretation === 'clustered' || interpretation === 'persistent') {
-      return 'success';
-    }
-    return 'warning';
-  };
+  const { summary, trends, autocorrelation, markovChain } = numberHistory;
+  const hasEnoughData = autocorrelation.lagCorrelations.length > 0;
 
   return (
     <Card elevation={2}>
       <CardContent sx={{ p: 3 }}>
+        {/* Header */}
         <Stack direction="row" alignItems="center" spacing={1.5} sx={{ mb: 2 }}>
           <Box
             sx={{
@@ -96,121 +85,50 @@ export const HistoricalTrendsCard: React.FC<HistoricalTrendsCardProps> = ({ numb
           </Typography>
         </Stack>
 
-        <Grid container spacing={2}>
-          {/* Streak & Drought Info */}
-          <Grid size={{ xs: 12, sm: 6, md: 3 }}>
-            <Box sx={{ p: 1.5, bgcolor: 'grey.50', borderRadius: 1 }}>
-              <Typography variant="caption" color="text.secondary" display="block">
-                Current Streak
-              </Typography>
-              <Typography variant="h6" fontWeight="bold" color="primary">
-                {trends.currentStreak}
-              </Typography>
-              <Typography variant="caption" color="text.secondary">
-                Longest: {trends.longestStreak}
-              </Typography>
-            </Box>
-          </Grid>
-
-          <Grid size={{ xs: 12, sm: 6, md: 3 }}>
-            <Box sx={{ p: 1.5, bgcolor: 'grey.50', borderRadius: 1 }}>
-              <Typography variant="caption" color="text.secondary" display="block">
-                Current Drought
-              </Typography>
-              <Typography variant="h6" fontWeight="bold" color="warning.main">
-                {trends.currentDroughtDays} days
-              </Typography>
-              <Typography variant="caption" color="text.secondary">
-                Longest: {trends.longestDroughtDays} days
-              </Typography>
-            </Box>
-          </Grid>
-
-          <Grid size={{ xs: 12, sm: 6, md: 3 }}>
-            <Box sx={{ p: 1.5, bgcolor: 'grey.50', borderRadius: 1 }}>
-              <Typography variant="caption" color="text.secondary" display="block">
-                Avg. Days Between
-              </Typography>
-              <Typography variant="h6" fontWeight="bold">
-                {trends.averageDaysBetweenAppearances} days
-              </Typography>
-            </Box>
-          </Grid>
-
-          <Grid size={{ xs: 12, sm: 6, md: 3 }}>
-            <Box sx={{ p: 1.5, bgcolor: 'grey.50', borderRadius: 1 }}>
-              <Typography variant="caption" color="text.secondary" display="block">
-                Steady State Prob.
-              </Typography>
-              <Typography variant="h6" fontWeight="bold" color="success.main">
-                {(markovChain.steadyStateProbability * 100).toFixed(1)}%
-              </Typography>
-            </Box>
-          </Grid>
-        </Grid>
+        {/* Stats Summary Grid */}
+        <StatsSummaryGrid trends={trends} markovChain={markovChain} />
 
         <Divider sx={{ my: 2 }} />
 
-        {/* Pattern Analysis */}
-        <Box sx={{ mb: 2 }}>
-          <Typography variant="subtitle2" fontWeight="600" gutterBottom>
-            Pattern Analysis
-          </Typography>
-          <Stack direction="row" spacing={1} sx={{ mt: 1 }}>
-            <Chip
-              icon={getInterpretationIcon(autocorrelation.interpretation)}
-              label={`Autocorrelation: ${autocorrelation.interpretation}`}
-              size="small"
-              color={getInterpretationColor(autocorrelation.interpretation)}
-              sx={{ fontWeight: 600 }}
-            />
-            <Chip
-              icon={getInterpretationIcon(markovChain.interpretation)}
-              label={`Markov: ${markovChain.interpretation}`}
-              size="small"
-              color={getInterpretationColor(markovChain.interpretation)}
-              sx={{ fontWeight: 600 }}
-            />
-          </Stack>
-        </Box>
+        {/* Pattern Analysis Chips */}
+        <PatternAnalysisChips autocorrelation={autocorrelation} markovChain={markovChain} />
 
-        {/* Monthly Time Series */}
-        {trends.timeSeries.length > 0 && (
-          <Box>
-            <Typography variant="subtitle2" fontWeight="600" gutterBottom>
-              Monthly Appearances
-            </Typography>
-            <Box sx={{ display: 'flex', gap: 0.5, mt: 1, overflowX: 'auto', pb: 1 }}>
-              {trends.timeSeries.map((point) => {
-                const isAboveExpected = point.appearances > point.expectedAppearances;
-                return (
-                  <Box
-                    key={point.month}
-                    sx={{
-                      minWidth: 60,
-                      p: 1,
-                      bgcolor: isAboveExpected ? 'success.50' : 'grey.100',
-                      borderRadius: 1,
-                      textAlign: 'center',
-                      border: '1px solid',
-                      borderColor: isAboveExpected ? 'success.200' : 'grey.300',
-                    }}
-                  >
-                    <Typography variant="caption" color="text.secondary" display="block">
-                      {point.month.substring(5)}
-                    </Typography>
-                    <Typography variant="h6" fontWeight="bold">
-                      {point.appearances}
-                    </Typography>
-                    <Typography variant="caption" color="text.secondary" sx={{ fontSize: '0.65rem' }}>
-                      exp: {point.expectedAppearances.toFixed(1)}
-                    </Typography>
-                  </Box>
-                );
-              })}
-            </Box>
-          </Box>
+        {/* Monthly Appearances Chart */}
+        <MonthlyAppearancesChart timeSeries={trends.timeSeries} numberValue={summary.number} />
+
+        <Divider sx={{ my: 3 }} />
+
+        {/* Autocorrelation Chart */}
+        {hasEnoughData ? (
+          <AutocorrelationChart lagCorrelations={autocorrelation.lagCorrelations} />
+        ) : (
+          <InsufficientDataWarning
+            title="Pattern Detection (Autocorrelation)"
+            message="Not enough data for statistical analysis. At least 20 draws are needed to detect meaningful patterns."
+          />
         )}
+
+        <Divider sx={{ my: 3 }} />
+
+        {/* Markov Transition Heatmap */}
+        {hasEnoughData ? (
+          <MarkovHeatmap transitionProbabilities={markovChain.transitionProbabilities} />
+        ) : (
+          <InsufficientDataWarning
+            title="State Transitions (Markov Chain)"
+            message="Not enough data for statistical analysis. At least 20 draws are needed to analyze state transitions."
+          />
+        )}
+
+        <Divider sx={{ my: 3 }} />
+
+        {/* Timeline Scatter Plot */}
+        <TimelineScatterPlot occurrences={numberHistory.occurrences} numberValue={summary.number} />
+
+        <Divider sx={{ my: 3 }} />
+
+        {/* Drought and Streak Chart */}
+        <DroughtStreakChart trends={trends} />
 
         {/* Interpretation Helper */}
         <Box sx={{ mt: 2, p: 1.5, bgcolor: 'info.50', borderRadius: 1 }}>

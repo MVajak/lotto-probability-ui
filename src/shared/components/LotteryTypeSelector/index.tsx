@@ -42,7 +42,6 @@ export const LotteryTypeSelector: React.FC<LotteryTypeSelectorProps> = ({ select
 
   // When region changes, if the current lottery is not available, switch to the first available one
   useEffect(() => {
-    console.log('LotteryTypeSelector', region);
     const lotteries = REGION_LOTTERY_TYPES[region] || REGION_LOTTERY_TYPES[Region.EE];
     if (!lotteries.includes(selectedLottery)) {
       onLotteryChange(lotteries[0]);
