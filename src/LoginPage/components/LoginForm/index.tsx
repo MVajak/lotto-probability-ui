@@ -46,7 +46,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onSubmit, isLoading, error
   };
 
   return (
-    <>
+    <Box className="animate-fade-in">
       <Box sx={{ display: 'flex', justifyContent: 'center' }}>
         <img
           src="/img/logo_lotto.png"
@@ -82,6 +82,6 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onSubmit, isLoading, error
           </Button>
         </form>
       </Box>
-    </>
+    </Box>
   );
 };

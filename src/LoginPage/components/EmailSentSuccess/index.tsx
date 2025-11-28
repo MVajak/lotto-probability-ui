@@ -12,7 +12,7 @@ export const EmailSentSuccess: React.FC<EmailSentSuccessProps> = ({ email, onBac
   const { t } = useTranslation();
 
   return (
-    <>
+    <Box className="animate-fade-in">
       <Box sx={{ display: 'flex', justifyContent: 'center' }}>
         <img
           src="/img/logo_lotto.png"
@@ -44,6 +44,6 @@ export const EmailSentSuccess: React.FC<EmailSentSuccessProps> = ({ email, onBac
           {t('login.back')}
         </Button>
       </Box>
-    </>
+    </Box>
   );
 };
