@@ -15,6 +15,8 @@ export const LottoPage = ({ children }: LottoPageProps) => {
   return (
     <Container maxWidth="xl">
       <Box sx={{ py: 2 }}>
+        <ResponsiveHeader />
+
         {/* Mobile Top Banner Ad - Only visible on small/medium screens */}
         <Box sx={{ display: { xs: 'block', lg: 'none' } }}>
           <AdSpace position="top-mobile" />
@@ -40,10 +42,7 @@ export const LottoPage = ({ children }: LottoPageProps) => {
 
           {/* Main Content */}
           <Box sx={{ flex: 1 }}>
-            <Item elevation={0}>
-              <ResponsiveHeader />
-              {children}
-            </Item>
+            <Item elevation={0}>{children}</Item>
           </Box>
 
           {/* Right Ad Space - Hidden on small/medium screens */}

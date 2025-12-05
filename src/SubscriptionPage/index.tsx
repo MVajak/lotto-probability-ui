@@ -1,150 +1,106 @@
-import type React from 'react';
+import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import CheckIcon from '@mui/icons-material/Check';
-import { Box, Button, Card, CardContent, Container, Divider, Grid, Paper, Typography } from '@mui/material';
+import { Box, CircularProgress, Container, Grid, Typography } from '@mui/material';
 
+import { useAppDispatch, useAppSelector } from '../app/hooks';
 import ResponsiveHeader from '../shared/components/ResponsiveHeader';
-
-interface SubscriptionTier {
-  id: string;
-  name: string;
-  price: string;
-  period: string;
-  features: string[];
-  highlighted?: boolean;
-}
+import { PricingCard } from './components/PricingCard';
+import type { SubscriptionFeature, SubscriptionTierCode } from '@/features/subscription';
+import { fetchSubscriptionTiers } from '@/features/subscription';
 
 export const SubscriptionPage: React.FC = () => {
   const { t } = useTranslation();
+  const dispatch = useAppDispatch();
 
-  const subscriptionTiers: SubscriptionTier[] = [
-    {
-      id: 'free',
-      name: t('subscription.free.name'),
-      price: t('subscription.free.price'),
-      period: '',
-      features: [t('subscription.free.feature1'), t('subscription.free.feature2'), t('subscription.free.feature3')],
-    },
-    {
-      id: 'pro',
-      name: t('subscription.pro.name'),
-      price: '$2.49',
-      period: t('subscription.perMonth'),
-      features: [
-        t('subscription.pro.feature1'),
-        t('subscription.pro.feature2'),
-        t('subscription.pro.feature3'),
-        t('subscription.pro.feature4'),
-      ],
-      highlighted: true,
-    },
-    {
-      id: 'premium',
-      name: t('subscription.premium.name'),
-      price: '$3.99',
-      period: t('subscription.perMonth'),
-      features: [
-        t('subscription.pro.feature1'),
-        t('subscription.premium.feature3'),
-        t('subscription.pro.feature3'),
-        t('subscription.pro.feature4'),
-        t('subscription.premium.feature1'),
-        t('subscription.premium.feature2'),
-      ],
-    },
-  ];
+  const { tiers, isLoading, error } = useAppSelector((state) => state.subscription);
+  const currentSubscription = useAppSelector((state) => state.auth.subscription);
+
+  useEffect(() => {
+    dispatch(fetchSubscriptionTiers());
+  }, [dispatch]);
+
+  const formatPrice = (price: number | string): string => {
+    const numPrice = typeof price === 'string' ? parseFloat(price) : price;
+    return `$${numPrice.toFixed(2).replace('.00', '')}`;
+  };
+
+  const translateFeature = (feature: SubscriptionFeature): string => {
+    return t(`subscription.features.${feature}`);
+  };
+
+  const handleSelectPlan = (tierCode: SubscriptionTierCode) => {
+    // TODO: Implement payment flow
+    console.log(`Selected plan: ${tierCode}`);
+  };
+
+  const sortedTiers = [...tiers].sort((a, b) => a.displayOrder - b.displayOrder);
 
   return (
     <Container maxWidth="xl">
       <Box sx={{ py: 2 }}>
-        <Paper elevation={12}>
-          <ResponsiveHeader />
-          <Box sx={{ p: 3 }}>
-            <Typography variant="h4" gutterBottom align="center" sx={{ mb: 2 }}>
+        <ResponsiveHeader />
+
+        <Box sx={{ py: { xs: 4, md: 6 } }}>
+          <Box sx={{ textAlign: 'center', mb: { xs: 4, md: 5 } }}>
+            <Typography
+              variant="h4"
+              component="h1"
+              sx={{
+                fontWeight: 700,
+                mb: 1.5,
+                color: 'text.primary',
+              }}
+            >
               {t('subscription.title')}
             </Typography>
-            <Typography variant="body1" color="text.secondary" align="center" sx={{ mb: 4 }}>
+            <Typography
+              variant="body1"
+              sx={{
+                color: 'text.secondary',
+                maxWidth: 500,
+                mx: 'auto',
+              }}
+            >
               {t('subscription.subtitle')}
             </Typography>
+          </Box>
 
-            <Grid container spacing={3} justifyContent="center">
-              {subscriptionTiers.map((tier) => (
-                <Grid key={tier.id} size={{ xs: 12, md: 4 }}>
-                  <Card
-                    raised={tier.highlighted}
-                    sx={{
-                      height: '100%',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      border: tier.highlighted ? 2 : 0,
-                      borderColor: tier.highlighted ? 'primary.main' : 'transparent',
-                      position: 'relative',
-                    }}
-                  >
-                    {tier.highlighted && (
-                      <Box
-                        sx={{
-                          position: 'absolute',
-                          top: -2,
-                          left: '50%',
-                          transform: 'translateX(-50%)',
-                          backgroundColor: 'primary.main',
-                          color: 'white',
-                          px: 2,
-                          py: 0.5,
-                          borderRadius: 1,
-                        }}
-                      >
-                        <Typography variant="caption" fontWeight="bold">
-                          {t('subscription.popular')}
-                        </Typography>
-                      </Box>
-                    )}
-                    <CardContent
-                      sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column', pt: tier.highlighted ? 4 : 2 }}
-                    >
-                      <Typography variant="h5" component="div" gutterBottom align="center" fontWeight="bold">
-                        {tier.name}
-                      </Typography>
-                      <Box sx={{ textAlign: 'center', my: 2 }}>
-                        <Typography variant="h3" component="span" fontWeight="bold" color="primary">
-                          {tier.price}
-                        </Typography>
-                        {tier.period && (
-                          <Typography variant="subtitle1" component="span" color="text.secondary">
-                            {' '}
-                            {tier.period}
-                          </Typography>
-                        )}
-                      </Box>
-                      <Divider sx={{ my: 2 }} />
-                      <Box sx={{ flexGrow: 1 }}>
-                        {tier.features.map((feature) => (
-                          <Box key={feature} sx={{ display: 'flex', alignItems: 'flex-start', mb: 1.5 }}>
-                            <CheckIcon sx={{ color: 'success.main', mr: 1, mt: 0.5, fontSize: 20 }} />
-                            <Typography variant="body2">{feature}</Typography>
-                          </Box>
-                        ))}
-                      </Box>
-                      <Button
-                        variant={tier.highlighted ? 'contained' : 'outlined'}
-                        color="primary"
-                        fullWidth
-                        sx={{ mt: 3 }}
-                        disabled={tier.price === t('subscription.free.price')}
-                      >
-                        {tier.price === t('subscription.free.price')
-                          ? t('subscription.currentPlan')
-                          : t('subscription.choosePlan')}
-                      </Button>
-                    </CardContent>
-                  </Card>
+          {isLoading && (
+            <Box sx={{ display: 'flex', justifyContent: 'center', py: 8 }}>
+              <CircularProgress />
+            </Box>
+          )}
+
+          {error && (
+            <Box sx={{ textAlign: 'center', py: 8 }}>
+              <Typography color="error">{error}</Typography>
+            </Box>
+          )}
+
+          {!isLoading && !error && sortedTiers.length > 0 && (
+            <Grid
+              container
+              spacing={3}
+              justifyContent="center"
+              alignItems="stretch"
+              sx={{ maxWidth: 1000, mx: 'auto' }}
+            >
+              {sortedTiers.map((tier) => (
+                <Grid key={tier.id} size={{ xs: 12, sm: 6, md: 4 }}>
+                  <PricingCard
+                    tierCode={tier.code}
+                    price={formatPrice(tier.price)}
+                    features={tier.features.map(translateFeature)}
+                    isHighlighted={tier.code === 'PRO'}
+                    isCurrentPlan={currentSubscription?.tier === tier.code}
+                    onSelect={() => handleSelectPlan(tier.code)}
+                  />
                 </Grid>
               ))}
             </Grid>
-          </Box>
-        </Paper>
+          )}
+        </Box>
       </Box>
     </Container>
   );

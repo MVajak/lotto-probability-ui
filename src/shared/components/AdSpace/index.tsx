@@ -17,7 +17,7 @@ const SHOW_PLACEHOLDER = import.meta.env.VITE_SHOW_AD_PLACEHOLDERS === 'true';
 const SideAdContainer = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(2),
   backgroundColor: '#f5f5f5',
-  height: '850px',
+  height: '770px',
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',

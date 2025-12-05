@@ -132,31 +132,32 @@
   "subscription": {
     "title": "Vali oma pakett",
     "subtitle": "Vali oma lotoanalüüsi vajadustele sobiv pakett",
-    "popular": "POPULAARNE",
+    "popular": "POPULAARSEIM",
     "perMonth": "/ kuus",
     "currentPlan": "Praegune pakett",
     "choosePlan": "Vali pakett",
     "free": {
-      "name": "Tasuta",
-      "price": "$0",
-      "feature1": "2 kuu lotostatistika",
-      "feature2": "Põhiline sagedusanalüüs",
-      "feature3": "Reklaamidega kogemus"
+      "name": "Tasuta"
     },
     "pro": {
-      "name": "Pro",
-      "feature1": "Reklaame ei ole",
-      "feature2": "2 aastat lotoandmeid",
-      "feature3": "Wilsoni usaldusvahemiku analüüs",
-      "feature4": "Standardhälbe mõõdikud"
+      "name": "Pro"
     },
     "premium": {
-      "name": "Premium",
-      "feature1": "Kõik Pro funktsioonid",
-      "feature2": "Interaktiivsed analüüsigraafikud",
-      "feature3": "Täiustatud visualiseerimise tööriistad",
-      "feature4": "5 aastat lotoandmeid",
-      "feature5": "Prioriteetne tugi"
+      "name": "Premium"
+    },
+    "features": {
+      "STATS_2_MONTHS": "2 kuu lotostatistika",
+      "STATS_2_YEARS": "2 aastat lotoandmeid",
+      "STATS_5_YEARS": "5 aastat lotoandmeid",
+      "BASIC_FREQUENCY": "Põhiline sagedusanalüüs",
+      "AD_SUPPORTED": "Reklaamidega kogemus",
+      "NO_ADS": "Reklaame ei ole",
+      "WILSON_CI": "Wilsoni usaldusvahemiku analüüs",
+      "STD_DEVIATION": "Standardhälbe mõõdikud",
+      "MARKOV_CHAIN": "Markovi ahela analüüs",
+      "AUTOCORRELATION": "Autokorrelatsioonanalüüs",
+      "INTERACTIVE_GRAPHS": "Interaktiivsed analüüsigraafikud",
+      "ADVANCED_VISUALIZATION": "Täiustatud visualiseerimise tööriistad"
     }
   },
   "home": {
