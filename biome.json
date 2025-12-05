@@ -10,7 +10,7 @@
   },
   "formatter": {
     "enabled": true,
-    "formatWithErrors": false,
+    "formatWithErrors": true,
     "indentStyle": "space",
     "indentWidth": 2,
     "lineEnding": "lf",
@@ -35,12 +35,14 @@
       "recommended": true,
       "correctness": {
         "noUnusedVariables": "error",
+        "noUnusedImports": "error",
         "useExhaustiveDependencies": "warn",
         "useHookAtTopLevel": "error"
       },
       "suspicious": {
         "noExplicitAny": "error",
-        "noDoubleEquals": "warn"
+        "noDoubleEquals": "warn",
+        "noArrayIndexKey": "off"
       },
       "style": {
         "noUnusedTemplateLiteral": "warn",
@@ -49,7 +51,18 @@
       },
       "complexity": {
         "noBannedTypes": "error",
-        "noUselessFragments": "warn"
+        "noUselessFragments": "warn",
+        "useOptionalChain": "error"
+      },
+      "nursery": {
+        "useSortedClasses": {
+          "level": "error",
+          "fix": "safe",
+          "options": {
+            "functions": ["cn", "cva", "clsx"],
+            "attributes": ["className", "class"]
+          }
+        }
       }
     }
   },
@@ -70,6 +83,21 @@
       "indentStyle": "space",
       "indentWidth": 2,
       "lineWidth": 120
+    }
+  },
+  "css": {
+    "parser": {
+      "cssModules": true,
+      "tailwindDirectives": true
+    },
+    "formatter": {
+      "enabled": true,
+      "indentStyle": "space",
+      "indentWidth": 2,
+      "lineWidth": 120
+    },
+    "linter": {
+      "enabled": true
     }
   }
 }

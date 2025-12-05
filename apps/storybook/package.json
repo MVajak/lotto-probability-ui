@@ -1,0 +1,29 @@
+{
+  "name": "@lotto/storybook",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@chromatic-com/storybook": "^4.1.2",
+    "@storybook/addon-a11y": "^10.0.2",
+    "@storybook/addon-docs": "^10.0.2",
+    "@storybook/addon-themes": "^10.0.2",
+    "@storybook/addon-vitest": "^10.0.2",
+    "@storybook/react-vite": "^10.0.2",
+    "@tailwindcss/postcss": "^4.1.17",
+    "@vitejs/plugin-react": "^4.3.4",
+    "@vitest/browser-playwright": "^4.0.5",
+    "@vitest/coverage-v8": "^4.0.5",
+    "playwright": "^1.56.1",
+    "storybook": "^10.0.2",
+    "tailwindcss": "^4.1.17",
+    "vitest": "^4.0.5"
+  }
+}

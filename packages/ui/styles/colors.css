@@ -1,0 +1,98 @@
+/* Color System */
+
+/* Theme Color Definitions */
+@theme {
+  /* Base Colors - Light Mode (Default) */
+  --color-background: #ffffff; /* white */
+  --color-foreground: #09090b; /* zinc-950 */
+  --color-subtle-foreground: #a1a1aa; /* zinc-400 */
+  --color-muted: #f4f4f5; /* zinc-100 */
+  --color-muted-foreground: #71717a; /* zinc-500 */
+  --color-card: #ffffff; /* white */
+  --color-card-foreground: #09090b; /* zinc-950 */
+  --color-popover: #ffffff; /* white */
+  --color-popover-foreground: #09090b; /* zinc-950 */
+  --color-border: #e4e4e7; /* zinc-200 */
+  --color-ring: #64748b; /* slate-500 */
+  --color-input: #e4e4e7; /* zinc-200 */
+  --color-primary: #09090b; /* zinc-950 */
+  --color-primary-foreground: #fafafa; /* zinc-50 */
+  --color-secondary: #f4f4f5; /* zinc-100 */
+  --color-secondary-foreground: #18181b; /* zinc-900 */
+  --color-accent: #f4f4f5; /* zinc-100 */
+  --color-accent-foreground: #18181b; /* zinc-900 */
+  --color-destructive: #ef4444; /* red-500 */
+  --color-destructive-foreground: #fafafa; /* zinc-50 */
+  --color-sidebar: #fafafa; /* zinc-50 */
+  --color-chart-1: #fb923c; /* orange-400 */
+  --color-chart-2: #f97316; /* orange-500 */
+  --color-chart-3: #c2410c; /* orange-700 */
+  --color-chart-4: #9a3412; /* orange-800 */
+  --color-chart-5: #431407; /* orange-950 */
+  --color-base-orange: #fff7ed; /* orange-50 */
+  --color-primary-orange: #f97316; /* orange-500 */
+  --color-secondary-orange: #ffedd5; /* orange-100 */
+  --color-base-yellow: #fefce8; /* yellow-50 */
+  --color-primary-yellow: #eab308; /* yellow-500 */
+  --color-secondary-yellow: #fef9c3; /* yellow-100 */
+  --color-base-blue: #eff6ff; /* blue-50 */
+  --color-primary-blue: #3b82f6; /* blue-500 */
+  --color-secondary-blue: #dbeafe; /* blue-100 */
+  --color-base-green: #f0fdf4; /* green-50 */
+  --color-primary-green: #22c55e; /* green-500 */
+  --color-secondary-green: #dcfce7; /* green-100 */
+  --color-base-purple: #faf5ff; /* purple-50 */
+  --color-primary-purple: #a855f7; /* purple-500 */
+  --color-secondary-purple: #f3e8ff; /* purple-100 */
+  --color-base-red: #fff1f2; /* rose-50 */
+  --color-primary-red: #f43f5e; /* rose-500 */
+  --color-secondary-red: #ffe4e6; /* rose-100 */
+}
+
+/* Dark Mode Color Overrides */
+.dark {
+  --color-background: #09090b; /* zinc-950 */
+  --color-foreground: #fafafa; /* zinc-50 */
+  --color-subtle-foreground: #71717a; /* zinc-500 */
+  --color-muted: #27272a; /* zinc-800 */
+  --color-muted-foreground: #a1a1aa; /* zinc-400 */
+  --color-card: #09090b; /* zinc-950 */
+  --color-card-foreground: #fafafa; /* zinc-50 */
+  --color-popover: #09090b; /* zinc-950 */
+  --color-popover-foreground: #fafafa; /* zinc-50 */
+  --color-border: #3f3f46; /* zinc-700 */
+  --color-ring: #94a3b8; /* slate-400 */
+  --color-input: #3f3f46; /* zinc-700 */
+  --color-primary: #fafafa; /* zinc-50 */
+  --color-primary-foreground: #18181b; /* zinc-900 */
+  --color-secondary: #27272a; /* zinc-800 */
+  --color-secondary-foreground: #fafafa; /* zinc-50 */
+  --color-accent: #18181b; /* zinc-900 */
+  --color-accent-foreground: #fafafa; /* zinc-50 */
+  --color-destructive: #7f1d1d; /* red-900 */
+  --color-destructive-foreground: #fafafa; /* zinc-50 */
+  --color-sidebar: #18181b; /* zinc-900 */
+  --color-chart-1: #fb923c; /* orange-400 */
+  --color-chart-2: #f97316; /* orange-500 */
+  --color-chart-3: #c2410c; /* orange-700 */
+  --color-chart-4: #9a3412; /* orange-800 */
+  --color-chart-5: #431407; /* orange-950 */
+  --color-base-orange: #431407; /* orange-950 */
+  --color-primary-orange: #f97316; /* orange-500 */
+  --color-secondary-orange: #7c2d12; /* orange-900 */
+  --color-base-yellow: #422006; /* yellow-950 */
+  --color-primary-yellow: #eab308; /* yellow-500 */
+  --color-secondary-yellow: #713f12; /* yellow-900 */
+  --color-base-blue: #172554; /* blue-950 */
+  --color-primary-blue: #3b82f6; /* blue-500 */
+  --color-secondary-blue: #1e3a8a; /* blue-900 */
+  --color-base-green: #052e16; /* green-950 */
+  --color-primary-green: #22c55e; /* green-500 */
+  --color-secondary-green: #14532d; /* green-900 */
+  --color-base-purple: #3b0764; /* purple-950 */
+  --color-primary-purple: #a855f7; /* purple-500 */
+  --color-secondary-purple: #581c87; /* purple-900 */
+  --color-base-red: #4c0519; /* rose-950 */
+  --color-primary-red: #f43f5e; /* rose-500 */
+  --color-secondary-red: #881337; /* rose-900 */
+}

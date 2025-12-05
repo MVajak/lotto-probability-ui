@@ -1,40 +1,35 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
-    "useDefineForClassFields": true,
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
-    "module": "ESNext",
-    "skipLibCheck": true,
-
-    /* Bundler mode */
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "isolatedModules": true,
-    "moduleDetection": "force",
-    "noEmit": true,
-    "jsx": "react-jsx",
-
-    /* Linting */
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true,
-
-    /* Additional options from your original config */
+    "target": "ES2022",
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "forceConsistentCasingInFileNames": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
-
-    /* Path aliases */
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "incremental": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@lotto/ui": ["./packages/ui"],
+      "@lotto/ui/*": ["./packages/ui/*"]
     }
   },
-  "include": ["src"],
-  "exclude": ["src/**/*.test.ts", "src/**/*.test.tsx", "node_modules"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "include": [
+    "packages/ui/**/*.ts",
+    "packages/ui/**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/node_modules",
+    "**/dist",
+    "**/build",
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "apps/**"
+  ]
 }

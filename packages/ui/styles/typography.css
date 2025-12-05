@@ -1,0 +1,97 @@
+/* Typography Utilities */
+
+/* Display Text - Large headings, hero sections */
+@utility text-display-large {
+  font-size: 4.5rem; /* 72px */
+  line-height: 120%;
+  letter-spacing: 0;
+}
+
+@utility text-display-default {
+  font-size: 3.375rem; /* 54px */
+  line-height: 120%;
+  letter-spacing: 0;
+}
+
+@utility text-display-small {
+  font-size: 2.5rem; /* 40px */
+  line-height: 120%;
+  letter-spacing: 0;
+}
+
+/* Titles - Page and section titles */
+@utility text-title-large {
+  font-size: 2rem; /* 32px */
+  line-height: 120%;
+  letter-spacing: 0;
+}
+
+@utility text-title-default {
+  font-size: 1.5rem; /* 24px */
+  line-height: 120%;
+  letter-spacing: 0;
+}
+
+@utility text-title-small {
+  font-size: 1.125rem; /* 18px */
+  line-height: 120%;
+  letter-spacing: 0;
+}
+
+/* Body Text - Main content */
+@utility text-body-large {
+  font-size: 1rem; /* 16px */
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: -0.015em;
+}
+
+@utility text-body-large-bold {
+  font-size: 1rem; /* 16px */
+  font-weight: 500;
+  line-height: 150%;
+  letter-spacing: -0.015em;
+}
+
+@utility text-body-default {
+  font-size: 0.875rem; /* 14px */
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: -0.015em;
+}
+
+@utility text-body-default-bold {
+  font-size: 0.875rem; /* 14px */
+  font-weight: 500;
+  line-height: 150%;
+  letter-spacing: -0.015em;
+}
+
+@utility text-body-small {
+  font-size: 0.75rem; /* 12px */
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: -0.015em;
+}
+
+@utility text-body-small-bold {
+  font-size: 0.75rem; /* 12px */
+  font-weight: 500;
+  line-height: 150%;
+  letter-spacing: -0.015em;
+}
+
+/* Links - Interactive text */
+@utility text-link-large {
+  font-size: 1rem; /* 16px */
+  font-weight: 500;
+  line-height: 150%;
+  letter-spacing: -0.015em;
+}
+
+@utility text-link-default {
+  font-size: 0.875rem; /* 14px */
+  font-weight: 500;
+  line-height: 150%;
+  letter-spacing: -0.015em;
+}

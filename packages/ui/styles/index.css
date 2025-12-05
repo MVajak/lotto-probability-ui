@@ -1,0 +1,11 @@
+/* Design System Styles */
+@import "./typography.css";
+@import "./colors.css";
+@import "./shadows.css";
+
+/* Global Border Color */
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+}
