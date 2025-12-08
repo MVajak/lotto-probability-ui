@@ -3,7 +3,8 @@
 import type * as React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
 
-import { cn } from '../../utils';
+import { cn } from '@lotto/ui/utils';
+
 import { Button } from '../Button';
 import { Input } from '../Input';
 

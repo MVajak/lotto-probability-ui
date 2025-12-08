@@ -4,8 +4,9 @@ import type React from 'react';
 import { type MouseEvent, useCallback, useEffect } from 'react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 
+import { cn } from '@lotto/ui/utils';
+
 import { IconButton } from '../..';
-import { cn } from '../../utils';
 import { ModalPosition, type ModalProps } from './types';
 import { closeButtonWrapperVariants, modalVariants, wrapperVariants } from './variants';
 

@@ -3,7 +3,7 @@
 import type React from 'react';
 import * as SliderPrimitive from '@radix-ui/react-slider';
 
-import { cn } from '../../utils';
+import { cn } from '@lotto/ui/utils';
 
 function Slider({ className, ...props }: React.ComponentPropsWithoutRef<typeof SliderPrimitive.Root>) {
   return (

@@ -1,6 +1,7 @@
 import type React from 'react';
 
-import { cn } from '../../utils';
+import { cn } from '@lotto/ui/utils';
+
 import type { LottoNumberProps } from './types';
 
 export const LottoNumber = ({ index, digit, onClick, className }: LottoNumberProps): React.JSX.Element => {

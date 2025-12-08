@@ -1,6 +1,6 @@
 import { LoaderIcon } from 'lucide-react';
 
-import { cn } from '../../utils';
+import { cn } from '@lotto/ui/utils';
 
 function Spinner({ className, ...props }: React.ComponentProps<'svg'>) {
   // This is the spinner icon from lucide

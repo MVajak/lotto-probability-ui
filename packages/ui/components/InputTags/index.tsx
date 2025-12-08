@@ -3,7 +3,8 @@
 import * as React from 'react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 
-import { cn } from '../../utils';
+import { cn } from '@lotto/ui/utils';
+
 import { Badge } from '../Badge';
 
 export interface InputTagsProps extends Omit<React.ComponentProps<'div'>, 'onChange'> {

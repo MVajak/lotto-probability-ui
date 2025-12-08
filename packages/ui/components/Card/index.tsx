@@ -1,6 +1,6 @@
 import type * as React from 'react';
 
-import { cn } from '../../utils';
+import { cn } from '@lotto/ui/utils';
 
 // Card subcomponents automatically get px-6 when the card has a py-6
 function Card({ className, ...props }: React.ComponentProps<'div'>) {

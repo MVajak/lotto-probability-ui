@@ -4,7 +4,8 @@ import type * as React from 'react';
 import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/outline';
 import * as SelectPrimitive from '@radix-ui/react-select';
 
-import { cn } from '../../utils';
+import { cn } from '@lotto/ui/utils';
+
 import { InputGroup, InputGroupAddon } from '../InputGroup';
 
 function Select({ ...props }: React.ComponentProps<typeof SelectPrimitive.Root>) {

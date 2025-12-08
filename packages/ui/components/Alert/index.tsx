@@ -1,7 +1,7 @@
 import type * as React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
 
-import { cn } from '../../utils';
+import { cn } from '@lotto/ui/utils';
 
 const alertVariants = cva(
   'relative flex w-full items-start gap-3 rounded-lg border p-4 text-body-default [&>svg]:size-5 [&>svg]:shrink-0',

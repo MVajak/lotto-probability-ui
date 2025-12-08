@@ -3,7 +3,8 @@
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 import { DayPicker, type DayPickerProps } from 'react-day-picker';
 
-import { cn } from '../../utils';
+import { cn } from '@lotto/ui/utils';
+
 import { buttonVariants } from '../Button';
 
 export type CalendarProps = DayPickerProps;

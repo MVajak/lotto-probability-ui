@@ -3,7 +3,7 @@
 import type React from 'react';
 import { useEffect } from 'react';
 
-import { cn } from '../../utils';
+import { cn } from '@lotto/ui/utils';
 
 declare global {
   interface Window {

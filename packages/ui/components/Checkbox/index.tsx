@@ -3,7 +3,8 @@
 import type * as React from 'react';
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox';
 
-import { cn } from '../../utils';
+import { cn } from '@lotto/ui/utils';
+
 import { DefaultCheckIcon, DefaultIndeterminateIcon } from './icons';
 
 function Checkbox({ className, checked, ...props }: React.ComponentProps<typeof CheckboxPrimitive.Root>) {

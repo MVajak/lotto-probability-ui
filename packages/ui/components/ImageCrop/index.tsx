@@ -5,7 +5,8 @@ import ReactCrop, { type Crop, centerCrop, makeAspectCrop, type PixelCrop } from
 import 'react-image-crop/dist/ReactCrop.css';
 import './styles.css';
 
-import { cn } from '../../utils';
+import { cn } from '@lotto/ui/utils';
+
 import { Button } from '../Button';
 
 // Constants for validation

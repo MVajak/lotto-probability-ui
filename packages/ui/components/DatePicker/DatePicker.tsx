@@ -4,7 +4,8 @@ import * as React from 'react';
 import { CalendarIcon } from '@heroicons/react/24/outline';
 import { format } from 'date-fns';
 
-import { cn } from '../../utils';
+import { cn } from '@lotto/ui/utils';
+
 import { Button } from '../Button';
 import { Popover, PopoverContent, PopoverTrigger } from '../Popover';
 import { Calendar } from './index';

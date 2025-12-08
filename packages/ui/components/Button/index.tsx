@@ -2,7 +2,8 @@ import type { ComponentProps } from 'react';
 import { Slot, Slottable } from '@radix-ui/react-slot';
 import { cva, type VariantProps } from 'class-variance-authority';
 
-import { cn } from '../../utils';
+import { cn } from '@lotto/ui/utils';
+
 import { Spinner } from '../Spinner';
 
 const buttonVariants = cva(

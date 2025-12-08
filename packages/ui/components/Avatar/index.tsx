@@ -3,7 +3,8 @@ import { Children, type ComponentProps, cloneElement } from 'react';
 import * as AvatarPrimitive from '@radix-ui/react-avatar';
 import { cva, type VariantProps } from 'class-variance-authority';
 
-import { cn } from '../../utils';
+import { cn } from '@lotto/ui/utils';
+
 import { Tooltip, TooltipContent, TooltipTrigger } from '../Tooltip';
 import { getInitials } from './getInitials';
 
