@@ -1,7 +1,5 @@
 import type React from 'react';
-
-import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
-import { Box, Typography } from '@mui/material';
+import { CheckCircleIcon } from '@heroicons/react/24/outline';
 
 interface SuccessLayoutProps {
   title: string;
@@ -10,16 +8,10 @@ interface SuccessLayoutProps {
 
 export const SuccessLayout: React.FC<SuccessLayoutProps> = ({ title, message }) => {
   return (
-    <Box sx={{ textAlign: 'center' }}>
-      <CheckCircleOutlineIcon sx={{ fontSize: 64, color: 'success.main', mb: 2 }} />
-      <Typography variant="h4" component="h1" gutterBottom color="success.main">
-        {title}
-      </Typography>
-      {message && (
-        <Typography variant="body1" color="text.secondary">
-          {message}
-        </Typography>
-      )}
-    </Box>
+    <div className="text-center">
+      <CheckCircleIcon className="mx-auto mb-4 size-16 text-primary-green" />
+      <h1 className="mb-2 text-primary-green text-title-medium">{title}</h1>
+      {message && <p className="text-body-default text-muted-foreground">{message}</p>}
+    </div>
   );
 };

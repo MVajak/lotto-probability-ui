@@ -1,0 +1,252 @@
+{
+  "info": {
+    "gameRules": "Game rules",
+    "buyTickets": "Buy tickets",
+    "EURO": "There are 50 primary numbers in total, from which the user must choose 5. In addition, there are 12 secondary numbers, and the user must select 2. The position of the chosen numbers does not matter.",
+    "VIKINGLOTTO": "There are 48 primary numbers in total, from which the user must choose 6. In addition, there are 5 secondary numbers, and the user must select 1. The position of the chosen numbers does not matter.",
+    "BINGO": "There are 75 numbers in total, from which the user must choose 25. The game offers five modes: Center Square, Corners, Diagonals, Full Card, and One-Missing.",
+    "KENO": "There are 68 numbers in total, from which the user can choose 1-10. The position of the chosen numbers does not matter.",
+    "JOKKER": "Users must select 7 numbers from the range 0–9, and the sequence in which the numbers are chosen must be correct.",
+    "generalDescription": "The system calculates the probability of {{lottoName}} numbers based on historical data and suggests the best numbers to choose. You can search for historical data by dates."
+  },
+  "search": {
+    "search": "SEARCH",
+    "dateFrom": "Date from",
+    "dateTo": "Date to",
+    "calculate": "Search"
+  },
+  "result": {
+    "totalDraws": "Total: {{totalDraws}} draws",
+    "nothingToShow": "Nothing to show...",
+    "noResults": "Select dates and search for statistics",
+    "primaryNumbers": "Primary numbers",
+    "secondaryNumbers": "Secondary numbers",
+    "bingo": {
+      "centerGame": "Center Game",
+      "cornerGame": "Corner Game",
+      "diagonalGame": "Diagonal Game",
+      "fullGame": "Full Game"
+    },
+    "numbersWithSameProbability": "Numbers with same probability",
+    "seeMore": "See more..."
+  },
+  "statisticsDrawer": {
+    "statistics": "Statistics",
+    "showOnlyAppearingNumbers": "Show only appearing numbers",
+    "position": "Position",
+    "sortBy": "Sort by",
+    "sortAndFilter": "Sort & Filter",
+    "filtered": "Filtered",
+    "clear": "Clear",
+    "display": "Display"
+  },
+  "general": {
+    "digit": "Digit",
+    "count": "Count",
+    "probability": "Probability",
+    "frequency": "Frequency",
+    "number": "Number",
+    "numbers": "Numbers",
+    "tied": "Tied",
+    "showLess": "Show less",
+    "showMoreTiedNumbers": "Show {{count}} more tied number",
+    "showMoreTiedNumbers_plural": "Show {{count}} more tied numbers"
+  },
+  "numberStats": {
+    "frequent": "Frequent",
+    "rare": "Rare",
+    "normal": "Normal",
+    "frequentNumber": "Frequent Number (Appearing More)",
+    "rareNumber": "Rare Number (Appearing Less)",
+    "normalDistribution": "Normal Distribution",
+    "basicStatistics": "Basic Statistics",
+    "outOfDraws": "out of {{totalDraws}} draws",
+    "observedFrequency": "observed frequency",
+    "countHelp": "How many times this number appeared",
+    "probabilityHelp": "How often this number shows up (as a percentage)",
+    "theoreticalHelp": "Expected probability if all numbers were equally likely",
+    "differenceHelp": "How much this number differs from what we'd expect",
+    "wilsonConfidenceInterval": "Probability Range",
+    "wilsonConfidenceIntervalHelp": "We can be {{confidence}}% confident the true probability falls within this range. Think of it as a 'margin of error' for the number's probability.",
+    "confidenceRange": "{{confidence}}% confidence that true probability is between:",
+    "lowerBound": "Lower Bound",
+    "upperBound": "Upper Bound",
+    "expectedVsObserved": "Expected vs Observed",
+    "theoretical": "Expected",
+    "expectedProbability": "expected probability",
+    "observed": "Observed",
+    "actualFrequency": "actual frequency",
+    "deviationAnalysis": "How Different Is This?",
+    "deviationAnalysisHelp": "These numbers show how much this number's appearance differs from what we'd expect by pure chance.",
+    "absoluteDeviation": "Absolute Deviation",
+    "relativeDeviation": "Relative Deviation",
+    "statisticallySignificant": "Statistically Significant",
+    "notSignificant": "Not Significant",
+    "significantDescription": "This difference is unlikely to be just random luck - there might be a real pattern here.",
+    "notSignificantDescription": "This difference could easily happen by chance - it's within normal random variation.",
+    "analysisSummary": "What Does This Mean?",
+    "appearedTimes": "This number appeared {{count}} times in {{total}} draws.",
+    "appearingMoreThanExpected": "Appearing {{percent}}% more than expected",
+    "appearingLessThanExpected": "Appearing {{percent}}% less than expected",
+    "historicalTrends": "📊 Historical Trends (Coming Soon)",
+    "historicalTrendsDescription": "Frequency over time, distribution charts, and pattern analysis will appear here.",
+    "insufficientData": {
+      "autocorrelationTitle": "Pattern Detection (Autocorrelation)",
+      "autocorrelationMessage": "Not enough data for statistical analysis. At least 20 draws are needed to detect meaningful patterns.",
+      "markovTitle": "State Transitions (Markov Chain)",
+      "markovMessage": "Not enough data for statistical analysis. At least 20 draws are needed to analyze state transitions."
+    },
+    "historicalTrendsTitle": "Historical Trends & Patterns",
+    "loadingHistoricalData": "Loading historical data...",
+    "patternInterpretation": "Pattern Interpretation:",
+    "patternRandom": "No significant patterns detected - appearances are random as expected in a fair lottery.",
+    "patternDetected": "Detected {{pattern}} pattern - this may indicate clustering or dispersion in appearances.",
+    "statsSummary": {
+      "currentStreak": "Current Streak",
+      "longestStreak": "Longest: {{count}}",
+      "currentDrought": "Current Drought",
+      "days": "{{count}} days",
+      "avgDaysBetween": "Avg. Days Between",
+      "steadyStateProb": "Steady State Prob."
+    },
+    "patternAnalysis": {
+      "title": "Pattern Analysis",
+      "autocorrelation": "Autocorrelation: {{interpretation}}",
+      "markov": "Markov: {{interpretation}}"
+    },
+    "monthlyAppearances": {
+      "title": "Monthly Appearances Over Time",
+      "description": "How many times this number appeared each month vs. what we'd expect if it was random",
+      "actualAppearances": "Actual Appearances",
+      "expectedRandom": "Expected (Random)",
+      "month": "Month (YYYY-MM)",
+      "timesAppeared": "Times Appeared",
+      "monthLabel": "Month",
+      "appearancesLabel": "Appearances",
+      "appearedTimes": "Number {{number}} appeared {{count}} time this month",
+      "appearedTimes_plural": "Number {{number}} appeared {{count}} times this month",
+      "didNotAppear": "Number didn't appear this month",
+      "avgExpected": "Average expected if random: {{count}} times"
+    },
+    "autocorrelationChart": {
+      "title": "Pattern Detection (Autocorrelation)",
+      "description": "Checks if this number's appearances are related to previous draws. Bars near zero = random (good!), bars far from zero = potential pattern",
+      "lag": "Lag {{lag}}",
+      "previousDraws": "Previous Draws",
+      "correlation": "Correlation",
+      "correlationValue": "Correlation: {{value}}",
+      "pValue": "P-value: {{value}}",
+      "significant": "⚠️ Statistically significant - may indicate a pattern",
+      "notSignificant": "✓ Not significant - appears random"
+    },
+    "markovHeatmap": {
+      "title": "State Transitions (Markov Chain)",
+      "description": "Shows probability of number appearing/not appearing based on previous draw. Darker = higher probability",
+      "afterAppeared": "After Appeared",
+      "appearsAgain": "Appears Again",
+      "doesNotAppear": "Does Not Appear",
+      "afterNotAppeared": "After Not Appeared",
+      "appears": "Appears",
+      "previousState": "Previous State",
+      "probability": "Probability (%) →"
+    },
+    "timeline": {
+      "title": "Appearance Timeline",
+      "description": "Each dot shows when number {{number}} appeared in a draw. Clusters indicate multiple appearances in a short time.",
+      "numberLabel": "Number {{number}}",
+      "date": "Date",
+      "dateLabel": "Date: {{date}}",
+      "occurrence": "Occurrence #{{index}} of {{total}}"
+    },
+    "droughtStreak": {
+      "title": "Drought & Streak Patterns",
+      "description": "Visual comparison of current vs. historical streaks and droughts",
+      "streak": "Streak",
+      "drought": "Drought",
+      "current": "Current",
+      "longest": "Longest",
+      "metric": "Metric",
+      "count": "Count",
+      "value": "Value: {{value}}",
+      "draws": "{{count}} draw",
+      "draws_plural": "{{count}} draws",
+      "consecutiveDraws": "Number of consecutive draws with this number",
+      "maxConsecutive": "Maximum consecutive appearances recorded",
+      "daysSinceAppeared": "Days since this number last appeared",
+      "longestGap": "Longest gap between appearances"
+    }
+  },
+  "authLayout": {
+    "title": "Smart Lottery Analytics",
+    "subtitle": "Data-Driven Number Selection",
+    "features": "Frequency Analysis • Wilson Confidence Interval • Probability Calculation"
+  },
+  "login": {
+    "title": "Sign in",
+    "checkYourInbox": "Check your inbox",
+    "emailLabel": "Email address",
+    "emailRequired": "Email is required",
+    "emailInvalid": "Please enter a valid email address",
+    "sendMagicLink": "Send Magic Link",
+    "sending": "Sending...",
+    "sentToEmail": "We just sent a magic link to <strong>{{email}}</strong>",
+    "back": "Back"
+  },
+  "verify": {
+    "verifying": "Verifying your link",
+    "pleaseWait": "Please wait while we verify your magic link...",
+    "verificationSuccessful": "Verification Successful!",
+    "redirecting": "Redirecting you to the application...",
+    "verificationFailed": "Verification Failed",
+    "invalidLink": "Invalid Link",
+    "noTokenProvided": "No verification token was provided. Please check your email and click the magic link.",
+    "backToLogin": "Back to Login"
+  },
+  "userMenu": {
+    "profile": "Profile",
+    "subscription": "Subscription",
+    "logout": "Log out",
+    "language": "Language",
+    "region": "Region"
+  },
+  "profile": {
+    "title": "Profile",
+    "comingSoon": "Profile page coming soon..."
+  },
+  "subscription": {
+    "title": "Choose Your Plan",
+    "subtitle": "Select the perfect plan for your lottery analysis needs",
+    "popular": "MOST POPULAR",
+    "perMonth": "/ month",
+    "currentPlan": "Current Plan",
+    "alreadyOnPlan": "You're on this plan",
+    "choosePlan": "Choose Plan",
+    "free": {
+      "name": "Free"
+    },
+    "pro": {
+      "name": "Pro"
+    },
+    "premium": {
+      "name": "Premium"
+    },
+    "features": {
+      "STATS_2_MONTHS": "2 months of lottery statistics",
+      "STATS_2_YEARS": "2 years of lottery data",
+      "STATS_5_YEARS": "5 years of lottery data",
+      "BASIC_FREQUENCY": "Basic frequency analysis",
+      "AD_SUPPORTED": "Ad-supported experience",
+      "NO_ADS": "No advertisements",
+      "WILSON_CI": "Wilson confidence interval analysis",
+      "STD_DEVIATION": "Standard deviation metrics",
+      "MARKOV_CHAIN": "Markov chain analysis",
+      "AUTOCORRELATION": "Autocorrelation analysis",
+      "INTERACTIVE_GRAPHS": "Interactive analysis graphs",
+      "ADVANCED_VISUALIZATION": "Advanced visualization tools"
+    }
+  },
+  "home": {
+    "selectLottery": "Select Lottery Game",
+    "selectLotteryDescription": "Choose a lottery game to view probability analysis and number statistics"
+  }
+}

@@ -1,6 +1,7 @@
-import React, { Children, ComponentProps, cloneElement } from 'react';
+import type React from 'react';
+import { Children, type ComponentProps, cloneElement } from 'react';
 import * as AvatarPrimitive from '@radix-ui/react-avatar';
-import { cva, VariantProps } from 'class-variance-authority';
+import { cva, type VariantProps } from 'class-variance-authority';
 
 import { cn } from '../../utils';
 import { Tooltip, TooltipContent, TooltipTrigger } from '../Tooltip';

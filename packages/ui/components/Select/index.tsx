@@ -1,6 +1,6 @@
 'use client';
 
-import * as React from 'react';
+import type * as React from 'react';
 import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/outline';
 import * as SelectPrimitive from '@radix-ui/react-select';
 
@@ -31,7 +31,7 @@ function SelectTrigger({ className, children, ...props }: React.ComponentProps<t
       >
         <div
           data-slot="input-group-control"
-          className="flex flex-1 items-center gap-2 px-4 text-body-large *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2"
+          className="flex flex-1 items-center gap-2 px-2 text-body-large *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2"
         >
           {children}
         </div>
@@ -118,7 +118,7 @@ function SelectItem({ className, children, description, ...props }: SelectItemPr
     <SelectPrimitive.Item
       data-slot="select-item"
       className={cn(
-        'relative flex w-full cursor-default select-none items-center rounded-sm py-1.5 pr-8 pl-2 text-body-large outline-none focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
+        'relative flex w-full cursor-default select-none items-center rounded-sm py-2 pr-8 pl-2 text-body-large outline-none focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
         className
       )}
       {...props}

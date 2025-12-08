@@ -6,7 +6,10 @@
   "types": "./index.ts",
   "exports": {
     ".": "./index.ts",
-    "./styles": "./styles/index.css"
+    "./styles": "./styles/index.css",
+    "./utils/calculations": "./utils/calculations.ts",
+    "./utils/numberGrouping": "./utils/numberGrouping.ts",
+    "./utils/probability": "./utils/probability.ts"
   },
   "scripts": {
     "test": "jest",
@@ -25,6 +28,7 @@
     "@radix-ui/react-dropdown-menu": "^2.1.15",
     "@radix-ui/react-label": "^2.1.7",
     "@radix-ui/react-popover": "^1.1.14",
+    "@radix-ui/react-progress": "^1.1.8",
     "@radix-ui/react-radio-group": "^1.3.7",
     "@radix-ui/react-select": "^2.2.5",
     "@radix-ui/react-separator": "^1.1.7",
@@ -32,9 +36,13 @@
     "@radix-ui/react-slot": "^1.2.3",
     "@radix-ui/react-toggle": "^1.1.9",
     "@radix-ui/react-tooltip": "^1.2.7",
+    "big.js": "^6.2.2",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "date-fns": "^4.1.0",
     "input-otp": "^1.4.2",
+    "lucide-react": "^0.468.0",
+    "react-day-picker": "^9.12.0",
     "react-image-crop": "^11.0.7",
     "sonner": "^2.0.3",
     "tailwind-merge": "^3.0.2"
@@ -42,6 +50,7 @@
   "devDependencies": {
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
+    "@types/big.js": "^6.2.2",
     "@types/jest": "^29.5.14",
     "@types/react": "^19.1.5",
     "@types/react-dom": "^19.1.5",

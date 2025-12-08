@@ -1,7 +1,7 @@
 /* Fix crop selection border for better visibility */
 .ReactCrop__crop-selection {
-  border: 2px solid #fff;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
+  border: 2px solid var(--color-background);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-foreground) 50%, transparent);
 }
 
 /* Circular crop overlay styles */
@@ -19,14 +19,14 @@
   right: 0;
   bottom: 0;
   border-radius: 50%;
-  box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 0 9999px color-mix(in srgb, var(--color-foreground) 50%, transparent);
   pointer-events: none;
 }
 
 /* Ensure handles are visible */
 .ReactCrop__drag-handle {
-  background-color: #fff;
-  border: 2px solid #000;
+  background-color: var(--color-background);
+  border: 2px solid var(--color-foreground);
   width: 12px;
   height: 12px;
   border-radius: 50%;

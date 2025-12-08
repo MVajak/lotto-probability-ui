@@ -1,0 +1,19 @@
+{
+  "name": "@lotto/i18n",
+  "version": "0.1.0",
+  "private": true,
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "exports": {
+    ".": "./index.ts",
+    "./locales/*": "./locales/*"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0 || ^19.0.0"
+  },
+  "dependencies": {
+    "i18next": "^25.2.1",
+    "i18next-browser-languagedetector": "^8.0.4",
+    "react-i18next": "^15.5.1"
+  }
+}

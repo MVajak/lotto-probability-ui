@@ -1,4 +1,4 @@
-import { ComponentProps } from 'react';
+import type { ComponentProps } from 'react';
 import { Slot, Slottable } from '@radix-ui/react-slot';
 import { cva, type VariantProps } from 'class-variance-authority';
 
@@ -39,6 +39,8 @@ export interface ButtonProps extends ComponentProps<'button'>, VariantProps<type
   iconLeft?: React.ReactNode;
   iconRight?: React.ReactNode;
 }
+
+export { buttonVariants };
 
 export const Button = ({
   variant,

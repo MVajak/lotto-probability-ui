@@ -1,6 +1,6 @@
-import { ComponentProps } from 'react';
+import type { ComponentProps } from 'react';
 
-import { ComponentStyleVariant } from '../../types';
+import type { ComponentStyleVariant } from '../../types';
 
 export interface CheckboxProps extends Omit<ComponentProps<'input'>, 'type'> {
   variant?: ComponentStyleVariant;

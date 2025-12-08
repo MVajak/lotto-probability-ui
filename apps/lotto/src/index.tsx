@@ -1,102 +1,20 @@
 import './index.css';
-import './i18n';
-import './shared/utils/axiosInterceptor';
+import '@lotto/i18n';
 
-import { Provider } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
-
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import { createTheme, ThemeProvider } from '@mui/material';
-import { LocalizationProvider } from '@mui/x-date-pickers';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-
-import App from './App';
-import { store } from './app/store';
+import { QueryClientProvider } from '@tanstack/react-query';
+import { RouterProvider } from '@tanstack/react-router';
 import ReactDOM from 'react-dom/client';
 
-const lightTheme = createTheme({
-  palette: { mode: 'light' },
-  components: {
-    MuiButton: {
-      styleOverrides: {
-        root: {
-          borderRadius: 50,
-          textTransform: 'none',
-          fontWeight: 600,
-          padding: '8px 20px',
-          fontSize: '0.875rem',
-          boxShadow: 'none',
-          transition: 'all 0.2s ease-in-out',
-        },
-        outlined: {
-          borderWidth: 2,
-          '&:hover': {
-            borderWidth: 2,
-          },
-        },
-      },
-    },
-    MuiOutlinedInput: {
-      styleOverrides: {
-        root: {
-          borderRadius: 50,
-          transition: 'all 0.2s ease-in-out',
-          '&:hover .MuiOutlinedInput-notchedOutline': {
-            borderWidth: 2,
-          },
-          '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-            borderWidth: 2,
-          },
-        },
-        notchedOutline: {
-          borderWidth: 1.5,
-        },
-        input: {
-          padding: '10px 14px',
-          height: 'auto',
-        },
-      },
-    },
-    MuiInputLabel: {
-      styleOverrides: {
-        outlined: {
-          transform: 'translate(14px, 10px) scale(1)',
-          '&.MuiInputLabel-shrink': {
-            transform: 'translate(14px, -9px) scale(0.75)',
-          },
-        },
-      },
-    },
-    MuiSelect: {
-      defaultProps: {
-        IconComponent: KeyboardArrowDownIcon,
-      },
-      styleOverrides: {
-        select: {
-          padding: '10px 14px',
-        },
-        icon: {
-          transition: 'transform 0.2s ease-in-out',
-          fontSize: '1.2rem',
-          fontWeight: 300,
-        },
-      },
-    },
-  },
-});
+import { queryClient, router } from './router';
+
 const rootElement = document.getElementById('root');
 if (!rootElement) {
   throw new Error('Failed to find the root element');
 }
+
 const root = ReactDOM.createRoot(rootElement);
 root.render(
-  <BrowserRouter>
-    <Provider store={store}>
-      <LocalizationProvider dateAdapter={AdapterDayjs}>
-        <ThemeProvider theme={lightTheme}>
-          <App />
-        </ThemeProvider>
-      </LocalizationProvider>
-    </Provider>
-  </BrowserRouter>
+  <QueryClientProvider client={queryClient}>
+    <RouterProvider router={router} />
+  </QueryClientProvider>
 );

@@ -1,8 +1,8 @@
 import type React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { ExclamationCircleIcon } from '@heroicons/react/24/outline';
+import { Link } from '@tanstack/react-router';
 
-import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
-import { Box, Button, Typography } from '@mui/material';
+import { Button } from '@lotto/ui';
 
 interface ErrorLayoutProps {
   title: string;
@@ -12,28 +12,16 @@ interface ErrorLayoutProps {
 }
 
 export const ErrorLayout: React.FC<ErrorLayoutProps> = ({ title, message, actionLabel, actionPath }) => {
-  const navigate = useNavigate();
-
-  const handleAction = () => {
-    if (actionPath) {
-      navigate(actionPath);
-    }
-  };
-
   return (
-    <Box sx={{ textAlign: 'center' }}>
-      <ErrorOutlineIcon sx={{ fontSize: 64, color: 'error.main', mb: 2 }} />
-      <Typography variant="h4" component="h1" gutterBottom color="error">
-        {title}
-      </Typography>
-      <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
-        {message}
-      </Typography>
+    <div className="text-center">
+      <ExclamationCircleIcon className="mx-auto mb-4 size-16 text-primary-red" />
+      <h1 className="mb-2 text-primary-red text-title-medium">{title}</h1>
+      <p className="mb-6 text-body-default text-muted-foreground">{message}</p>
       {actionLabel && actionPath && (
-        <Button variant="contained" size="large" onClick={handleAction}>
-          {actionLabel}
+        <Button asChild size="lg">
+          <Link to={actionPath}>{actionLabel}</Link>
         </Button>
       )}
-    </Box>
+    </div>
   );
 };

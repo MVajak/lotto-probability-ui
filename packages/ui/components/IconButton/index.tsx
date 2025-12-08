@@ -1,7 +1,7 @@
 import { cva } from 'class-variance-authority';
 
 import { cn } from '../..';
-import { Button, ButtonProps } from '../Button';
+import { Button, type ButtonProps } from '../Button';
 
 const iconButtonVariants = cva('rounded-full p-0 [&>svg]:size-4', {
   variants: {

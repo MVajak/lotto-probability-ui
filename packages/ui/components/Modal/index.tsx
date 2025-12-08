@@ -1,11 +1,12 @@
 'use client';
 
-import React, { MouseEvent, useCallback, useEffect } from 'react';
+import type React from 'react';
+import { type MouseEvent, useCallback, useEffect } from 'react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 
 import { IconButton } from '../..';
 import { cn } from '../../utils';
-import { ModalPosition, ModalProps } from './types';
+import { ModalPosition, type ModalProps } from './types';
 import { closeButtonWrapperVariants, modalVariants, wrapperVariants } from './variants';
 
 export const Modal: React.FC<ModalProps> = ({
@@ -60,7 +61,11 @@ export const Modal: React.FC<ModalProps> = ({
 
   return (
     <div className="fixed inset-0 z-50 overflow-y-auto" data-testid={testId}>
-      <div className="fixed inset-0 bg-black/20 transition-opacity" onClick={handleOverlayClick} aria-hidden="true" />
+      <div
+        className="fixed inset-0 bg-foreground/20 transition-opacity"
+        onClick={handleOverlayClick}
+        aria-hidden="true"
+      />
 
       <div className={wrapperVariants({ position })}>
         <div className={cn(modalVariants({ position, size, isOpen }))}>

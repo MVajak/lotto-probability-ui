@@ -107,7 +107,7 @@ export const ImageCropContent = ({ className }: ImageCropContentProps) => {
 
       // Validate file type
       if (!ALLOWED_FILE_TYPES.includes(file.type)) {
-        setError(`Invalid file type. Please upload an image file (JPEG, PNG, GIF, or WebP).`);
+        setError('Invalid file type. Please upload an image file (JPEG, PNG, GIF, or WebP).');
         setImageSrc(null);
         return;
       }

@@ -19,17 +19,6 @@
       "@lotto/ui/*": ["./packages/ui/*"]
     }
   },
-  "include": [
-    "packages/ui/**/*.ts",
-    "packages/ui/**/*.tsx"
-  ],
-  "exclude": [
-    "node_modules",
-    "**/node_modules",
-    "**/dist",
-    "**/build",
-    "**/*.test.ts",
-    "**/*.test.tsx",
-    "apps/**"
-  ]
+  "include": ["packages/ui/**/*.ts", "packages/ui/**/*.tsx"],
+  "exclude": ["node_modules", "**/node_modules", "**/dist", "**/build", "**/*.test.ts", "**/*.test.tsx", "apps/**"]
 }
