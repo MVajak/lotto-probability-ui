@@ -4,8 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import { Card, CardContent, cn } from '@lotto/ui';
 
-import { CATEGORY_COLORS } from '../../../../constants';
-import type { NumberStat } from '../../../../types';
+import type { NumberStat } from '@/domains/lotto';
 
 interface AnalysisSummaryCardProps {
   numberStat: NumberStat;
@@ -75,11 +74,7 @@ export const AnalysisSummaryCard: React.FC<AnalysisSummaryCardProps> = ({ number
                       .split(/(\d+%)/g)
                       .map((part, index) =>
                         /^\d+%$/.test(part) ? (
-                          <span
-                            key={`freq-${part}-${index}`}
-                            className="text-body-large-bold"
-                            style={{ color: CATEGORY_COLORS.frequent.primary }}
-                          >
+                          <span key={`freq-${part}-${index}`} className="text-body-large-bold text-gold">
                             {part}
                           </span>
                         ) : (
@@ -92,11 +87,7 @@ export const AnalysisSummaryCard: React.FC<AnalysisSummaryCardProps> = ({ number
                       .split(/(\d+%)/g)
                       .map((part, index) =>
                         /^\d+%$/.test(part) ? (
-                          <span
-                            key={`rare-${part}-${index}`}
-                            className="text-body-large-bold"
-                            style={{ color: CATEGORY_COLORS.rare.primary }}
-                          >
+                          <span key={`rare-${part}-${index}`} className="text-body-large-bold text-primary-blue">
                             {part}
                           </span>
                         ) : (

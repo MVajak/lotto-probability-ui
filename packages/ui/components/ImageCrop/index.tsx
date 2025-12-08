@@ -142,8 +142,7 @@ export const ImageCropContent = ({ className }: ImageCropContentProps) => {
     const { width, height } = e.currentTarget;
 
     // Use 100% of the smaller dimension for maximum crop area
-    const minDimension = Math.min(width, height);
-    const cropSize = minDimension;
+    const cropSize = Math.min(width, height);
 
     // Create a centered square crop
     const crop = centerCrop(

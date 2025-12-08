@@ -5,8 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { Badge, Card, CardContent, cn } from '@lotto/ui';
 import { convertToPercentage } from '@lotto/ui/utils/calculations';
 
-import { CATEGORY_COLORS } from '../../../../constants';
-import type { Interpretation, NumberStat } from '../../../../types';
+import type { Interpretation, NumberStat } from '@/domains/lotto';
 
 interface NumberStatsCardProps {
   numberStat: NumberStat;
@@ -37,9 +36,15 @@ export const NumberStatsCard: React.FC<NumberStatsCardProps> = ({ numberStat }) 
     }
   };
 
-  const getCategoryColor = (status?: Interpretation['status']) => {
-    if (!status || status === 'normal') return CATEGORY_COLORS.normal.primary;
-    return CATEGORY_COLORS[status].primary;
+  const getCategoryColorClass = (status?: Interpretation['status']) => {
+    switch (status) {
+      case 'frequent':
+        return 'bg-gold';
+      case 'rare':
+        return 'bg-primary-blue';
+      default:
+        return 'bg-muted-foreground';
+    }
   };
 
   return (
@@ -49,8 +54,10 @@ export const NumberStatsCard: React.FC<NumberStatsCardProps> = ({ numberStat }) 
           {/* Status Badge */}
           {numberStat.interpretation && (
             <Badge
-              className="flex h-9 items-center gap-1.5 px-3 text-body-large-bold text-primary-foreground"
-              style={{ backgroundColor: getCategoryColor(numberStat.interpretation.status) }}
+              className={cn(
+                'flex h-9 items-center gap-1.5 px-3 text-body-large-bold text-primary-foreground',
+                getCategoryColorClass(numberStat.interpretation.status)
+              )}
             >
               {getStatusIcon(numberStat.interpretation.status)}
               {getStatusLabel(numberStat.interpretation.status)}

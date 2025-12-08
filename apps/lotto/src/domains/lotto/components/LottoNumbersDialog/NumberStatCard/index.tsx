@@ -5,7 +5,6 @@ import { useTranslation } from 'react-i18next';
 import { Badge, CardContent, cn, InteractiveCard, LottoNumber, Progress } from '@lotto/ui';
 import { convertToPercentage } from '@lotto/ui/utils/calculations';
 
-import { CATEGORY_COLORS } from '../../../constants';
 import type { Interpretation, NumberStat } from '../../../types';
 
 interface NumberStatCardProps {
@@ -41,12 +40,11 @@ export const NumberStatCard: React.FC<NumberStatCardProps> = ({
       onClick={onClick}
       className={cn(
         'relative cursor-pointer overflow-visible border-[1.5px] transition-all duration-300 ease-out',
-        'hover:-translate-y-1 active:-translate-y-0.5 hover:scale-[1.02] active:scale-[1.01]'
+        'hover:-translate-y-1 active:-translate-y-0.5 hover:scale-[1.02] active:scale-[1.01]',
+        category === 'frequent' && 'border-gold/50 bg-gold/10',
+        category === 'rare' && 'border-primary-blue/50 bg-primary-blue/10',
+        category === 'normal' && 'border-border bg-muted/50'
       )}
-      style={{
-        background: CATEGORY_COLORS[category].gradient,
-        borderColor: CATEGORY_COLORS[category].border,
-      }}
       onKeyDown={(e) => e.key === 'Enter' && onClick()}
       role="button"
       tabIndex={0}
@@ -54,8 +52,11 @@ export const NumberStatCard: React.FC<NumberStatCardProps> = ({
       {/* Frequent/Rare Badge */}
       {(category === 'frequent' || category === 'rare') && (
         <Badge
-          className="-top-2.5 -translate-x-1/2 absolute left-1/2 z-10 flex items-center gap-1 px-2 py-0.5 text-body-small-bold text-primary-foreground shadow-md"
-          style={{ backgroundColor: CATEGORY_COLORS[category].primary }}
+          className={cn(
+            '-top-2.5 -translate-x-1/2 absolute left-1/2 z-10 flex items-center gap-1 px-2 py-0.5 text-body-small-bold text-primary-foreground shadow-md',
+            category === 'frequent' && 'bg-gold',
+            category === 'rare' && 'bg-primary-blue'
+          )}
         >
           {category === 'frequent' ? <FireIcon className="size-3.5" /> : <SparklesIcon className="size-3.5" />}
           {getCategoryLabel(category)}

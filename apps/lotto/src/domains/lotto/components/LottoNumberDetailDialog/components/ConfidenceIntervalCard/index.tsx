@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { Card, CardContent, Progress } from '@lotto/ui';
 import { convertToPercentage } from '@lotto/ui/utils/calculations';
 
-import type { NumberStat } from '../../../../types';
+import type { NumberStat } from '@/domains/lotto';
 
 interface ConfidenceIntervalCardProps {
   numberStat: NumberStat;

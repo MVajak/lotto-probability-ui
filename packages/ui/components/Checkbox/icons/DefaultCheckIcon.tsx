@@ -1,6 +1,6 @@
 import type { ComponentProps } from 'react';
 
-import { cn } from '../../../utils';
+import { cn } from '@lotto/ui/utils';
 
 export const DefaultCheckIcon = ({ className, ...props }: ComponentProps<'svg'>) => (
   <svg

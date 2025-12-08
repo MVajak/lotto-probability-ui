@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import { Badge, Card, CardContent, LottoNumber } from '@lotto/ui';
 
-import type { NumberStat } from '../../../../types';
+import type { NumberStat } from '@/domains/lotto';
 
 interface RelatedNumbersCardProps {
   relatedNumbers: NumberStat[];
