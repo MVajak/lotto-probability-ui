@@ -62,7 +62,6 @@ export const LottoNumber = ({ index, digit, onClick, className }: LottoNumberPro
           y={ballSize / 2}
           textAnchor="middle"
           dominantBaseline="central"
-          fill="var(--color-primary)"
           fontSize="18"
           fontWeight="bold"
           fontFamily="sans-serif"

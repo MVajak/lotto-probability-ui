@@ -5,9 +5,12 @@ import { TanStackRouterDevtools } from '@tanstack/react-router-devtools';
 
 import { Toaster } from '@lotto/ui';
 
+import { ThemeApplier, ThemeProvider } from '@/domains/theme';
+
 function RootComponent() {
   return (
-    <>
+    <ThemeProvider>
+      <ThemeApplier />
       <Toaster />
       <Outlet />
       {import.meta.env.DEV && (
@@ -16,7 +19,7 @@ function RootComponent() {
           <ReactQueryDevtools buttonPosition="bottom-left" />
         </>
       )}
-    </>
+    </ThemeProvider>
   );
 }
 

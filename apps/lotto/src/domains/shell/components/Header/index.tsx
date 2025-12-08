@@ -4,7 +4,7 @@ import { UserMenu } from './UserMenu';
 
 export function Header() {
   return (
-    <header className="mb-4 rounded-xl bg-gradient-to-br from-[#00347f] to-[#004ba3] shadow-lg">
+    <header className="mb-4 rounded-xl bg-gradient-to-br from-primary to-primary-light shadow-lg">
       <div className="container mx-auto max-w-screen-xl px-4">
         <div className="flex items-center py-3">
           {/* Desktop Logo */}

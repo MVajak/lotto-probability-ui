@@ -61,7 +61,7 @@ export const LottoNumberGroup = ({ numbers, index, maxVisible }: LottoNumberGrou
     <>
       <div className="m-1 inline-flex flex-col items-center gap-1 align-top">
         {/* Grouped numbers in a compact horizontal layout */}
-        <div className="flex flex-wrap items-center gap-1 rounded-3xl border-2 border-primary/30 border-dashed bg-primary/10 p-[3px]">
+        <div className="flex flex-wrap items-center gap-1 rounded-3xl border-2 border-primary-light border-dashed bg-primary-light/30 p-1">
           {/* Always visible numbers */}
           {initialNumbers.map((num) => (
             <LottoNumber

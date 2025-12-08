@@ -3,7 +3,10 @@ import {
   ArrowRightStartOnRectangleIcon,
   ChevronDownIcon,
   Cog6ToothIcon,
+  ComputerDesktopIcon,
   CreditCardIcon,
+  MoonIcon,
+  SunIcon,
   UserIcon,
 } from '@heroicons/react/24/outline';
 import { useNavigate } from '@tanstack/react-router';
@@ -13,18 +16,25 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
   DropdownMenuSeparator,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from '@lotto/ui';
 
 import { useAuthStore } from '@/domains/auth';
 import { LanguageSelector } from '@/domains/region/components/LanguageSelector';
 import { RegionSelector } from '@/domains/region/components/RegionSelector';
+import { useTheme } from '@/domains/theme';
 
 export const UserMenu: React.FC = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const logout = useAuthStore((state) => state.logout);
+  const { theme, setTheme } = useTheme();
 
   const handleProfile = () => {
     void navigate({ to: '/profile' });
@@ -56,6 +66,31 @@ export const UserMenu: React.FC = () => {
           <CreditCardIcon className="size-4" />
           {t('userMenu.subscription')}
         </DropdownMenuItem>
+        <DropdownMenuSub>
+          <DropdownMenuSubTrigger>
+            <SunIcon className="size-4" />
+            {t('userMenu.theme')}
+          </DropdownMenuSubTrigger>
+          <DropdownMenuSubContent>
+            <DropdownMenuRadioGroup
+              value={theme}
+              onValueChange={(value) => setTheme(value as 'system' | 'light' | 'dark')}
+            >
+              <DropdownMenuRadioItem value="light">
+                <SunIcon className="size-4" />
+                {t('userMenu.themeLight')}
+              </DropdownMenuRadioItem>
+              <DropdownMenuRadioItem value="dark">
+                <MoonIcon className="size-4" />
+                {t('userMenu.themeDark')}
+              </DropdownMenuRadioItem>
+              <DropdownMenuRadioItem value="system">
+                <ComputerDesktopIcon className="size-4" />
+                {t('userMenu.themeSystem')}
+              </DropdownMenuRadioItem>
+            </DropdownMenuRadioGroup>
+          </DropdownMenuSubContent>
+        </DropdownMenuSub>
         <DropdownMenuItem onClick={handleLogout}>
           <ArrowRightStartOnRectangleIcon className="size-4" />
           {t('userMenu.logout')}

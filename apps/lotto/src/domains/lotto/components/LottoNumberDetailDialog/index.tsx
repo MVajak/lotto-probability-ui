@@ -58,7 +58,7 @@ export const LottoNumberDetailDialog: React.FC<LottoNumberDetailDialogProps> = (
         <div className="flex items-center justify-between border-b bg-background p-4">
           <div className="flex items-center gap-3">
             <LottoNumber digit={numberStat.digit} index={`dialog-${numberStat.digit}`} />
-            <h2 className="text-title-default-bold">
+            <h2 className="text-foreground text-title-default-bold">
               {t('general.number')} {numberStat.digit}
             </h2>
           </div>

@@ -207,7 +207,11 @@
     "subscription": "Tellimus",
     "logout": "Logi välja",
     "language": "Keel",
-    "region": "Piirkond"
+    "region": "Piirkond",
+    "theme": "Teema",
+    "themeLight": "Hele",
+    "themeDark": "Tume",
+    "themeSystem": "Süsteem"
   },
   "profile": {
     "title": "Profiil",

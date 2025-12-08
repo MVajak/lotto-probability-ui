@@ -207,7 +207,11 @@
     "subscription": "Subscription",
     "logout": "Log out",
     "language": "Language",
-    "region": "Region"
+    "region": "Region",
+    "theme": "Theme",
+    "themeLight": "Light",
+    "themeDark": "Dark",
+    "themeSystem": "System"
   },
   "profile": {
     "title": "Profile",
