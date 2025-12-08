@@ -3,6 +3,8 @@ import { useTranslation } from 'react-i18next';
 
 import { Card } from '@lotto/ui';
 
+import { useTheme } from '@/domains/theme';
+
 import { LotteryBalls } from './LotteryBalls';
 import { StatisticalCurve } from './StatisticalCurve';
 
@@ -13,11 +15,15 @@ interface BrandLayoutProps {
 
 export const BrandLayout: React.FC<BrandLayoutProps> = ({ children, maxWidth = '400px' }) => {
   const { t } = useTranslation();
+  const { resolvedTheme } = useTheme();
+
+  const backgroundImage =
+    resolvedTheme === 'dark' ? 'url(/img/lottery_login_clean_light.png)' : 'url(/img/lottery_login_clean.png)';
 
   return (
     <div
       className="relative flex h-screen justify-center overflow-hidden bg-center bg-cover bg-no-repeat md:justify-end"
-      style={{ backgroundImage: 'url(/img/lottery_login_clean.png)' }}
+      style={{ backgroundImage }}
     >
       {/* Decorative elements - hidden on mobile */}
       <div className="hidden md:block">

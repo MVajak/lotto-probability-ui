@@ -84,7 +84,7 @@ export const StatisticalCurve: React.FC<StatisticalCurveProps> = ({
       <path
         d={pathData}
         fill="none"
-        stroke="color-mix(in srgb, var(--color-primary-green) 40%, transparent)"
+        stroke="color-mix(in srgb, var(--color-primary-green), transparent)"
         strokeWidth="3"
         strokeLinecap="round"
         strokeLinejoin="round"

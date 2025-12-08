@@ -12,7 +12,7 @@ interface ThemeContextType {
 }
 
 const ThemeContext = createContext<ThemeContextType>({
-  theme: 'system',
+  theme: 'light',
   setTheme: () => {},
 });
 
@@ -62,7 +62,7 @@ const isValidTheme = (value: unknown): value is Theme => {
 };
 
 export const ThemeProvider = ({ children }: PropsWithChildren) => {
-  const [theme, _setTheme] = useState<Theme>('system');
+  const [theme, _setTheme] = useState<Theme>('light');
 
   // Load theme from localStorage on mount
   useEffect(() => {
