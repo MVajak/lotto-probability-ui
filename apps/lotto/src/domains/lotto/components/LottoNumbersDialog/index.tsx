@@ -6,9 +6,9 @@ import { useTranslation } from 'react-i18next';
 
 import { Dialog, DialogContent, DialogHeader, DialogTitle, IconButton } from '@lotto/ui';
 
+import { findRelatedNumbers, LottoNumberDetailDialog } from '@/domains/lotto';
+
 import type { NumberStat } from '../../types';
-import { findRelatedNumbers } from '../../utils/numberGrouping';
-import { LottoNumberDetailDialog } from '../LottoNumberDetailDialog';
 import { LottoNumbersFilter } from './LottoNumbersFilter';
 import { PositionGroup } from './PositionGroup';
 import { type LottoNumbersDialogProps, SortingType } from './types';

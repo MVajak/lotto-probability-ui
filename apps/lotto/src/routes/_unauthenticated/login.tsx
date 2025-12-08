@@ -3,10 +3,9 @@ import { useMutation } from '@tanstack/react-query';
 import { createFileRoute } from '@tanstack/react-router';
 
 import { requestMagicLinkMutation } from '@/domains/auth';
+import { EmailSentSuccess, LoginForm } from '@/domains/auth/components';
 import { LanguageSelector } from '@/domains/region/components/LanguageSelector';
 import { BrandLayout } from '@/layouts/BrandLayout';
-
-import { EmailSentSuccess, LoginForm } from '../../domains/auth/components';
 
 export const Route = createFileRoute('/_unauthenticated/login')({
   component: LoginPage,

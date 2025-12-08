@@ -11,8 +11,7 @@ import { KenoLottoCard } from '@/domains/lotto/components/cards/KenoLottoCard';
 import { PageLayout } from '@/domains/lotto/components/cards/PageLayout';
 import { VikingLottoCard } from '@/domains/lotto/components/cards/VikingLottoCard';
 import { REGION_LOTTERY_TYPES, Region, RegionStorageKey } from '@/domains/region';
-
-import { LotterySelector } from '../../components/LotterySelector';
+import { LotterySelector } from '@/components/LotterySelector';
 
 export const Route = createFileRoute('/_authenticated/home')({
   component: HomePage,
