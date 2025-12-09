@@ -5,16 +5,14 @@ import { useTranslation } from 'react-i18next';
 import { Card, CardContent, Progress } from '@lotto/ui';
 import { convertToPercentage } from '@lotto/ui/utils/calculations';
 
-import type { NumberStat } from '@/domains/lotto';
+import type { ConfidenceInterval } from '@/domains/lotto';
 
 interface ConfidenceIntervalCardProps {
-  numberStat: NumberStat;
+  confidenceInterval: ConfidenceInterval;
 }
 
-export const ConfidenceIntervalCard: React.FC<ConfidenceIntervalCardProps> = ({ numberStat }) => {
+export const ConfidenceIntervalCard: React.FC<ConfidenceIntervalCardProps> = ({ confidenceInterval }) => {
   const { t } = useTranslation();
-
-  if (!numberStat.confidenceInterval) return null;
 
   return (
     <Card className="h-full">
@@ -25,7 +23,7 @@ export const ConfidenceIntervalCard: React.FC<ConfidenceIntervalCardProps> = ({ 
         </div>
         <p className="mb-4 rounded bg-base-blue p-3 text-body-small text-muted-foreground italic">
           {t('numberStats.wilsonConfidenceIntervalHelp', {
-            confidence: Math.round(numberStat.confidenceInterval.confidenceLevel * 100),
+            confidence: Math.round(confidenceInterval.confidenceLevel * 100),
           })}
         </p>
         <div className="mt-6 space-y-4">
@@ -33,19 +31,19 @@ export const ConfidenceIntervalCard: React.FC<ConfidenceIntervalCardProps> = ({ 
             <div className="mb-1 flex justify-between">
               <span className="text-body-small text-muted-foreground">{t('numberStats.lowerBound')}</span>
               <span className="text-foreground text-title-small-bold">
-                {convertToPercentage(numberStat.confidenceInterval.lower)}
+                {convertToPercentage(confidenceInterval.lower)}
               </span>
             </div>
-            <Progress value={numberStat.confidenceInterval.lower * 100} className="h-2" />
+            <Progress value={confidenceInterval.lower * 100} className="h-2" />
           </div>
           <div>
             <div className="mb-1 flex justify-between">
               <span className="text-body-small text-muted-foreground">{t('numberStats.upperBound')}</span>
               <span className="text-foreground text-title-small-bold">
-                {convertToPercentage(numberStat.confidenceInterval.upper)}
+                {convertToPercentage(confidenceInterval.upper)}
               </span>
             </div>
-            <Progress value={numberStat.confidenceInterval.upper * 100} className="h-2" />
+            <Progress value={confidenceInterval.upper * 100} className="h-2" />
           </div>
         </div>
       </CardContent>

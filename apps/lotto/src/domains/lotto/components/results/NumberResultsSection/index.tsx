@@ -19,7 +19,7 @@ export const NumberResultsSection = ({
     <div className="col-span-12">
       <p className="px-2 py-4 text-title-small-bold">{t(titleKey)}</p>
       {children}
-      <Button variant="ghost" onClick={() => setIsDialogOpen(true)}>
+      <Button variant="ghost" className="block" onClick={() => setIsDialogOpen(true)}>
         {t('result.seeMore')}
       </Button>
       <LottoNumbersDialog isOpen={isDialogOpen} onClose={() => setIsDialogOpen(false)} numberStats={allNumberStats} />

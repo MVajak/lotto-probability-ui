@@ -89,6 +89,7 @@ export const LottoNumbersDialog = ({ isOpen, onClose, numberStats }: LottoNumber
         showCloseButton={false}
         className="flex max-h-[90vh] min-h-[80vh] flex-col gap-0 p-0 sm:max-w-4xl"
         data-testid="lotto-numbers-dialog"
+        aria-describedby={undefined}
       >
         <DialogHeader className="sticky top-0 z-10 flex flex-row items-center justify-between border-b bg-background px-6 py-4 shadow-sm">
           <DialogTitle className="text-foreground text-title-default-bold">

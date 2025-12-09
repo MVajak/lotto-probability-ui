@@ -25,9 +25,6 @@ export interface NumberStat {
   count: number;
   totalDraws?: number;
   frequency: number;
-  confidenceInterval?: ConfidenceInterval;
-  theoreticalProbability?: number;
-  deviation?: Deviation;
   interpretation?: Interpretation;
 }
 
@@ -104,6 +101,8 @@ export interface NumberHistoryDto {
     expectedFrequencyPercent: number;
     deviationPercent: number;
     status: 'frequent' | 'rare' | 'normal';
+    confidenceInterval: ConfidenceInterval;
+    deviation: Deviation;
   };
   trends: {
     longestDroughtDays: number;

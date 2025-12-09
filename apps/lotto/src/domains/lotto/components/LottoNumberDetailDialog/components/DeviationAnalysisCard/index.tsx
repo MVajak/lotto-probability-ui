@@ -5,16 +5,14 @@ import { useTranslation } from 'react-i18next';
 import { Badge, Card, CardContent, cn } from '@lotto/ui';
 import { convertToPercentage } from '@lotto/ui/utils/calculations';
 
-import type { NumberStat } from '@/domains/lotto';
+import type { Deviation } from '@/domains/lotto';
 
 interface DeviationAnalysisCardProps {
-  numberStat: NumberStat;
+  deviation: Deviation;
 }
 
-export const DeviationAnalysisCard: React.FC<DeviationAnalysisCardProps> = ({ numberStat }) => {
+export const DeviationAnalysisCard: React.FC<DeviationAnalysisCardProps> = ({ deviation }) => {
   const { t } = useTranslation();
-
-  if (!numberStat.deviation) return null;
 
   return (
     <Card className="h-full">
@@ -29,23 +27,21 @@ export const DeviationAnalysisCard: React.FC<DeviationAnalysisCardProps> = ({ nu
         <div className="space-y-4">
           <div className="flex items-center justify-between rounded-lg bg-muted/50 p-4">
             <span className="text-body-small text-muted-foreground">{t('numberStats.absoluteDeviation')}</span>
-            <span className="text-title-small-bold">{convertToPercentage(numberStat.deviation.absolute)}</span>
+            <span className="text-title-small-bold">{convertToPercentage(deviation.absolute)}</span>
           </div>
           <div className="flex items-center justify-between rounded-lg bg-muted/50 p-4">
             <span className="text-body-small text-muted-foreground">{t('numberStats.relativeDeviation')}</span>
-            <span className="text-title-small-bold">{numberStat.deviation.relative.toFixed(2)}x</span>
+            <span className="text-title-small-bold">{deviation.relative.toFixed(2)}x</span>
           </div>
           <Badge
             className={cn(
               'w-fit px-3 py-1.5 text-body-small-bold',
-              numberStat.deviation.isSignificant
+              deviation.isSignificant
                 ? 'bg-secondary-orange text-primary-orange'
                 : 'bg-secondary-green text-primary-green'
             )}
           >
-            {numberStat.deviation.isSignificant
-              ? t('numberStats.statisticallySignificant')
-              : t('numberStats.notSignificant')}
+            {deviation.isSignificant ? t('numberStats.statisticallySignificant') : t('numberStats.notSignificant')}
           </Badge>
         </div>
       </CardContent>

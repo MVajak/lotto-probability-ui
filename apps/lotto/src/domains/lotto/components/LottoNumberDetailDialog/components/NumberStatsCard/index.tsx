@@ -5,13 +5,14 @@ import { useTranslation } from 'react-i18next';
 import { Badge, Card, CardContent, cn } from '@lotto/ui';
 import { convertToPercentage } from '@lotto/ui/utils/calculations';
 
-import type { Interpretation, NumberStat } from '@/domains/lotto';
+import type { Interpretation, NumberHistoryDto, NumberStat } from '@/domains/lotto';
 
 interface NumberStatsCardProps {
   numberStat: NumberStat;
+  numberHistory: NumberHistoryDto | null;
 }
 
-export const NumberStatsCard: React.FC<NumberStatsCardProps> = ({ numberStat }) => {
+export const NumberStatsCard: React.FC<NumberStatsCardProps> = ({ numberStat, numberHistory }) => {
   const { t } = useTranslation();
 
   const getStatusIcon = (status?: Interpretation['status']) => {
@@ -76,10 +77,10 @@ export const NumberStatsCard: React.FC<NumberStatsCardProps> = ({ numberStat }) 
               <p className="text-foreground text-title-default-bold">{convertToPercentage(numberStat.frequency)}</p>
               <p className="mt-1 text-[0.7rem] text-muted-foreground/80">{t('numberStats.probabilityHelp')}</p>
             </div>
-            {numberStat.theoreticalProbability !== undefined && (
+            {numberHistory?.summary.expectedFrequencyPercent !== undefined && (
               <div>
                 <p className="mb-1 text-body-small-bold text-muted-foreground">{t('numberStats.theoretical')}</p>
-                <p className="text-title-default-bold">{convertToPercentage(numberStat.theoreticalProbability)}</p>
+                <p className="text-title-default-bold">{numberHistory.summary.expectedFrequencyPercent.toFixed(2)}%</p>
                 <p className="mt-1 text-[0.7rem] text-muted-foreground/80">{t('numberStats.theoreticalHelp')}</p>
               </div>
             )}
