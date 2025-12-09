@@ -2,7 +2,7 @@ import type React from 'react';
 import { ChartBarIcon } from '@heroicons/react/24/outline';
 import { useTranslation } from 'react-i18next';
 
-import { Card, CardContent, Separator, Spinner } from '@lotto/ui';
+import { Card, CardContent, Separator } from '@lotto/ui';
 
 import type { NumberHistoryDto } from '@/domains/lotto';
 
@@ -18,23 +18,11 @@ import {
 } from './components';
 
 interface HistoricalTrendsCardProps {
-  numberHistory: NumberHistoryDto | null;
-  isLoading: boolean;
+  numberHistory: NumberHistoryDto;
 }
 
-export const HistoricalTrendsCard: React.FC<HistoricalTrendsCardProps> = ({ numberHistory, isLoading }) => {
+export const HistoricalTrendsCard: React.FC<HistoricalTrendsCardProps> = ({ numberHistory }) => {
   const { t } = useTranslation();
-
-  if (isLoading) {
-    return (
-      <Card>
-        <CardContent className="p-6 text-center">
-          <Spinner className="mx-auto size-10" />
-          <p className="mt-4 text-body-small text-muted-foreground">{t('numberStats.loadingHistoricalData')}</p>
-        </CardContent>
-      </Card>
-    );
-  }
 
   if (!numberHistory) {
     return (

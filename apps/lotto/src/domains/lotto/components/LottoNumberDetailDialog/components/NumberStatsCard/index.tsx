@@ -70,18 +70,18 @@ export const NumberStatsCard: React.FC<NumberStatsCardProps> = ({ numberStat, nu
             <div>
               <p className="mb-1 text-body-small-bold text-muted-foreground">{t('general.count')}</p>
               <p className="text-foreground text-title-default-bold">{numberStat.count}</p>
-              <p className="mt-1 text-[0.7rem] text-muted-foreground/80">{t('numberStats.countHelp')}</p>
+              <p className="mt-1 text-body-small text-subtle-foreground">{t('numberStats.countHelp')}</p>
             </div>
             <div>
               <p className="mb-1 text-body-small-bold text-muted-foreground">{t('general.frequency')}</p>
               <p className="text-foreground text-title-default-bold">{convertToPercentage(numberStat.frequency)}</p>
-              <p className="mt-1 text-[0.7rem] text-muted-foreground/80">{t('numberStats.probabilityHelp')}</p>
+              <p className="mt-1 text-body-small text-subtle-foreground">{t('numberStats.probabilityHelp')}</p>
             </div>
             {numberHistory?.summary.expectedFrequencyPercent !== undefined && (
               <div>
                 <p className="mb-1 text-body-small-bold text-muted-foreground">{t('numberStats.theoretical')}</p>
                 <p className="text-title-default-bold">{numberHistory.summary.expectedFrequencyPercent.toFixed(2)}%</p>
-                <p className="mt-1 text-[0.7rem] text-muted-foreground/80">{t('numberStats.theoreticalHelp')}</p>
+                <p className="mt-1 text-body-small text-subtle-foreground">{t('numberStats.theoreticalHelp')}</p>
               </div>
             )}
             {numberStat.interpretation?.percentDifference !== undefined &&
@@ -90,14 +90,14 @@ export const NumberStatsCard: React.FC<NumberStatsCardProps> = ({ numberStat, nu
                   <p className="mb-1 text-body-small-bold text-muted-foreground">Difference</p>
                   <p
                     className={cn(
-                      'text-title-default-bold',
+                      'text-title-default',
                       numberStat.interpretation.percentDifference > 0 ? 'text-primary-red' : 'text-primary-blue'
                     )}
                   >
                     {numberStat.interpretation.percentDifference > 0 ? '+' : ''}
                     {numberStat.interpretation.percentDifference}%
                   </p>
-                  <p className="mt-1 text-[0.7rem] text-muted-foreground/80">{t('numberStats.differenceHelp')}</p>
+                  <p className="mt-1 text-body-small text-subtle-foreground">{t('numberStats.differenceHelp')}</p>
                 </div>
               )}
           </div>
