@@ -10,7 +10,7 @@ import { findRelatedNumbers, LottoNumberDetailDialog } from '@/domains/lotto';
 
 import type { NumberStat } from '../../types';
 import { LottoNumbersFilter } from './LottoNumbersFilter';
-import { PositionGroup } from './PositionGroup';
+import { NumberStatsGrid } from './NumberStatsGrid';
 import { type LottoNumbersDialogProps, SortingType } from './types';
 
 const UnassignedPosition = 'unassigned';
@@ -117,7 +117,7 @@ export const LottoNumbersDialog = ({ isOpen, onClose, numberStats }: LottoNumber
         <div className="flex-1 overflow-y-auto pt-6">
           {/* Numbers Grid */}
           {Object.entries(numberStatsByPositions).map(([position, stats]) => (
-            <PositionGroup
+            <NumberStatsGrid
               key={`position-container-${position}`}
               position={position}
               stats={stats}

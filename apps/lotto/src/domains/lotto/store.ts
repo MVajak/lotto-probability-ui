@@ -12,6 +12,7 @@ interface LottoSearchParams {
 interface LottoStore {
   searchParams: LottoSearchParams;
   setSearchParams: (params: LottoSearchParams) => void;
+  setLottoType: (lottoType: LottoType) => void;
   resetSearchParams: () => void;
 }
 
@@ -24,5 +25,9 @@ const initialSearchParams: LottoSearchParams = {
 export const useLottoStore = create<LottoStore>((set) => ({
   searchParams: initialSearchParams,
   setSearchParams: (params) => set({ searchParams: params }),
+  setLottoType: (lottoType) =>
+    set((state) => ({
+      searchParams: { ...state.searchParams, lottoType },
+    })),
   resetSearchParams: () => set({ searchParams: initialSearchParams }),
 }));

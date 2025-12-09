@@ -3,7 +3,7 @@ import { createFileRoute } from '@tanstack/react-router';
 import { useTranslation } from 'react-i18next';
 
 import { currentUserQuery } from '@/domains/auth';
-import { PageLayout } from '@/domains/lotto/components/cards/PageLayout';
+import { PageLayout } from '@/layouts/PageLayout';
 import { subscriptionTiersQuery } from '@/domains/subscription';
 import { PricingCard } from '@/domains/subscription/components/PricingCard';
 

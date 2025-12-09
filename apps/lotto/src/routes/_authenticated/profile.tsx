@@ -1,7 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { useTranslation } from 'react-i18next';
 
-import { PageLayout } from '@/domains/lotto/components/cards/PageLayout';
+import { PageLayout } from '@/layouts/PageLayout';
 
 export const Route = createFileRoute('/_authenticated/profile')({
   component: ProfilePage,

@@ -1,0 +1,191 @@
+import { LottoType } from '../types';
+import type { LotteryConfig, LotteryConfigRegistry } from './types';
+
+/**
+ * Bingo win class constants for filtering different game modes
+ */
+const BINGO_WIN_CLASSES = {
+  FULL_GAME: 6,
+  CENTER_SQUARE: 5,
+  CORNER_SQUARE: 4,
+  DIAGONAL_SQUARE: 3,
+} as const;
+
+/**
+ * Registry of all configured lottery types
+ * To add a new lottery: simply add a new entry to this object
+ */
+export const LOTTERY_CONFIGS: LotteryConfigRegistry = {
+  // ===== ESTONIA (EE) =====
+
+  [LottoType.EURO]: {
+    lottoType: LottoType.EURO,
+    links: {
+      buyTickets: 'https://www.eestiloto.ee/et/eurojackpot/#plain',
+      gameRules: 'https://eestiloto.zendesk.com/hc/et-ee/articles/15852803719069-Eurojackpoti-m%C3%A4ngujuhend',
+    },
+    dataTransform: {
+      mode: 'standard',
+      categories: [
+        {
+          titleKey: 'result.primaryNumbers',
+          maxNumbers: 5,
+          containerSize: { sm: 6 },
+        },
+        {
+          titleKey: 'result.secondaryNumbers',
+          maxNumbers: 2,
+          containerSize: { sm: 6 },
+          isSecondary: true,
+        },
+      ],
+    },
+  },
+
+  [LottoType.VIKINGLOTTO]: {
+    lottoType: LottoType.VIKINGLOTTO,
+    links: {
+      buyTickets: 'https://www.eestiloto.ee/et/vikinglotto/#plain',
+      gameRules: 'https://eestiloto.zendesk.com/hc/et-ee/articles/15852799648413-Vikinglotto-m%C3%A4ngujuhend',
+    },
+    dataTransform: {
+      mode: 'standard',
+      categories: [
+        {
+          titleKey: 'result.primaryNumbers',
+          maxNumbers: 6,
+          containerSize: { sm: 6 },
+        },
+        {
+          titleKey: 'result.secondaryNumbers',
+          maxNumbers: 1,
+          containerSize: { sm: 6 },
+          isSecondary: true,
+        },
+      ],
+    },
+  },
+
+  [LottoType.KENO]: {
+    lottoType: LottoType.KENO,
+    links: {
+      buyTickets: 'https://www.eestiloto.ee/et/keno/#plain',
+      gameRules: 'https://eestiloto.zendesk.com/hc/et-ee/articles/15852841307165-Keno-m%C3%A4ngujuhend',
+    },
+    dataTransform: {
+      mode: 'standard',
+      categories: [
+        {
+          titleKey: 'result.primaryNumbers',
+          maxNumbers: 20,
+        },
+      ],
+    },
+  },
+
+  [LottoType.BINGO]: {
+    lottoType: LottoType.BINGO,
+    links: {
+      buyTickets: 'https://www.eestiloto.ee/et/bingoloto/#plain',
+      gameRules: 'https://eestiloto.zendesk.com/hc/et-ee/articles/15852861053469-Bingo-loto-m%C3%A4ngujuhend',
+    },
+    dataTransform: {
+      mode: 'standard',
+      categories: [
+        {
+          titleKey: 'result.bingo.centerGame',
+          maxNumbers: 1,
+          containerSize: { sm: 4 },
+          winClass: BINGO_WIN_CLASSES.CENTER_SQUARE,
+        },
+        {
+          titleKey: 'result.bingo.cornerGame',
+          maxNumbers: 33,
+          containerSize: { sm: 8 },
+          winClass: BINGO_WIN_CLASSES.CORNER_SQUARE,
+        },
+        {
+          titleKey: 'result.bingo.diagonalGame',
+          maxNumbers: 5,
+          containerSize: { sm: 4 },
+          winClass: BINGO_WIN_CLASSES.DIAGONAL_SQUARE,
+        },
+        {
+          titleKey: 'result.bingo.fullGame',
+          maxNumbers: 10,
+          containerSize: { sm: 8 },
+          winClass: BINGO_WIN_CLASSES.FULL_GAME,
+        },
+      ],
+    },
+  },
+
+  [LottoType.JOKKER]: {
+    lottoType: LottoType.JOKKER,
+    links: {
+      buyTickets: 'https://www.eestiloto.ee/et/jokker/#plain',
+      gameRules: 'https://eestiloto.zendesk.com/hc/et-ee/articles/15852902153757-Jokkeri-m%C3%A4ngujuhend',
+    },
+    dataTransform: {
+      mode: 'positional',
+      positional: {
+        maxNumbersPerPosition: 3,
+      },
+    },
+  },
+
+  // ===== UNITED KINGDOM (UK) =====
+  // Ready for implementation when backend supports them
+
+  // [LottoType.UK_LOTTO]: {
+  //   lottoType: LottoType.UK_LOTTO,
+  //   links: {
+  //     buyTickets: 'https://www.national-lottery.co.uk/games/lotto',
+  //     gameRules: 'https://www.national-lottery.co.uk/games/lotto/game-procedures',
+  //   },
+  //   dataTransform: {
+  //     mode: 'standard',
+  //     categories: [
+  //       { titleKey: 'result.primaryNumbers', maxNumbers: 6, containerSize: { sm: 6 } },
+  //       { titleKey: 'result.bonusBall', maxNumbers: 1, containerSize: { sm: 6 }, isSecondary: true },
+  //     ],
+  //   },
+  // },
+
+  // ===== UNITED STATES (US) =====
+  // Ready for implementation when backend supports them
+
+  // [LottoType.US_POWERBALL]: {
+  //   lottoType: LottoType.US_POWERBALL,
+  //   links: {
+  //     buyTickets: 'https://www.powerball.com/',
+  //     gameRules: 'https://www.powerball.com/games/powerball',
+  //   },
+  //   dataTransform: {
+  //     mode: 'standard',
+  //     categories: [
+  //       { titleKey: 'result.primaryNumbers', maxNumbers: 5, containerSize: { sm: 6 } },
+  //       { titleKey: 'result.powerball', maxNumbers: 1, containerSize: { sm: 6 }, isSecondary: true },
+  //     ],
+  //   },
+  // },
+};
+
+/**
+ * Get lottery configuration by type
+ * @throws Error if lottery type is not configured
+ */
+export function getLotteryConfig(lottoType: LottoType): LotteryConfig {
+  const config = LOTTERY_CONFIGS[lottoType];
+  if (!config) {
+    throw new Error(`No configuration found for lottery type: ${lottoType}`);
+  }
+  return config;
+}
+
+/**
+ * Check if a lottery type is configured
+ */
+export function isLotteryConfigured(lottoType: LottoType): boolean {
+  return lottoType in LOTTERY_CONFIGS;
+}
