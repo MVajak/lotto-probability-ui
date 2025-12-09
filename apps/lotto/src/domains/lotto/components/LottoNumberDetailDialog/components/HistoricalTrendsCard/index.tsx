@@ -7,14 +7,12 @@ import { Card, CardContent, Separator } from '@lotto/ui';
 import type { NumberHistoryDto } from '@/domains/lotto';
 
 import {
-  AutocorrelationChart,
-  DroughtStreakChart,
+  HotColdMeter,
   InsufficientDataWarning,
-  MarkovHeatmap,
-  MonthlyAppearancesChart,
-  PatternAnalysisChips,
-  StatsSummaryGrid,
-  TimelineScatterPlot,
+  MarkovStatsCards,
+  RecentDrawsChart,
+  StreakStats,
+  TrendSparkline,
 } from './components';
 
 interface HistoricalTrendsCardProps {
@@ -36,77 +34,57 @@ export const HistoricalTrendsCard: React.FC<HistoricalTrendsCardProps> = ({ numb
     );
   }
 
-  const { summary, trends, autocorrelation, markovChain } = numberHistory;
-  const hasEnoughData = (autocorrelation?.lagCorrelations?.length ?? 0) > 0;
+  const { summary, trends, occurrences, markovChain } = numberHistory;
+  const hasEnoughData = occurrences.length > 0 && trends.timeSeries.length > 0;
 
   return (
     <Card>
       <CardContent className="p-6">
         {/* Header */}
-        <div className="mb-4 flex items-center gap-3">
+        <div className="mb-6 flex items-center gap-3">
           <div className="flex items-center justify-center rounded-md bg-base-green p-1.5">
             <ChartBarIcon className="size-5 text-primary-green" />
           </div>
           <h3 className="text-title-small-bold">{t('numberStats.historicalTrendsTitle')}</h3>
         </div>
 
-        {/* Stats Summary Grid */}
-        <StatsSummaryGrid trends={trends} markovChain={markovChain} />
+        {hasEnoughData ? (
+          <>
+            {/* Hot/Cold Meter - Simple visual for frequency comparison */}
+            <HotColdMeter summary={summary} />
 
-        <Separator className="my-4" />
+            <Separator className="my-6" />
 
-        {/* Pattern Analysis Chips */}
-        {autocorrelation && markovChain && (
-          <PatternAnalysisChips autocorrelation={autocorrelation} markovChain={markovChain} />
-        )}
+            {/* Trend Sparkline - Simple trend visualization */}
+            {trends.timeSeries.length > 0 && <TrendSparkline timeSeries={trends.timeSeries} />}
 
-        {/* Monthly Appearances Chart */}
-        <MonthlyAppearancesChart timeSeries={trends.timeSeries} numberValue={summary.number} />
+            {trends.timeSeries.length > 0 && <Separator className="my-6" />}
 
-        <Separator className="my-6" />
+            {/* Recent Draws - Visual dots for appearances */}
+            <RecentDrawsChart occurrences={occurrences} totalDraws={summary.totalDraws} />
 
-        {/* Autocorrelation Chart */}
-        {hasEnoughData && autocorrelation ? (
-          <AutocorrelationChart lagCorrelations={autocorrelation.lagCorrelations} />
+            <Separator className="my-6" />
+
+            {/* Streak Stats - Simple cards for streak/drought info */}
+            <StreakStats trends={trends} />
+
+            <Separator className="my-6" />
+
+            {/* Markov Chain - What happens next? */}
+            {markovChain ? (
+              <MarkovStatsCards markovChain={markovChain} />
+            ) : (
+              <InsufficientDataWarning
+                titleKey="numberStats.insufficientData.markovTitle"
+                messageKey="numberStats.insufficientData.markovMessage"
+              />
+            )}
+          </>
         ) : (
           <InsufficientDataWarning
-            titleKey="numberStats.insufficientData.autocorrelationTitle"
-            messageKey="numberStats.insufficientData.autocorrelationMessage"
+            titleKey="numberStats.insufficientData.generalTitle"
+            messageKey="numberStats.insufficientData.generalMessage"
           />
-        )}
-
-        <Separator className="my-6" />
-
-        {/* Markov Transition Heatmap */}
-        {hasEnoughData && markovChain ? (
-          <MarkovHeatmap transitionProbabilities={markovChain.transitionProbabilities} />
-        ) : (
-          <InsufficientDataWarning
-            titleKey="numberStats.insufficientData.markovTitle"
-            messageKey="numberStats.insufficientData.markovMessage"
-          />
-        )}
-
-        <Separator className="my-6" />
-
-        {/* Timeline Scatter Plot */}
-        <TimelineScatterPlot occurrences={numberHistory.occurrences} numberValue={summary.number} />
-
-        <Separator className="my-6" />
-
-        {/* Drought and Streak Chart */}
-        <DroughtStreakChart trends={trends} />
-
-        {/* Interpretation Helper */}
-        {autocorrelation && (
-          <div className="mt-4 rounded bg-base-blue p-3">
-            <p className="text-body-small text-muted-foreground">
-              <strong>{t('numberStats.patternInterpretation')}</strong>{' '}
-              {autocorrelation.interpretation === 'random'
-                ? t('numberStats.patternRandom')
-                : t('numberStats.patternDetected', { pattern: autocorrelation.interpretation })}
-            </p>
-          </div>
         )}
       </CardContent>
     </Card>

@@ -4,11 +4,12 @@ import { XMarkIcon } from '@heroicons/react/24/outline';
 import { useSuspenseQuery } from '@tanstack/react-query';
 import { useTranslation } from 'react-i18next';
 
-import { Dialog, DialogContent, DialogTitle, IconButton, LottoNumber, Spinner } from '@lotto/ui';
+import { Dialog, DialogContent, DialogTitle, IconButton, LottoNumber } from '@lotto/ui';
 
 import { numberHistoryQueryOptions, useLottoStore } from '@/domains/lotto';
+import { LoadingLayout } from '@/layouts/LoadingLayout';
 
-import type { NumberHistoryDto, NumberStat } from '../../types';
+import type { NumberStat } from '../../types';
 import {
   AnalysisSummaryCard,
   ConfidenceIntervalCard,
@@ -24,25 +25,44 @@ interface LottoNumberDetailDialogProps {
   numberStat: NumberStat | null;
   relatedNumbers?: NumberStat[];
   onNumberChange?: (numberStat: NumberStat) => void;
+  isSecondaryNumbers?: boolean;
 }
 
 interface LottoNumberDetailContentProps {
   numberStat: NumberStat;
-  numberHistory: NumberHistoryDto;
   relatedNumbers: NumberStat[];
   onNumberChange?: (numberStat: NumberStat) => void;
+  isSecondaryNumbers?: boolean;
 }
 
 /**
- * Content component that renders all the detail cards.
- * Separated to allow Suspense boundary around data fetching.
+ * Content component that fetches and renders all the detail cards.
+ * Uses useSuspenseQuery to suspend while data is loading.
  */
 const LottoNumberDetailContent: React.FC<LottoNumberDetailContentProps> = ({
   numberStat,
-  numberHistory,
   relatedNumbers,
   onNumberChange,
+  isSecondaryNumbers,
 }) => {
+  const searchParams = useLottoStore((state) => state.searchParams);
+
+  // Guard: lottoType must be set to fetch number history
+  if (!searchParams.lottoType) {
+    throw new Error('Cannot fetch number history: lottoType is not set');
+  }
+
+  const { data: numberHistory } = useSuspenseQuery(
+    numberHistoryQueryOptions({
+      lottoType: searchParams.lottoType,
+      number: numberStat.digit,
+      dateFrom: searchParams.dateFrom,
+      dateTo: searchParams.dateTo,
+      position: numberStat.position ?? undefined,
+      useSecondaryNumbers: isSecondaryNumbers,
+    })
+  );
+
   return (
     <div className="grid grid-cols-12 gap-6">
       {/* Compact Stats with Status Badge */}
@@ -84,52 +104,13 @@ const LottoNumberDetailContent: React.FC<LottoNumberDetailContentProps> = ({
   );
 };
 
-/**
- * Wrapper component that fetches data using useSuspenseQuery.
- * This suspends while data is loading, triggering the Suspense fallback.
- */
-const LottoNumberDetailFetcher: React.FC<{
-  numberStat: NumberStat;
-  relatedNumbers: NumberStat[];
-  onNumberChange?: (numberStat: NumberStat) => void;
-}> = ({ numberStat, relatedNumbers, onNumberChange }) => {
-  const searchParams = useLottoStore((state) => state.searchParams);
-
-  const { data: numberHistory } = useSuspenseQuery(
-    numberHistoryQueryOptions({
-      lottoType: searchParams.lottoType!,
-      number: numberStat.digit,
-      dateFrom: searchParams.dateFrom,
-      dateTo: searchParams.dateTo,
-      position: numberStat.position ?? undefined,
-    })
-  );
-
-  return (
-    <LottoNumberDetailContent
-      numberStat={numberStat}
-      numberHistory={numberHistory}
-      relatedNumbers={relatedNumbers}
-      onNumberChange={onNumberChange}
-    />
-  );
-};
-
-/**
- * Loading fallback shown while data is being fetched.
- */
-const LoadingFallback: React.FC = () => (
-  <div className="flex flex-1 items-center justify-center py-20">
-    <Spinner className="size-8" />
-  </div>
-);
-
 export const LottoNumberDetailDialog: React.FC<LottoNumberDetailDialogProps> = ({
   open,
   onClose,
   numberStat,
   relatedNumbers = [],
   onNumberChange,
+  isSecondaryNumbers = false,
 }) => {
   const { t } = useTranslation();
 
@@ -157,11 +138,12 @@ export const LottoNumberDetailDialog: React.FC<LottoNumberDetailDialogProps> = (
 
         {/* Content - Wrapped in Suspense */}
         <div className="flex-1 overflow-y-auto bg-muted/30 p-6">
-          <Suspense fallback={<LoadingFallback />}>
-            <LottoNumberDetailFetcher
+          <Suspense fallback={<LoadingLayout />}>
+            <LottoNumberDetailContent
               numberStat={numberStat}
               relatedNumbers={relatedNumbers}
               onNumberChange={onNumberChange}
+              isSecondaryNumbers={isSecondaryNumbers}
             />
           </Suspense>
         </div>

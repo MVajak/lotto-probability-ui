@@ -56,7 +56,11 @@ export const LottoProbabilityResultsCard = (props: LottoProbabilityResultsProps)
 
                   return (
                     <div key={statResult.titleKey} className={colSpanClass}>
-                      <NumberResultsSection allNumberStats={statResult.allNumberStats} titleKey={statResult.titleKey}>
+                      <NumberResultsSection
+                        allNumberStats={statResult.allNumberStats}
+                        titleKey={statResult.titleKey}
+                        isSecondaryNumbers={statResult.isSecondaryNumbers}
+                      >
                         {groupsToShow.map((group, groupIndex) => {
                           // Only apply maxVisible to the cutoff group
                           const maxVisible =
@@ -70,6 +74,7 @@ export const LottoProbabilityResultsCard = (props: LottoProbabilityResultsProps)
                               numbers={group}
                               index={`${statResult.titleKey}-${groupIndex}`}
                               maxVisible={maxVisible}
+                              isSecondaryNumbers={statResult.isSecondaryNumbers}
                             />
                           );
                         })}

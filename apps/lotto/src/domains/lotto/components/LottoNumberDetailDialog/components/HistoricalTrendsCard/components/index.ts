@@ -1,8 +1,9 @@
-export { AutocorrelationChart } from './AutocorrelationChart';
-export { DroughtStreakChart } from './DroughtStreakChart';
+// New simple chart components
+export { HotColdMeter } from './HotColdMeter';
+// Keep for edge cases
 export { InsufficientDataWarning } from './InsufficientDataWarning';
-export { MarkovHeatmap } from './MarkovHeatmap';
-export { MonthlyAppearancesChart } from './MonthlyAppearancesChart';
-export { PatternAnalysisChips } from './PatternAnalysisChips';
-export { StatsSummaryGrid } from './StatsSummaryGrid';
-export { TimelineScatterPlot } from './TimelineScatterPlot';
+// Markov chain visualization
+export { MarkovStatsCards } from './MarkovStatsCards';
+export { RecentDrawsChart } from './RecentDrawsChart';
+export { StreakStats } from './StreakStats';
+export { TrendSparkline } from './TrendSparkline';

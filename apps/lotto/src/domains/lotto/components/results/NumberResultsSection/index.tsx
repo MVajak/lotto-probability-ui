@@ -11,6 +11,7 @@ export const NumberResultsSection = ({
   children,
   allNumberStats,
   titleKey,
+  isSecondaryNumbers = false,
 }: NumberResultsSectionProps): React.JSX.Element => {
   const { t } = useTranslation();
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -22,7 +23,12 @@ export const NumberResultsSection = ({
       <Button variant="ghost" className="block" onClick={() => setIsDialogOpen(true)}>
         {t('result.seeMore')}
       </Button>
-      <LottoNumbersDialog isOpen={isDialogOpen} onClose={() => setIsDialogOpen(false)} numberStats={allNumberStats} />
+      <LottoNumbersDialog
+        isOpen={isDialogOpen}
+        onClose={() => setIsDialogOpen(false)}
+        numberStats={allNumberStats}
+        isSecondaryNumbers={isSecondaryNumbers}
+      />
     </div>
   );
 };

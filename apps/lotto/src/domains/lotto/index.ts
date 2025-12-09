@@ -2,11 +2,11 @@
 export type { GenericLottoCardProps } from './components/GenericLottoCard';
 // Components
 export { GenericLottoCard } from './components/GenericLottoCard';
+export { LotterySelectorCard } from './components/LotterySelectorCard';
 export { LottoInfoCard } from './components/LottoInfoCard';
 export { LottoNumberDetailDialog } from './components/LottoNumberDetailDialog';
 export { LottoNumbersDialog } from './components/LottoNumbersDialog';
 export { LottoSearchCard } from './components/LottoSearchCard';
-export { LotterySelectorCard } from './components/LotterySelectorCard';
 // Results Components
 export * from './components/results';
 // Config

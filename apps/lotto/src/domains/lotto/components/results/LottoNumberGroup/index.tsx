@@ -10,7 +10,12 @@ import { findRelatedNumbers } from '../../../utils/numberGrouping';
 import { LottoNumberDetailDialog } from '../../LottoNumberDetailDialog';
 import type { LottoNumberGroupProps } from './types';
 
-export const LottoNumberGroup = ({ numbers, index, maxVisible }: LottoNumberGroupProps): React.JSX.Element | null => {
+export const LottoNumberGroup = ({
+  numbers,
+  index,
+  maxVisible,
+  isSecondaryNumbers = false,
+}: LottoNumberGroupProps): React.JSX.Element | null => {
   const { t } = useTranslation();
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [selectedNumberIndex, setSelectedNumberIndex] = useState(0);
@@ -52,6 +57,7 @@ export const LottoNumberGroup = ({ numbers, index, maxVisible }: LottoNumberGrou
           numberStat={numbers[selectedNumberIndex]}
           relatedNumbers={[]}
           onNumberChange={handleNumberChange}
+          isSecondaryNumbers={isSecondaryNumbers}
         />
       </>
     );
@@ -125,6 +131,7 @@ export const LottoNumberGroup = ({ numbers, index, maxVisible }: LottoNumberGrou
         numberStat={numbers[selectedNumberIndex]}
         relatedNumbers={findRelatedNumbers(numbers[selectedNumberIndex], numbers)}
         onNumberChange={handleNumberChange}
+        isSecondaryNumbers={isSecondaryNumbers}
       />
     </>
   );

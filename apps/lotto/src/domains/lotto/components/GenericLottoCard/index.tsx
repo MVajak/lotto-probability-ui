@@ -60,6 +60,7 @@ export const GenericLottoCard = ({ config }: GenericLottoCardProps) => {
               displayNumberStats: cat.displayNumberStats,
               hiddenNumberStats: cat.hiddenNumberStats,
               containerSize: cat.config.containerSize,
+              isSecondaryNumbers: cat.config.isSecondary,
             })) ?? []
           }
         />

@@ -11,4 +11,5 @@ export interface LottoNumbersDialogProps {
   isOpen: boolean;
   onClose: () => void;
   numberStats: NumberStat[];
+  isSecondaryNumbers?: boolean;
 }

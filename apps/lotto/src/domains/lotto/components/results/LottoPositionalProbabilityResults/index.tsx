@@ -36,7 +36,11 @@ export const LottoPositionalProbabilityResultsCard = (
             {hasResults ? (
               <div className="grid grid-cols-12 gap-4 p-4">
                 <div className="col-span-12">
-                  <NumberResultsSection allNumberStats={allNumberStats} titleKey="result.primaryNumbers">
+                  <NumberResultsSection
+                    allNumberStats={allNumberStats}
+                    titleKey="result.primaryNumbers"
+                    isSecondaryNumbers={false}
+                  >
                     {Object.entries(numberStatsByPosition).map(([position, stats]) => {
                       // For each position, group by frequency and apply display logic
                       const maxCount = 3; // Show top 3 numbers per position

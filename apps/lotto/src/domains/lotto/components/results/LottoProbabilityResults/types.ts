@@ -10,6 +10,7 @@ export interface LottoNumberResults {
   hiddenNumberStats: NumberStat[];
   maxNumbersCount: number;
   containerSize?: { sm?: GridColSpan };
+  isSecondaryNumbers?: boolean;
 }
 
 export interface LottoProbabilityResultsProps {

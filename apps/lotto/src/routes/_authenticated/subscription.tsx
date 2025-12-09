@@ -3,9 +3,9 @@ import { createFileRoute } from '@tanstack/react-router';
 import { useTranslation } from 'react-i18next';
 
 import { currentUserQuery } from '@/domains/auth';
-import { PageLayout } from '@/layouts/PageLayout';
 import { subscriptionTiersQuery } from '@/domains/subscription';
 import { PricingCard } from '@/domains/subscription/components/PricingCard';
+import { PageLayout } from '@/layouts/PageLayout';
 
 export const Route = createFileRoute('/_authenticated/subscription')({
   loader: ({ context }) =>

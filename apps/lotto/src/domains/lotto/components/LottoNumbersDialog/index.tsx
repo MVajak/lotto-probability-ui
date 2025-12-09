@@ -15,7 +15,12 @@ import { type LottoNumbersDialogProps, SortingType } from './types';
 
 const UnassignedPosition = 'unassigned';
 
-export const LottoNumbersDialog = ({ isOpen, onClose, numberStats }: LottoNumbersDialogProps): React.JSX.Element => {
+export const LottoNumbersDialog = ({
+  isOpen,
+  onClose,
+  numberStats,
+  isSecondaryNumbers = false,
+}: LottoNumbersDialogProps): React.JSX.Element => {
   const [filteredStats, setFilteredStats] = useState<NumberStat[]>(numberStats);
   const [shouldExcludeZeroCounts, setShouldExcludeZeroCounts] = useState<boolean>(false);
   const [sortByValue, setSortByValue] = useState<SortingType>(SortingType.DigitAsc);
@@ -138,6 +143,7 @@ export const LottoNumbersDialog = ({ isOpen, onClose, numberStats }: LottoNumber
         numberStat={selectedStat}
         relatedNumbers={relatedNumbers}
         onNumberChange={(newStat) => setSelectedStat(newStat)}
+        isSecondaryNumbers={isSecondaryNumbers}
       />
     </Dialog>
   );
