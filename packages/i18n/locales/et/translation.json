@@ -122,12 +122,10 @@
       "months": "Kuud"
     },
     "recentPattern": {
-      "title": "Hiljutine muster",
-      "description": "Tulemused viimasest ~{{count}} loosimisest",
+      "title": "Loosimiste ajajoon",
+      "description": "Kõik {{count}} loosimist - kerides näed täielikku ajalugu",
       "appeared": "✓ Esines!",
       "missed": "Ei esinenud",
-      "older": "← Vanemad",
-      "recent": "Hiljutised →",
       "hits": "{{count}} tabamust",
       "misses": "{{count}} möödalaskmist",
       "hitRate": "Tabamuse määr"
@@ -261,7 +259,9 @@
       "interpretation": {
         "memoryless": "Juhuslik",
         "persistent": "Kipub korduma",
-        "alternating": "Kipub vahelduma"
+        "alternating": "Kipub vahelduma",
+        "gamblers_fallacy": "Peaks varsti ilmuma",
+        "hot_hand": "Kuumal seerial"
       }
     }
   },

@@ -122,12 +122,10 @@
       "months": "Months"
     },
     "recentPattern": {
-      "title": "Recent Pattern",
-      "description": "Results from the last ~{{count}} draws",
+      "title": "Draw Timeline",
+      "description": "All {{count}} draws - scroll to see the full history",
       "appeared": "✓ Appeared!",
       "missed": "Did not appear",
-      "older": "← Older",
-      "recent": "Recent →",
       "hits": "{{count}} hits",
       "misses": "{{count}} misses",
       "hitRate": "Hit rate"
@@ -261,7 +259,9 @@
       "interpretation": {
         "memoryless": "Random",
         "persistent": "Tends to repeat",
-        "alternating": "Tends to alternate"
+        "alternating": "Tends to alternate",
+        "gamblers_fallacy": "Due to appear",
+        "hot_hand": "On a hot streak"
       }
     }
   },

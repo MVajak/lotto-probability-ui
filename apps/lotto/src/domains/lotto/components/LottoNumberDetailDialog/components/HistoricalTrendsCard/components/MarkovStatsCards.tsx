@@ -57,9 +57,12 @@ export const MarkovStatsCards: React.FC<MarkovStatsCardsProps> = ({ markovChain 
   const getInterpretationColor = () => {
     switch (interpretation) {
       case 'persistent':
+      case 'hot_hand':
         return 'text-primary-green';
       case 'alternating':
         return 'text-primary-orange';
+      case 'gamblers_fallacy':
+        return 'text-primary-blue';
       default:
         return 'text-muted-foreground';
     }

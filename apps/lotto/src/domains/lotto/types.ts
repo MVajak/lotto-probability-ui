@@ -139,7 +139,7 @@ export interface NumberHistoryDto {
       notAppearedToNotAppeared: number;
     };
     steadyStateProbability: number;
-    interpretation: 'memoryless' | 'persistent' | 'alternating';
+    interpretation: 'memoryless' | 'persistent' | 'alternating' | 'gamblers_fallacy' | 'hot_hand';
   };
   occurrences: Array<{
     drawId: string;
@@ -147,6 +147,11 @@ export interface NumberHistoryDto {
     drawLabel: string;
     allNumbers: number[];
     secondaryNumbers: number[];
+  }>;
+  timeline: Array<{
+    drawDate: string;
+    drawLabel: string;
+    appeared: boolean;
   }>;
   periodStart: string;
   periodEnd: string;

@@ -34,8 +34,8 @@ export const HistoricalTrendsCard: React.FC<HistoricalTrendsCardProps> = ({ numb
     );
   }
 
-  const { summary, trends, occurrences, markovChain } = numberHistory;
-  const hasEnoughData = occurrences.length > 0 && trends.timeSeries.length > 0;
+  const { summary, trends, timeline, markovChain } = numberHistory;
+  const hasEnoughData = timeline.length > 0 && trends.timeSeries.length > 0;
 
   return (
     <Card>
@@ -60,8 +60,8 @@ export const HistoricalTrendsCard: React.FC<HistoricalTrendsCardProps> = ({ numb
 
             {trends.timeSeries.length > 0 && <Separator className="my-6" />}
 
-            {/* Recent Draws - Visual dots for appearances */}
-            <RecentDrawsChart occurrences={occurrences} totalDraws={summary.totalDraws} />
+            {/* Recent Draws - Visual timeline of all draws */}
+            <RecentDrawsChart timeline={timeline} />
 
             <Separator className="my-6" />
 
