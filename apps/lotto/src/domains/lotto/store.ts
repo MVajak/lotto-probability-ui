@@ -26,8 +26,12 @@ export const useLottoStore = create<LottoStore>((set) => ({
   searchParams: initialSearchParams,
   setSearchParams: (params) => set({ searchParams: params }),
   setLottoType: (lottoType) =>
-    set((state) => ({
-      searchParams: { ...state.searchParams, lottoType },
+    set(() => ({
+      searchParams: {
+        lottoType,
+        dateFrom: dayjs().subtract(1, 'month').toISOString(),
+        dateTo: dayjs().toISOString(),
+      },
     })),
   resetSearchParams: () => set({ searchParams: initialSearchParams }),
 }));
