@@ -135,40 +135,113 @@ export const LOTTERY_CONFIGS: LotteryConfigRegistry = {
   },
 
   // ===== UNITED KINGDOM (UK) =====
-  // Ready for implementation when backend supports them
 
-  // [LottoType.UK_LOTTO]: {
-  //   lottoType: LottoType.UK_LOTTO,
-  //   links: {
-  //     buyTickets: 'https://www.national-lottery.co.uk/games/lotto',
-  //     gameRules: 'https://www.national-lottery.co.uk/games/lotto/game-procedures',
-  //   },
-  //   dataTransform: {
-  //     mode: 'standard',
-  //     categories: [
-  //       { titleKey: 'result.primaryNumbers', maxNumbers: 6, containerSize: { sm: 6 } },
-  //       { titleKey: 'result.bonusBall', maxNumbers: 1, containerSize: { sm: 6 }, isSecondary: true },
-  //     ],
-  //   },
-  // },
+  [LottoType.UK_LOTTO]: {
+    lottoType: LottoType.UK_LOTTO,
+    links: {
+      buyTickets: 'https://www.national-lottery.co.uk/games/lotto',
+      gameRules: 'https://www.national-lottery.co.uk/games/lotto/game-procedures',
+    },
+    dataTransform: {
+      mode: 'standard',
+      categories: [
+        { titleKey: 'result.primaryNumbers', maxNumbers: 6, containerSize: { sm: 6 } },
+        { titleKey: 'result.bonusBall', maxNumbers: 1, containerSize: { sm: 6 }, isSecondary: true },
+      ],
+    },
+  },
+
+  [LottoType.UK_EUROMILLIONS]: {
+    lottoType: LottoType.UK_EUROMILLIONS,
+    links: {
+      buyTickets: 'https://www.national-lottery.co.uk/games/euromillions',
+      gameRules: 'https://www.national-lottery.co.uk/games/euromillions/game-procedures',
+    },
+    dataTransform: {
+      mode: 'standard',
+      categories: [
+        { titleKey: 'result.primaryNumbers', maxNumbers: 5, containerSize: { sm: 6 } },
+        { titleKey: 'result.luckyStars', maxNumbers: 2, containerSize: { sm: 6 }, isSecondary: true },
+      ],
+    },
+  },
+
+  [LottoType.UK_THUNDERBALL]: {
+    lottoType: LottoType.UK_THUNDERBALL,
+    links: {
+      buyTickets: 'https://www.national-lottery.co.uk/games/thunderball',
+      gameRules: 'https://www.national-lottery.co.uk/games/thunderball/game-procedures',
+    },
+    dataTransform: {
+      mode: 'standard',
+      categories: [
+        { titleKey: 'result.primaryNumbers', maxNumbers: 5, containerSize: { sm: 6 } },
+        { titleKey: 'result.thunderball', maxNumbers: 1, containerSize: { sm: 6 }, isSecondary: true },
+      ],
+    },
+  },
+
+  [LottoType.UK_SET_FOR_LIFE]: {
+    lottoType: LottoType.UK_SET_FOR_LIFE,
+    links: {
+      buyTickets: 'https://www.national-lottery.co.uk/games/set-for-life',
+      gameRules: 'https://www.national-lottery.co.uk/games/set-for-life/game-procedures',
+    },
+    dataTransform: {
+      mode: 'standard',
+      categories: [
+        { titleKey: 'result.primaryNumbers', maxNumbers: 5, containerSize: { sm: 6 } },
+        { titleKey: 'result.lifeBall', maxNumbers: 1, containerSize: { sm: 6 }, isSecondary: true },
+      ],
+    },
+  },
 
   // ===== UNITED STATES (US) =====
-  // Ready for implementation when backend supports them
 
-  // [LottoType.US_POWERBALL]: {
-  //   lottoType: LottoType.US_POWERBALL,
-  //   links: {
-  //     buyTickets: 'https://www.powerball.com/',
-  //     gameRules: 'https://www.powerball.com/games/powerball',
-  //   },
-  //   dataTransform: {
-  //     mode: 'standard',
-  //     categories: [
-  //       { titleKey: 'result.primaryNumbers', maxNumbers: 5, containerSize: { sm: 6 } },
-  //       { titleKey: 'result.powerball', maxNumbers: 1, containerSize: { sm: 6 }, isSecondary: true },
-  //     ],
-  //   },
-  // },
+  [LottoType.POWERBALL]: {
+    lottoType: LottoType.POWERBALL,
+    links: {
+      buyTickets: 'https://www.powerball.com/',
+      gameRules: 'https://www.powerball.com/games/powerball',
+    },
+    dataTransform: {
+      mode: 'standard',
+      categories: [
+        { titleKey: 'result.primaryNumbers', maxNumbers: 5, containerSize: { sm: 6 } },
+        { titleKey: 'result.powerball', maxNumbers: 1, containerSize: { sm: 6 }, isSecondary: true },
+      ],
+    },
+  },
+
+  [LottoType.MEGA_MILLIONS]: {
+    lottoType: LottoType.MEGA_MILLIONS,
+    links: {
+      buyTickets: 'https://www.megamillions.com/',
+      gameRules: 'https://www.megamillions.com/how-to-play.aspx',
+    },
+    dataTransform: {
+      mode: 'standard',
+      categories: [
+        { titleKey: 'result.primaryNumbers', maxNumbers: 5, containerSize: { sm: 6 } },
+        { titleKey: 'result.megaBall', maxNumbers: 1, containerSize: { sm: 6 }, isSecondary: true },
+      ],
+    },
+  },
+
+  [LottoType.CASH4LIFE]: {
+    lottoType: LottoType.CASH4LIFE,
+    links: {
+      buyTickets: 'https://www.cash4life.org/',
+      gameRules: 'https://www.cash4life.org/how-to-play',
+    },
+    dataTransform: {
+      mode: 'standard',
+      categories: [
+        { titleKey: 'result.primaryNumbers', maxNumbers: 5, containerSize: { sm: 6 } },
+        { titleKey: 'result.cashBall', maxNumbers: 1, containerSize: { sm: 6 }, isSecondary: true },
+      ],
+    },
+  },
 };
 
 /**

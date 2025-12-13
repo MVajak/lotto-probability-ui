@@ -7,6 +7,13 @@
     "BINGO": "Kokku on 75 numbrit, millest kasutaja peab valima 25. Lisaks jackpotile on olemas 5 erinevat mängu: keskruudumäng, nurkademäng, diagonaalidemäng, täismäng ja üks puudu mäng.",
     "KENO": "Kokku on 68 numbrit, mille hulgast kasutaja saab valida numbrid 1–10. Valitud numbrite asukoht ei ole oluline.",
     "JOKKER": "Kasutajad peavad valima 7 numbrit vahemikust 0–9 ja numbrite valimise järjestus peab olema õige.",
+    "POWERBALL": "Kokku on 69 primaarnumbrit, millest kasutaja peab valima 5. Lisaks on 26 Powerball numbrit, millest kasutaja peab valima 1. Valitud numbrite asukoht ei ole oluline.",
+    "MEGA_MILLIONS": "Kokku on 70 primaarnumbrit, millest kasutaja peab valima 5. Lisaks on 25 Mega Ball numbrit, millest kasutaja peab valima 1. Valitud numbrite asukoht ei ole oluline.",
+    "CASH4LIFE": "Kokku on 60 primaarnumbrit, millest kasutaja peab valima 5. Lisaks on 4 Cash Ball numbrit, millest kasutaja peab valima 1. Valitud numbrite asukoht ei ole oluline.",
+    "UK_EUROMILLIONS": "Kokku on 50 primaarnumbrit, millest kasutaja peab valima 5. Lisaks on 12 Lucky Stars numbrit, millest kasutaja peab valima 2. Valitud numbrite asukoht ei ole oluline.",
+    "UK_LOTTO": "Kokku on 59 numbrit, millest kasutaja peab valima 6. Lisaks loositakse 1 boonusnumber. Valitud numbrite asukoht ei ole oluline.",
+    "UK_THUNDERBALL": "Kokku on 39 primaarnumbrit, millest kasutaja peab valima 5. Lisaks on 14 Thunderball numbrit, millest kasutaja peab valima 1. Valitud numbrite asukoht ei ole oluline.",
+    "UK_SET_FOR_LIFE": "Kokku on 47 primaarnumbrit, millest kasutaja peab valima 5. Lisaks on 10 Life Ball numbrit, millest kasutaja peab valima 1. Valitud numbrite asukoht ei ole oluline.",
     "generalDescription": "Süsteem arvutab {{lottoName}} loto numbrite esinemise tõenäosuse ajalooliste andmete põhjal ning kuvab parimaid numbreid. Saate määrata ise kuupäevad, mille vahemikus ajaloolisi andmeid kasutatakse."
   },
   "search": {
@@ -21,6 +28,13 @@
     "noResults": "Vali kuupäevad ja otsi",
     "primaryNumbers": "Primaarnumbrid",
     "secondaryNumbers": "Lisanumbrid",
+    "bonusBall": "Boonusnumber",
+    "luckyStars": "Lucky Stars",
+    "thunderball": "Thunderball",
+    "lifeBall": "Life Ball",
+    "powerball": "Powerball",
+    "megaBall": "Mega Ball",
+    "cashBall": "Cash Ball",
     "bingo": {
       "centerGame": "Keskruudumäng",
       "cornerGame": "Nurkademäng",

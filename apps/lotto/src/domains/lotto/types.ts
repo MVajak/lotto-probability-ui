@@ -42,25 +42,23 @@ export enum DateFormat {
 }
 
 export enum LottoType {
-  // Estonia (EE)
+  // European lotteries (Estonian)
   EURO = 'EURO',
   VIKINGLOTTO = 'VIKINGLOTTO',
   BINGO = 'BINGO',
   KENO = 'KENO',
   JOKKER = 'JOKKER',
 
-  // United Kingdom (UK)
-  UK_LOTTO = 'UK_LOTTO',
+  // US lotteries
+  POWERBALL = 'POWERBALL',
+  MEGA_MILLIONS = 'MEGA_MILLIONS',
+  CASH4LIFE = 'CASH4LIFE',
+
+  // UK lotteries
   UK_EUROMILLIONS = 'UK_EUROMILLIONS',
+  UK_LOTTO = 'UK_LOTTO',
   UK_THUNDERBALL = 'UK_THUNDERBALL',
   UK_SET_FOR_LIFE = 'UK_SET_FOR_LIFE',
-
-  // United States (US)
-  US_POWERBALL = 'US_POWERBALL',
-  US_MEGA_MILLIONS = 'US_MEGA_MILLIONS',
-  US_LOTTO_AMERICA = 'US_LOTTO_AMERICA',
-  US_LUCKY_FOR_LIFE = 'US_LUCKY_FOR_LIFE',
-  US_CASH4LIFE = 'US_CASH4LIFE',
 }
 
 // DTOs

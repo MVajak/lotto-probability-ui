@@ -7,21 +7,19 @@ export interface LottoInfoProps {
 }
 
 export const LottoName: Record<LottoType, string> = {
-  // Estonia
-  VIKINGLOTTO: 'Vikinglotto',
+  // European lotteries (Estonian)
   EURO: 'Eurojackpot',
+  VIKINGLOTTO: 'Vikinglotto',
+  BINGO: 'Bingo lotto',
   KENO: 'Keno',
   JOKKER: 'Jokker',
-  BINGO: 'Bingo lotto',
-  // United Kingdom
-  UK_LOTTO: 'Lotto',
+  // US lotteries
+  POWERBALL: 'Powerball',
+  MEGA_MILLIONS: 'Mega Millions',
+  CASH4LIFE: 'Cash4Life',
+  // UK lotteries
   UK_EUROMILLIONS: 'EuroMillions',
+  UK_LOTTO: 'Lotto',
   UK_THUNDERBALL: 'Thunderball',
   UK_SET_FOR_LIFE: 'Set For Life',
-  // United States
-  US_POWERBALL: 'Powerball',
-  US_MEGA_MILLIONS: 'Mega Millions',
-  US_LOTTO_AMERICA: 'Lotto America',
-  US_LUCKY_FOR_LIFE: 'Lucky for Life',
-  US_CASH4LIFE: 'Cash4Life',
 };
