@@ -1,8 +1,8 @@
 import type React from 'react';
-import { ArrowTrendingDownIcon, ArrowTrendingUpIcon, MinusIcon } from '@heroicons/react/24/solid';
+import { ArrowsRightLeftIcon, CalculatorIcon, ChartBarIcon, HashtagIcon } from '@heroicons/react/24/solid';
 import { useTranslation } from 'react-i18next';
 
-import { Badge, Card, CardContent, cn } from '@lotto/ui';
+import { Banner, type BannerVariant, cn, StatCard } from '@lotto/ui';
 import { convertToPercentage } from '@lotto/ui/utils/calculations';
 
 import type { Interpretation, NumberHistoryDto, NumberStat } from '@/domains/lotto';
@@ -15,19 +15,21 @@ interface NumberStatsCardProps {
 export const NumberStatsCard: React.FC<NumberStatsCardProps> = ({ numberStat, numberHistory }) => {
   const { t } = useTranslation();
 
-  const getStatusIcon = (status?: Interpretation['status']) => {
-    switch (status) {
+  const status = numberStat.interpretation?.status;
+
+  const getBannerVariant = (s?: Interpretation['status']): BannerVariant => {
+    switch (s) {
       case 'frequent':
-        return <ArrowTrendingUpIcon className="size-5" />;
+        return 'warning';
       case 'rare':
-        return <ArrowTrendingDownIcon className="size-5" />;
+        return 'info';
       default:
-        return <MinusIcon className="size-5" />;
+        return 'neutral';
     }
   };
 
-  const getStatusLabel = (status?: Interpretation['status']) => {
-    switch (status) {
+  const getStatusLabel = (s?: Interpretation['status']) => {
+    switch (s) {
       case 'frequent':
         return t('numberStats.frequentNumber');
       case 'rare':
@@ -37,72 +39,68 @@ export const NumberStatsCard: React.FC<NumberStatsCardProps> = ({ numberStat, nu
     }
   };
 
-  const getCategoryColorClass = (status?: Interpretation['status']) => {
-    switch (status) {
+  const getStatusDescription = (s?: Interpretation['status']) => {
+    switch (s) {
       case 'frequent':
-        return 'bg-gold';
+        return t('numberStats.statusDescriptionFrequent');
       case 'rare':
-        return 'bg-primary-blue';
+        return t('numberStats.statusDescriptionRare');
       default:
-        return 'bg-muted-foreground';
+        return t('numberStats.statusDescriptionNormal');
     }
   };
 
   return (
-    <Card>
-      <CardContent className="px-5 py-4">
-        <div className="flex flex-col gap-4 lg:flex-row lg:items-center">
-          {/* Status Badge */}
-          {numberStat.interpretation && (
-            <Badge
-              className={cn(
-                'flex h-9 items-center gap-1.5 px-3 text-body-large-bold text-primary-foreground',
-                getCategoryColorClass(numberStat.interpretation.status)
-              )}
-            >
-              {getStatusIcon(numberStat.interpretation.status)}
-              {getStatusLabel(numberStat.interpretation.status)}
-            </Badge>
-          )}
+    <div className="flex flex-col gap-4">
+      {/* Status Banner */}
+      {numberStat.interpretation && (
+        <Banner
+          variant={getBannerVariant(status)}
+          icon={<ChartBarIcon className="size-5" />}
+          title={getStatusLabel(status)}
+          description={getStatusDescription(status)}
+        />
+      )}
 
-          {/* Stats Grid */}
-          <div className="grid flex-1 grid-cols-2 gap-4 lg:grid-cols-4">
-            <div>
-              <p className="mb-1 text-body-small-bold text-muted-foreground">{t('general.count')}</p>
-              <p className="text-foreground text-title-default-bold">{numberStat.count}</p>
-              <p className="mt-1 text-body-small text-subtle-foreground">{t('numberStats.countHelp')}</p>
-            </div>
-            <div>
-              <p className="mb-1 text-body-small-bold text-muted-foreground">{t('general.frequency')}</p>
-              <p className="text-foreground text-title-default-bold">{convertToPercentage(numberStat.frequency)}</p>
-              <p className="mt-1 text-body-small text-subtle-foreground">{t('numberStats.probabilityHelp')}</p>
-            </div>
-            {numberHistory?.summary.expectedFrequencyPercent !== undefined && (
-              <div>
-                <p className="mb-1 text-body-small-bold text-muted-foreground">{t('numberStats.theoretical')}</p>
-                <p className="text-title-default-bold">{numberHistory.summary.expectedFrequencyPercent.toFixed(2)}%</p>
-                <p className="mt-1 text-body-small text-subtle-foreground">{t('numberStats.theoreticalHelp')}</p>
-              </div>
-            )}
-            {numberStat.interpretation?.percentDifference !== undefined &&
-              numberStat.interpretation.percentDifference !== 0 && (
-                <div>
-                  <p className="mb-1 text-body-small-bold text-muted-foreground">Difference</p>
-                  <p
-                    className={cn(
-                      'text-title-default',
-                      numberStat.interpretation.percentDifference > 0 ? 'text-primary-red' : 'text-primary-blue'
-                    )}
-                  >
-                    {numberStat.interpretation.percentDifference > 0 ? '+' : ''}
-                    {numberStat.interpretation.percentDifference}%
-                  </p>
-                  <p className="mt-1 text-body-small text-subtle-foreground">{t('numberStats.differenceHelp')}</p>
-                </div>
-              )}
-          </div>
-        </div>
-      </CardContent>
-    </Card>
+      {/* Stats Grid */}
+      <div className="grid grid-cols-2 gap-2 lg:grid-cols-4">
+        <StatCard
+          icon={<HashtagIcon className="size-5 text-primary-blue" />}
+          label={t('general.count')}
+          value={numberStat.count}
+          description={t('numberStats.countHelp')}
+        />
+        <StatCard
+          icon={<ChartBarIcon className="size-5 text-primary-green" />}
+          label={t('general.frequency')}
+          value={convertToPercentage(numberStat.frequency)}
+          description={t('numberStats.probabilityHelp')}
+        />
+        {numberHistory?.summary.expectedFrequencyPercent !== undefined && (
+          <StatCard
+            icon={<CalculatorIcon className="size-5 text-primary-orange" />}
+            label={t('numberStats.theoretical')}
+            value={`${numberHistory.summary.expectedFrequencyPercent.toFixed(2)}%`}
+            description={t('numberStats.theoreticalHelp')}
+          />
+        )}
+        {numberStat.interpretation?.percentDifference !== undefined &&
+          numberStat.interpretation.percentDifference !== 0 && (
+            <StatCard
+              icon={
+                <ArrowsRightLeftIcon
+                  className={cn(
+                    'size-5',
+                    numberStat.interpretation.percentDifference > 0 ? 'text-primary-red' : 'text-primary-blue'
+                  )}
+                />
+              }
+              label={t('numberStats.difference')}
+              value={`${numberStat.interpretation.percentDifference > 0 ? '+' : ''}${numberStat.interpretation.percentDifference}%`}
+              description={t('numberStats.differenceHelp')}
+            />
+          )}
+      </div>
+    </div>
   );
 };

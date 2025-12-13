@@ -2,6 +2,8 @@ import type React from 'react';
 import { CalendarDaysIcon, ClockIcon, FireIcon, TrophyIcon } from '@heroicons/react/24/outline';
 import { useTranslation } from 'react-i18next';
 
+import { Card, CardContent, StatCard } from '@lotto/ui';
+
 import type { NumberHistoryDto } from '@/domains/lotto';
 
 interface StreakStatsProps {
@@ -73,33 +75,33 @@ export const StreakStats: React.FC<StreakStatsProps> = ({ trends }) => {
   ];
 
   return (
-    <div>
-      <h4 className="mb-1 text-body-default-bold">{t('numberStats.streakStats.title')}</h4>
-      <p className="mb-4 text-body-small text-muted-foreground">{t('numberStats.streakStats.description')}</p>
-
-      <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
+    <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-1">
+        <h4 className="text-body-default-bold">{t('numberStats.streakStats.title')}</h4>
+        <p className="text-body-small text-muted-foreground">{t('numberStats.streakStats.description')}</p>
+      </div>
+      <div className="grid grid-cols-2 gap-2 lg:grid-cols-4">
         {stats.map((stat) => (
-          <div key={stat.label} className="rounded-lg bg-muted/50 p-4 transition-colors hover:bg-muted/70">
-            <div className="mb-2 flex items-center gap-2">
-              {stat.icon}
-              <span className="text-body-small text-muted-foreground">{stat.label}</span>
-            </div>
-            <p className="text-title-default-bold">
-              {stat.value}
-              <span className="ml-1 font-normal text-body-small text-muted-foreground">{stat.unit}</span>
-            </p>
-            <p className="mt-1 text-body-small text-subtle-foreground">{stat.description}</p>
-          </div>
+          <StatCard
+            key={stat.label}
+            icon={stat.icon}
+            label={stat.label}
+            value={stat.value}
+            unit={stat.unit}
+            description={stat.description}
+          />
         ))}
       </div>
 
       {/* Average days between appearances */}
-      <div className="mt-4 rounded-lg bg-base-blue p-3">
-        <p className="text-body-small text-muted-foreground">
-          <strong>{t('numberStats.streakStats.avgGapLabel')}</strong>{' '}
-          {t('numberStats.streakStats.avgGapValue', { days: averageDaysBetweenAppearances.toFixed(1) })}
-        </p>
-      </div>
+      <Card className="rounded bg-base-blue">
+        <CardContent>
+          <p className="text-body-small text-muted-foreground">
+            <strong>{t('numberStats.streakStats.avgGapLabel')}</strong>{' '}
+            {t('numberStats.streakStats.avgGapValue', { days: averageDaysBetweenAppearances.toFixed(1) })}
+          </p>
+        </CardContent>
+      </Card>
     </div>
   );
 };

@@ -81,11 +81,7 @@ function DialogHeader({ className, ...props }: React.ComponentProps<'div'>) {
 
 function DialogBody({ className, ...props }: React.ComponentProps<'div'>) {
   return (
-    <div
-      data-slot="dialog-body"
-      className={cn('mask-t-from-8px flex-1 overflow-y-auto pt-6', className)}
-      {...props}
-    />
+    <div data-slot="dialog-body" className={cn('mask-t-from-8px flex-1 overflow-y-auto pt-6', className)} {...props} />
   );
 }
 

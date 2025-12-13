@@ -2,7 +2,7 @@ import type React from 'react';
 import { FireIcon, SparklesIcon } from '@heroicons/react/24/solid';
 import { useTranslation } from 'react-i18next';
 
-import { cn } from '@lotto/ui';
+import { Card, CardContent, cn } from '@lotto/ui';
 
 import type { NumberHistoryDto } from '@/domains/lotto';
 
@@ -17,11 +17,12 @@ interface HotColdMeterProps {
 export const HotColdMeter: React.FC<HotColdMeterProps> = ({ summary }) => {
   const { t } = useTranslation();
 
-  const { frequencyPercent, expectedFrequencyPercent, status } = summary;
+  const { frequencyPercent, expectedFrequencyPercent, status, deviation } = summary;
 
   // Deviation might not be available
-  const hasDeviation = summary.deviationPercent !== undefined && summary.deviationPercent !== null;
-  const deviationPercent = summary.deviationPercent ?? 0;
+  const hasDeviation = deviation !== undefined && deviation !== null;
+  // Calculate deviation percent from actual vs expected frequency
+  const deviationPercent = frequencyPercent - expectedFrequencyPercent;
 
   // Normalize deviation to a -100 to +100 scale for the meter
   // Clamp to reasonable bounds
@@ -57,75 +58,85 @@ export const HotColdMeter: React.FC<HotColdMeterProps> = ({ summary }) => {
   };
 
   return (
-    <div>
-      <h4 className="mb-1 text-body-default-bold">{t('numberStats.hotCold.title')}</h4>
-      <p className="mb-4 text-body-small text-muted-foreground">{t('numberStats.hotCold.description')}</p>
-
-      <div className="rounded-lg bg-muted/50 p-4">
-        {/* Status header */}
-        <div className="mb-4 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            {getStatusIcon()}
-            <span
-              className={cn(
-                'text-title-small-bold',
-                isHot && 'text-primary-orange',
-                isCold && 'text-primary-blue',
-                isNeutral && 'text-foreground'
-              )}
-            >
-              {getStatusLabel()}
-            </span>
-          </div>
-          {hasDeviation && (
-            <span
-              className={cn(
-                'text-body-default-bold',
-                deviationPercent > 0 && 'text-primary-orange',
-                deviationPercent < 0 && 'text-primary-blue'
-              )}
-            >
-              {deviationPercent > 0 ? '+' : ''}
-              {deviationPercent.toFixed(1)}%
-            </span>
-          )}
-        </div>
-
-        {/* Visual meter - only show when deviation data available */}
-        {hasDeviation && (
-          <>
-            <div className="relative mb-2 h-3 overflow-hidden rounded-full bg-gradient-to-r from-primary-blue via-muted-foreground to-primary-orange">
-              {/* Indicator */}
-              <div
-                className="-translate-x-1/2 -translate-y-1/2 absolute top-1/2 size-5 rounded-full border-2 border-background bg-foreground shadow-md transition-all"
-                style={{ left: `${meterPosition}%` }}
-              />
-            </div>
-
-            {/* Labels */}
-            <div className="mb-4 flex justify-between text-body-small text-muted-foreground">
-              <span>{t('numberStats.hotCold.cold')}</span>
-              <span>{t('numberStats.hotCold.expected')}</span>
-              <span>{t('numberStats.hotCold.hot')}</span>
-            </div>
-
-            {/* Description */}
-            <p className="text-body-small text-muted-foreground">{getStatusDescription()}</p>
-          </>
-        )}
-
-        {/* Frequency comparison */}
-        <div className={cn('grid grid-cols-2 gap-4', hasDeviation && 'mt-4')}>
-          <div className="rounded-lg bg-background p-3">
-            <p className="text-body-small text-muted-foreground">{t('numberStats.hotCold.actualFrequency')}</p>
-            <p className="text-title-small-bold">{frequencyPercent.toFixed(2)}%</p>
-          </div>
-          <div className="rounded-lg bg-background p-3">
-            <p className="text-body-small text-muted-foreground">{t('numberStats.hotCold.expectedFrequency')}</p>
-            <p className="text-title-small-bold">{expectedFrequencyPercent.toFixed(2)}%</p>
-          </div>
-        </div>
+    <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-1">
+        <h4 className="text-body-default-bold">{t('numberStats.hotCold.title')}</h4>
+        <p className="text-body-small text-muted-foreground">{t('numberStats.hotCold.description')}</p>
       </div>
+
+      <Card className="rounded">
+        <CardContent>
+          {/* Status header */}
+          <div className="flex flex-col gap-4">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                {getStatusIcon()}
+                <span
+                  className={cn(
+                    'text-title-small-bold',
+                    isHot && 'text-primary-orange',
+                    isCold && 'text-primary-blue',
+                    isNeutral && 'text-foreground'
+                  )}
+                >
+                  {getStatusLabel()}
+                </span>
+              </div>
+              {hasDeviation && (
+                <span
+                  className={cn(
+                    'text-body-default-bold',
+                    deviationPercent > 0 && 'text-primary-orange',
+                    deviationPercent < 0 && 'text-primary-blue'
+                  )}
+                >
+                  {deviationPercent > 0 ? '+' : ''}
+                  {deviationPercent.toFixed(1)}%
+                </span>
+              )}
+            </div>
+
+            {/* Visual meter - only show when deviation data available */}
+            {hasDeviation && (
+              <div className="items-center gap-2">
+                <div className="relative h-4 overflow-hidden rounded-full bg-gradient-to-r from-primary-blue via-muted-foreground to-primary-orange p-3">
+                  {/* Indicator */}
+                  <div
+                    className="-translate-x-1/2 -translate-y-1/2 absolute top-1/2 size-5 rounded-full border-2 border-background bg-foreground shadow-md transition-all"
+                    style={{ left: `${meterPosition}%` }}
+                  />
+                </div>
+
+                {/* Labels */}
+                <div className="mb-1 flex justify-between text-body-small text-muted-foreground">
+                  <span>{t('numberStats.hotCold.cold')}</span>
+                  <span>{t('numberStats.hotCold.expected')}</span>
+                  <span>{t('numberStats.hotCold.hot')}</span>
+                </div>
+
+                {/* Description */}
+                <p className="text-body-small text-muted-foreground">{getStatusDescription()}</p>
+              </div>
+            )}
+          </div>
+
+          {/* Frequency comparison */}
+          <div className={cn('grid grid-cols-2 gap-2', hasDeviation && 'mt-4')}>
+            <Card className="rounded">
+              <CardContent>
+                <p className="text-body-small text-muted-foreground">{t('numberStats.hotCold.actualFrequency')}</p>
+                <p className="text-title-small-bold">{frequencyPercent.toFixed(2)}%</p>
+              </CardContent>
+            </Card>
+            <Card className="rounded">
+              <CardContent>
+                <p className="text-body-small text-muted-foreground">{t('numberStats.hotCold.expectedFrequency')}</p>
+                <p className="text-title-small-bold">{expectedFrequencyPercent.toFixed(2)}%</p>
+              </CardContent>
+            </Card>
+          </div>
+        </CardContent>
+      </Card>
     </div>
   );
 };

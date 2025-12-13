@@ -35,7 +35,7 @@ export const NumberStatsGrid: React.FC<NumberStatsGridProps> = ({
           {t('statisticsDrawer.position')}: {safeBig(position).plus(1).toNumber()}
         </h4>
       ) : null}
-      <div className="grid grid-cols-2 gap-4 px-4 sm:grid-cols-4 lg:grid-cols-5">
+      <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 sm:px-4 lg:grid-cols-5">
         {stats.map((stat) => {
           // Use backend's category if available, otherwise default to 'normal'
           const category: Interpretation['status'] = stat.interpretation?.status || 'normal';

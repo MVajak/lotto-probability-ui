@@ -8,7 +8,7 @@ import type { NumberHistoryDto } from '@/domains/lotto';
 
 import {
   HotColdMeter,
-  InsufficientDataWarning,
+  InsufficientDataWarningCard,
   MarkovStatsCards,
   RecentDrawsChart,
   StreakStats,
@@ -21,28 +21,15 @@ interface HistoricalTrendsCardProps {
 
 export const HistoricalTrendsCard: React.FC<HistoricalTrendsCardProps> = ({ numberHistory }) => {
   const { t } = useTranslation();
-
-  if (!numberHistory) {
-    return (
-      <Card className="border-2 border-dashed">
-        <CardContent className="p-6 text-center">
-          <ChartBarIcon className="mx-auto mb-3 size-12 text-muted-foreground/50" />
-          <h4 className="mb-1 text-body-default-bold text-muted-foreground">{t('numberStats.historicalTrends')}</h4>
-          <p className="text-body-small text-muted-foreground/70">{t('numberStats.historicalTrendsDescription')}</p>
-        </CardContent>
-      </Card>
-    );
-  }
-
   const { summary, trends, timeline, markovChain } = numberHistory;
-  const hasEnoughData = timeline.length > 0 && trends.timeSeries.length > 0;
+  const hasEnoughData = summary.appearanceCount > 0 && trends.timeSeries.length > 0;
 
   return (
-    <Card>
-      <CardContent className="p-6">
+    <Card className="h-full">
+      <CardContent className="flex flex-col gap-4 p-2">
         {/* Header */}
-        <div className="mb-6 flex items-center gap-3">
-          <div className="flex items-center justify-center rounded-md bg-base-green p-1.5">
+        <div className="flex items-center gap-3">
+          <div className="flex items-center justify-center rounded-md bg-base-green p-2">
             <ChartBarIcon className="size-5 text-primary-green" />
           </div>
           <h3 className="text-title-small-bold">{t('numberStats.historicalTrendsTitle')}</h3>
@@ -74,14 +61,14 @@ export const HistoricalTrendsCard: React.FC<HistoricalTrendsCardProps> = ({ numb
             {markovChain ? (
               <MarkovStatsCards markovChain={markovChain} />
             ) : (
-              <InsufficientDataWarning
+              <InsufficientDataWarningCard
                 titleKey="numberStats.insufficientData.markovTitle"
                 messageKey="numberStats.insufficientData.markovMessage"
               />
             )}
           </>
         ) : (
-          <InsufficientDataWarning
+          <InsufficientDataWarningCard
             titleKey="numberStats.insufficientData.generalTitle"
             messageKey="numberStats.insufficientData.generalMessage"
           />

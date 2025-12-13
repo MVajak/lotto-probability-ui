@@ -3,7 +3,7 @@ import { useMemo } from 'react';
 import { ArrowTrendingDownIcon, ArrowTrendingUpIcon, MinusIcon } from '@heroicons/react/24/solid';
 import { useTranslation } from 'react-i18next';
 
-import { cn } from '@lotto/ui';
+import { Card, CardContent, cn, Separator } from '@lotto/ui';
 
 import type { NumberHistoryDto } from '@/domains/lotto';
 
@@ -147,55 +147,65 @@ export const TrendSparkline: React.FC<TrendSparklineProps> = ({ timeSeries }) =>
   const avgPerMonth = (totalAppearances / safeTimeSeries.length).toFixed(1);
 
   return (
-    <div>
-      <h4 className="mb-1 text-body-default-bold">{t('numberStats.trend.title')}</h4>
-      <p className="mb-4 text-body-small text-muted-foreground">{t('numberStats.trend.description')}</p>
+    <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-1">
+        <h4 className="text-body-default-bold">{t('numberStats.trend.title')}</h4>
+        <p className="text-body-small text-muted-foreground">{t('numberStats.trend.description')}</p>
+      </div>
 
-      <div className="rounded-lg bg-muted/50 p-4">
-        <div className="flex items-center gap-4">
-          {/* Sparkline */}
-          <div className="flex-1">
-            <svg viewBox="0 0 200 40" className="h-10 w-full" preserveAspectRatio="none">
-              {/* Area fill */}
-              <path d={areaPath} className={getFillColor()} />
-              {/* Line */}
-              <path d={sparklinePath} fill="none" className={cn(getStrokeColor(), 'stroke-2')} strokeLinecap="round" />
-            </svg>
-            <div className="mt-1 flex justify-between text-body-small text-subtle-foreground">
-              <span>{safeTimeSeries[0]?.month.substring(0, 7)}</span>
-              <span>{safeTimeSeries[safeTimeSeries.length - 1]?.month.substring(0, 7)}</span>
+      <Card className="rounded">
+        <CardContent className="flex flex-col gap-2">
+          <div className="flex items-center gap-2">
+            {/* Sparkline */}
+            <div className="flex-1">
+              <svg viewBox="0 0 200 40" className="h-10 w-full" preserveAspectRatio="none">
+                {/* Area fill */}
+                <path d={areaPath} className={getFillColor()} />
+                {/* Line */}
+                <path
+                  d={sparklinePath}
+                  fill="none"
+                  className={cn(getStrokeColor(), 'stroke-2')}
+                  strokeLinecap="round"
+                />
+              </svg>
+              <div className="mt-1 flex justify-between text-body-small text-subtle-foreground">
+                <span>{safeTimeSeries[0]?.month.substring(0, 7)}</span>
+                <span>{safeTimeSeries[safeTimeSeries.length - 1]?.month.substring(0, 7)}</span>
+              </div>
+            </div>
+
+            {/* Trend indicator */}
+            <div className="flex flex-col items-center rounded-lg bg-background p-3">
+              {getTrendIcon()}
+              <span className={cn('mt-1 text-body-small-bold', getTrendColor())}>{getTrendLabel()}</span>
+              {trendInfo.change !== 0 && (
+                <span className="text-body-small text-muted-foreground">
+                  {trendInfo.change > 0 ? '+' : ''}
+                  {trendInfo.change}%
+                </span>
+              )}
             </div>
           </div>
 
-          {/* Trend indicator */}
-          <div className="flex flex-col items-center rounded-lg bg-background p-3">
-            {getTrendIcon()}
-            <span className={cn('mt-1 text-body-small-bold', getTrendColor())}>{getTrendLabel()}</span>
-            {trendInfo.change !== 0 && (
-              <span className="text-body-small text-muted-foreground">
-                {trendInfo.change > 0 ? '+' : ''}
-                {trendInfo.change}%
-              </span>
-            )}
+          {/* Stats row */}
+          <Separator />
+          <div className="flex items-center gap-4 text-body-small">
+            <div>
+              <span className="text-muted-foreground">{t('numberStats.trend.totalAppearances')}: </span>
+              <span className="text-body-small-bold">{totalAppearances}</span>
+            </div>
+            <div>
+              <span className="text-muted-foreground">{t('numberStats.trend.avgPerMonth')}: </span>
+              <span className="text-body-small-bold">{avgPerMonth}</span>
+            </div>
+            <div>
+              <span className="text-muted-foreground">{t('numberStats.trend.months')}: </span>
+              <span className="text-body-small-bold">{safeTimeSeries.length}</span>
+            </div>
           </div>
-        </div>
-
-        {/* Stats row */}
-        <div className="mt-3 flex items-center gap-4 border-border border-t pt-3 text-body-small">
-          <div>
-            <span className="text-muted-foreground">{t('numberStats.trend.totalAppearances')}: </span>
-            <span className="text-body-small-bold">{totalAppearances}</span>
-          </div>
-          <div>
-            <span className="text-muted-foreground">{t('numberStats.trend.avgPerMonth')}: </span>
-            <span className="text-body-small-bold">{avgPerMonth}</span>
-          </div>
-          <div>
-            <span className="text-muted-foreground">{t('numberStats.trend.months')}: </span>
-            <span className="text-body-small-bold">{safeTimeSeries.length}</span>
-          </div>
-        </div>
-      </div>
+        </CardContent>
+      </Card>
     </div>
   );
 };

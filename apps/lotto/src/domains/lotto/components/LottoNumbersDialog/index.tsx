@@ -95,9 +95,7 @@ export const LottoNumbersDialog = ({
         aria-describedby={undefined}
       >
         <DialogHeader className="flex-row items-center justify-between">
-          <DialogTitle>
-            {t('statisticsDrawer.statistics')}
-          </DialogTitle>
+          <DialogTitle>{t('statisticsDrawer.statistics')}</DialogTitle>
           <div className="px-10">
             <LottoNumbersFilter
               shouldExcludeZeroCounts={shouldExcludeZeroCounts}
@@ -107,7 +105,6 @@ export const LottoNumbersDialog = ({
               onClearFilters={handleClearFilters}
             />
           </div>
-
         </DialogHeader>
 
         <DialogBody>

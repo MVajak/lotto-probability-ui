@@ -1,7 +1,7 @@
 // New simple chart components
 export { HotColdMeter } from './HotColdMeter';
 // Keep for edge cases
-export { InsufficientDataWarning } from './InsufficientDataWarning';
+export { InsufficientDataWarningCard } from './InsufficientDataWarningCard';
 // Markov chain visualization
 export { MarkovStatsCards } from './MarkovStatsCards';
 export { RecentDrawsChart } from './RecentDrawsChart';

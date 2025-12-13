@@ -31,28 +31,23 @@ export const AnalysisSummaryCard: React.FC<AnalysisSummaryCardProps> = ({ number
         {/* Appearance count */}
         <Card className="rounded">
           <CardContent>
-              <Trans
-                i18nKey="numberStats.appearedTimes"
-                values={{
-                  count: numberStat.interpretation.appearedCount,
-                  total: numberStat.interpretation.totalDraws,
-                }}
-                components={{
-                  bold: <span className="text-body-large-bold text-foreground" />,
-                }}
-              />
+            <Trans
+              i18nKey="numberStats.appearedTimes"
+              values={{
+                count: numberStat.interpretation.appearedCount,
+                total: numberStat.interpretation.totalDraws,
+              }}
+              components={{
+                bold: <span className="text-body-large-bold text-foreground" />,
+              }}
+            />
           </CardContent>
         </Card>
 
         {/* Deviation highlight with icon */}
         {hasDeviation && (
           <Card
-            className={cn(
-              'rounded border-2',
-              isMoreFrequent
-                ? 'border-primary-red bg-base-red'
-                : 'border-primary-blue bg-base-blue'
-            )}
+            className={cn('rounded', isMoreFrequent ? 'border-base-red bg-base-red' : 'border-base-blue bg-base-blue')}
           >
             <CardContent className="flex items-center gap-2">
               <div className={cn('rounded p-1', isMoreFrequent ? 'bg-secondary-red' : 'bg-secondary-blue')}>
@@ -68,7 +63,7 @@ export const AnalysisSummaryCard: React.FC<AnalysisSummaryCardProps> = ({ number
                     i18nKey="numberStats.appearingMoreThanExpected"
                     values={{ percent: numberStat.interpretation.percentDifference }}
                     components={{
-                      highlight: <span className="text-body-large-bold text-gold" />,
+                      highlight: <span className="text-body-large-bold text-primary-red" />,
                     }}
                   />
                 ) : (

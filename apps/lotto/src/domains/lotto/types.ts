@@ -97,7 +97,6 @@ export interface NumberHistoryDto {
     appearanceCount: number;
     frequencyPercent: number;
     expectedFrequencyPercent: number;
-    deviationPercent: number;
     status: 'frequent' | 'rare' | 'normal';
     confidenceInterval: ConfidenceInterval;
     deviation: Deviation;

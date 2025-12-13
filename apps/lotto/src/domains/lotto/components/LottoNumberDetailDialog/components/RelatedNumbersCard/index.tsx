@@ -26,13 +26,12 @@ export const RelatedNumbersCard: React.FC<RelatedNumbersCardProps> = ({ relatedN
           <h3 className="text-title-small-bold">{t('result.numbersWithSameProbability')}</h3>
         </div>
 
-        <Badge className="mb-2 rounded bg-primary/10 px-2 py-1 text-body-small-bold text-foreground">
+        <Badge className="rounded bg-primary/10 px-2 py-1 text-body-small-bold text-foreground">
           {relatedNumbers.length} {relatedNumbers.length === 1 ? t('general.number') : t('general.numbers')}
         </Badge>
 
-
         <Card className="rounded p-2">
-          <CardContent className="flex flex-1 gap-1">
+          <CardContent className="flex flex-wrap gap-1">
             {relatedNumbers.map((stat) => (
               <LottoNumber
                 key={stat.digit}

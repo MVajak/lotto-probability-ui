@@ -21,7 +21,7 @@ export const ConfidenceIntervalCard: React.FC<ConfidenceIntervalCardProps> = ({ 
           <ChartBarIcon className="size-5 text-foreground" />
           <h3 className="text-title-small-bold">{t('numberStats.wilsonConfidenceInterval')}</h3>
         </div>
-        <Card className="mb-4 rounded bg-base-blue p-2">
+        <Card className="rounded bg-base-blue">
           <CardContent>
             <p className="text-body-small text-muted-foreground italic">
               {t('numberStats.wilsonConfidenceIntervalHelp', {
@@ -37,8 +37,8 @@ export const ConfidenceIntervalCard: React.FC<ConfidenceIntervalCardProps> = ({ 
               <div className="mb-1 flex justify-between">
                 <span className="text-body-small text-muted-foreground">{t('numberStats.lowerBound')}</span>
                 <span className="text-foreground text-title-small-bold">
-                {convertToPercentage(confidenceInterval.lower)}
-              </span>
+                  {convertToPercentage(confidenceInterval.lower)}
+                </span>
               </div>
               <Progress value={confidenceInterval.lower * 100} className="h-2" />
             </CardContent>
@@ -48,9 +48,8 @@ export const ConfidenceIntervalCard: React.FC<ConfidenceIntervalCardProps> = ({ 
               <div className="mb-1 flex justify-between">
                 <span className="text-body-small text-muted-foreground">{t('numberStats.upperBound')}</span>
                 <span className="text-foreground text-title-small-bold">
-                                {convertToPercentage(confidenceInterval.upper)}
-
-              </span>
+                  {convertToPercentage(confidenceInterval.upper)}
+                </span>
               </div>
               <Progress value={confidenceInterval.lower * 100} className="h-2" />
             </CardContent>

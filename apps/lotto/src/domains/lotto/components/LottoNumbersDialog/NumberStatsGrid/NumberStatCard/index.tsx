@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { Badge, CardContent, cn, InteractiveCard, LottoNumber, Progress } from '@lotto/ui';
 import { convertToPercentage } from '@lotto/ui/utils/calculations';
 
-import type { Interpretation, NumberStat } from '../../../../types';
+import type { Interpretation, NumberStat } from '@/domains/lotto';
 
 interface NumberStatCardProps {
   stat: NumberStat;
@@ -40,7 +40,7 @@ export const NumberStatCard: React.FC<NumberStatCardProps> = ({
       onClick={onClick}
       className={cn(
         'relative cursor-pointer overflow-visible border-[1.5px] transition-all duration-300 ease-out',
-        'hover:-translate-y-1 active:-translate-y-0.5 hover:scale-[1.02] active:scale-[1.01]',
+        'hover:-translate-y-1 active:-translate-y-0.5 p-1 hover:scale-[1.02] active:scale-[1.01]',
         category === 'frequent' && 'border-gold/50 bg-gold/10',
         category === 'rare' && 'border-primary-blue/50 bg-primary-blue/10',
         category === 'normal' && 'border-border bg-muted/50'
@@ -63,7 +63,7 @@ export const NumberStatCard: React.FC<NumberStatCardProps> = ({
         </Badge>
       )}
 
-      <CardContent className="p-3 pb-3">
+      <CardContent className="p-4">
         <div className="mb-2 flex items-center gap-3">
           <LottoNumber digit={stat.digit} index={index} />
           <div className="min-w-0 flex-grow">

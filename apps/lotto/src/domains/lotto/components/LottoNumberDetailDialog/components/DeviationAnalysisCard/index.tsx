@@ -21,11 +21,9 @@ export const DeviationAnalysisCard: React.FC<DeviationAnalysisCardProps> = ({ de
           <ChartBarIcon className="size-5 text-foreground" />
           <h3 className="text-title-small-bold">{t('numberStats.deviationAnalysis')}</h3>
         </div>
-        <Card className="rounded bg-base-orange p-2">
+        <Card className="rounded bg-base-orange">
           <CardContent>
-            <p className="text-body-small text-muted-foreground italic">
-              {t('numberStats.deviationAnalysisHelp')}
-            </p>
+            <p className="text-body-small text-muted-foreground italic">{t('numberStats.deviationAnalysisHelp')}</p>
           </CardContent>
         </Card>
         <div className="space-y-2">
@@ -44,9 +42,7 @@ export const DeviationAnalysisCard: React.FC<DeviationAnalysisCardProps> = ({ de
           <Badge
             className={cn(
               'w-fit px-3 py-1.5 text-body-small-bold',
-              deviation.isSignificant
-                ? 'bg-base-orange text-primary-orange'
-                : 'bg-base-green text-primary-green'
+              deviation.isSignificant ? 'bg-base-orange text-primary-orange' : 'bg-base-green text-primary-green'
             )}
           >
             {deviation.isSignificant ? t('numberStats.statisticallySignificant') : t('numberStats.notSignificant')}
