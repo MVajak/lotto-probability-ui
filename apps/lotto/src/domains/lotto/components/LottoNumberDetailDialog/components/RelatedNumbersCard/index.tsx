@@ -18,29 +18,32 @@ export const RelatedNumbersCard: React.FC<RelatedNumbersCardProps> = ({ relatedN
 
   return (
     <Card className="h-full">
-      <CardContent className="p-6">
-        <div className="mb-4 flex items-center gap-3">
-          <div className="flex items-center justify-center rounded-md bg-primary/10 p-1.5">
+      <CardContent className="flex flex-col gap-4 p-2">
+        <div className="flex items-center gap-3">
+          <div className="flex items-center justify-center rounded-md bg-primary/10 p-2">
             <LinkIcon className="size-5 text-foreground" />
           </div>
           <h3 className="text-title-small-bold">{t('result.numbersWithSameProbability')}</h3>
         </div>
 
-        <Badge className="mb-4 rounded bg-primary/10 px-2 py-1 text-body-small-bold text-foreground">
+        <Badge className="mb-2 rounded bg-primary/10 px-2 py-1 text-body-small-bold text-foreground">
           {relatedNumbers.length} {relatedNumbers.length === 1 ? t('general.number') : t('general.numbers')}
         </Badge>
 
-        <div className="flex flex-wrap gap-3 rounded-lg border border-border bg-muted/50 p-4">
-          {relatedNumbers.map((stat) => (
-            <LottoNumber
-              key={stat.digit}
-              digit={stat.digit}
-              index={`related-dialog-${stat.digit}`}
-              onClick={onNumberClick ? () => onNumberClick(stat) : undefined}
-              className={onNumberClick ? 'cursor-pointer transition-transform duration-200 hover:scale-110' : ''}
-            />
-          ))}
-        </div>
+
+        <Card className="rounded p-2">
+          <CardContent className="flex flex-1 gap-1">
+            {relatedNumbers.map((stat) => (
+              <LottoNumber
+                key={stat.digit}
+                digit={stat.digit}
+                index={`related-dialog-${stat.digit}`}
+                onClick={onNumberClick ? () => onNumberClick(stat) : undefined}
+                className={onNumberClick ? 'cursor-pointer transition-transform duration-200 hover:scale-110' : ''}
+              />
+            ))}
+          </CardContent>
+        </Card>
       </CardContent>
     </Card>
   );
