@@ -34,7 +34,7 @@ export const LottoPositionalProbabilityResultsCard = (
           )}
           <div className="transition-opacity duration-400 ease-in-out" style={{ opacity: isLoading ? 0 : 1 }}>
             {hasResults ? (
-              <div className="grid grid-cols-12 gap-4 p-4">
+              <div className="grid grid-cols-12 gap-4 py-2">
                 <div className="col-span-12">
                   <NumberResultsSection
                     allNumberStats={allNumberStats}

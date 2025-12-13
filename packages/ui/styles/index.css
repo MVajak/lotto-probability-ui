@@ -3,6 +3,11 @@
 @import "./colors.css";
 @import "./shadows.css";
 
+/* Mask Utilities - Content fade effect */
+@utility mask-t-from-8px {
+  mask-image: linear-gradient(to bottom, transparent 0px, black 8px);
+}
+
 /* Global Border Color */
 @layer base {
   * {

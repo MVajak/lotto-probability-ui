@@ -16,35 +16,45 @@ export const ConfidenceIntervalCard: React.FC<ConfidenceIntervalCardProps> = ({ 
 
   return (
     <Card className="h-full">
-      <CardContent className="p-6">
-        <div className="mb-2 flex items-center gap-2">
+      <CardContent className="flex flex-col gap-4 p-2">
+        <div className="flex items-center gap-2 p-2">
           <ChartBarIcon className="size-5 text-foreground" />
           <h3 className="text-title-small-bold">{t('numberStats.wilsonConfidenceInterval')}</h3>
         </div>
-        <p className="mb-4 rounded bg-base-blue p-3 text-body-small text-muted-foreground italic">
-          {t('numberStats.wilsonConfidenceIntervalHelp', {
-            confidence: Math.round(confidenceInterval.confidenceLevel * 100),
-          })}
-        </p>
-        <div className="mt-6 space-y-4">
-          <div>
-            <div className="mb-1 flex justify-between">
-              <span className="text-body-small text-muted-foreground">{t('numberStats.lowerBound')}</span>
-              <span className="text-foreground text-title-small-bold">
+        <Card className="mb-4 rounded bg-base-blue p-2">
+          <CardContent>
+            <p className="text-body-small text-muted-foreground italic">
+              {t('numberStats.wilsonConfidenceIntervalHelp', {
+                confidence: Math.round(confidenceInterval.confidenceLevel * 100),
+              })}
+            </p>
+          </CardContent>
+        </Card>
+
+        <div className="space-y-2">
+          <Card className="rounded p-4">
+            <CardContent className="p-0">
+              <div className="mb-1 flex justify-between">
+                <span className="text-body-small text-muted-foreground">{t('numberStats.lowerBound')}</span>
+                <span className="text-foreground text-title-small-bold">
                 {convertToPercentage(confidenceInterval.lower)}
               </span>
-            </div>
-            <Progress value={confidenceInterval.lower * 100} className="h-2" />
-          </div>
-          <div>
-            <div className="mb-1 flex justify-between">
-              <span className="text-body-small text-muted-foreground">{t('numberStats.upperBound')}</span>
-              <span className="text-foreground text-title-small-bold">
-                {convertToPercentage(confidenceInterval.upper)}
+              </div>
+              <Progress value={confidenceInterval.lower * 100} className="h-2" />
+            </CardContent>
+          </Card>
+          <Card className="rounded p-4">
+            <CardContent className="p-0">
+              <div className="mb-1 flex justify-between">
+                <span className="text-body-small text-muted-foreground">{t('numberStats.upperBound')}</span>
+                <span className="text-foreground text-title-small-bold">
+                                {convertToPercentage(confidenceInterval.upper)}
+
               </span>
-            </div>
-            <Progress value={confidenceInterval.upper * 100} className="h-2" />
-          </div>
+              </div>
+              <Progress value={confidenceInterval.lower * 100} className="h-2" />
+            </CardContent>
+          </Card>
         </div>
       </CardContent>
     </Card>

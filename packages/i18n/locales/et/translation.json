@@ -99,9 +99,9 @@
     "significantDescription": "See erinevus on ebatõenäoliselt lihtsalt juhus - siin võib olla tegelik muster.",
     "notSignificantDescription": "See erinevus võib kergesti olla juhuslik - see on normaalsete juhulike kõikumiste piires.",
     "analysisSummary": "Mida see tähendab?",
-    "appearedTimes": "See number esines {{count}} korda {{total}} loosimises.",
-    "appearingMoreThanExpected": "Esineb {{percent}}% rohkem kui oodatud",
-    "appearingLessThanExpected": "Esineb {{percent}}% vähem kui oodatud",
+    "appearedTimes": "See number esines <bold>{{count}}</bold> korda <bold>{{total}}</bold> loosimises.",
+    "appearingMoreThanExpected": "Esineb <highlight>{{percent}}%</highlight> rohkem kui oodatud",
+    "appearingLessThanExpected": "Esineb <highlight>{{percent}}%</highlight> vähem kui oodatud",
     "historicalTrends": "📊 Ajaloolised trendid (tulekul)",
     "historicalTrendsDescription": "Sagedus aja jooksul, jaotusgraafikud ja mustrianalüüs ilmuvad siia.",
     "insufficientData": {

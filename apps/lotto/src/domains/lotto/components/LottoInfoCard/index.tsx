@@ -20,7 +20,7 @@ export const LottoInfoCard = ({ lottoType, linkBuyTickets, linkGameRules }: Lott
             <span className="text-body-small text-muted-foreground">{lottoName.toUpperCase()}</span>
             <Separator className="flex-1" />
           </div>
-          <div className="p-4">
+          <div className="py-2">
             <div>
               <p className="text-body-default" data-testid={`lotto-${lottoName}-description`}>
                 {t(`info.${lottoType}`)}

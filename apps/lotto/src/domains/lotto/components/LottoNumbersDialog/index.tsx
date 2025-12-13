@@ -1,10 +1,9 @@
 import type React from 'react';
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { XMarkIcon } from '@heroicons/react/24/outline';
 import groupBy from 'lodash/groupBy';
 import { useTranslation } from 'react-i18next';
 
-import { Dialog, DialogContent, DialogHeader, DialogTitle, IconButton } from '@lotto/ui';
+import { Dialog, DialogBody, DialogContent, DialogHeader, DialogTitle } from '@lotto/ui';
 
 import { findRelatedNumbers, LottoNumberDetailDialog } from '@/domains/lotto';
 
@@ -91,16 +90,15 @@ export const LottoNumbersDialog = ({
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && handleDialogClose()}>
       <DialogContent
-        showCloseButton={false}
-        className="flex max-h-[90vh] min-h-[80vh] flex-col gap-0 p-0 sm:max-w-4xl"
+        className="flex max-h-[90vh] min-h-[80vh] flex-col gap-0 sm:max-w-4xl"
         data-testid="lotto-numbers-dialog"
         aria-describedby={undefined}
       >
-        <DialogHeader className="sticky top-0 z-10 flex flex-row items-center justify-between border-b bg-background px-6 py-4 shadow-sm">
-          <DialogTitle className="text-foreground text-title-default-bold">
+        <DialogHeader className="flex-row items-center justify-between">
+          <DialogTitle>
             {t('statisticsDrawer.statistics')}
           </DialogTitle>
-          <div className="flex gap-2">
+          <div className="px-10">
             <LottoNumbersFilter
               shouldExcludeZeroCounts={shouldExcludeZeroCounts}
               sortByValue={sortByValue}
@@ -108,20 +106,11 @@ export const LottoNumbersDialog = ({
               onSortChange={handleSortingChange}
               onClearFilters={handleClearFilters}
             />
-            <IconButton
-              variant="ghost"
-              size="sm"
-              label="Close dialog"
-              onClick={handleDialogClose}
-              data-testid="dialog-close-button"
-            >
-              <XMarkIcon className="size-5" />
-            </IconButton>
           </div>
+
         </DialogHeader>
 
-        <div className="flex-1 overflow-y-auto pt-6">
-          {/* Numbers Grid */}
+        <DialogBody>
           {Object.entries(numberStatsByPositions).map(([position, stats]) => (
             <NumberStatsGrid
               key={`position-container-${position}`}
@@ -135,7 +124,7 @@ export const LottoNumbersDialog = ({
               }}
             />
           ))}
-        </div>
+        </DialogBody>
       </DialogContent>
       <LottoNumberDetailDialog
         open={drawerOpen}

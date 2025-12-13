@@ -1,6 +1,6 @@
 import type React from 'react';
 import { ArrowTrendingDownIcon, ArrowTrendingUpIcon, LightBulbIcon } from '@heroicons/react/24/outline';
-import { useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 
 import { Card, CardContent, cn } from '@lotto/ui';
 
@@ -20,83 +20,69 @@ export const AnalysisSummaryCard: React.FC<AnalysisSummaryCardProps> = ({ number
 
   return (
     <Card className="h-full">
-      <CardContent className="p-6">
-        <div className="mb-4 flex items-center gap-3">
-          <div className="flex items-center justify-center rounded-md bg-base-orange p-1.5">
+      <CardContent className="flex flex-col gap-4 p-2">
+        <div className="flex items-center gap-2">
+          <div className="flex items-center justify-center rounded-md bg-base-orange p-2">
             <LightBulbIcon className="size-5 text-primary-orange" />
           </div>
           <h3 className="text-title-small-bold">{t('numberStats.analysisSummary')}</h3>
         </div>
 
-        {/* Appearance count with modern styling */}
-        <div className="mb-4 rounded-lg border border-border bg-muted/50 p-4">
-          <p className="leading-relaxed">
-            {t('numberStats.appearedTimes', {
-              count: numberStat.interpretation.appearedCount,
-              total: numberStat.interpretation.totalDraws,
-            })
-              .split(/(\d+)/g)
-              .map((part, index) =>
-                /^\d+$/.test(part) ? (
-                  <span key={`num-${part}-${index}`} className="text-body-large-bold text-foreground">
-                    {part}
-                  </span>
-                ) : (
-                  <span key={`text-${part}-${index}`}>{part}</span>
-                )
-              )}
-          </p>
-        </div>
+        {/* Appearance count */}
+        <Card className="rounded">
+          <CardContent>
+              <Trans
+                i18nKey="numberStats.appearedTimes"
+                values={{
+                  count: numberStat.interpretation.appearedCount,
+                  total: numberStat.interpretation.totalDraws,
+                }}
+                components={{
+                  bold: <span className="text-body-large-bold text-foreground" />,
+                }}
+              />
+          </CardContent>
+        </Card>
 
         {/* Deviation highlight with icon */}
         {hasDeviation && (
-          <div
+          <Card
             className={cn(
-              'rounded-lg border-2 p-5',
+              'rounded border-2',
               isMoreFrequent
-                ? 'border-primary-red bg-base-red shadow-[0_4px_12px_color-mix(in_srgb,var(--color-primary-red)_10%,transparent)]'
-                : 'border-primary-blue bg-base-blue shadow-[0_4px_12px_color-mix(in_srgb,var(--color-primary-blue)_10%,transparent)]'
+                ? 'border-primary-red bg-base-red'
+                : 'border-primary-blue bg-base-blue'
             )}
           >
-            <div className="flex items-start gap-3">
-              <div className={cn('mt-0.5 rounded p-1.5', isMoreFrequent ? 'bg-secondary-red' : 'bg-secondary-blue')}>
+            <CardContent className="flex items-center gap-2">
+              <div className={cn('rounded p-1', isMoreFrequent ? 'bg-secondary-red' : 'bg-secondary-blue')}>
                 {isMoreFrequent ? (
                   <ArrowTrendingUpIcon className="size-5 text-primary-red" />
                 ) : (
                   <ArrowTrendingDownIcon className="size-5 text-primary-blue" />
                 )}
               </div>
-              <p className="flex-1 text-body-default-bold leading-relaxed">
-                {isMoreFrequent
-                  ? t('numberStats.appearingMoreThanExpected', {
-                      percent: numberStat.interpretation.percentDifference,
-                    })
-                      .split(/(\d+%)/g)
-                      .map((part, index) =>
-                        /^\d+%$/.test(part) ? (
-                          <span key={`freq-${part}-${index}`} className="text-body-large-bold text-gold">
-                            {part}
-                          </span>
-                        ) : (
-                          <span key={`text-${part}-${index}`}>{part}</span>
-                        )
-                      )
-                  : t('numberStats.appearingLessThanExpected', {
-                      percent: Math.abs(numberStat.interpretation.percentDifference),
-                    })
-                      .split(/(\d+%)/g)
-                      .map((part, index) =>
-                        /^\d+%$/.test(part) ? (
-                          <span key={`rare-${part}-${index}`} className="text-body-large-bold text-primary-blue">
-                            {part}
-                          </span>
-                        ) : (
-                          <span key={`text-${part}-${index}`}>{part}</span>
-                        )
-                      )}
+              <p className="flex-1 text-body-default-bold">
+                {isMoreFrequent ? (
+                  <Trans
+                    i18nKey="numberStats.appearingMoreThanExpected"
+                    values={{ percent: numberStat.interpretation.percentDifference }}
+                    components={{
+                      highlight: <span className="text-body-large-bold text-gold" />,
+                    }}
+                  />
+                ) : (
+                  <Trans
+                    i18nKey="numberStats.appearingLessThanExpected"
+                    values={{ percent: Math.abs(numberStat.interpretation.percentDifference) }}
+                    components={{
+                      highlight: <span className="text-body-large-bold text-primary-blue" />,
+                    }}
+                  />
+                )}
               </p>
-            </div>
-          </div>
+            </CardContent>
+          </Card>
         )}
       </CardContent>
     </Card>

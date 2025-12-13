@@ -50,6 +50,12 @@
   --color-base-red: #fff1f2; /* rose-50 */
   --color-primary-red: #f43f5e; /* rose-500 */
   --color-secondary-red: #ffe4e6; /* rose-100 */
+
+  /* Glass Effect - Apple Liquid Glass Style */
+  --color-glass: rgba(255, 255, 255, 0.6);
+  --color-glass-border: rgba(255, 255, 255, 0.3);
+  --color-glass-highlight: rgba(255, 255, 255, 0.5);
+  --color-glass-shadow: rgba(0, 0, 0, 0.08);
 }
 
 /* Dark Mode Color Overrides */
@@ -101,4 +107,10 @@
   --color-base-red: #4c0519; /* rose-950 */
   --color-primary-red: #f43f5e; /* rose-500 */
   --color-secondary-red: #881337; /* rose-900 */
+
+  /* Glass Effect - Dark Mode */
+  --color-glass: rgba(24, 24, 27, 0.7);
+  --color-glass-border: rgba(255, 255, 255, 0.1);
+  --color-glass-highlight: rgba(255, 255, 255, 0.08);
+  --color-glass-shadow: rgba(0, 0, 0, 0.3);
 }

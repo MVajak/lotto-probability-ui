@@ -1,10 +1,9 @@
 import type React from 'react';
 import { Suspense } from 'react';
-import { XMarkIcon } from '@heroicons/react/24/outline';
 import { useSuspenseQuery } from '@tanstack/react-query';
 import { useTranslation } from 'react-i18next';
 
-import { Dialog, DialogContent, DialogTitle, IconButton, LottoNumber } from '@lotto/ui';
+import { Dialog, DialogBody, DialogContent, DialogHeader, DialogTitle, LottoNumber } from '@lotto/ui';
 
 import { numberHistoryQueryOptions, useLottoStore } from '@/domains/lotto';
 import { LoadingLayout } from '@/layouts/LoadingLayout';
@@ -119,25 +118,18 @@ export const LottoNumberDetailDialog: React.FC<LottoNumberDetailDialogProps> = (
   return (
     <Dialog open={open} onOpenChange={(isOpen) => !isOpen && onClose()}>
       <DialogContent
-        showCloseButton={false}
-        className="flex max-h-[90vh] min-h-[80vh] flex-col gap-0 overflow-hidden rounded-lg p-0 sm:max-w-6xl"
+        className="flex max-h-[90vh] min-h-[80vh] flex-col gap-0 overflow-hidden sm:max-w-6xl"
         aria-describedby={undefined}
       >
-        {/* Header - Always visible */}
-        <div className="flex items-center justify-between border-b bg-background p-4">
-          <div className="flex items-center gap-3">
-            <LottoNumber digit={numberStat.digit} index={`dialog-${numberStat.digit}`} />
-            <DialogTitle className="text-foreground text-title-default-bold">
-              {t('general.number')} {numberStat.digit}
-            </DialogTitle>
-          </div>
-          <IconButton variant="ghost" size="sm" label="Close dialog" onClick={onClose}>
-            <XMarkIcon className="size-5" />
-          </IconButton>
-        </div>
+        <DialogHeader className="flex-row items-center gap-3">
+          <LottoNumber digit={numberStat.digit} index={`dialog-${numberStat.digit}`} />
+          <DialogTitle>
+            {t('general.number')} {numberStat.digit}
+          </DialogTitle>
+        </DialogHeader>
 
         {/* Content - Wrapped in Suspense */}
-        <div className="flex-1 overflow-y-auto bg-muted/30 p-6">
+        <DialogBody>
           <Suspense fallback={<LoadingLayout />}>
             <LottoNumberDetailContent
               numberStat={numberStat}
@@ -146,7 +138,7 @@ export const LottoNumberDetailDialog: React.FC<LottoNumberDetailDialogProps> = (
               isSecondaryNumbers={isSecondaryNumbers}
             />
           </Suspense>
-        </div>
+        </DialogBody>
       </DialogContent>
     </Dialog>
   );

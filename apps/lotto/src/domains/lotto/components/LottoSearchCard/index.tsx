@@ -33,14 +33,14 @@ export const LottoSearchCard = ({ lottoType }: LottoSearchProps): React.JSX.Elem
             <span className="text-body-small text-muted-foreground">{t('search.search')}</span>
             <Separator className="flex-1" />
           </div>
-          <div className="grid grid-cols-12 gap-2 pt-4">
-            <div className="col-span-6 p-2 sm:col-span-4">
+          <div className="grid grid-cols-12 gap-2 py-2">
+            <div className="col-span-6 sm:col-span-4">
               <Field>
                 <FieldLabel>{t('search.dateFrom')}</FieldLabel>
                 <DatePicker value={dateFromValue} maxDate={dateToValue} onChange={setDateFromValue} />
               </Field>
             </div>
-            <div className="col-span-6 p-2 sm:col-span-4">
+            <div className="col-span-6 sm:col-span-4">
               <Field>
                 <FieldLabel>{t('search.dateTo')}</FieldLabel>
                 <DatePicker
@@ -51,7 +51,7 @@ export const LottoSearchCard = ({ lottoType }: LottoSearchProps): React.JSX.Elem
                 />
               </Field>
             </div>
-            <div className="col-span-12 flex items-end justify-end p-2 sm:col-span-4">
+            <div className="col-span-12 flex items-end justify-end sm:col-span-4">
               <Button className="w-full" variant="primary" onClick={handleSearch}>
                 {t('search.calculate')}
               </Button>

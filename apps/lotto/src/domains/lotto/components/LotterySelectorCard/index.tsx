@@ -15,7 +15,7 @@ export const LotterySelectorCard = () => {
   return (
     <Card className="shadow-md">
       <CardContent>
-        <div className="flex flex-col items-center gap-6 p-6 md:flex-row">
+        <div className="flex flex-col items-center gap-6 py-2 md:flex-row">
           <div className="flex-1">
             <h3 className="mb-2 text-title-small-bold">{t('home.selectLottery')}</h3>
             <p className="text-body-default">{t('home.selectLotteryDescription')}</p>

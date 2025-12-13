@@ -16,29 +16,37 @@ export const DeviationAnalysisCard: React.FC<DeviationAnalysisCardProps> = ({ de
 
   return (
     <Card className="h-full">
-      <CardContent className="p-6">
-        <div className="mb-2 flex items-center gap-2">
+      <CardContent className="flex flex-col gap-4 p-2">
+        <div className="flex items-center gap-2 p-2">
           <ChartBarIcon className="size-5 text-foreground" />
           <h3 className="text-title-small-bold">{t('numberStats.deviationAnalysis')}</h3>
         </div>
-        <p className="mb-4 rounded bg-base-orange p-3 text-body-small text-muted-foreground italic">
-          {t('numberStats.deviationAnalysisHelp')}
-        </p>
-        <div className="space-y-4">
-          <div className="flex items-center justify-between rounded-lg bg-muted/50 p-4">
-            <span className="text-body-small text-muted-foreground">{t('numberStats.absoluteDeviation')}</span>
-            <span className="text-title-small-bold">{convertToPercentage(deviation.absolute)}</span>
-          </div>
-          <div className="flex items-center justify-between rounded-lg bg-muted/50 p-4">
-            <span className="text-body-small text-muted-foreground">{t('numberStats.relativeDeviation')}</span>
-            <span className="text-title-small-bold">{deviation.relative.toFixed(2)}x</span>
-          </div>
+        <Card className="rounded bg-base-orange p-2">
+          <CardContent>
+            <p className="text-body-small text-muted-foreground italic">
+              {t('numberStats.deviationAnalysisHelp')}
+            </p>
+          </CardContent>
+        </Card>
+        <div className="space-y-2">
+          <Card className="rounded p-4">
+            <CardContent className="flex items-center justify-between p-0">
+              <span className="text-body-small text-muted-foreground">{t('numberStats.absoluteDeviation')}</span>
+              <span className="text-title-small-bold">{convertToPercentage(deviation.absolute)}</span>
+            </CardContent>
+          </Card>
+          <Card className="rounded p-4">
+            <CardContent className="flex items-center justify-between p-0">
+              <span className="text-body-small text-muted-foreground">{t('numberStats.relativeDeviation')}</span>
+              <span className="text-title-small-bold">{deviation.relative.toFixed(2)}x</span>
+            </CardContent>
+          </Card>
           <Badge
             className={cn(
               'w-fit px-3 py-1.5 text-body-small-bold',
               deviation.isSignificant
-                ? 'bg-secondary-orange text-primary-orange'
-                : 'bg-secondary-green text-primary-green'
+                ? 'bg-base-orange text-primary-orange'
+                : 'bg-base-green text-primary-green'
             )}
           >
             {deviation.isSignificant ? t('numberStats.statisticallySignificant') : t('numberStats.notSignificant')}
