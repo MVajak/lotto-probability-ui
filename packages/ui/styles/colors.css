@@ -51,7 +51,7 @@
   --color-primary-red: #f43f5e; /* rose-500 */
   --color-secondary-red: #ffe4e6; /* rose-100 */
 
-  /* Glass Effect - Apple Liquid Glass Style */
+  /* Glass Effect */
   --color-glass: rgba(255, 255, 255, 0.6);
   --color-glass-border: rgba(255, 255, 255, 0.3);
   --color-glass-highlight: rgba(255, 255, 255, 0.5);

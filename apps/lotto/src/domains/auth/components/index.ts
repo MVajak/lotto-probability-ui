@@ -1,2 +1,2 @@
-export { EmailSentSuccess } from './EmailSentSuccess';
 export { LoginForm } from './LoginForm';
+export { VerifyOtpForm } from './VerifyOtpForm';

@@ -40,8 +40,8 @@ export const LottoNumber = ({ index, digit, onClick, className }: LottoNumberPro
 
           {/* Shine gradient */}
           <radialGradient id={`shineGradient-${index}`}>
-            <stop offset="0%" stopColor="var(--color-primary-foreground)" stopOpacity="0.4" />
-            <stop offset="100%" stopColor="var(--color-primary-foreground)" stopOpacity="0" />
+            <stop offset="0%" stopColor="var(--color-white)" stopOpacity="0.4" />
+            <stop offset="100%" stopColor="var(--color-white)" stopOpacity="0" />
           </radialGradient>
         </defs>
 

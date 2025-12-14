@@ -288,24 +288,27 @@
   },
   "login": {
     "title": "Logi sisse",
-    "checkYourInbox": "Kontrolli postkasti",
     "emailLabel": "E-posti aadress",
     "emailRequired": "E-post on kohustuslik",
     "emailInvalid": "Palun sisesta kehtiv e-posti aadress",
-    "sendMagicLink": "Saada võlulink",
-    "sending": "Saadan...",
-    "sentToEmail": "Saatsime just võlulingi aadressile <strong>{{email}}</strong>",
-    "back": "Tagasi"
+    "sendCode": "Saada kood",
+    "sending": "Saadan..."
   },
-  "verify": {
-    "verifying": "Lingi kinnitamine",
-    "pleaseWait": "Palun oota, kuni kinnitame sinu võlulinki...",
+  "verifyOtp": {
+    "enterCode": "Kontrolli postkasti",
+    "codeSentToEmail": "Saatsime 6-kohalise koodi aadressile <strong>{{email}}</strong>",
+    "codeSentToEmailPlain": "Sisesta kinnituskood, mille saatsime aadressile {{email}}.",
     "verificationSuccessful": "Kinnitamine õnnestus!",
     "redirecting": "Suuname sind rakendusesse...",
-    "verificationFailed": "Kinnitamine ebaõnnestus",
-    "invalidLink": "Kehtetu link",
-    "noTokenProvided": "Kinnituskood puudub. Palun kontrolli oma e-posti ja klõpsa võlulinkil.",
-    "backToLogin": "Tagasi sisselogimisse"
+    "invalidCode": "Vale kood. Palun kontrolli ja proovi uuesti.",
+    "codeRequired": "Kinnituskood on kohustuslik",
+    "codeMustBe6Digits": "Kood peab olema 6 numbrit",
+    "backToLogin": "Tagasi sisselogimisse",
+    "verify": "Jätka",
+    "didntReceiveCode": "Ei saanud koodi?",
+    "resendCode": "Saada kood uuesti",
+    "resending": "Saadan...",
+    "codeResent": "Kood saadetud!"
   },
   "userMenu": {
     "profile": "Profiil",

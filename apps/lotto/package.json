@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
+    "@hookform/resolvers": "^5.2.2",
     "@lotto/i18n": "workspace:*",
     "@lotto/ui": "workspace:*",
     "@nivo/bar": "^0.99.0",
@@ -25,7 +26,9 @@
     "lodash": "^4.17.21",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "react-hook-form": "^7.68.0",
     "react-i18next": "^15.6.0",
+    "zod": "^4.1.13",
     "zustand": "^5.0.8"
   },
   "devDependencies": {

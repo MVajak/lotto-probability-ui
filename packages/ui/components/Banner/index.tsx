@@ -81,7 +81,7 @@ export const Banner: React.FC<BannerProps> = ({
         </div>
       )}
       <div className="flex-1">
-        <p className={cn('text-title-default-bold', styles.titleText)}>{title}</p>
+        <p className={cn('text-title-small-bold', styles.titleText)}>{title}</p>
         {description && <span className="text-body-small text-muted-foreground">{description}</span>}
         {children}
       </div>

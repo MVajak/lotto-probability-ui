@@ -288,24 +288,27 @@
   },
   "login": {
     "title": "Sign in",
-    "checkYourInbox": "Check your inbox",
     "emailLabel": "Email address",
     "emailRequired": "Email is required",
     "emailInvalid": "Please enter a valid email address",
-    "sendMagicLink": "Send Magic Link",
-    "sending": "Sending...",
-    "sentToEmail": "We just sent a magic link to <strong>{{email}}</strong>",
-    "back": "Back"
+    "sendCode": "Send Code",
+    "sending": "Sending..."
   },
-  "verify": {
-    "verifying": "Verifying your link",
-    "pleaseWait": "Please wait while we verify your magic link...",
+  "verifyOtp": {
+    "enterCode": "Check your inbox",
+    "codeSentToEmail": "We sent a 6-digit code to <strong>{{email}}</strong>",
+    "codeSentToEmailPlain": "Enter the verification code we sent to {{email}}.",
     "verificationSuccessful": "Verification Successful!",
     "redirecting": "Redirecting you to the application...",
-    "verificationFailed": "Verification Failed",
-    "invalidLink": "Invalid Link",
-    "noTokenProvided": "No verification token was provided. Please check your email and click the magic link.",
-    "backToLogin": "Back to Login"
+    "invalidCode": "Invalid code. Please check and try again.",
+    "codeRequired": "Verification code is required",
+    "codeMustBe6Digits": "Code must be 6 digits",
+    "backToLogin": "Back to Login",
+    "verify": "Continue",
+    "didntReceiveCode": "Didn't receive the code?",
+    "resendCode": "Resend code",
+    "resending": "Resending...",
+    "codeResent": "Code sent successfully!"
   },
   "userMenu": {
     "profile": "Profile",

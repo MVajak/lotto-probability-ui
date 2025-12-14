@@ -1,21 +1,25 @@
 import { apiFetch } from '../api/client';
 
-interface MagicLinkResponse {
+interface RequestOtpResponse {
   message: string;
 }
 
-interface VerifyResponse {
+interface VerifyOtpResponse {
   accessToken: string;
 }
 
-export const requestMagicLinkMutation = {
+export const requestOtpMutation = {
   mutationFn: (email: string) =>
-    apiFetch<MagicLinkResponse>('/auth/request-magic-link', {
+    apiFetch<RequestOtpResponse>('/auth/request-otp', {
       method: 'POST',
       body: JSON.stringify({ email }),
     }),
 };
 
-export const verifyMagicLinkMutation = {
-  mutationFn: (token: string) => apiFetch<VerifyResponse>(`/auth/verify?token=${token}`),
+export const verifyOtpMutation = {
+  mutationFn: ({ email, code }: { email: string; code: string }) =>
+    apiFetch<VerifyOtpResponse>('/auth/verify-otp', {
+      method: 'POST',
+      body: JSON.stringify({ email, code }),
+    }),
 };

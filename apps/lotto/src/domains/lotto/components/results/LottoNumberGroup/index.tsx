@@ -6,8 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { Badge, LottoNumber, Tooltip, TooltipContent, TooltipTrigger } from '@lotto/ui';
 
 import type { NumberStat } from '../../../types';
-import { findRelatedNumbers } from '../../../utils/numberGrouping';
-import { LottoNumberDetailDialog } from '../../LottoNumberDetailDialog';
+import { findRelatedNumbers, LottoNumberDetailDialog } from '@/domains/lotto';
 import type { LottoNumberGroupProps } from './types';
 
 export const LottoNumberGroup = ({
@@ -68,7 +67,7 @@ export const LottoNumberGroup = ({
     <>
       <div className="m-1 inline-flex flex-col items-center gap-1 align-top">
         {/* Grouped numbers in a compact horizontal layout */}
-        <div className="flex flex-wrap items-center gap-1 rounded-3xl border-2 border-primary-light border-dashed bg-primary-light/20 p-1">
+        <div className="flex flex-wrap items-center gap-1 rounded-3xl border border-primary-light/60 bg-primary-light/30 p-1 backdrop-blur-xl dark:border-primary-light/40 dark:bg-primary-light/20">
           {/* Always visible numbers */}
           {initialNumbers.map((num) => (
             <LottoNumber

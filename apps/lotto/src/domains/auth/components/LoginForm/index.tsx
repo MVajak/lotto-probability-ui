@@ -1,8 +1,13 @@
 import type React from 'react';
-import { useState } from 'react';
+import { useCallback } from 'react';
+import { Controller, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
-import { Alert, Button, Field, FieldContent, FieldError, FieldLabel, Input } from '@lotto/ui';
+import { Button, Field, FieldError, Input } from '@lotto/ui';
+
+interface LoginFormInputs {
+  email: string;
+}
 
 interface LoginFormProps {
   onSubmit: (email: string) => void;
@@ -10,75 +15,73 @@ interface LoginFormProps {
   error: string | null;
 }
 
+const isValidEmail = (email: string): boolean => {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+};
+
 export const LoginForm: React.FC<LoginFormProps> = ({ onSubmit, isLoading, error }) => {
   const { t } = useTranslation();
-  const [email, setEmail] = useState('');
-  const [emailError, setEmailError] = useState('');
 
-  const validateEmail = (email: string): boolean => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-  };
+  const {
+    control,
+    handleSubmit,
+    setError,
+    formState: { errors, isValid },
+  } = useForm<LoginFormInputs>({
+    defaultValues: { email: '' },
+    mode: 'onChange',
+  });
 
-  const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.value;
-    setEmail(value);
-    if (emailError && value) {
-      setEmailError('');
-    }
-  };
+  // Set form error when API returns error
+  if (error && !errors.email) {
+    setError('email', { message: error });
+  }
 
-  const handleSubmit = async (event: React.FormEvent) => {
-    event.preventDefault();
-
-    // Validate email
-    if (!email) {
-      setEmailError(t('login.emailRequired'));
-      return;
-    }
-
-    if (!validateEmail(email)) {
-      setEmailError(t('login.emailInvalid'));
-      return;
-    }
-
-    onSubmit(email);
-  };
+  const submit = useCallback(
+    ({ email }: LoginFormInputs) => {
+      onSubmit(email);
+    },
+    [onSubmit]
+  );
 
   return (
-    <div className="animate-fade-in">
-      <div className="flex justify-center">
-        <img src="/img/logo_lotto.png" alt="Lotto Logo" className="max-w-[120px] p-4" />
+    <div className="flex min-h-full w-full flex-col items-center justify-center gap-8">
+      <img src="/img/logo_lotto.png" alt="Lotto Logo" className="max-w-[120px]" />
+
+      <div className="flex flex-col items-center gap-4 text-center">
+        <h1 className="text-display-small text-white">{t('login.title')}</h1>
       </div>
-      <h5 className="mb-2 text-center text-title-small">{t('login.title')}</h5>
-      <div className="mt-6">
-        <form onSubmit={handleSubmit}>
-          <Field className="mb-6">
-            <FieldLabel>{t('login.emailLabel')}</FieldLabel>
-            <FieldContent>
+
+      <form className="flex w-full flex-col gap-8" onSubmit={handleSubmit(submit)}>
+        <Controller
+          name="email"
+          control={control}
+          rules={{
+            required: t('login.emailRequired'),
+            validate: (value) => isValidEmail(value) || t('login.emailInvalid'),
+          }}
+          render={({ field }) => (
+            <Field data-invalid={!!errors.email}>
               <Input
+                id="email"
+                placeholder={t('login.emailLabel')}
+                className="text-white"
                 type="email"
-                value={email}
-                onChange={handleEmailChange}
-                disabled={isLoading}
+                autoComplete="email"
                 autoFocus
-                aria-invalid={!!emailError}
+                aria-invalid={!!errors.email}
+                {...field}
               />
-            </FieldContent>
-            {emailError && <FieldError>{emailError}</FieldError>}
-          </Field>
-
-          {error && (
-            <Alert variant="destructive" className="mb-4">
-              {error}
-            </Alert>
+              {errors.email && <FieldError>{errors.email?.message}</FieldError>}
+            </Field>
           )}
+        />
 
-          <Button type="submit" className="w-full py-3" size="lg" disabled={isLoading}>
-            {t('login.sendMagicLink')}
-          </Button>
-        </form>
-      </div>
+        <Button type="submit" loading={isLoading} variant="primary" size="lg" className="w-full" disabled={!isValid}>
+          {t('login.sendCode')}
+        </Button>
+      </form>
     </div>
   );
 };

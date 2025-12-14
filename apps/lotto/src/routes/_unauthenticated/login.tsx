@@ -1,35 +1,63 @@
 import { useState } from 'react';
-import { useMutation } from '@tanstack/react-query';
-import { createFileRoute } from '@tanstack/react-router';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { createFileRoute, useNavigate } from '@tanstack/react-router';
+import { useTranslation } from 'react-i18next';
 
-import { requestMagicLinkMutation } from '@/domains/auth';
-import { EmailSentSuccess, LoginForm } from '@/domains/auth/components';
+import { currentUserQuery, requestOtpMutation, useAuthStore, verifyOtpMutation } from '@/domains/auth';
+import { LoginForm, VerifyOtpForm } from '@/domains/auth/components';
 import { LanguageSelector } from '@/domains/region/components/LanguageSelector';
 import { BrandLayout } from '@/layouts/BrandLayout';
+import { SuccessLayout } from '@/layouts/SuccessLayout';
 
 export const Route = createFileRoute('/_unauthenticated/login')({
   component: LoginPage,
 });
 
 function LoginPage() {
-  const [submittedEmail, setSubmittedEmail] = useState<string>('');
-  const [emailSent, setEmailSent] = useState(false);
+  const { t } = useTranslation();
+  const navigate = useNavigate();
+  const queryClient = useQueryClient();
+  const setAccessToken = useAuthStore((state) => state.setAccessToken);
 
-  const mutation = useMutation({
-    ...requestMagicLinkMutation,
-    onSuccess: () => {
-      setEmailSent(true);
+  const [submittedEmail, setSubmittedEmail] = useState('');
+  const [step, setStep] = useState<'login' | 'verify' | 'success'>('login');
+
+  const requestOtpMut = useMutation({
+    ...requestOtpMutation,
+    onSuccess: (_data, email) => {
+      setSubmittedEmail(email);
+      setStep('verify');
     },
   });
 
-  const handleSubmit = (email: string) => {
-    setSubmittedEmail(email);
-    mutation.mutate(email);
+  const verifyOtpMut = useMutation({
+    ...verifyOtpMutation,
+    onSuccess: async (data) => {
+      setAccessToken(data.accessToken);
+      setStep('success');
+      await queryClient.prefetchQuery(currentUserQuery);
+      setTimeout(() => {
+        navigate({ to: '/home' });
+      }, 1000);
+    },
+  });
+
+  const handleLogin = (email: string) => {
+    requestOtpMut.mutate(email);
+  };
+
+  const handleVerify = (code: string) => {
+    verifyOtpMut.mutate({ email: submittedEmail, code });
+  };
+
+  const handleResend = () => {
+    requestOtpMut.mutate(submittedEmail);
   };
 
   const handleBack = () => {
-    setEmailSent(false);
-    mutation.reset();
+    setStep('login');
+    requestOtpMut.reset();
+    verifyOtpMut.reset();
   };
 
   return (
@@ -37,10 +65,29 @@ function LoginPage() {
       <div className="absolute top-4 right-4">
         <LanguageSelector />
       </div>
-      {emailSent ? (
-        <EmailSentSuccess email={submittedEmail} onBack={handleBack} />
-      ) : (
-        <LoginForm onSubmit={handleSubmit} isLoading={mutation.isPending} error={mutation.error?.message ?? null} />
+
+      {step === 'login' && (
+        <LoginForm
+          onSubmit={handleLogin}
+          isLoading={requestOtpMut.isPending}
+          error={requestOtpMut.error?.message ?? null}
+        />
+      )}
+
+      {step === 'verify' && (
+        <VerifyOtpForm
+          email={submittedEmail}
+          onVerify={handleVerify}
+          onResend={handleResend}
+          onBack={handleBack}
+          isVerifying={verifyOtpMut.isPending}
+          isResending={requestOtpMut.isPending}
+          error={verifyOtpMut.error?.message ?? null}
+        />
+      )}
+
+      {step === 'success' && (
+        <SuccessLayout title={t('verifyOtp.verificationSuccessful')} message={t('verifyOtp.redirecting')} />
       )}
     </BrandLayout>
   );

@@ -62,8 +62,8 @@ export const LotteryBalls: React.FC<LotteryBallsProps> = ({ width = 800, height 
 
         {/* Shine gradient */}
         <radialGradient id="shineGradient">
-          <stop offset="0%" stopColor="var(--color-primary-foreground)" stopOpacity="0.4" />
-          <stop offset="100%" stopColor="var(--color-primary-foreground)" stopOpacity="0" />
+          <stop offset="0%" stopColor="var(--color-white)" stopOpacity="0.4" />
+          <stop offset="100%" stopColor="var(--color-white)" stopOpacity="0" />
         </radialGradient>
 
         {/* Glow gradient */}

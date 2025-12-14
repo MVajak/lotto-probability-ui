@@ -12,7 +12,6 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as UnauthenticatedRouteImport } from './routes/_unauthenticated'
 import { Route as AuthenticatedRouteImport } from './routes/_authenticated'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as UnauthenticatedVerifyRouteImport } from './routes/_unauthenticated/verify'
 import { Route as UnauthenticatedLoginRouteImport } from './routes/_unauthenticated/login'
 import { Route as AuthenticatedSubscriptionRouteImport } from './routes/_authenticated/subscription'
 import { Route as AuthenticatedProfileRouteImport } from './routes/_authenticated/profile'
@@ -30,11 +29,6 @@ const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
-} as any)
-const UnauthenticatedVerifyRoute = UnauthenticatedVerifyRouteImport.update({
-  id: '/verify',
-  path: '/verify',
-  getParentRoute: () => UnauthenticatedRoute,
 } as any)
 const UnauthenticatedLoginRoute = UnauthenticatedLoginRouteImport.update({
   id: '/login',
@@ -64,7 +58,6 @@ export interface FileRoutesByFullPath {
   '/profile': typeof AuthenticatedProfileRoute
   '/subscription': typeof AuthenticatedSubscriptionRoute
   '/login': typeof UnauthenticatedLoginRoute
-  '/verify': typeof UnauthenticatedVerifyRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -72,7 +65,6 @@ export interface FileRoutesByTo {
   '/profile': typeof AuthenticatedProfileRoute
   '/subscription': typeof AuthenticatedSubscriptionRoute
   '/login': typeof UnauthenticatedLoginRoute
-  '/verify': typeof UnauthenticatedVerifyRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -83,13 +75,12 @@ export interface FileRoutesById {
   '/_authenticated/profile': typeof AuthenticatedProfileRoute
   '/_authenticated/subscription': typeof AuthenticatedSubscriptionRoute
   '/_unauthenticated/login': typeof UnauthenticatedLoginRoute
-  '/_unauthenticated/verify': typeof UnauthenticatedVerifyRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/home' | '/profile' | '/subscription' | '/login' | '/verify'
+  fullPaths: '/' | '/home' | '/profile' | '/subscription' | '/login'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/home' | '/profile' | '/subscription' | '/login' | '/verify'
+  to: '/' | '/home' | '/profile' | '/subscription' | '/login'
   id:
     | '__root__'
     | '/'
@@ -99,7 +90,6 @@ export interface FileRouteTypes {
     | '/_authenticated/profile'
     | '/_authenticated/subscription'
     | '/_unauthenticated/login'
-    | '/_unauthenticated/verify'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -130,13 +120,6 @@ declare module '@tanstack/react-router' {
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
-    }
-    '/_unauthenticated/verify': {
-      id: '/_unauthenticated/verify'
-      path: '/verify'
-      fullPath: '/verify'
-      preLoaderRoute: typeof UnauthenticatedVerifyRouteImport
-      parentRoute: typeof UnauthenticatedRoute
     }
     '/_unauthenticated/login': {
       id: '/_unauthenticated/login'
@@ -187,12 +170,10 @@ const AuthenticatedRouteWithChildren = AuthenticatedRoute._addFileChildren(
 
 interface UnauthenticatedRouteChildren {
   UnauthenticatedLoginRoute: typeof UnauthenticatedLoginRoute
-  UnauthenticatedVerifyRoute: typeof UnauthenticatedVerifyRoute
 }
 
 const UnauthenticatedRouteChildren: UnauthenticatedRouteChildren = {
   UnauthenticatedLoginRoute: UnauthenticatedLoginRoute,
-  UnauthenticatedVerifyRoute: UnauthenticatedVerifyRoute,
 }
 
 const UnauthenticatedRouteWithChildren = UnauthenticatedRoute._addFileChildren(
