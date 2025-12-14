@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { Card, CardContent, Separator } from '@lotto/ui';
 
 import type { NumberHistoryDto } from '@/domains/lotto';
+import { UpgradePromptCard, useSubscriptionTier } from '@/domains/subscription';
 
 import {
   HotColdMeter,
@@ -21,8 +22,12 @@ interface HistoricalTrendsCardProps {
 
 export const HistoricalTrendsCard: React.FC<HistoricalTrendsCardProps> = ({ numberHistory }) => {
   const { t } = useTranslation();
+  const { isPro, isPremium } = useSubscriptionTier();
   const { summary, trends, timeline, markovChain } = numberHistory;
-  const hasEnoughData = summary.appearanceCount > 0 && trends.timeSeries.length > 0;
+
+  const hasBasicData = summary.appearanceCount > 0;
+  const hasTrendsData = trends?.timeSeries && trends.timeSeries.length > 0;
+  const hasTimelineData = timeline && timeline.length > 0;
 
   return (
     <Card className="h-full">
@@ -35,36 +40,56 @@ export const HistoricalTrendsCard: React.FC<HistoricalTrendsCardProps> = ({ numb
           <h3 className="text-title-small-bold">{t('numberStats.historicalTrendsTitle')}</h3>
         </div>
 
-        {hasEnoughData ? (
+        {hasBasicData ? (
           <>
-            {/* Hot/Cold Meter - Simple visual for frequency comparison */}
+            {/* Hot/Cold Meter - Available for all tiers (basic frequency) */}
             <HotColdMeter summary={summary} />
 
             <Separator className="my-6" />
 
-            {/* Trend Sparkline - Simple trend visualization */}
-            {trends.timeSeries.length > 0 && <TrendSparkline timeSeries={trends.timeSeries} />}
+            {/* Trends & Timeline - PRO and PREMIUM feature */}
+            {isPro ? (
+              <>
+                {/* Trend Sparkline - Simple trend visualization */}
+                {hasTrendsData && (
+                  <>
+                    <TrendSparkline timeSeries={trends.timeSeries} />
+                    <Separator className="my-6" />
+                  </>
+                )}
 
-            {trends.timeSeries.length > 0 && <Separator className="my-6" />}
+                {/* Recent Draws - Visual timeline of all draws */}
+                {hasTimelineData && (
+                  <>
+                    <RecentDrawsChart timeline={timeline} />
+                    <Separator className="my-6" />
+                  </>
+                )}
 
-            {/* Recent Draws - Visual timeline of all draws */}
-            <RecentDrawsChart timeline={timeline} />
+                {/* Streak Stats - Simple cards for streak/drought info */}
+                {hasTrendsData && (
+                  <>
+                    <StreakStats trends={trends} />
+                    <Separator className="my-6" />
+                  </>
+                )}
 
-            <Separator className="my-6" />
-
-            {/* Streak Stats - Simple cards for streak/drought info */}
-            <StreakStats trends={trends} />
-
-            <Separator className="my-6" />
-
-            {/* Markov Chain - What happens next? */}
-            {markovChain ? (
-              <MarkovStatsCards markovChain={markovChain} />
+                {/* Markov Chain - PREMIUM only feature */}
+                {isPremium ? (
+                  markovChain ? (
+                    <MarkovStatsCards markovChain={markovChain} />
+                  ) : (
+                    <InsufficientDataWarningCard
+                      titleKey="numberStats.insufficientData.markovTitle"
+                      messageKey="numberStats.insufficientData.markovMessage"
+                    />
+                  )
+                ) : (
+                  <UpgradePromptCard feature="markov" requiredTier="PREMIUM" />
+                )}
+              </>
             ) : (
-              <InsufficientDataWarningCard
-                titleKey="numberStats.insufficientData.markovTitle"
-                messageKey="numberStats.insufficientData.markovMessage"
-              />
+              <UpgradePromptCard feature="trends" requiredTier="PRO" />
             )}
           </>
         ) : (

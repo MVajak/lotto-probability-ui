@@ -29,7 +29,7 @@ export const BrandLayout: React.FC<BrandLayoutProps> = ({ children, maxWidth = '
       <div className="hidden md:block">
         {/* Title and description - top left */}
         <div className="absolute top-[8%] left-[5%]">
-          <h3 className="mb-2 text-title-default-bold text-white lg:text-display-small-bold">
+          <h3 className="mb-2 text-title-default-bold text-light lg:text-display-small-bold">
             {t('authLayout.title')}
           </h3>
           <h6 className="text-primary-foreground/70 text-title-small">{t('authLayout.subtitle')}</h6>
@@ -47,7 +47,7 @@ export const BrandLayout: React.FC<BrandLayoutProps> = ({ children, maxWidth = '
 
         {/* Bottom labels */}
         <div className="absolute bottom-[8%] left-[5%]">
-          <p className="text-body-small text-white/60 lg:text-body-large">{t('authLayout.features')}</p>
+          <p className="text-body-small text-light/60 lg:text-body-large">{t('authLayout.features')}</p>
         </div>
       </div>
 

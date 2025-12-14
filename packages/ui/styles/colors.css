@@ -4,6 +4,8 @@
 @theme {
   /* Base Colors - Light Mode (Default) */
   --color-background: #ffffff; /* white */
+  --color-light: #fafafa; /* zinc-50 */
+  --color-dark: #09090b; /* zinc-950 */
   --color-foreground: #09090b; /* zinc-950 */
   --color-subtle-foreground: #a1a1aa; /* zinc-400 */
   --color-muted: #f4f4f5; /* zinc-100 */
@@ -61,6 +63,8 @@
 /* Dark Mode Color Overrides */
 .dark {
   --color-background: #09090b; /* zinc-950 */
+  --color-light: #fafafa; /* zinc-50 */
+  --color-dark: #09090b; /* zinc-950 */
   --color-foreground: #fafafa; /* zinc-50 */
   --color-subtle-foreground: #71717a; /* zinc-500 */
   --color-muted: #27272a; /* zinc-800 */
@@ -109,7 +113,7 @@
   --color-secondary-red: #881337; /* rose-900 */
 
   /* Glass Effect - Dark Mode */
-  --color-glass: rgba(24, 24, 27, 0.7);
+  --color-glass: rgba(24, 24, 27, 0.8);
   --color-glass-border: rgba(255, 255, 255, 0.1);
   --color-glass-highlight: rgba(255, 255, 255, 0.08);
   --color-glass-shadow: rgba(0, 0, 0, 0.3);

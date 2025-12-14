@@ -39,8 +39,7 @@ export const NumberStatCard: React.FC<NumberStatCardProps> = ({
     <InteractiveCard
       onClick={onClick}
       className={cn(
-        'relative cursor-pointer overflow-visible border-[1.5px] transition-all duration-300 ease-out',
-        'hover:-translate-y-1 active:-translate-y-0.5 p-1 hover:scale-[1.02] active:scale-[1.01]',
+        'relative border-2 p-1',
         category === 'frequent' && 'border-gold/50 bg-gold/10',
         category === 'rare' && 'border-primary-blue/50 bg-primary-blue/10',
         category === 'normal' && 'border-border bg-muted/50'
@@ -58,7 +57,7 @@ export const NumberStatCard: React.FC<NumberStatCardProps> = ({
             category === 'rare' && 'bg-primary-blue'
           )}
         >
-          {category === 'frequent' ? <FireIcon className="size-3.5" /> : <SparklesIcon className="size-3.5" />}
+          {category === 'frequent' ? <FireIcon className="size-4" /> : <SparklesIcon className="size-4" />}
           {getCategoryLabel(category)}
         </Badge>
       )}

@@ -8,7 +8,7 @@ import {
 } from '@heroicons/react/24/solid';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { InputGroup, InputGroupAddon, InputGroupButton, InputGroupInput, InputGroupText, InputGroupTextarea } from './';
+import { InputGroup, InputGroupAddon, InputGroupButton, InputGroupInput, InputGroupText } from './';
 
 const meta = {
   component: InputGroup,
@@ -143,34 +143,6 @@ export const WithBlockAddonsAndButton: Story = {
         </InputGroupButton>
       </InputGroupAddon>
       <InputGroupInput placeholder="sk_test_..." readOnly />
-    </InputGroup>
-  ),
-};
-
-export const WithTextarea: Story = {
-  render: () => (
-    <InputGroup>
-      <InputGroupAddon align="block-start">
-        <InputGroupText>Description</InputGroupText>
-      </InputGroupAddon>
-      <InputGroupTextarea placeholder="Enter description..." rows={4} />
-    </InputGroup>
-  ),
-};
-
-export const WithTextareaAndButtons: Story = {
-  render: () => (
-    <InputGroup>
-      <InputGroupAddon align="block-start">
-        <InputGroupText>Message</InputGroupText>
-      </InputGroupAddon>
-      <InputGroupTextarea placeholder="Type your message..." rows={4} />
-      <InputGroupAddon align="block-end">
-        <InputGroupButton size="sm">Send</InputGroupButton>
-        <InputGroupButton size="sm" variant="outline">
-          Cancel
-        </InputGroupButton>
-      </InputGroupAddon>
     </InputGroup>
   ),
 };

@@ -1,3 +1,5 @@
+import { SubscriptionTierCode } from '@/domains/subscription';
+
 export interface User {
   id: string;
   email: string;
@@ -8,7 +10,7 @@ export interface User {
 
 export interface Subscription {
   id: string;
-  tierCode: string;
+  tier: SubscriptionTierCode;
   status: string;
   expiresAt?: string;
 }

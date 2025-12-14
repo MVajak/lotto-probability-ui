@@ -18,7 +18,7 @@ function Card({ className, ...props }: React.ComponentProps<'div'>) {
 function InteractiveCard({ className, ...props }: React.ComponentProps<typeof Card>) {
   return (
     <Card
-      className={cn('cursor-pointer transition-shadow duration-200 hover:shadow-lg active:bg-accent', className)}
+      className={cn('hover:-translate-y-1 active:-translate-y-0.5 cursor-pointer transition-all duration-200 hover:scale-[1.02] hover:shadow-lg active:scale-[1.01] active:bg-accent', className)}
       {...props}
     />
   );

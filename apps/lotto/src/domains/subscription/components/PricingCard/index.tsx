@@ -70,7 +70,7 @@ export const PricingCard: React.FC<PricingCardProps> = ({ tier, isCurrentPlan = 
         <Button
           variant={isHighlighted && !isCurrentPlan ? 'primary' : 'outline'}
           className={cn(
-            'w-full rounded-full text-body-default-bold',
+            'text-body-default-bold',
             isHighlighted && !isCurrentPlan && 'bg-primary-orange text-primary-foreground hover:bg-gold-dark'
           )}
           disabled={isCurrentPlan}
@@ -80,9 +80,9 @@ export const PricingCard: React.FC<PricingCardProps> = ({ tier, isCurrentPlan = 
           }}
         >
           {isCurrentPlan ? (
-            <span className="flex items-center gap-2">
+              <span className="flex items-center gap-1">
               <CheckCircleIcon className="size-5" />
-              {t('subscription.alreadyOnPlan')}
+                {t('subscription.alreadyOnPlan')}
             </span>
           ) : (
             t('subscription.choosePlan')

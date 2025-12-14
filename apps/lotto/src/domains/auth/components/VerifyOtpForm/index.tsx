@@ -72,8 +72,8 @@ export const VerifyOtpForm: React.FC<VerifyOtpFormProps> = ({
       </IconButton>
 
       <div className="flex flex-col items-center gap-4 text-center">
-        <h1 className="text-display-small text-white">{t('verifyOtp.enterCode')}</h1>
-        <p className="text-body-default text-white/70">{t('verifyOtp.codeSentToEmailPlain', { email })}</p>
+        <h1 className="text-display-small text-light">{t('verifyOtp.enterCode')}</h1>
+        <p className="text-body-default text-light/70">{t('verifyOtp.codeSentToEmailPlain', { email })}</p>
       </div>
 
       <form onSubmit={handleSubmit(submit)} className="flex w-full flex-col items-center gap-8">
@@ -120,7 +120,7 @@ export const VerifyOtpForm: React.FC<VerifyOtpFormProps> = ({
       </form>
 
       <div className="flex flex-col items-center gap-1">
-        <p className="text-body-small text-white/60">{t('verifyOtp.didntReceiveCode')}</p>
+        <p className="text-body-small text-light/60">{t('verifyOtp.didntReceiveCode')}</p>
         <Button variant="link" className="text-primary-light" onClick={onResend} disabled={isResending}>
           {isResending ? t('verifyOtp.resending') : t('verifyOtp.resendCode')}
         </Button>

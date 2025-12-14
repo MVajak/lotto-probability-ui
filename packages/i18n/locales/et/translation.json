@@ -355,6 +355,16 @@
       "AUTOCORRELATION": "Autokorrelatsioonanalüüs",
       "INTERACTIVE_GRAPHS": "Interaktiivsed analüüsigraafikud",
       "ADVANCED_VISUALIZATION": "Täiustatud visualiseerimise tööriistad"
+    },
+    "upgrade": {
+      "trendsTitle": "Ajaloolised trendid ja ajajoon",
+      "trendsDescription": "Juurdepääs üksikasjalikule trendianalüüsile, loosimiste ajajoonele ja seeria statistikale, et mõista numbrimustrite arengut aja jooksul.",
+      "markovTitle": "Markovi ahela analüüs",
+      "markovDescription": "Avasta, mis tavaliselt juhtub pärast numbri esinemist või mitte-esinemist, tuginedes ajaloolistele mustritele.",
+      "autocorrelationTitle": "Autokorrelatsioonanalüüs",
+      "autocorrelationDescription": "Tuvasta mustreid numbrite esinemistes, analüüsides korrelatsioone eelmiste loosimistega.",
+      "upgradeToUnlock": "Avamiseks uuenda {{tier}} paketile",
+      "upgradeButton": "Uuenda kohe"
     }
   },
   "home": {

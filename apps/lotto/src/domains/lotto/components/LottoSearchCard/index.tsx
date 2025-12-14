@@ -6,14 +6,17 @@ import { useTranslation } from 'react-i18next';
 import { Button, Card, CardContent, DatePicker, Field, FieldLabel, Separator } from '@lotto/ui';
 
 import { useLottoStore } from '@/domains/lotto';
+import { useSubscriptionTier } from '@/domains/subscription';
 
 import type { LottoSearchProps } from './types';
 
 export const LottoSearchCard = ({ lottoType }: LottoSearchProps): React.JSX.Element => {
+  const { t } = useTranslation();
+  const { minAllowedDate } = useSubscriptionTier();
+  const setSearchParams = useLottoStore((state) => state.setSearchParams);
+
   const [dateFromValue, setDateFromValue] = useState<Date | undefined>(subMonths(new Date(), 1));
   const [dateToValue, setDateToValue] = useState<Date | undefined>(new Date());
-  const { t } = useTranslation();
-  const setSearchParams = useLottoStore((state) => state.setSearchParams);
 
   const handleSearch = useCallback(() => {
     setSearchParams({
@@ -37,7 +40,7 @@ export const LottoSearchCard = ({ lottoType }: LottoSearchProps): React.JSX.Elem
             <div className="col-span-6 sm:col-span-4">
               <Field>
                 <FieldLabel>{t('search.dateFrom')}</FieldLabel>
-                <DatePicker value={dateFromValue} maxDate={dateToValue} onChange={setDateFromValue} />
+                <DatePicker value={dateFromValue} minDate={minAllowedDate} maxDate={dateToValue} onChange={setDateFromValue} />
               </Field>
             </div>
             <div className="col-span-6 sm:col-span-4">

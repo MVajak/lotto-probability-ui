@@ -355,6 +355,16 @@
       "AUTOCORRELATION": "Autocorrelation analysis",
       "INTERACTIVE_GRAPHS": "Interactive analysis graphs",
       "ADVANCED_VISUALIZATION": "Advanced visualization tools"
+    },
+    "upgrade": {
+      "trendsTitle": "Historical Trends & Timeline",
+      "trendsDescription": "Access detailed trend analysis, draw timelines, and streak statistics to understand number patterns over time.",
+      "markovTitle": "Markov Chain Analysis",
+      "markovDescription": "Discover what typically happens after a number appears or doesn't appear based on historical patterns.",
+      "autocorrelationTitle": "Autocorrelation Analysis",
+      "autocorrelationDescription": "Detect patterns in number appearances by analyzing correlations with previous draws.",
+      "upgradeToUnlock": "Upgrade to {{tier}} to unlock",
+      "upgradeButton": "Upgrade Now"
     }
   },
   "home": {
