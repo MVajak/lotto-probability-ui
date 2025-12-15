@@ -4,33 +4,29 @@ import { useTranslation } from 'react-i18next';
 
 import { Badge, Button, CardContent, cn, InteractiveCard } from '@lotto/ui';
 
-import type { SubscriptionTier } from '@/domains/subscription';
+import { type SubscriptionTier, useUpdateTierMutation } from '@/domains/subscription';
 
 interface PricingCardProps {
   tier: SubscriptionTier;
   isCurrentPlan?: boolean;
-  onSelect?: () => void;
 }
 
-export const PricingCard: React.FC<PricingCardProps> = ({ tier, isCurrentPlan = false, onSelect }) => {
+export const PricingCard: React.FC<PricingCardProps> = ({ tier, isCurrentPlan = false }) => {
   const { t } = useTranslation();
+  const { mutate, isPending } = useUpdateTierMutation();
 
   const isHighlighted = tier.code === 'PRO';
   const tierKey = tier.code.toLowerCase() as 'free' | 'pro' | 'premium';
 
   const handleClick = () => {
-    if (!isCurrentPlan) {
-      onSelect?.();
+    if (!isCurrentPlan && !isPending) {
+      mutate(tier.id);
     }
   };
 
   return (
     <InteractiveCard
-      className={cn(
-        'relative h-full border-border',
-        isHighlighted &&
-          'border-2 border-primary-orange'
-      )}
+      className={cn('relative h-full border-border', isHighlighted && 'border-2 border-primary-orange')}
       onClick={handleClick}
     >
       {isHighlighted && (
@@ -73,17 +69,19 @@ export const PricingCard: React.FC<PricingCardProps> = ({ tier, isCurrentPlan = 
             'text-body-default-bold',
             isHighlighted && !isCurrentPlan && 'bg-primary-orange text-primary-foreground hover:bg-gold-dark'
           )}
-          disabled={isCurrentPlan}
+          disabled={isCurrentPlan || isPending}
           onClick={(e) => {
             e.stopPropagation();
             handleClick();
           }}
         >
           {isCurrentPlan ? (
-              <span className="flex items-center gap-1">
+            <span className="flex items-center gap-1">
               <CheckCircleIcon className="size-5" />
-                {t('subscription.alreadyOnPlan')}
+              {t('subscription.alreadyOnPlan')}
             </span>
+          ) : isPending ? (
+            t('subscription.updating')
           ) : (
             t('subscription.choosePlan')
           )}

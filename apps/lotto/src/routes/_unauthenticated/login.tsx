@@ -17,7 +17,7 @@ function LoginPage() {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const queryClient = useQueryClient();
-  const setAccessToken = useAuthStore((state) => state.setAccessToken);
+  const setTokens = useAuthStore((state) => state.setTokens);
 
   const [submittedEmail, setSubmittedEmail] = useState('');
   const [step, setStep] = useState<'login' | 'verify' | 'success'>('login');
@@ -33,7 +33,7 @@ function LoginPage() {
   const verifyOtpMut = useMutation({
     ...verifyOtpMutation,
     onSuccess: async (data) => {
-      setAccessToken(data.accessToken);
+      setTokens(data);
       setStep('success');
       await queryClient.prefetchQuery(currentUserQuery);
       setTimeout(() => {

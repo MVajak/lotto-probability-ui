@@ -209,6 +209,22 @@
       "significant": "⚠️ Statistically significant - may indicate a pattern",
       "notSignificant": "✓ Not significant - appears random"
     },
+    "autocorrelation": {
+      "title": "Pattern Analysis",
+      "description": "Does this number follow any predictable pattern?",
+      "patternDetected": "Possible pattern detected",
+      "noPattern": "No pattern detected",
+      "interpretation": {
+        "random": "Random",
+        "clustered": "Tends to Cluster",
+        "dispersed": "Evenly Spread"
+      },
+      "explanation": {
+        "random": "This number appears randomly with no detectable pattern. Its appearances are independent of previous draws - exactly what you'd expect in a fair lottery.",
+        "clustered": "This number tends to appear in clusters - when it shows up, it's more likely to appear again soon. This could be a statistical anomaly or an interesting trend to watch.",
+        "dispersed": "This number tends to spread out its appearances - after showing up, it's less likely to appear in the next few draws. The appearances seem more evenly distributed over time."
+      }
+    },
     "markovHeatmap": {
       "title": "State Transitions (Markov Chain)",
       "description": "Shows probability of number appearing/not appearing based on previous draw. Darker = higher probability",
@@ -333,6 +349,7 @@
     "currentPlan": "Current Plan",
     "alreadyOnPlan": "You're on this plan",
     "choosePlan": "Choose Plan",
+    "updating": "Updating...",
     "free": {
       "name": "Free"
     },

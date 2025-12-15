@@ -1,3 +1,5 @@
+// Autocorrelation visualization
+export { AutocorrelationChart } from './AutocorrelationChart';
 // New simple chart components
 export { HotColdMeter } from './HotColdMeter';
 // Keep for edge cases

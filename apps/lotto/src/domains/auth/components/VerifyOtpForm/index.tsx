@@ -4,15 +4,7 @@ import { ArrowLeftIcon } from '@heroicons/react/24/outline';
 import { Controller, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
-import {
-  Button,
-  Field,
-  FieldError,
-  IconButton,
-  InputOTP,
-  InputOTPGroup,
-  InputOTPSlot,
-} from '@lotto/ui';
+import { Button, Field, FieldError, IconButton, InputOTP, InputOTPGroup, InputOTPSlot } from '@lotto/ui';
 
 interface VerifyOtpFormInputs {
   otp: string;
@@ -62,12 +54,7 @@ export const VerifyOtpForm: React.FC<VerifyOtpFormProps> = ({
 
   return (
     <div className="relative flex min-h-full w-full flex-col items-center justify-center gap-8">
-      <IconButton
-        label={t('verifyOtp.backToLogin')}
-        size="lg"
-        onClick={onBack}
-        className="absolute top-0 left-0"
-      >
+      <IconButton label={t('verifyOtp.backToLogin')} size="lg" onClick={onBack} className="absolute top-0 left-0">
         <ArrowLeftIcon />
       </IconButton>
 

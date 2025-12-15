@@ -209,6 +209,22 @@
       "significant": "⚠️ Statistiliselt oluline - võib viidata mustrile",
       "notSignificant": "✓ Pole oluline - tundub juhuslik"
     },
+    "autocorrelation": {
+      "title": "Mustrianalüüs",
+      "description": "Kas see number järgib mingit ennustatavat mustrit?",
+      "patternDetected": "Võimalik muster tuvastatud",
+      "noPattern": "Mustrit ei tuvastatud",
+      "interpretation": {
+        "random": "Juhuslik",
+        "clustered": "Kipub klasterduma",
+        "dispersed": "Ühtlaselt jaotunud"
+      },
+      "explanation": {
+        "random": "See number esineb juhuslikult ilma tuvastatava mustrita. Selle esinemised on eelmistest loosimistest sõltumatud - täpselt see, mida ausalt loteriilt ootaksid.",
+        "clustered": "See number kipub esinema klastrites - kui see ilmub, on tõenäolisem, et see ilmub varsti uuesti. See võib olla statistiline anomaalia või huvitav trend, mida jälgida.",
+        "dispersed": "See number kipub oma esinemisi laiali jaotama - pärast ilmumist on vähem tõenäoline, et see ilmub järgmistes loosimistes. Esinemised tunduvad aja jooksul ühtlasemalt jaotunud."
+      }
+    },
     "markovHeatmap": {
       "title": "Olekute üleminekud (Markovi ahel)",
       "description": "Näitab numbri esinemise/mitte-esinemise tõenäosust eelmise loosimise põhjal. Tumedam = suurem tõenäosus",
@@ -333,6 +349,7 @@
     "currentPlan": "Praegune pakett",
     "alreadyOnPlan": "Oled sellel paketil",
     "choosePlan": "Vali pakett",
+    "updating": "Uuendan...",
     "free": {
       "name": "Tasuta"
     },

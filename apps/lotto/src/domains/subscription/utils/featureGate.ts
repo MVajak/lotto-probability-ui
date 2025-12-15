@@ -1,4 +1,4 @@
-import type { SubscriptionFeature,  SubscriptionTierCode } from '../types';
+import type { SubscriptionFeature, SubscriptionTierCode } from '../types';
 
 /**
  * Features available for each subscription tier.

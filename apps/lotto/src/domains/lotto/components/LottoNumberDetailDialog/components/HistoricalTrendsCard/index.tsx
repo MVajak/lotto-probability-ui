@@ -8,6 +8,7 @@ import type { NumberHistoryDto } from '@/domains/lotto';
 import { UpgradePromptCard, useSubscriptionTier } from '@/domains/subscription';
 
 import {
+  AutocorrelationChart,
   HotColdMeter,
   InsufficientDataWarningCard,
   MarkovStatsCards,
@@ -23,7 +24,7 @@ interface HistoricalTrendsCardProps {
 export const HistoricalTrendsCard: React.FC<HistoricalTrendsCardProps> = ({ numberHistory }) => {
   const { t } = useTranslation();
   const { isPro, isPremium } = useSubscriptionTier();
-  const { summary, trends, timeline, markovChain } = numberHistory;
+  const { summary, trends, timeline, markovChain, autocorrelation } = numberHistory;
 
   const hasBasicData = summary.appearanceCount > 0;
   const hasTrendsData = trends?.timeSeries && trends.timeSeries.length > 0;
@@ -86,6 +87,22 @@ export const HistoricalTrendsCard: React.FC<HistoricalTrendsCardProps> = ({ numb
                   )
                 ) : (
                   <UpgradePromptCard feature="markov" requiredTier="PREMIUM" />
+                )}
+
+                <Separator className="my-6" />
+
+                {/* Autocorrelation - PREMIUM only feature */}
+                {isPremium ? (
+                  autocorrelation ? (
+                    <AutocorrelationChart autocorrelation={autocorrelation} />
+                  ) : (
+                    <InsufficientDataWarningCard
+                      titleKey="numberStats.insufficientData.autocorrelationTitle"
+                      messageKey="numberStats.insufficientData.autocorrelationMessage"
+                    />
+                  )
+                ) : (
+                  <UpgradePromptCard feature="autocorrelation" requiredTier="PREMIUM" />
                 )}
               </>
             ) : (

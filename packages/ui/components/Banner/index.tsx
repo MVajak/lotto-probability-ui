@@ -22,7 +22,7 @@ const variantStyles: Record<
 > = {
   success: {
     border: 'border-l-primary-green',
-    bg: 'bg-gradient-to-r from-primary-green/15 to-primary-green/5',
+    bg: 'bg-gradient-to-r from-primary-green/20 to-primary-green/5',
     iconBg: 'bg-primary-green/20',
     iconText: 'text-primary-green',
     titleText: 'text-primary-green',

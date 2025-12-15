@@ -14,9 +14,11 @@ export const probabilityQueryOptions = (params: LottoSearchDto) =>
     enabled: !!params.lottoType,
   });
 
+export const numberHistoryQueryKey = ['lotto', 'history'] as const;
+
 export const numberHistoryQueryOptions = (params: NumberHistoryRequestDto) =>
   queryOptions({
-    queryKey: ['lotto', 'history', params],
+    queryKey: [...numberHistoryQueryKey, params],
     queryFn: () =>
       apiFetch<NumberHistoryDto>('/number-history', {
         method: 'POST',

@@ -1,9 +1,9 @@
 import { AdSpace } from '@lotto/ui';
 
-import type { LotteryConfig } from '../../config/types';
-import { useLotteryData } from '../../hooks/useLotteryData';
-import { LottoInfoCard } from '../LottoInfoCard';
-import { LottoSearchCard } from '../LottoSearchCard';
+import type { LotteryConfig } from '@/domains/lotto';
+import { LottoInfoCard, LottoSearchCard, useLotteryData } from '@/domains/lotto';
+import { useSubscriptionTier } from '@/domains/subscription';
+
 import { LottoPositionalProbabilityResultsCard, LottoProbabilityResultsCard } from '../results';
 
 export interface GenericLottoCardProps {
@@ -20,6 +20,8 @@ export interface GenericLottoCardProps {
  */
 export const GenericLottoCard = ({ config }: GenericLottoCardProps) => {
   const { data, isLoading } = useLotteryData(config);
+  const { isPro } = useSubscriptionTier();
+  const showAds = !isPro;
 
   return (
     <div className="flex flex-col gap-4">
@@ -31,9 +33,11 @@ export const GenericLottoCard = ({ config }: GenericLottoCardProps) => {
       />
 
       {/* Mobile Ad */}
-      <div className="block lg:hidden">
-        <AdSpace position="in-content" showPlaceholder={import.meta.env.DEV} />
-      </div>
+      {showAds && (
+        <div className="block lg:hidden">
+          <AdSpace position="in-content" showPlaceholder={import.meta.env.DEV} />
+        </div>
+      )}
 
       {/* Search Section */}
       <div className="text-center">

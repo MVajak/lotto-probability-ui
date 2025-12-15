@@ -1,4 +1,9 @@
-import { SubscriptionTierCode } from '@/domains/subscription';
+import type { SubscriptionTierCode } from '@/domains/subscription';
+
+export interface AuthTokens {
+  accessToken: string;
+  refreshToken: string;
+}
 
 export interface User {
   id: string;

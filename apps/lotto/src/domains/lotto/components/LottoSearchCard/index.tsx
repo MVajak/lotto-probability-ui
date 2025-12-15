@@ -40,7 +40,12 @@ export const LottoSearchCard = ({ lottoType }: LottoSearchProps): React.JSX.Elem
             <div className="col-span-6 sm:col-span-4">
               <Field>
                 <FieldLabel>{t('search.dateFrom')}</FieldLabel>
-                <DatePicker value={dateFromValue} minDate={minAllowedDate} maxDate={dateToValue} onChange={setDateFromValue} />
+                <DatePicker
+                  value={dateFromValue}
+                  minDate={minAllowedDate}
+                  maxDate={dateToValue}
+                  onChange={setDateFromValue}
+                />
               </Field>
             </div>
             <div className="col-span-6 sm:col-span-4">

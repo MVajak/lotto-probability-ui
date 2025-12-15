@@ -5,8 +5,9 @@ import { useTranslation } from 'react-i18next';
 
 import { Badge, LottoNumber, Tooltip, TooltipContent, TooltipTrigger } from '@lotto/ui';
 
-import type { NumberStat } from '../../../types';
 import { findRelatedNumbers, LottoNumberDetailDialog } from '@/domains/lotto';
+
+import type { NumberStat } from '../../../types';
 import type { LottoNumberGroupProps } from './types';
 
 export const LottoNumberGroup = ({

@@ -1,11 +1,9 @@
 import { apiFetch } from '../api/client';
+import { useAuthStore } from './store';
+import type { AuthTokens } from './types';
 
 interface RequestOtpResponse {
   message: string;
-}
-
-interface VerifyOtpResponse {
-  accessToken: string;
 }
 
 export const requestOtpMutation = {
@@ -18,8 +16,26 @@ export const requestOtpMutation = {
 
 export const verifyOtpMutation = {
   mutationFn: ({ email, code }: { email: string; code: string }) =>
-    apiFetch<VerifyOtpResponse>('/auth/verify-otp', {
+    apiFetch<AuthTokens>('/auth/verify-otp', {
       method: 'POST',
       body: JSON.stringify({ email, code }),
     }),
 };
+
+/**
+ * Refresh tokens using the stored refresh token.
+ * Updates the auth store with new tokens.
+ */
+export async function refreshAuthTokens(): Promise<void> {
+  const refreshToken = useAuthStore.getState().refreshToken;
+  if (!refreshToken) {
+    throw new Error('No refresh token available');
+  }
+
+  const tokens = await apiFetch<AuthTokens>('/auth/refresh', {
+    method: 'POST',
+    body: JSON.stringify({ refreshToken }),
+  });
+
+  useAuthStore.getState().setTokens(tokens);
+}
