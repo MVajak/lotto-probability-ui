@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import { Card, CardContent, Separator } from '@lotto/ui';
 
-import type { NumberHistoryDto } from '@/domains/lotto';
+import type { NumberDetailDto } from '@/domains/lotto';
 import { UpgradePromptCard, useSubscriptionTier } from '@/domains/subscription';
 
 import {
@@ -18,13 +18,13 @@ import {
 } from './components';
 
 interface HistoricalTrendsCardProps {
-  numberHistory: NumberHistoryDto;
+  numberDetail: NumberDetailDto;
 }
 
-export const HistoricalTrendsCard: React.FC<HistoricalTrendsCardProps> = ({ numberHistory }) => {
+export const HistoricalTrendsCard: React.FC<HistoricalTrendsCardProps> = ({ numberDetail }) => {
   const { t } = useTranslation();
   const { isPro, isPremium } = useSubscriptionTier();
-  const { summary, trends, timeline, markovChain, autocorrelation } = numberHistory;
+  const { summary, trends, timeline, markovChain, autocorrelation } = numberDetail;
 
   const hasBasicData = summary.appearanceCount > 0;
   const hasTrendsData = trends?.timeSeries && trends.timeSeries.length > 0;

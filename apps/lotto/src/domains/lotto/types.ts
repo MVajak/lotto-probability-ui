@@ -81,7 +81,7 @@ export interface LottoSearchDto {
   dateTo: string;
 }
 
-export interface NumberHistoryRequestDto {
+export interface NumberDetailRequestDto {
   lottoType: LottoType;
   number: number;
   dateFrom: string;
@@ -90,7 +90,7 @@ export interface NumberHistoryRequestDto {
   position?: number;
 }
 
-export interface NumberHistoryDto {
+export interface NumberDetailDto {
   summary: {
     number: number;
     totalDraws: number;

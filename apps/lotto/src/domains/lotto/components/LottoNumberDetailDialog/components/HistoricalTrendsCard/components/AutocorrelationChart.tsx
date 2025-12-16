@@ -4,10 +4,10 @@ import { useTranslation } from 'react-i18next';
 
 import { Banner, type BannerVariant, cn, Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@lotto/ui';
 
-import type { NumberHistoryDto } from '@/domains/lotto';
+import type { NumberDetailDto } from '@/domains/lotto';
 
 interface AutocorrelationChartProps {
-  autocorrelation: NonNullable<NumberHistoryDto['autocorrelation']>;
+  autocorrelation: NonNullable<NumberDetailDto['autocorrelation']>;
 }
 
 /**

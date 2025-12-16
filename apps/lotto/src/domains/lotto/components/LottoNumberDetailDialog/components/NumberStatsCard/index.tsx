@@ -5,14 +5,14 @@ import { useTranslation } from 'react-i18next';
 import { Banner, type BannerVariant, cn, StatCard } from '@lotto/ui';
 import { convertToPercentage } from '@lotto/ui/utils/calculations';
 
-import type { Interpretation, NumberHistoryDto, NumberStat } from '@/domains/lotto';
+import type { Interpretation, NumberDetailDto, NumberStat } from '@/domains/lotto';
 
 interface NumberStatsCardProps {
   numberStat: NumberStat;
-  numberHistory: NumberHistoryDto | null;
+  numberDetail: NumberDetailDto | null;
 }
 
-export const NumberStatsCard: React.FC<NumberStatsCardProps> = ({ numberStat, numberHistory }) => {
+export const NumberStatsCard: React.FC<NumberStatsCardProps> = ({ numberStat, numberDetail }) => {
   const { t } = useTranslation();
 
   const status = numberStat.interpretation?.status;
@@ -76,11 +76,11 @@ export const NumberStatsCard: React.FC<NumberStatsCardProps> = ({ numberStat, nu
           value={convertToPercentage(numberStat.frequency)}
           description={t('numberStats.probabilityHelp')}
         />
-        {numberHistory?.summary.expectedFrequencyPercent !== undefined && (
+        {numberDetail?.summary.expectedFrequencyPercent !== undefined && (
           <StatCard
             icon={<CalculatorIcon className="size-5 text-primary-orange" />}
             label={t('numberStats.theoretical')}
-            value={`${numberHistory.summary.expectedFrequencyPercent.toFixed(2)}%`}
+            value={`${numberDetail.summary.expectedFrequencyPercent.toFixed(2)}%`}
             description={t('numberStats.theoreticalHelp')}
           />
         )}

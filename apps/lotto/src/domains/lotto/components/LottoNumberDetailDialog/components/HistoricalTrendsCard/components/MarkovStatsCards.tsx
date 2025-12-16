@@ -4,10 +4,10 @@ import { useTranslation } from 'react-i18next';
 
 import { Card, CardContent, cn, StatCard } from '@lotto/ui';
 
-import type { NumberHistoryDto } from '@/domains/lotto';
+import type { NumberDetailDto } from '@/domains/lotto';
 
 interface MarkovStatsCardsProps {
-  markovChain: NumberHistoryDto['markovChain'];
+  markovChain: NumberDetailDto['markovChain'];
 }
 
 /**

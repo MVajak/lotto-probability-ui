@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 import { currentUserQuery, refreshAuthTokens } from '@/domains/auth';
-import { numberHistoryQueryKey } from '@/domains/lotto';
+import { numberDetailQueryKey } from '@/domains/lotto';
 
 import { apiFetch } from '../api/client';
 
@@ -21,9 +21,9 @@ export function useUpdateTierMutation() {
     onSuccess: async () => {
       // Refresh tokens to get updated subscription claims in the JWT
       await refreshAuthTokens();
-      // Invalidate user data and number history (tier-gated data may have changed)
+      // Invalidate user data and number detail (tier-gated data may have changed)
       void queryClient.invalidateQueries({ queryKey: currentUserQuery.queryKey });
-      void queryClient.invalidateQueries({ queryKey: numberHistoryQueryKey });
+      void queryClient.invalidateQueries({ queryKey: numberDetailQueryKey });
     },
   });
 }

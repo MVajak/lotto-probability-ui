@@ -5,10 +5,10 @@ import { useTranslation } from 'react-i18next';
 
 import { Card, CardContent, cn, Separator } from '@lotto/ui';
 
-import type { NumberHistoryDto } from '@/domains/lotto';
+import type { NumberDetailDto } from '@/domains/lotto';
 
 interface TrendSparklineProps {
-  timeSeries: NumberHistoryDto['trends']['timeSeries'];
+  timeSeries: NumberDetailDto['trends']['timeSeries'];
 }
 
 /**

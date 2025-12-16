@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 
 import { Dialog, DialogBody, DialogContent, DialogHeader, DialogTitle, LottoNumber } from '@lotto/ui';
 
-import { numberHistoryQueryOptions, useLottoStore } from '@/domains/lotto';
+import { numberDetailQueryOptions, useLottoStore } from '@/domains/lotto';
 import { LoadingLayout } from '@/layouts/LoadingLayout';
 
 import type { NumberStat } from '../../types';
@@ -46,13 +46,13 @@ const LottoNumberDetailContent: React.FC<LottoNumberDetailContentProps> = ({
 }) => {
   const searchParams = useLottoStore((state) => state.searchParams);
 
-  // Guard: lottoType must be set to fetch number history
+  // Guard: lottoType must be set to fetch number detail
   if (!searchParams.lottoType) {
-    throw new Error('Cannot fetch number history: lottoType is not set');
+    throw new Error('Cannot fetch number detail: lottoType is not set');
   }
 
-  const { data: numberHistory } = useSuspenseQuery(
-    numberHistoryQueryOptions({
+  const { data: numberDetail } = useSuspenseQuery(
+    numberDetailQueryOptions({
       lottoType: searchParams.lottoType,
       number: numberStat.digit,
       dateFrom: searchParams.dateFrom,
@@ -66,20 +66,20 @@ const LottoNumberDetailContent: React.FC<LottoNumberDetailContentProps> = ({
     <div className="grid grid-cols-12 gap-6">
       {/* Compact Stats with Status Badge */}
       <div className="col-span-12">
-        <NumberStatsCard numberStat={numberStat} numberHistory={numberHistory} />
+        <NumberStatsCard numberStat={numberStat} numberDetail={numberDetail} />
       </div>
 
       {/* Confidence Interval */}
-      {numberHistory.summary.confidenceInterval && (
+      {numberDetail.summary.confidenceInterval && (
         <div className="col-span-12 md:col-span-6">
-          <ConfidenceIntervalCard confidenceInterval={numberHistory.summary.confidenceInterval} />
+          <ConfidenceIntervalCard confidenceInterval={numberDetail.summary.confidenceInterval} />
         </div>
       )}
 
       {/* Deviation Analysis */}
-      {numberHistory.summary.deviation && (
+      {numberDetail.summary.deviation && (
         <div className="col-span-12 md:col-span-6">
-          <DeviationAnalysisCard deviation={numberHistory.summary.deviation} />
+          <DeviationAnalysisCard deviation={numberDetail.summary.deviation} />
         </div>
       )}
 
@@ -97,7 +97,7 @@ const LottoNumberDetailContent: React.FC<LottoNumberDetailContentProps> = ({
 
       {/* Historical Trends */}
       <div className="col-span-12">
-        <HistoricalTrendsCard numberHistory={numberHistory} />
+        <HistoricalTrendsCard numberDetail={numberDetail} />
       </div>
     </div>
   );

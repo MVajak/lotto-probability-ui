@@ -4,10 +4,10 @@ import { useTranslation } from 'react-i18next';
 
 import { Card, CardContent, cn } from '@lotto/ui';
 
-import type { NumberHistoryDto } from '@/domains/lotto';
+import type { NumberDetailDto } from '@/domains/lotto';
 
 interface HotColdMeterProps {
-  summary: NumberHistoryDto['summary'];
+  summary: NumberDetailDto['summary'];
 }
 
 /**

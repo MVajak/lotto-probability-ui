@@ -1,7 +1,7 @@
 import { queryOptions } from '@tanstack/react-query';
 
 import { apiFetch } from '../api/client';
-import type { LottoProbabilityDto, LottoSearchDto, NumberHistoryDto, NumberHistoryRequestDto } from './types';
+import type { LottoProbabilityDto, LottoSearchDto, NumberDetailDto, NumberDetailRequestDto } from './types';
 
 export const probabilityQueryOptions = (params: LottoSearchDto) =>
   queryOptions({
@@ -14,13 +14,13 @@ export const probabilityQueryOptions = (params: LottoSearchDto) =>
     enabled: !!params.lottoType,
   });
 
-export const numberHistoryQueryKey = ['lotto', 'history'] as const;
+export const numberDetailQueryKey = ['lotto', 'detail'] as const;
 
-export const numberHistoryQueryOptions = (params: NumberHistoryRequestDto) =>
+export const numberDetailQueryOptions = (params: NumberDetailRequestDto) =>
   queryOptions({
-    queryKey: [...numberHistoryQueryKey, params],
+    queryKey: [...numberDetailQueryKey, params],
     queryFn: () =>
-      apiFetch<NumberHistoryDto>('/number-history', {
+      apiFetch<NumberDetailDto>('/number-detail', {
         method: 'POST',
         body: JSON.stringify(params),
       }),

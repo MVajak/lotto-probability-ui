@@ -5,10 +5,10 @@ import { useTranslation } from 'react-i18next';
 
 import { Card, CardContent, cn, Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@lotto/ui';
 
-import type { NumberHistoryDto } from '@/domains/lotto';
+import type { NumberDetailDto } from '@/domains/lotto';
 
 interface RecentDrawsChartProps {
-  timeline: NumberHistoryDto['timeline'];
+  timeline: NumberDetailDto['timeline'];
 }
 
 /**
