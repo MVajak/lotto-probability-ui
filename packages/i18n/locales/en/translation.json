@@ -114,6 +114,19 @@
       "generalTitle": "Insufficient Data",
       "generalMessage": "Not enough historical data available for analysis. Try expanding your date range."
     },
+    "lastSeen": {
+      "title": "Last Seen",
+      "drawsAgo": "Draws Ago",
+      "draws": "draws",
+      "drawsAgoHelp": "How many draws have passed since this number last appeared",
+      "lastSeenDate": "Last Seen Date",
+      "lastSeenDateHelp": "The date when this number last appeared in a draw",
+      "overdueScore": "Overdue Status",
+      "overdueHelp": "Indicates how overdue this number is based on its expected frequency",
+      "onSchedule": "On Schedule",
+      "overdue": "Overdue",
+      "highlyOverdue": "Highly Overdue"
+    },
     "hotCold": {
       "title": "Hot or Cold?",
       "description": "Is this number appearing more or less than expected?",

@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { Dialog, DialogBody, DialogContent, DialogHeader, DialogTitle, LottoNumber } from '@lotto/ui';
 
 import { numberDetailQueryOptions, useLottoStore } from '@/domains/lotto';
+import { useSubscriptionTier } from '@/domains/subscription';
 import { LoadingLayout } from '@/layouts/LoadingLayout';
 
 import type { NumberStat } from '../../types';
@@ -14,6 +15,7 @@ import {
   ConfidenceIntervalCard,
   DeviationAnalysisCard,
   HistoricalTrendsCard,
+  LastSeenCard,
   NumberStatsCard,
   RelatedNumbersCard,
 } from './components';
@@ -45,6 +47,7 @@ const LottoNumberDetailContent: React.FC<LottoNumberDetailContentProps> = ({
   isSecondaryNumbers,
 }) => {
   const searchParams = useLottoStore((state) => state.searchParams);
+  const { isPro } = useSubscriptionTier();
 
   // Guard: lottoType must be set to fetch number detail
   if (!searchParams.lottoType) {
@@ -67,6 +70,11 @@ const LottoNumberDetailContent: React.FC<LottoNumberDetailContentProps> = ({
       {/* Compact Stats with Status Badge */}
       <div className="col-span-12">
         <NumberStatsCard numberStat={numberStat} numberDetail={numberDetail} />
+      </div>
+
+      {/* Last Seen Info */}
+      <div className="col-span-12">
+        <LastSeenCard summary={numberDetail.summary} />
       </div>
 
       {/* Confidence Interval */}
@@ -95,10 +103,12 @@ const LottoNumberDetailContent: React.FC<LottoNumberDetailContentProps> = ({
         <RelatedNumbersCard relatedNumbers={relatedNumbers} onNumberClick={onNumberChange} />
       </div>
 
-      {/* Historical Trends */}
-      <div className="col-span-12">
-        <HistoricalTrendsCard numberDetail={numberDetail} />
-      </div>
+      {/* Historical Trends - PRO and PREMIUM only */}
+      {isPro && (
+        <div className="col-span-12">
+          <HistoricalTrendsCard numberDetail={numberDetail} />
+        </div>
+      )}
     </div>
   );
 };

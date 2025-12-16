@@ -23,7 +23,7 @@ interface HistoricalTrendsCardProps {
 
 export const HistoricalTrendsCard: React.FC<HistoricalTrendsCardProps> = ({ numberDetail }) => {
   const { t } = useTranslation();
-  const { isPro, isPremium } = useSubscriptionTier();
+  const { isPremium } = useSubscriptionTier();
   const { summary, trends, timeline, markovChain, autocorrelation } = numberDetail;
 
   const hasBasicData = summary.appearanceCount > 0;
@@ -43,70 +43,63 @@ export const HistoricalTrendsCard: React.FC<HistoricalTrendsCardProps> = ({ numb
 
         {hasBasicData ? (
           <>
-            {/* Hot/Cold Meter - Available for all tiers (basic frequency) */}
+            {/* Hot/Cold Meter */}
             <HotColdMeter summary={summary} />
 
             <Separator className="my-6" />
 
-            {/* Trends & Timeline - PRO and PREMIUM feature */}
-            {isPro ? (
+            {/* Trend Sparkline */}
+            {hasTrendsData && (
               <>
-                {/* Trend Sparkline - Simple trend visualization */}
-                {hasTrendsData && (
-                  <>
-                    <TrendSparkline timeSeries={trends.timeSeries} />
-                    <Separator className="my-6" />
-                  </>
-                )}
-
-                {/* Recent Draws - Visual timeline of all draws */}
-                {hasTimelineData && (
-                  <>
-                    <RecentDrawsChart timeline={timeline} />
-                    <Separator className="my-6" />
-                  </>
-                )}
-
-                {/* Streak Stats - Simple cards for streak/drought info */}
-                {hasTrendsData && (
-                  <>
-                    <StreakStats trends={trends} />
-                    <Separator className="my-6" />
-                  </>
-                )}
-
-                {/* Markov Chain - PREMIUM only feature */}
-                {isPremium ? (
-                  markovChain ? (
-                    <MarkovStatsCards markovChain={markovChain} />
-                  ) : (
-                    <InsufficientDataWarningCard
-                      titleKey="numberStats.insufficientData.markovTitle"
-                      messageKey="numberStats.insufficientData.markovMessage"
-                    />
-                  )
-                ) : (
-                  <UpgradePromptCard feature="markov" requiredTier="PREMIUM" />
-                )}
-
+                <TrendSparkline timeSeries={trends.timeSeries} />
                 <Separator className="my-6" />
-
-                {/* Autocorrelation - PREMIUM only feature */}
-                {isPremium ? (
-                  autocorrelation ? (
-                    <AutocorrelationChart autocorrelation={autocorrelation} />
-                  ) : (
-                    <InsufficientDataWarningCard
-                      titleKey="numberStats.insufficientData.autocorrelationTitle"
-                      messageKey="numberStats.insufficientData.autocorrelationMessage"
-                    />
-                  )
-                ) : (
-                  <UpgradePromptCard feature="autocorrelation" requiredTier="PREMIUM" />
-                )}
               </>
+            )}
+
+            {/* Recent Draws - Visual timeline of all draws */}
+            {hasTimelineData && (
+              <>
+                <RecentDrawsChart timeline={timeline} />
+                <Separator className="my-6" />
+              </>
+            )}
+
+            {/* Streak Stats */}
+            {hasTrendsData && (
+              <>
+                <StreakStats trends={trends} />
+                <Separator className="my-6" />
+              </>
+            )}
+
+            {/* Markov Chain - PREMIUM only */}
+            {isPremium ? (
+              markovChain ? (
+                <MarkovStatsCards markovChain={markovChain} />
+              ) : (
+                <InsufficientDataWarningCard
+                  titleKey="numberStats.insufficientData.markovTitle"
+                  messageKey="numberStats.insufficientData.markovMessage"
+                />
+              )
             ) : (
-              <UpgradePromptCard feature="trends" requiredTier="PRO" />
+              <UpgradePromptCard feature="markov" requiredTier="PREMIUM" />
+            )}
+
+            <Separator className="my-6" />
+
+            {/* Autocorrelation - PREMIUM only */}
+            {isPremium ? (
+              autocorrelation ? (
+                <AutocorrelationChart autocorrelation={autocorrelation} />
+              ) : (
+                <InsufficientDataWarningCard
+                  titleKey="numberStats.insufficientData.autocorrelationTitle"
+                  messageKey="numberStats.insufficientData.autocorrelationMessage"
+                />
+              )
+            ) : (
+              <UpgradePromptCard feature="autocorrelation" requiredTier="PREMIUM" />
             )}
           </>
         ) : (

@@ -114,6 +114,19 @@
       "generalTitle": "Ebapiisavad andmed",
       "generalMessage": "Analüüsiks pole piisavalt ajaloolisi andmeid. Proovige kuupäevade vahemikku laiendada."
     },
+    "lastSeen": {
+      "title": "Viimati nähtud",
+      "drawsAgo": "Loosimisi tagasi",
+      "draws": "loosimist",
+      "drawsAgoHelp": "Mitu loosimist on möödunud selle numbri viimasest esinemisest",
+      "lastSeenDate": "Viimati nähtud",
+      "lastSeenDateHelp": "Kuupäev, millal see number viimati loositi",
+      "overdueScore": "Hilinemine",
+      "overdueHelp": "Näitab, kui palju see number on hilinenud oma oodatava sageduse põhjal",
+      "onSchedule": "Graafikus",
+      "overdue": "Hilinenud",
+      "highlyOverdue": "Väga hilinenud"
+    },
     "hotCold": {
       "title": "Kuum või külm?",
       "description": "Kas see number esineb rohkem või vähem kui oodatud?",

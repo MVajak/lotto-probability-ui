@@ -24,7 +24,7 @@ export const StatCard: React.FC<StatCardProps> = ({ icon, label, value, unit, de
           {icon}
           <span className="text-body-small text-muted-foreground">{label}</span>
         </div>
-        <p className="text-title-default-bold">
+        <p className="overflow-auto text-title-default-bold">
           {value}
           {unit && <span className="ml-1 font-normal text-body-small text-muted-foreground">{unit}</span>}
         </p>

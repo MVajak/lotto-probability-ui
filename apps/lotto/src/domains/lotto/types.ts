@@ -98,6 +98,9 @@ export interface NumberDetailDto {
     frequencyPercent: number;
     expectedFrequencyPercent: number;
     status: 'frequent' | 'rare' | 'normal';
+    lastSeenDrawsAgo: number;
+    lastSeenDate: string;
+    overdueScore: number;
     confidenceInterval: ConfidenceInterval;
     deviation: Deviation;
   };
