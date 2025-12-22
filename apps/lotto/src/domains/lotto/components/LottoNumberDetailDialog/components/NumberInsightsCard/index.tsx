@@ -36,11 +36,7 @@ export const NumberInsightsCard: React.FC<NumberInsightsCardProps> = ({ numberDe
             <ProFeatures summary={summary} trends={trends} timeline={timeline} />
             <Separator className="my-6" />
 
-            {isPremium ? (
-              <PremiumFeatures numberDetail={numberDetail} />
-            ) : (
-              <UpgradePromptCard requiredTier="PREMIUM" />
-            )}
+            {isPremium ? <PremiumFeatures numberDetail={numberDetail} /> : <UpgradePromptCard requiredTier="PREMIUM" />}
           </>
         ) : (
           <InsufficientDataWarningCard

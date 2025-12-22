@@ -62,14 +62,20 @@ export const SeasonalPatternsCard: React.FC<SeasonalPatternsCardProps> = ({ seas
   const dayStats = useMemo(() => {
     const activeDays = byDayOfWeek.filter((d: DayData) => d.totalDraws > 0);
     const maxFreq = Math.max(...activeDays.map((d: DayData) => d.frequency), 0.01);
-    const avgFreq = activeDays.length > 0 ? activeDays.reduce((sum: number, d: DayData) => sum + d.frequency, 0) / activeDays.length : 0;
+    const avgFreq =
+      activeDays.length > 0
+        ? activeDays.reduce((sum: number, d: DayData) => sum + d.frequency, 0) / activeDays.length
+        : 0;
     return { maxFreq, avgFreq };
   }, [byDayOfWeek]);
 
   const monthStats = useMemo(() => {
     const activeMonths = byMonth.filter((m: MonthData) => m.totalDraws > 0);
     const maxFreq = Math.max(...activeMonths.map((m: MonthData) => m.frequency), 0.01);
-    const avgFreq = activeMonths.length > 0 ? activeMonths.reduce((sum: number, m: MonthData) => sum + m.frequency, 0) / activeMonths.length : 0;
+    const avgFreq =
+      activeMonths.length > 0
+        ? activeMonths.reduce((sum: number, m: MonthData) => sum + m.frequency, 0) / activeMonths.length
+        : 0;
     return { maxFreq, avgFreq };
   }, [byMonth]);
 
@@ -135,7 +141,10 @@ export const SeasonalPatternsCard: React.FC<SeasonalPatternsCardProps> = ({ seas
                     <span className="w-10 shrink-0 text-body-small text-muted-foreground">{dayNames[index]}</span>
                     <div className="h-5 flex-1 overflow-hidden rounded-full bg-muted">
                       <div
-                        className={cn('h-full rounded-full transition-all', getBarColor(day.frequency, dayStats.avgFreq, hasData))}
+                        className={cn(
+                          'h-full rounded-full transition-all',
+                          getBarColor(day.frequency, dayStats.avgFreq, hasData)
+                        )}
                         style={{ width: `${widthPercent}%` }}
                       />
                     </div>
@@ -166,7 +175,10 @@ export const SeasonalPatternsCard: React.FC<SeasonalPatternsCardProps> = ({ seas
                     <span className="w-10 shrink-0 text-body-small text-muted-foreground">{monthNames[index]}</span>
                     <div className="h-4 flex-1 overflow-hidden rounded-full bg-muted">
                       <div
-                        className={cn('h-full rounded-full transition-all', getBarColor(month.frequency, monthStats.avgFreq, hasData))}
+                        className={cn(
+                          'h-full rounded-full transition-all',
+                          getBarColor(month.frequency, monthStats.avgFreq, hasData)
+                        )}
                         style={{ width: `${widthPercent}%` }}
                       />
                     </div>

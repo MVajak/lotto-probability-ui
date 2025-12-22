@@ -42,7 +42,7 @@ export const TIER_FEATURES: Record<SubscriptionTierCode, SubscriptionFeature[]> 
   PRO: (Object.entries(FEATURE_CONFIG) as [AnalysisFeature, (typeof FEATURE_CONFIG)[AnalysisFeature]][])
     .filter(([, config]) => config.tier === 'PRO')
     .map(([feature]) => feature),
-  PREMIUM: (Object.keys(FEATURE_CONFIG) as AnalysisFeature[]),
+  PREMIUM: Object.keys(FEATURE_CONFIG) as AnalysisFeature[],
 };
 /**
  * Maximum date range in months for each tier.

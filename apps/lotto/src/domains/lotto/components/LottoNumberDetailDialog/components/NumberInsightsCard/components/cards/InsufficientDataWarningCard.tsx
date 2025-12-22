@@ -89,9 +89,7 @@ export const InsufficientDataWarningCard: React.FC<InsufficientDataWarningCardPr
         </div>
 
         {/* Help text */}
-        <p className="text-body-small text-muted-foreground">
-          {t('numberStats.insufficientData.expandDateRange')}
-        </p>
+        <p className="text-body-small text-muted-foreground">{t('numberStats.insufficientData.expandDateRange')}</p>
       </CardContent>
     </Card>
   );

@@ -6,9 +6,9 @@ import type { NumberDetailDto } from '@/domains/lotto';
 
 import { HotColdMeterCard } from './cards/HotColdMeterCard';
 import { RecentDrawsChartCard } from './cards/RecentDrawsChartCard';
-import { Section } from './Section';
 import { StreakStatsCard } from './cards/StreakStatsCard';
 import { TrendSparklineCard } from './cards/TrendSparklineCard';
+import { Section } from './Section';
 
 interface ProFeaturesProps {
   summary: NumberDetailDto['summary'];

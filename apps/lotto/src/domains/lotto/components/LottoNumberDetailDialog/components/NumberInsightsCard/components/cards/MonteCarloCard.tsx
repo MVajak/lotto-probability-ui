@@ -1,10 +1,6 @@
 import type React from 'react';
 import { useMemo } from 'react';
-import {
-  ArrowTrendingDownIcon,
-  ArrowTrendingUpIcon,
-  CheckCircleIcon,
-} from '@heroicons/react/24/outline';
+import { ArrowTrendingDownIcon, ArrowTrendingUpIcon, CheckCircleIcon } from '@heroicons/react/24/outline';
 import { useTranslation } from 'react-i18next';
 
 import { Banner, type BannerVariant, Card, CardContent, cn } from '@lotto/ui';
@@ -118,24 +114,20 @@ export const MonteCarloCard: React.FC<MonteCarloCardProps> = ({ monteCarlo }) =>
               </div>
               <div
                 className="-bottom-2 absolute text-label-small text-muted-foreground"
-                style={{ left: `${gaugeData.expectedStartPct + gaugeData.expectedWidthPct}%`, transform: 'translateX(-50%)' }}
+                style={{
+                  left: `${gaugeData.expectedStartPct + gaugeData.expectedWidthPct}%`,
+                  transform: 'translateX(-50%)',
+                }}
               >
                 {percentile95}
               </div>
 
               {/* Actual value marker */}
               <div
-                className={cn(
-                  '-translate-x-1/2 -translate-y-3 absolute top-1/2 flex flex-col items-center'
-                )}
+                className={cn('-translate-x-1/2 -translate-y-3 absolute top-1/2 flex flex-col items-center')}
                 style={{ left: `${gaugeData.actualPct}%` }}
               >
-                <div
-                  className={cn(
-                    'size-6 rounded-full border-3 shadow-lg',
-                    getMarkerColor()
-                  )}
-                />
+                <div className={cn('size-6 rounded-full border-3 shadow-lg', getMarkerColor())} />
                 <div
                   className={cn(
                     'mt-1 rounded px-2 py-0.5 text-body-small-bold text-white',

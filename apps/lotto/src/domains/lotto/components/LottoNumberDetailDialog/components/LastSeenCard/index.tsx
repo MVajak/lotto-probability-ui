@@ -66,9 +66,7 @@ export const LastSeenCard: React.FC<LastSeenCardProps> = ({ summary }) => {
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <ExclamationTriangleIcon className={cn('size-5', getOverdueColor())} />
-                <span className="text-body-small text-muted-foreground">
-                  {t('numberStats.lastSeen.overdueScore')}
-                </span>
+                <span className="text-body-small text-muted-foreground">{t('numberStats.lastSeen.overdueScore')}</span>
               </div>
               <span className={cn('text-body-default-bold', getOverdueColor())}>{getOverdueLabel()}</span>
             </div>

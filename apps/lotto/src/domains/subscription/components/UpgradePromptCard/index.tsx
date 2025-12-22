@@ -26,7 +26,9 @@ export const UpgradePromptCard: React.FC<UpgradePromptCardProps> = ({ requiredTi
   const isProTier = requiredTier === 'PRO';
 
   return (
-    <Card className={cn('border-2 border-dashed', isProTier ? 'border-primary-orange/50' : 'border-primary/50', className)}>
+    <Card
+      className={cn('border-2 border-dashed', isProTier ? 'border-primary-orange/50' : 'border-primary/50', className)}
+    >
       <CardContent className="flex flex-col gap-4 py-6">
         {/* Header with lock icon */}
         <div className="flex items-center gap-3">

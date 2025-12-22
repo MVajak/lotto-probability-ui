@@ -49,11 +49,7 @@ const PairNumberRow: React.FC<PairNumberRowProps> = ({
   const isCompanion = variant === 'companion';
   const colorClass = isCompanion ? 'text-primary-green' : 'text-primary-red';
   const barBgClass = isCompanion ? 'bg-muted' : 'bg-primary-red/30';
-  const barFillClass = isCompanion
-    ? isHighlighted
-      ? 'bg-primary-green'
-      : 'bg-primary-green/50'
-    : 'bg-primary-red';
+  const barFillClass = isCompanion ? (isHighlighted ? 'bg-primary-green' : 'bg-primary-green/50') : 'bg-primary-red';
 
   // Companions use lift-based width, avoided uses actual/expected ratio
   const barWidth = isCompanion
@@ -88,10 +84,7 @@ const PairNumberRow: React.FC<PairNumberRowProps> = ({
           </Tooltip>
         </div>
         <div className={cn('h-1.5 w-full overflow-hidden rounded-full', barBgClass)}>
-          <div
-            className={cn('h-full rounded-full transition-all', barFillClass)}
-            style={{ width: `${barWidth}%` }}
-          />
+          <div className={cn('h-full rounded-full transition-all', barFillClass)} style={{ width: `${barWidth}%` }} />
         </div>
       </div>
     </div>
@@ -215,9 +208,7 @@ export const PairAnalysisCard: React.FC<PairAnalysisCardProps> = ({ pairAnalysis
                 ))}
               </div>
             ) : (
-              <p className="text-body-small text-muted-foreground italic">
-                {t('numberStats.pairAnalysis.noAvoided')}
-              </p>
+              <p className="text-body-small text-muted-foreground italic">{t('numberStats.pairAnalysis.noAvoided')}</p>
             )}
           </CardContent>
         </Card>
