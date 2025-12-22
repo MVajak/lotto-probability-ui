@@ -1,3 +1,4 @@
+import { HomeIcon } from '@heroicons/react/24/outline';
 import { Link } from '@tanstack/react-router';
 
 import { UserMenu } from './UserMenu';
@@ -36,6 +37,14 @@ export function Header() {
             LOTTO
           </Link>
           <div className="flex flex-grow md:hidden" />
+
+          {/* Home Icon */}
+          <Link
+            to="/home"
+            className="mr-3 flex items-center justify-center rounded-lg p-2 text-secondary transition-colors hover:bg-white/10"
+          >
+            <HomeIcon className="size-6" />
+          </Link>
 
           {/* User Menu */}
           <div className="my-2 flex text-secondary">
