@@ -113,10 +113,13 @@
       "markovMessage": "Not enough data for statistical analysis. At least 20 draws are needed to analyze state transitions.",
       "generalTitle": "Insufficient Data",
       "generalMessage": "Not enough historical data available for analysis. Try expanding your date range.",
-      "premiumFeaturesTitle": "More Data Required",
-      "premiumFeaturesDescription": "Some advanced features need more historical data to generate meaningful analysis.",
+      "premiumFeaturesTitle": "More Data Needed",
+      "premiumFeaturesDescription": "Some advanced analytics require more historical data for statistical validity.",
+      "currentDraws": "Available draws",
+      "needMoreDraws_one": "{{count}} more draw needed to unlock the next feature",
+      "needMoreDraws_other": "{{count}} more draws needed to unlock the next feature",
       "requiresDraws": "Requires at least {{count}} draws",
-      "expandDateRange": "Try expanding your date range to unlock these features."
+      "expandDateRange": "Expand your date range to include more draws"
     },
     "lastSeen": {
       "title": "Last Seen",

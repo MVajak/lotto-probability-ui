@@ -19,7 +19,7 @@ interface PremiumFeaturesProps {
  * Displays: Markov, Autocorrelation, PairAnalysis, MonteCarlo, SeasonalPatterns
  */
 export const PremiumFeatures: React.FC<PremiumFeaturesProps> = ({ numberDetail }) => {
-  const { markovChain, autocorrelation, pairAnalysis, monteCarlo, seasonalPatterns } = numberDetail;
+  const { summary, markovChain, autocorrelation, pairAnalysis, monteCarlo, seasonalPatterns } = numberDetail;
 
   const allAvailable = markovChain && autocorrelation && pairAnalysis && monteCarlo && seasonalPatterns;
 
@@ -47,6 +47,7 @@ export const PremiumFeatures: React.FC<PremiumFeaturesProps> = ({ numberDetail }
 
       {!allAvailable && (
         <InsufficientDataWarningCard
+          totalDraws={summary.totalDraws}
           premiumFeatures={{
             MARKOV_CHAIN: Boolean(markovChain),
             AUTOCORRELATION: Boolean(autocorrelation),

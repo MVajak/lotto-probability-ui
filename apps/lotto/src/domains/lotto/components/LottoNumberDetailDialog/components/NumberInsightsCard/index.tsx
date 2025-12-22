@@ -18,7 +18,7 @@ export const NumberInsightsCard: React.FC<NumberInsightsCardProps> = ({ numberDe
   const { isPremium } = useSubscriptionTier();
   const { summary, trends, timeline } = numberDetail;
 
-  const hasData = summary.appearanceCount > 0;
+  const hasData = summary.totalDraws > 0;
 
   return (
     <Card className="h-full">

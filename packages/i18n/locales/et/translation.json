@@ -114,9 +114,12 @@
       "generalTitle": "Ebapiisavad andmed",
       "generalMessage": "Analüüsiks pole piisavalt ajaloolisi andmeid. Proovige kuupäevade vahemikku laiendada.",
       "premiumFeaturesTitle": "Vajatakse rohkem andmeid",
-      "premiumFeaturesDescription": "Mõned täpsemad funktsioonid vajavad sisuka analüüsi jaoks rohkem ajaloolisi andmeid.",
+      "premiumFeaturesDescription": "Mõned täpsemad analüütikad vajavad statistilise kehtivuse tagamiseks rohkem ajaloolisi andmeid.",
+      "currentDraws": "Saadaolevad loosimised",
+      "needMoreDraws_one": "Järgmise funktsiooni avamiseks on vaja veel {{count}} loosimist",
+      "needMoreDraws_other": "Järgmise funktsiooni avamiseks on vaja veel {{count}} loosimist",
       "requiresDraws": "Nõuab vähemalt {{count}} loosimist",
-      "expandDateRange": "Proovige kuupäevade vahemikku laiendada, et need funktsioonid avada."
+      "expandDateRange": "Laiendage kuupäevade vahemikku, et kaasata rohkem loosimisi"
     },
     "lastSeen": {
       "title": "Viimati nähtud",
