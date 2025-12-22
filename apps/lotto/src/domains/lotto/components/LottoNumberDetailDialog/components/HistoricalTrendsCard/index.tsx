@@ -12,7 +12,10 @@ import {
   HotColdMeter,
   InsufficientDataWarningCard,
   MarkovStatsCards,
+  MonteCarloCard,
+  PairAnalysisCard,
   RecentDrawsChart,
+  SeasonalPatternsCard,
   StreakStats,
   TrendSparkline,
 } from './components';
@@ -24,11 +27,23 @@ interface HistoricalTrendsCardProps {
 export const HistoricalTrendsCard: React.FC<HistoricalTrendsCardProps> = ({ numberDetail }) => {
   const { t } = useTranslation();
   const { isPremium } = useSubscriptionTier();
-  const { summary, trends, timeline, markovChain, autocorrelation } = numberDetail;
+  const {
+    summary,
+    trends,
+    timeline,
+    markovChain,
+    autocorrelation,
+    pairAnalysis,
+    monteCarlo,
+    seasonalPatterns,
+  } = numberDetail;
 
   const hasBasicData = summary.appearanceCount > 0;
   const hasTrendsData = trends?.timeSeries && trends.timeSeries.length > 0;
   const hasTimelineData = timeline && timeline.length > 0;
+
+  const allPremiumFeaturesAvailable =
+    markovChain && autocorrelation && pairAnalysis && monteCarlo && seasonalPatterns;
 
   return (
     <Card className="h-full">
@@ -72,34 +87,64 @@ export const HistoricalTrendsCard: React.FC<HistoricalTrendsCardProps> = ({ numb
               </>
             )}
 
-            {/* Markov Chain - PREMIUM only */}
+            {/* Premium Features */}
             {isPremium ? (
-              markovChain ? (
-                <MarkovStatsCards markovChain={markovChain} />
-              ) : (
-                <InsufficientDataWarningCard
-                  titleKey="numberStats.insufficientData.markovTitle"
-                  messageKey="numberStats.insufficientData.markovMessage"
-                />
-              )
-            ) : (
-              <UpgradePromptCard feature="markov" requiredTier="PREMIUM" />
-            )}
+              <>
+                {/* Markov Chain */}
+                {markovChain && (
+                  <>
+                    <MarkovStatsCards markovChain={markovChain} />
+                    <Separator className="my-6" />
+                  </>
+                )}
 
-            <Separator className="my-6" />
+                {/* Autocorrelation */}
+                {autocorrelation && (
+                  <>
+                    <AutocorrelationChart autocorrelation={autocorrelation} />
+                    <Separator className="my-6" />
+                  </>
+                )}
 
-            {/* Autocorrelation - PREMIUM only */}
-            {isPremium ? (
-              autocorrelation ? (
-                <AutocorrelationChart autocorrelation={autocorrelation} />
-              ) : (
-                <InsufficientDataWarningCard
-                  titleKey="numberStats.insufficientData.autocorrelationTitle"
-                  messageKey="numberStats.insufficientData.autocorrelationMessage"
-                />
-              )
+                {/* Pair Analysis */}
+                {pairAnalysis && (
+                  <>
+                    <PairAnalysisCard pairAnalysis={pairAnalysis} />
+                    <Separator className="my-6" />
+                  </>
+                )}
+
+                {/* Monte Carlo Simulation */}
+                {monteCarlo && (
+                  <>
+                    <MonteCarloCard monteCarlo={monteCarlo} />
+                    <Separator className="my-6" />
+                  </>
+                )}
+
+                {/* Seasonal Patterns */}
+                {seasonalPatterns && (
+                  <>
+                    <SeasonalPatternsCard seasonalPatterns={seasonalPatterns} />
+                    {!allPremiumFeaturesAvailable && <Separator className="my-6" />}
+                  </>
+                )}
+
+                {/* Show consolidated warning if any features are missing data */}
+                {!allPremiumFeaturesAvailable && (
+                  <InsufficientDataWarningCard
+                    premiumFeatures={{
+                      MARKOV_CHAIN: Boolean(markovChain),
+                      AUTOCORRELATION: Boolean(autocorrelation),
+                      PAIR_ANALYSIS: Boolean(pairAnalysis),
+                      MONTE_CARLO: Boolean(monteCarlo),
+                      SEASONAL_PATTERNS: Boolean(seasonalPatterns),
+                    }}
+                  />
+                )}
+              </>
             ) : (
-              <UpgradePromptCard feature="autocorrelation" requiredTier="PREMIUM" />
+              <UpgradePromptCard requiredTier="PREMIUM" />
             )}
           </>
         ) : (

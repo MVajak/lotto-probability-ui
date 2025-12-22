@@ -112,7 +112,11 @@
       "markovTitle": "State Transitions (Markov Chain)",
       "markovMessage": "Not enough data for statistical analysis. At least 20 draws are needed to analyze state transitions.",
       "generalTitle": "Insufficient Data",
-      "generalMessage": "Not enough historical data available for analysis. Try expanding your date range."
+      "generalMessage": "Not enough historical data available for analysis. Try expanding your date range.",
+      "premiumFeaturesTitle": "More Data Required",
+      "premiumFeaturesDescription": "Some advanced features need more historical data to generate meaningful analysis.",
+      "requiresDraws": "Requires at least {{count}} draws",
+      "expandDateRange": "Try expanding your date range to unlock these features."
     },
     "lastSeen": {
       "title": "Last Seen",
@@ -308,6 +312,102 @@
         "gamblers_fallacy": "Due to appear",
         "hot_hand": "On a hot streak"
       }
+    },
+    "pairAnalysis": {
+      "title": "Number Companions",
+      "description": "Which numbers frequently appear together with this number?",
+      "topCompanions": "Top Companions",
+      "avoidedNumbers": "Avoided Numbers",
+      "coOccurrences": "{{count}} times together",
+      "coOccurrencesWithExpected": "{{count}} times (exp: {{expected}})",
+      "liftTooltip": "Appeared {{actual}}× but only {{expected}} expected based on how often this number appears alone",
+      "noCompanions": "No significant companions found",
+      "noAvoided": "No significantly avoided numbers",
+      "liftExplanation": "Lift shows how much more (or less) likely numbers appear together than expected",
+      "interpretation": {
+        "has_companions": "Has Companion Numbers",
+        "has_avoided": "Has Avoided Numbers",
+        "no_pattern": "No Significant Pairs"
+      },
+      "interpretationDescription": {
+        "has_companions": "This number appears more frequently with certain other numbers than expected by chance.",
+        "has_avoided": "This number rarely appears with certain other numbers - they seem to avoid each other.",
+        "no_pattern": "This number doesn't show any significant pairing patterns with other numbers."
+      }
+    },
+    "monteCarlo": {
+      "title": "Reality Check: Is This Normal?",
+      "description": "We simulated thousands of lotteries to see if this number's behavior is unusual or just normal randomness.",
+      "explanationText": "We ran {{count}} computer-simulated lotteries to see how often this number would typically appear if everything was random.",
+      "expectedLabel": "Simulations showed",
+      "actualLabel": "Actually appeared",
+      "timesLabel": "times",
+      "simulationsLabel": "Simulations",
+      "expectedRangeLegend": "Expected range (90% of simulations)",
+      "actualValueLegend": "Your actual result",
+      "verdictAbove": "This number appeared {{actual}} times - that's more than the {{max}} times we'd expect in 95% of cases. It's been showing up unusually often!",
+      "verdictBelow": "This number appeared only {{actual}} times - that's less than the {{min}} times we'd expect in 95% of cases. It's been unusually quiet.",
+      "verdictNormal": "This number appeared within the normal range of {{min}}-{{max}} times. Nothing unusual here - it's behaving as expected.",
+      "verdictHot": "🔥 Hot Number!",
+      "verdictHotSubtitle": "This number is on fire - appearing way more than expected",
+      "verdictCold": "❄️ Cold Number",
+      "verdictColdSubtitle": "This number has been quiet - appearing less than expected",
+      "verdictNormalTitle": "✓ Normal",
+      "verdictNormalSubtitle": "This number is behaving exactly as expected",
+      "interpretation": {
+        "above_expected": "Appearing More Than Expected",
+        "below_expected": "Appearing Less Than Expected",
+        "within_expected": "Behaving Normally"
+      },
+      "interpretationDescription": {
+        "above_expected": "This number is showing up more often than our simulations predicted - it's on a hot streak!",
+        "below_expected": "This number is showing up less often than our simulations predicted - it's been cold lately.",
+        "within_expected": "This number is appearing at a normal rate - nothing unusual compared to random chance."
+      }
+    },
+    "seasonal": {
+      "title": "Seasonal Patterns",
+      "description": "Does this number appear more on certain days or months?",
+      "byDayOfWeek": "By Day of Week",
+      "byMonth": "By Month",
+      "bestDay": "Best: {{day}}",
+      "bestMonth": "Best: {{month}}",
+      "aboveAverage": "Above average",
+      "average": "Average",
+      "belowAverage": "Below average",
+      "days": {
+        "mon": "Mon",
+        "tue": "Tue",
+        "wed": "Wed",
+        "thu": "Thu",
+        "fri": "Fri",
+        "sat": "Sat",
+        "sun": "Sun"
+      },
+      "months": {
+        "jan": "Jan",
+        "feb": "Feb",
+        "mar": "Mar",
+        "apr": "Apr",
+        "may": "May",
+        "jun": "Jun",
+        "jul": "Jul",
+        "aug": "Aug",
+        "sep": "Sep",
+        "oct": "Oct",
+        "nov": "Nov",
+        "dec": "Dec"
+      },
+      "interpretation": {
+        "no_pattern": "No Seasonal Pattern",
+        "day_pattern": "Day Pattern Detected",
+        "month_pattern": "Month Pattern Detected"
+      },
+      "interpretationDescription": {
+        "no_pattern": "This number shows consistent frequency across all days and months - no seasonal bias.",
+        "day_pattern": "This number appears more frequently on certain days of the week.",
+        "month_pattern": "This number appears more frequently during certain months of the year."
+      }
     }
   },
   "authLayout": {
@@ -379,20 +479,21 @@
       "BASIC_FREQUENCY": "Basic frequency analysis",
       "AD_SUPPORTED": "Ad-supported experience",
       "NO_ADS": "No advertisements",
-      "WILSON_CI": "Wilson confidence interval analysis",
+      "TIMELINE": "Draw timeline visualization",
+      "TRENDS": "Historical trend analysis",
+      "WILSON_CI": "Wilson confidence intervals",
       "STD_DEVIATION": "Standard deviation metrics",
       "MARKOV_CHAIN": "Markov chain analysis",
       "AUTOCORRELATION": "Autocorrelation analysis",
-      "INTERACTIVE_GRAPHS": "Interactive analysis graphs",
-      "ADVANCED_VISUALIZATION": "Advanced visualization tools"
+      "PAIR_ANALYSIS": "Number pair analysis",
+      "MONTE_CARLO": "Monte Carlo simulations",
+      "SEASONAL_PATTERNS": "Seasonal pattern detection"
     },
     "upgrade": {
-      "trendsTitle": "Historical Trends & Timeline",
-      "trendsDescription": "Access detailed trend analysis, draw timelines, and streak statistics to understand number patterns over time.",
-      "markovTitle": "Markov Chain Analysis",
-      "markovDescription": "Discover what typically happens after a number appears or doesn't appear based on historical patterns.",
-      "autocorrelationTitle": "Autocorrelation Analysis",
-      "autocorrelationDescription": "Detect patterns in number appearances by analyzing correlations with previous draws.",
+      "proTitle": "Unlock PRO Features",
+      "proDescription": "Get access to advanced trend analysis and statistical tools",
+      "premiumTitle": "Unlock Premium Features",
+      "premiumDescription": "Access our most powerful analysis tools",
       "upgradeToUnlock": "Upgrade to {{tier}} to unlock",
       "upgradeButton": "Upgrade Now"
     }

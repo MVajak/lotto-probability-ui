@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { Dialog, DialogBody, DialogContent, DialogHeader, DialogTitle, LottoNumber } from '@lotto/ui';
 
 import { numberDetailQueryOptions, useLottoStore } from '@/domains/lotto';
-import { useSubscriptionTier } from '@/domains/subscription';
+import { UpgradePromptCard, useSubscriptionTier } from '@/domains/subscription';
 import { LoadingLayout } from '@/layouts/LoadingLayout';
 
 import type { NumberStat } from '../../types';
@@ -77,17 +77,17 @@ const LottoNumberDetailContent: React.FC<LottoNumberDetailContentProps> = ({
         <LastSeenCard summary={numberDetail.summary} />
       </div>
 
-      {/* Confidence Interval */}
-      {numberDetail.summary.confidenceInterval && (
+      {/* Confidence Interval: PRO feature */}
+      {numberDetail.confidenceInterval && (
         <div className="col-span-12 md:col-span-6">
-          <ConfidenceIntervalCard confidenceInterval={numberDetail.summary.confidenceInterval} />
+          <ConfidenceIntervalCard confidenceInterval={numberDetail.confidenceInterval} />
         </div>
       )}
 
-      {/* Deviation Analysis */}
-      {numberDetail.summary.deviation && (
+      {/* Deviation Analysis: PRO feature */}
+      {numberDetail.deviation && (
         <div className="col-span-12 md:col-span-6">
-          <DeviationAnalysisCard deviation={numberDetail.summary.deviation} />
+          <DeviationAnalysisCard deviation={numberDetail.deviation} />
         </div>
       )}
 
@@ -99,14 +99,20 @@ const LottoNumberDetailContent: React.FC<LottoNumberDetailContentProps> = ({
       )}
 
       {/* Related Numbers */}
-      <div className={numberStat.interpretation ? 'col-span-12 md:col-span-6' : 'col-span-12'}>
-        <RelatedNumbersCard relatedNumbers={relatedNumbers} onNumberClick={onNumberChange} />
-      </div>
+      {Boolean(relatedNumbers.length) && (
+        <div className={numberStat.interpretation ? 'col-span-12 md:col-span-6' : 'col-span-12'}>
+          <RelatedNumbersCard relatedNumbers={relatedNumbers} onNumberClick={onNumberChange} />
+        </div>
+      )}
 
       {/* Historical Trends - PRO and PREMIUM only */}
-      {isPro && (
+      {isPro ? (
         <div className="col-span-12">
           <HistoricalTrendsCard numberDetail={numberDetail} />
+        </div>
+      ) : (
+        <div className="col-span-12">
+          <UpgradePromptCard requiredTier="PRO" />
         </div>
       )}
     </div>

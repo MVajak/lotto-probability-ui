@@ -1,62 +1,77 @@
 import type React from 'react';
-import { ChartBarIcon, LockClosedIcon, SparklesIcon } from '@heroicons/react/24/outline';
+import { CheckIcon, LockClosedIcon, SparklesIcon } from '@heroicons/react/24/outline';
 import { useNavigate } from '@tanstack/react-router';
 import { useTranslation } from 'react-i18next';
 
-import { Badge, Button, Card, CardContent } from '@lotto/ui';
+import { Badge, Button, Card, CardContent, cn } from '@lotto/ui';
 
-type FeatureType = 'markov' | 'autocorrelation' | 'trends';
+import { TIER_FEATURES } from '@/domains/subscription';
+
 type RequiredTier = 'PRO' | 'PREMIUM';
 
 interface UpgradePromptCardProps {
-  feature: FeatureType;
   requiredTier: RequiredTier;
   className?: string;
 }
 
-const FEATURE_ICONS: Record<FeatureType, React.ReactNode> = {
-  markov: <SparklesIcon className="size-6" />,
-  autocorrelation: <SparklesIcon className="size-6" />,
-  trends: <ChartBarIcon className="size-6" />,
-};
-
-export const UpgradePromptCard: React.FC<UpgradePromptCardProps> = ({ feature, requiredTier, className }) => {
+export const UpgradePromptCard: React.FC<UpgradePromptCardProps> = ({ requiredTier, className }) => {
   const { t } = useTranslation();
   const navigate = useNavigate();
 
   const handleUpgrade = () => {
-    navigate({ to: '/subscription' });
+    void navigate({ to: '/subscription' });
   };
 
+  const features = TIER_FEATURES[requiredTier];
+  const isProTier = requiredTier === 'PRO';
+
   return (
-    <Card className={className}>
-      <CardContent className="flex flex-col items-center gap-4 py-8 text-center">
-        {/* Lock icon with feature icon */}
-        <div className="relative">
-          <div className="flex size-16 items-center justify-center rounded-full bg-primary/10 text-primary">
-            {FEATURE_ICONS[feature]}
+    <Card className={cn('border-2 border-dashed', isProTier ? 'border-primary-orange/50' : 'border-primary/50', className)}>
+      <CardContent className="flex flex-col gap-4 py-6">
+        {/* Header with lock icon */}
+        <div className="flex items-center gap-3">
+          <div
+            className={cn(
+              'flex size-10 items-center justify-center rounded-full',
+              isProTier ? 'bg-primary-orange/10' : 'bg-primary/10'
+            )}
+          >
+            <LockClosedIcon className={cn('size-5', isProTier ? 'text-primary-orange' : 'text-primary')} />
           </div>
-          <div className="-right-1 -bottom-1 absolute flex size-6 items-center justify-center rounded-full bg-muted">
-            <LockClosedIcon className="size-4 text-muted-foreground" />
+          <div>
+            <h4 className="text-title-small-bold">{t(`subscription.upgrade.${requiredTier.toLowerCase()}Title`)}</h4>
+            <p className="text-body-small text-muted-foreground">
+              {t(`subscription.upgrade.${requiredTier.toLowerCase()}Description`)}
+            </p>
           </div>
         </div>
 
-        {/* Feature title and description */}
-        <div className="space-y-2">
-          <h4 className="text-title-small-bold">{t(`subscription.upgrade.${feature}Title`)}</h4>
-          <p className="text-body-small text-muted-foreground">{t(`subscription.upgrade.${feature}Description`)}</p>
+        {/* Feature list */}
+        <div className="grid gap-2 sm:grid-cols-2">
+          {features.map((feature) => (
+            <div key={feature} className="flex items-center gap-2">
+              <CheckIcon className={cn('size-4 shrink-0', isProTier ? 'text-primary-orange' : 'text-primary-green')} />
+              <span className="text-body-small text-muted-foreground">{t(`subscription.features.${feature}`)}</span>
+            </div>
+          ))}
         </div>
 
-        {/* Required tier badge */}
-        <Badge variant="secondary" className="gap-1">
-          <SparklesIcon className="size-3" />
-          {t('subscription.upgrade.upgradeToUnlock', { tier: requiredTier })}
-        </Badge>
+        {/* Footer with badge and button */}
+        <div className="flex flex-wrap items-center justify-between gap-3 pt-2">
+          <Badge variant="secondary" className="gap-1">
+            <SparklesIcon className="size-3" />
+            {t('subscription.upgrade.upgradeToUnlock', { tier: requiredTier })}
+          </Badge>
 
-        {/* Upgrade button */}
-        <Button variant="primary" onClick={handleUpgrade} className="mt-2">
-          {t('subscription.upgrade.upgradeButton')}
-        </Button>
+          <Button
+            variant="primary"
+            size="sm"
+            onClick={handleUpgrade}
+            className={cn(isProTier && 'bg-primary-orange hover:bg-gold-dark')}
+          >
+            {t('subscription.upgrade.upgradeButton')}
+          </Button>
+        </div>
       </CardContent>
     </Card>
   );

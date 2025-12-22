@@ -1,24 +1,49 @@
 import type { SubscriptionFeature, SubscriptionTierCode } from '../types';
 
 /**
+ * Minimum number of draws required for most statistical analyses.
+ * This threshold ensures validity of Normal approximation to binomial distribution
+ * (rule of thumb: n×p ≥ 5 and n×(1-p) ≥ 5).
+ */
+export const MIN_DRAWS_FOR_STATISTICS = 20;
+
+/**
+ * Minimum number of draws required for seasonal pattern analysis.
+ */
+export const MIN_DRAWS_FOR_SEASONAL = 30;
+
+/**
+ * Centralized feature configuration combining subscription tier requirements
+ * with minimum draw thresholds for statistical validity.
+ */
+export const FEATURE_CONFIG = {
+  // PRO tier features (no min draws needed)
+  TIMELINE: { tier: 'PRO' as const, minDraws: 0 },
+  TRENDS: { tier: 'PRO' as const, minDraws: 0 },
+  WILSON_CI: { tier: 'PRO' as const, minDraws: 0 },
+  STD_DEVIATION: { tier: 'PRO' as const, minDraws: 0 },
+
+  // PREMIUM tier features (require sufficient data for statistical validity)
+  MARKOV_CHAIN: { tier: 'PREMIUM' as const, minDraws: MIN_DRAWS_FOR_STATISTICS },
+  AUTOCORRELATION: { tier: 'PREMIUM' as const, minDraws: MIN_DRAWS_FOR_STATISTICS },
+  PAIR_ANALYSIS: { tier: 'PREMIUM' as const, minDraws: MIN_DRAWS_FOR_STATISTICS },
+  MONTE_CARLO: { tier: 'PREMIUM' as const, minDraws: MIN_DRAWS_FOR_STATISTICS },
+  SEASONAL_PATTERNS: { tier: 'PREMIUM' as const, minDraws: MIN_DRAWS_FOR_SEASONAL },
+} as const;
+
+export type AnalysisFeature = keyof typeof FEATURE_CONFIG;
+
+/**
  * Features available for each subscription tier.
- * PRO includes all FREE features, PREMIUM includes all PRO features.
+ * Derived from FEATURE_CONFIG for consistency.
  */
 export const TIER_FEATURES: Record<SubscriptionTierCode, SubscriptionFeature[]> = {
-  FREE: ['STATS_2_MONTHS', 'BASIC_FREQUENCY', 'AD_SUPPORTED'],
-  PRO: ['STATS_2_YEARS', 'WILSON_CI', 'STD_DEVIATION', 'NO_ADS', 'INTERACTIVE_GRAPHS'],
-  PREMIUM: [
-    'STATS_5_YEARS',
-    'WILSON_CI',
-    'STD_DEVIATION',
-    'MARKOV_CHAIN',
-    'AUTOCORRELATION',
-    'NO_ADS',
-    'INTERACTIVE_GRAPHS',
-    'ADVANCED_VISUALIZATION',
-  ],
+  FREE: [],
+  PRO: (Object.entries(FEATURE_CONFIG) as [AnalysisFeature, (typeof FEATURE_CONFIG)[AnalysisFeature]][])
+    .filter(([, config]) => config.tier === 'PRO')
+    .map(([feature]) => feature),
+  PREMIUM: (Object.keys(FEATURE_CONFIG) as AnalysisFeature[]),
 };
-
 /**
  * Maximum date range in months for each tier.
  */

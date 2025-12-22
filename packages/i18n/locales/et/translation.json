@@ -112,7 +112,11 @@
       "markovTitle": "Olekute üleminekud (Markovi ahel)",
       "markovMessage": "Statistiliseks analüüsiks pole piisavalt andmeid. Olekute üleminekute analüüsimiseks on vaja vähemalt 20 loosimist.",
       "generalTitle": "Ebapiisavad andmed",
-      "generalMessage": "Analüüsiks pole piisavalt ajaloolisi andmeid. Proovige kuupäevade vahemikku laiendada."
+      "generalMessage": "Analüüsiks pole piisavalt ajaloolisi andmeid. Proovige kuupäevade vahemikku laiendada.",
+      "premiumFeaturesTitle": "Vajatakse rohkem andmeid",
+      "premiumFeaturesDescription": "Mõned täpsemad funktsioonid vajavad sisuka analüüsi jaoks rohkem ajaloolisi andmeid.",
+      "requiresDraws": "Nõuab vähemalt {{count}} loosimist",
+      "expandDateRange": "Proovige kuupäevade vahemikku laiendada, et need funktsioonid avada."
     },
     "lastSeen": {
       "title": "Viimati nähtud",
@@ -308,6 +312,102 @@
         "gamblers_fallacy": "Peaks varsti ilmuma",
         "hot_hand": "Kuumal seerial"
       }
+    },
+    "pairAnalysis": {
+      "title": "Numbrite paarid",
+      "description": "Millised numbrid esinevad selle numbriga sageli koos?",
+      "topCompanions": "Parimad kaaslased",
+      "avoidedNumbers": "Välditavad numbrid",
+      "coOccurrences": "{{count}} korda koos",
+      "coOccurrencesWithExpected": "{{count}} korda (ood: {{expected}})",
+      "liftTooltip": "Esines {{actual}}× kuid oodati vaid {{expected}} korda selle numbri üksiku sageduse põhjal",
+      "noCompanions": "Olulisi kaaslasi ei leitud",
+      "noAvoided": "Oluliselt välditavaid numbreid ei leitud",
+      "liftExplanation": "Lift näitab, kui palju rohkem (või vähem) numbrid koos esinevad kui oodatud",
+      "interpretation": {
+        "has_companions": "On kaaslasi",
+        "has_avoided": "On välditavaid numbreid",
+        "no_pattern": "Pole olulisi paare"
+      },
+      "interpretationDescription": {
+        "has_companions": "See number esineb teatud teiste numbritega sagedamini kui juhuslikult oodataks.",
+        "has_avoided": "See number esineb teatud teiste numbritega harva - nad näivad teineteist vältivat.",
+        "no_pattern": "See number ei näita olulisi paarumismustreid teiste numbritega."
+      }
+    },
+    "monteCarlo": {
+      "title": "Reaalsuskontroll: kas see on normaalne?",
+      "description": "Simuleerisime tuhandeid loosimisi, et näha, kas selle numbri käitumine on ebatavaline või lihtsalt normaalne juhuslikkus.",
+      "explanationText": "Tegime {{count}} arvutisimuleeritud loosimist, et näha, kui sageli see number tavaliselt esineks, kui kõik oleks juhuslik.",
+      "expectedLabel": "Simulatsioonid näitasid",
+      "actualLabel": "Tegelikult esines",
+      "timesLabel": "korda",
+      "simulationsLabel": "Simulatsioone",
+      "expectedRangeLegend": "Oodatav vahemik (90% simulatsioonidest)",
+      "actualValueLegend": "Sinu tegelik tulemus",
+      "verdictAbove": "See number esines {{actual}} korda - see on rohkem kui {{max}} korda, mida ootaksime 95% juhtudest. See on esinenud ebatavaliselt sageli!",
+      "verdictBelow": "See number esines vaid {{actual}} korda - see on vähem kui {{min}} korda, mida ootaksime 95% juhtudest. See on olnud ebatavaliselt vaikne.",
+      "verdictNormal": "See number esines normaalses vahemikus {{min}}-{{max}} korda. Midagi ebatavalist pole - käitub ootuspäraselt.",
+      "verdictHot": "🔥 Kuum number!",
+      "verdictHotSubtitle": "See number on tules - esineb palju rohkem kui oodatud",
+      "verdictCold": "❄️ Külm number",
+      "verdictColdSubtitle": "See number on olnud vaikne - esineb vähem kui oodatud",
+      "verdictNormalTitle": "✓ Normaalne",
+      "verdictNormalSubtitle": "See number käitub täpselt nii nagu oodatud",
+      "interpretation": {
+        "above_expected": "Esineb rohkem kui oodatud",
+        "below_expected": "Esineb vähem kui oodatud",
+        "within_expected": "Käitub normaalselt"
+      },
+      "interpretationDescription": {
+        "above_expected": "See number esineb sagedamini kui meie simulatsioonid ennustasid - see on kuumal seerial!",
+        "below_expected": "See number esineb harvemini kui meie simulatsioonid ennustasid - see on viimasel ajal olnud külm.",
+        "within_expected": "See number esineb normaalse sagedusega - midagi ebatavalist võrreldes juhuslikkusega."
+      }
+    },
+    "seasonal": {
+      "title": "Hooajalised mustrid",
+      "description": "Kas see number esineb rohkem teatud päevadel või kuudel?",
+      "byDayOfWeek": "Nädalapäeva järgi",
+      "byMonth": "Kuu järgi",
+      "bestDay": "Parim: {{day}}",
+      "bestMonth": "Parim: {{month}}",
+      "aboveAverage": "Üle keskmise",
+      "average": "Keskmine",
+      "belowAverage": "Alla keskmise",
+      "days": {
+        "mon": "E",
+        "tue": "T",
+        "wed": "K",
+        "thu": "N",
+        "fri": "R",
+        "sat": "L",
+        "sun": "P"
+      },
+      "months": {
+        "jan": "Jaan",
+        "feb": "Veeb",
+        "mar": "Märts",
+        "apr": "Apr",
+        "may": "Mai",
+        "jun": "Juuni",
+        "jul": "Juuli",
+        "aug": "Aug",
+        "sep": "Sept",
+        "oct": "Okt",
+        "nov": "Nov",
+        "dec": "Dets"
+      },
+      "interpretation": {
+        "no_pattern": "Hooajalist mustrit pole",
+        "day_pattern": "Tuvastatud päevamuster",
+        "month_pattern": "Tuvastatud kuumuster"
+      },
+      "interpretationDescription": {
+        "no_pattern": "See number näitab ühtlast sagedust kõigil päevadel ja kuudel - hooajalist kalduvust pole.",
+        "day_pattern": "See number esineb teatud nädalapäevadel sagedamini.",
+        "month_pattern": "See number esineb teatud aastakuudel sagedamini."
+      }
     }
   },
   "authLayout": {
@@ -379,20 +479,21 @@
       "BASIC_FREQUENCY": "Põhiline sagedusanalüüs",
       "AD_SUPPORTED": "Reklaamidega kogemus",
       "NO_ADS": "Reklaame ei ole",
-      "WILSON_CI": "Wilsoni usaldusvahemiku analüüs",
+      "TIMELINE": "Loosimiste ajajoon",
+      "TRENDS": "Ajalooilne trendianalüüs",
+      "WILSON_CI": "Wilsoni usaldusvahemikud",
       "STD_DEVIATION": "Standardhälbe mõõdikud",
       "MARKOV_CHAIN": "Markovi ahela analüüs",
       "AUTOCORRELATION": "Autokorrelatsioonanalüüs",
-      "INTERACTIVE_GRAPHS": "Interaktiivsed analüüsigraafikud",
-      "ADVANCED_VISUALIZATION": "Täiustatud visualiseerimise tööriistad"
+      "PAIR_ANALYSIS": "Numbripaaride analüüs",
+      "MONTE_CARLO": "Monte Carlo simulatsioonid",
+      "SEASONAL_PATTERNS": "Hooajaliste mustrite tuvastamine"
     },
     "upgrade": {
-      "trendsTitle": "Ajaloolised trendid ja ajajoon",
-      "trendsDescription": "Juurdepääs üksikasjalikule trendianalüüsile, loosimiste ajajoonele ja seeria statistikale, et mõista numbrimustrite arengut aja jooksul.",
-      "markovTitle": "Markovi ahela analüüs",
-      "markovDescription": "Avasta, mis tavaliselt juhtub pärast numbri esinemist või mitte-esinemist, tuginedes ajaloolistele mustritele.",
-      "autocorrelationTitle": "Autokorrelatsioonanalüüs",
-      "autocorrelationDescription": "Tuvasta mustreid numbrite esinemistes, analüüsides korrelatsioone eelmiste loosimistega.",
+      "proTitle": "Ava PRO funktsioonid",
+      "proDescription": "Saa juurdepääs täiustatud trendianalüüsile ja statistilistele tööriistadele",
+      "premiumTitle": "Ava Premium funktsioonid",
+      "premiumDescription": "Kasuta meie võimsaimaid analüüsitööriistu",
       "upgradeToUnlock": "Avamiseks uuenda {{tier}} paketile",
       "upgradeButton": "Uuenda kohe"
     }

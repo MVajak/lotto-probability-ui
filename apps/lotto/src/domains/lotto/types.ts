@@ -101,9 +101,9 @@ export interface NumberDetailDto {
     lastSeenDrawsAgo: number;
     lastSeenDate: string;
     overdueScore: number;
-    confidenceInterval: ConfidenceInterval;
-    deviation: Deviation;
   };
+  confidenceInterval: ConfidenceInterval;
+  deviation: Deviation;
   trends: {
     longestDroughtDays: number;
     currentDroughtDays: number;
@@ -124,7 +124,7 @@ export interface NumberDetailDto {
       isSignificant: boolean;
     }>;
     interpretation: 'random' | 'clustered' | 'dispersed';
-  };
+  } | null;
   markovChain: {
     transitionProbabilities: {
       appearedToAppeared: number;
@@ -140,7 +140,48 @@ export interface NumberDetailDto {
     };
     steadyStateProbability: number;
     interpretation: 'memoryless' | 'persistent' | 'alternating' | 'gamblers_fallacy' | 'hot_hand';
-  };
+  } | null;
+  pairAnalysis: {
+    topCompanions: Array<{
+      number: number;
+      coOccurrences: number;
+      expectedCoOccurrences: number;
+      lift: number;
+      isSignificant: boolean;
+    }>;
+    avoidedNumbers: Array<{
+      number: number;
+      coOccurrences: number;
+      expectedCoOccurrences: number;
+      lift: number;
+      isSignificant: boolean;
+    }>;
+    interpretation: 'has_avoided' | 'has_companions' | 'no_pattern';
+  } | null;
+  monteCarlo: {
+    simulationCount: number;
+    simulatedProbability: number;
+    theoreticalProbability: number;
+    percentile5: number;
+    percentile95: number;
+    actualAppearances: number;
+    interpretation: 'above_expected' | 'below_expected' | 'within_expected';
+  } | null;
+  seasonalPatterns: {
+    byDayOfWeek: Array<{
+      dayOfWeek: number;
+      appearances: number;
+      totalDraws: number;
+      frequency: number;
+    }>;
+    byMonth: Array<{
+      month: number;
+      appearances: number;
+      totalDraws: number;
+      frequency: number;
+    }>;
+    interpretation: 'no_pattern' | 'day_pattern' | 'month_pattern';
+  } | null;
   occurrences: Array<{
     drawId: string;
     drawDate: string;

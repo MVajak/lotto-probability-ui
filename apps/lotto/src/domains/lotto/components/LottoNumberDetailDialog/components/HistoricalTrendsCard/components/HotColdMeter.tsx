@@ -17,10 +17,7 @@ interface HotColdMeterProps {
 export const HotColdMeter: React.FC<HotColdMeterProps> = ({ summary }) => {
   const { t } = useTranslation();
 
-  const { frequencyPercent, expectedFrequencyPercent, status, deviation } = summary;
-
-  // Deviation might not be available
-  const hasDeviation = deviation !== undefined && deviation !== null;
+  const { frequencyPercent, expectedFrequencyPercent, status } = summary;
   // Calculate deviation percent from actual vs expected frequency
   const deviationPercent = frequencyPercent - expectedFrequencyPercent;
 
@@ -82,46 +79,42 @@ export const HotColdMeter: React.FC<HotColdMeterProps> = ({ summary }) => {
                   {getStatusLabel()}
                 </span>
               </div>
-              {hasDeviation && (
-                <span
-                  className={cn(
-                    'text-body-default-bold',
-                    deviationPercent > 0 && 'text-primary-orange',
-                    deviationPercent < 0 && 'text-primary-blue'
-                  )}
-                >
-                  {deviationPercent > 0 ? '+' : ''}
-                  {deviationPercent.toFixed(1)}%
-                </span>
-              )}
+              <span
+                className={cn(
+                  'text-body-default-bold',
+                  deviationPercent > 0 && 'text-primary-orange',
+                  deviationPercent < 0 && 'text-primary-blue'
+                )}
+              >
+                {deviationPercent > 0 ? '+' : ''}
+                {deviationPercent.toFixed(1)}%
+              </span>
             </div>
 
-            {/* Visual meter - only show when deviation data available */}
-            {hasDeviation && (
-              <div className="items-center gap-2">
-                <div className="relative h-4 overflow-hidden rounded-full bg-gradient-to-r from-primary-blue via-muted-foreground to-primary-orange p-3">
-                  {/* Indicator */}
-                  <div
-                    className="-translate-x-1/2 -translate-y-1/2 absolute top-1/2 size-5 rounded-full border-2 border-background bg-foreground shadow-md transition-all"
-                    style={{ left: `${meterPosition}%` }}
-                  />
-                </div>
-
-                {/* Labels */}
-                <div className="mb-1 flex justify-between text-body-small text-muted-foreground">
-                  <span>{t('numberStats.hotCold.cold')}</span>
-                  <span>{t('numberStats.hotCold.expected')}</span>
-                  <span>{t('numberStats.hotCold.hot')}</span>
-                </div>
-
-                {/* Description */}
-                <p className="text-body-small text-muted-foreground">{getStatusDescription()}</p>
+            {/* Visual meter */}
+            <div className="items-center gap-2">
+              <div className="relative h-4 overflow-hidden rounded-full bg-gradient-to-r from-primary-blue via-muted-foreground to-primary-orange p-3">
+                {/* Indicator */}
+                <div
+                  className="-translate-x-1/2 -translate-y-1/2 absolute top-1/2 size-5 rounded-full border-2 border-background bg-foreground shadow-md transition-all"
+                  style={{ left: `${meterPosition}%` }}
+                />
               </div>
-            )}
+
+              {/* Labels */}
+              <div className="mb-1 flex justify-between text-body-small text-muted-foreground">
+                <span>{t('numberStats.hotCold.cold')}</span>
+                <span>{t('numberStats.hotCold.expected')}</span>
+                <span>{t('numberStats.hotCold.hot')}</span>
+              </div>
+
+              {/* Description */}
+              <p className="text-body-small text-muted-foreground">{getStatusDescription()}</p>
+            </div>
           </div>
 
           {/* Frequency comparison */}
-          <div className={cn('grid grid-cols-2 gap-2', hasDeviation && 'mt-4')}>
+          <div className="mt-4 grid grid-cols-2 gap-2">
             <Card className="rounded">
               <CardContent>
                 <p className="text-body-small text-muted-foreground">{t('numberStats.hotCold.actualFrequency')}</p>
