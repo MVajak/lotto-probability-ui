@@ -58,14 +58,10 @@ export const InsufficientDataWarningCard: React.FC<InsufficientDataWarningCardPr
   if (unavailableFeatures.length === 0) return null;
 
   // Find the minimum draws needed for the next feature to unlock
-  const drawsNeededForNext = Math.min(
-    ...unavailableFeatures.map((f) => FEATURE_CONFIG[f].minDraws)
-  );
+  const drawsNeededForNext = Math.min(...unavailableFeatures.map((f) => FEATURE_CONFIG[f].minDraws));
 
   // Find the maximum draws needed to unlock everything
-  const drawsNeededForAll = Math.max(
-    ...unavailableFeatures.map((f) => FEATURE_CONFIG[f].minDraws)
-  );
+  const drawsNeededForAll = Math.max(...unavailableFeatures.map((f) => FEATURE_CONFIG[f].minDraws));
 
   const progressPercent = Math.min(100, (totalDraws / drawsNeededForAll) * 100);
 
@@ -131,9 +127,7 @@ export const InsufficientDataWarningCard: React.FC<InsufficientDataWarningCardPr
         {/* Tip */}
         <div className="flex items-center gap-2 rounded-md bg-background/50 px-3 py-2">
           <LightBulbIcon className="size-4 shrink-0 text-primary-yellow" />
-          <p className="text-body-small text-muted-foreground">
-            {t('numberStats.insufficientData.expandDateRange')}
-          </p>
+          <p className="text-body-small text-muted-foreground">{t('numberStats.insufficientData.expandDateRange')}</p>
         </div>
       </CardContent>
     </Card>

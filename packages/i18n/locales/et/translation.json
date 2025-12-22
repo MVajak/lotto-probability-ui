@@ -455,7 +455,25 @@
   },
   "profile": {
     "title": "Profiil",
-    "comingSoon": "Profiili lehekülg tulekul..."
+    "memberSince": "Liige alates {{date}}",
+    "email": "E-post",
+    "emailCannotBeChanged": "E-posti aadressi ei saa muuta",
+    "firstName": "Eesnimi",
+    "firstNamePlaceholder": "Sisesta oma eesnimi",
+    "lastName": "Perekonnanimi",
+    "lastNamePlaceholder": "Sisesta oma perekonnanimi",
+    "phoneNumber": "Telefoninumber",
+    "phoneNumberPlaceholder": "Sisesta oma telefoninumber",
+    "country": "Riik",
+    "countryPlaceholder": "Sisesta oma riik",
+    "saveChanges": "Salvesta muudatused",
+    "deleteAccount": "Kustuta konto",
+    "deleteAccountDescription": "Kustuta jäädavalt oma konto ja kõik seotud andmed",
+    "deleteConfirmTitle": "Kustutada oma konto?",
+    "deleteConfirmDescription": "Seda toimingut ei saa tagasi võtta. Kõik sinu andmed kustutatakse meie serveritest jäädavalt.",
+    "cancel": "Tühista",
+    "confirmDelete": "Jah, kustuta minu konto",
+    "errorLoading": "Profiili andmete laadimine ebaõnnestus"
   },
   "subscription": {
     "title": "Vali oma pakett",

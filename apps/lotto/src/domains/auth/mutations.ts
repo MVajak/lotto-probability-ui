@@ -1,6 +1,9 @@
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+
 import { apiFetch } from '../api/client';
+import { currentUserQuery } from './queries';
 import { useAuthStore } from './store';
-import type { AuthTokens } from './types';
+import type { AuthTokens, UpdateProfileInput, User } from './types';
 
 interface RequestOtpResponse {
   message: string;
@@ -38,4 +41,30 @@ export async function refreshAuthTokens(): Promise<void> {
   });
 
   useAuthStore.getState().setTokens(tokens);
+}
+
+export function useUpdateProfileMutation() {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: (data: UpdateProfileInput) =>
+      apiFetch<User>('/users/me', {
+        method: 'PATCH',
+        body: JSON.stringify(data),
+      }),
+    onSuccess: () => {
+      void queryClient.invalidateQueries({ queryKey: currentUserQuery.queryKey });
+    },
+  });
+}
+
+export function useDeleteAccountMutation() {
+  const logout = useAuthStore((state) => state.logout);
+
+  return useMutation({
+    mutationFn: () => apiFetch<void>('/users/me', { method: 'DELETE' }),
+    onSuccess: () => {
+      logout();
+    },
+  });
 }

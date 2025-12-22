@@ -455,7 +455,25 @@
   },
   "profile": {
     "title": "Profile",
-    "comingSoon": "Profile page coming soon..."
+    "memberSince": "Member since {{date}}",
+    "email": "Email",
+    "emailCannotBeChanged": "Email address cannot be changed",
+    "firstName": "First Name",
+    "firstNamePlaceholder": "Enter your first name",
+    "lastName": "Last Name",
+    "lastNamePlaceholder": "Enter your last name",
+    "phoneNumber": "Phone Number",
+    "phoneNumberPlaceholder": "Enter your phone number",
+    "country": "Country",
+    "countryPlaceholder": "Enter your country",
+    "saveChanges": "Save Changes",
+    "deleteAccount": "Delete Account",
+    "deleteAccountDescription": "Permanently delete your account and all associated data",
+    "deleteConfirmTitle": "Delete your account?",
+    "deleteConfirmDescription": "This action cannot be undone. All your data will be permanently removed from our servers.",
+    "cancel": "Cancel",
+    "confirmDelete": "Yes, delete my account",
+    "errorLoading": "Unable to load profile data"
   },
   "subscription": {
     "title": "Choose Your Plan",

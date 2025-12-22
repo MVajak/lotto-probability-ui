@@ -8,8 +8,10 @@ export interface AuthTokens {
 export interface User {
   id: string;
   email: string;
-  firstName?: string;
-  lastName?: string;
+  firstName: string | null;
+  lastName: string | null;
+  phoneNumber: string | null;
+  country: string | null;
   createdAt: string;
 }
 
@@ -18,4 +20,11 @@ export interface Subscription {
   tier: SubscriptionTierCode;
   status: string;
   expiresAt?: string;
+}
+
+export interface UpdateProfileInput {
+  firstName: string;
+  lastName: string;
+  phoneNumber: string;
+  country: string;
 }
