@@ -14,8 +14,8 @@ import {
   AnalysisSummaryCard,
   ConfidenceIntervalCard,
   DeviationAnalysisCard,
-  HistoricalTrendsCard,
   LastSeenCard,
+  NumberInsightsCard,
   NumberStatsCard,
   RelatedNumbersCard,
 } from './components';
@@ -105,10 +105,10 @@ const LottoNumberDetailContent: React.FC<LottoNumberDetailContentProps> = ({
         </div>
       )}
 
-      {/* Historical Trends - PRO and PREMIUM only */}
+      {/* Number Insights - PRO and PREMIUM only */}
       {isPro ? (
         <div className="col-span-12">
-          <HistoricalTrendsCard numberDetail={numberDetail} />
+          <NumberInsightsCard numberDetail={numberDetail} />
         </div>
       ) : (
         <div className="col-span-12">
