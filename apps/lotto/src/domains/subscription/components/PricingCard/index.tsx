@@ -1,10 +1,11 @@
 import type React from 'react';
-import { CheckCircleIcon, CheckIcon } from '@heroicons/react/24/outline';
+import { useState } from 'react';
+import { CheckCircleIcon, CheckIcon, EyeIcon } from '@heroicons/react/24/outline';
 import { useTranslation } from 'react-i18next';
 
 import { Badge, Button, CardContent, cn, InteractiveCard } from '@lotto/ui';
 
-import { type SubscriptionTier, useUpdateTierMutation } from '@/domains/subscription';
+import { FeaturePreviewDialog, type SubscriptionTier, useUpdateTierMutation } from '@/domains/subscription';
 
 interface PricingCardProps {
   tier: SubscriptionTier;
@@ -14,6 +15,7 @@ interface PricingCardProps {
 export const PricingCard: React.FC<PricingCardProps> = ({ tier, isCurrentPlan = false }) => {
   const { t } = useTranslation();
   const { mutate, isPending } = useUpdateTierMutation();
+  const [showPreview, setShowPreview] = useState(false);
 
   const isHighlighted = tier.code === 'PRO';
   const tierKey = tier.code.toLowerCase() as 'free' | 'pro' | 'premium';
@@ -63,6 +65,22 @@ export const PricingCard: React.FC<PricingCardProps> = ({ tier, isCurrentPlan = 
           ))}
         </div>
 
+        {/* Preview link for non-current PRO/PREMIUM plans */}
+        {!isCurrentPlan && tier.code !== 'FREE' && (
+          <Button
+            variant="link"
+            size="sm"
+            className="mb-2 h-auto gap-1 p-0 text-muted-foreground hover:text-foreground"
+            onClick={(e) => {
+              e.stopPropagation();
+              setShowPreview(true);
+            }}
+          >
+            <EyeIcon className="size-4" />
+            {t('subscription.preview.seeWhatYouGet')}
+          </Button>
+        )}
+
         <Button
           variant={isHighlighted && !isCurrentPlan ? 'primary' : 'outline'}
           className={cn(
@@ -87,6 +105,10 @@ export const PricingCard: React.FC<PricingCardProps> = ({ tier, isCurrentPlan = 
           )}
         </Button>
       </CardContent>
+
+      {tier.code !== 'FREE' && (
+        <FeaturePreviewDialog open={showPreview} onOpenChange={setShowPreview} tier={tier.code} />
+      )}
     </InteractiveCard>
   );
 };

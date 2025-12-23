@@ -64,7 +64,8 @@
     "tied": "Viigis",
     "showLess": "Näita vähem",
     "showMoreTiedNumbers": "Näita {{count}} viigis numbrit",
-    "showMoreTiedNumbers_plural": "Näita {{count}} viigis numbrit"
+    "showMoreTiedNumbers_plural": "Näita {{count}} viigis numbrit",
+    "close": "Sulge"
   },
   "numberStats": {
     "frequent": "Sage",
@@ -517,6 +518,13 @@
       "premiumDescription": "Kasuta meie võimsaimaid analüüsitööriistu",
       "upgradeToUnlock": "Avamiseks uuenda {{tier}} paketile",
       "upgradeButton": "Uuenda kohe"
+    },
+    "preview": {
+      "title": "Eelvaade: {{tier}} funktsioonid",
+      "description": "Vaata võimsaid analüüsitööriistu, mis on saadaval {{tier}} paketiga",
+      "seePreview": "Vaata eelvaadet",
+      "seeWhatYouGet": "Vaata, mida saad",
+      "demoNote": "Eelvaade kasutab demoandmeid numbri {{number}} jaoks"
     }
   },
   "home": {

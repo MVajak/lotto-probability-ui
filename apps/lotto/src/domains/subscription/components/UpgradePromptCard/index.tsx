@@ -1,11 +1,12 @@
 import type React from 'react';
-import { CheckIcon, LockClosedIcon, SparklesIcon } from '@heroicons/react/24/outline';
+import { useState } from 'react';
+import { CheckIcon, EyeIcon, LockClosedIcon, SparklesIcon } from '@heroicons/react/24/outline';
 import { useNavigate } from '@tanstack/react-router';
 import { useTranslation } from 'react-i18next';
 
 import { Badge, Button, Card, CardContent, cn } from '@lotto/ui';
 
-import { TIER_FEATURES } from '@/domains/subscription';
+import { FeaturePreviewDialog, TIER_FEATURES } from '@/domains/subscription';
 
 type RequiredTier = 'PRO' | 'PREMIUM';
 
@@ -17,6 +18,7 @@ interface UpgradePromptCardProps {
 export const UpgradePromptCard: React.FC<UpgradePromptCardProps> = ({ requiredTier, className }) => {
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const [showPreview, setShowPreview] = useState(false);
 
   const handleUpgrade = () => {
     void navigate({ to: '/subscription' });
@@ -58,23 +60,32 @@ export const UpgradePromptCard: React.FC<UpgradePromptCardProps> = ({ requiredTi
           ))}
         </div>
 
-        {/* Footer with badge and button */}
+        {/* Footer with badge and buttons */}
         <div className="flex flex-wrap items-center justify-between gap-3 pt-2">
           <Badge variant="secondary" className="gap-1">
             <SparklesIcon className="size-3" />
             {t('subscription.upgrade.upgradeToUnlock', { tier: requiredTier })}
           </Badge>
 
-          <Button
-            variant="primary"
-            size="sm"
-            onClick={handleUpgrade}
-            className={cn(isProTier && 'bg-primary-orange hover:bg-gold-dark')}
-          >
-            {t('subscription.upgrade.upgradeButton')}
-          </Button>
+          <div className="flex items-center gap-2">
+            <Button variant="ghost" size="sm" onClick={() => setShowPreview(true)} className="gap-1.5">
+              <EyeIcon className="size-4" />
+              {t('subscription.preview.seePreview')}
+            </Button>
+
+            <Button
+              variant="primary"
+              size="sm"
+              onClick={handleUpgrade}
+              className={cn(isProTier && 'bg-primary-orange hover:bg-gold-dark')}
+            >
+              {t('subscription.upgrade.upgradeButton')}
+            </Button>
+          </div>
         </div>
       </CardContent>
+
+      <FeaturePreviewDialog open={showPreview} onOpenChange={setShowPreview} tier={requiredTier} />
     </Card>
   );
 };

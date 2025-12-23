@@ -1,3 +1,4 @@
+export { FeaturePreviewDialog } from './components/FeaturePreviewDialog';
 export { UpgradePromptCard } from './components/UpgradePromptCard';
 export * from './hooks/useSubscriptionTier';
 export * from './mutations';

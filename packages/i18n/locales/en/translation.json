@@ -64,7 +64,8 @@
     "tied": "Tied",
     "showLess": "Show less",
     "showMoreTiedNumbers": "Show {{count}} more tied number",
-    "showMoreTiedNumbers_plural": "Show {{count}} more tied numbers"
+    "showMoreTiedNumbers_plural": "Show {{count}} more tied numbers",
+    "close": "Close"
   },
   "numberStats": {
     "frequent": "Frequent",
@@ -517,6 +518,13 @@
       "premiumDescription": "Access our most powerful analysis tools",
       "upgradeToUnlock": "Upgrade to {{tier}} to unlock",
       "upgradeButton": "Upgrade Now"
+    },
+    "preview": {
+      "title": "Preview: {{tier}} Features",
+      "description": "See the powerful analysis tools available with {{tier}}",
+      "seePreview": "See preview",
+      "seeWhatYouGet": "See what you get",
+      "demoNote": "Preview using demo data for number {{number}}"
     }
   },
   "home": {
