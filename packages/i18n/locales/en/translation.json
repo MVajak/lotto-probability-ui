@@ -485,13 +485,13 @@
     "alreadyOnPlan": "You're on this plan",
     "choosePlan": "Choose Plan",
     "updating": "Updating...",
-    "free": {
+    "FREE": {
       "name": "Free"
     },
-    "pro": {
+    "PRO": {
       "name": "Pro"
     },
-    "premium": {
+    "PREMIUM": {
       "name": "Premium"
     },
     "features": {

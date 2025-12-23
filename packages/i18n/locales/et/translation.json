@@ -485,13 +485,13 @@
     "alreadyOnPlan": "Oled sellel paketil",
     "choosePlan": "Vali pakett",
     "updating": "Uuendan...",
-    "free": {
+    "FREE": {
       "name": "Tasuta"
     },
-    "pro": {
+    "PRO": {
       "name": "Pro"
     },
-    "premium": {
+    "PREMIUM": {
       "name": "Premium"
     },
     "features": {

@@ -18,7 +18,6 @@ export const PricingCard: React.FC<PricingCardProps> = ({ tier, isCurrentPlan = 
   const [showPreview, setShowPreview] = useState(false);
 
   const isHighlighted = tier.code === 'PRO';
-  const tierKey = tier.code.toLowerCase() as 'free' | 'pro' | 'premium';
 
   const handleClick = () => {
     if (!isCurrentPlan && !isPending) {
@@ -38,7 +37,7 @@ export const PricingCard: React.FC<PricingCardProps> = ({ tier, isCurrentPlan = 
       )}
 
       <CardContent className="flex h-full flex-col gap-2 p-6">
-        <h3 className="text-title-default-bold">{t(`subscription.${tierKey}.name`)}</h3>
+        <h3 className="text-title-default-bold">{t(`subscription.${tier.code}.name`)}</h3>
 
         <div>
           <span
