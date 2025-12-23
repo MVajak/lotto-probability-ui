@@ -2,6 +2,7 @@
 @import "./typography.css";
 @import "./colors.css";
 @import "./shadows.css";
+@import "./animations.css";
 
 /* Mask Utilities - Content fade effect */
 @utility mask-t-from-8px {

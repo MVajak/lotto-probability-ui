@@ -100,7 +100,7 @@ export const InsufficientDataWarningCard: React.FC<InsufficientDataWarningCardPr
               />
             </div>
             {totalDraws < drawsNeededForNext && (
-              <p className="text-label-small text-muted-foreground">
+              <p className="text-body-small text-muted-foreground">
                 {t('numberStats.insufficientData.needMoreDraws', {
                   count: drawsNeededForNext - totalDraws,
                 })}
