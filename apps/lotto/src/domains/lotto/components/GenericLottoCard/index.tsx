@@ -32,12 +32,8 @@ export const GenericLottoCard = ({ config }: GenericLottoCardProps) => {
         linkGameRules={config.links.gameRules}
       />
 
-      {/* Mobile Ad */}
-      {showAds && (
-        <div className="block lg:hidden">
-          <AdSpace position="in-content" showPlaceholder={import.meta.env.DEV} />
-        </div>
-      )}
+      {/* In-Content Ad - between info and search */}
+      {showAds && <AdSpace position="in-content" showPlaceholder={import.meta.env.DEV} />}
 
       {/* Search Section */}
       <div className="text-center">

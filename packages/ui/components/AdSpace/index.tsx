@@ -39,7 +39,7 @@ export const GoogleAd: React.FC<GoogleAdProps> = ({ slot, format = 'auto', respo
   );
 };
 
-type AdPosition = 'left' | 'right' | 'top-mobile' | 'in-content';
+type AdPosition = 'sidebar' | 'bottom-mobile' | 'in-content' | 'dialog';
 
 interface AdSpaceProps {
   position: AdPosition;
@@ -49,71 +49,43 @@ interface AdSpaceProps {
   className?: string;
 }
 
-const containerStyles = {
-  base: 'flex flex-col items-center justify-center border border-dashed border-border bg-muted',
-  side: 'h-[770px] p-4',
-  mobile: 'mb-4 min-h-[70px] p-2',
-  inContent: 'my-6 min-h-[100px] max-h-[120px] p-1',
+const positionConfig: Record<AdPosition, { label: string; size: string; format: 'vertical' | 'horizontal' | 'rectangle'; responsive: boolean }> = {
+  sidebar: { label: 'Sidebar Ad', size: '300x600', format: 'vertical', responsive: false },
+  'bottom-mobile': { label: 'Mobile Banner', size: '320x50', format: 'horizontal', responsive: true },
+  'in-content': { label: 'In-Content Ad', size: '320x100', format: 'horizontal', responsive: true },
+  dialog: { label: 'Dialog Ad', size: '300x250', format: 'rectangle', responsive: true },
 };
 
-const placeholderStyles = 'flex h-full w-full items-center justify-center bg-muted-foreground/10';
+const containerStyles: Record<AdPosition, string> = {
+  sidebar: 'sticky top-4 h-[600px] w-[300px]',
+  'bottom-mobile': 'fixed bottom-0 left-0 right-0 z-50 h-[80px] bg-background/95 backdrop-blur-sm border-t border-border',
+  'in-content': 'my-4 min-h-[100px]',
+  dialog: 'min-h-[250px]',
+};
 
 export const AdSpace: React.FC<AdSpaceProps> = ({ position, showPlaceholder = false, slot, clientId, className }) => {
+  const config = positionConfig[position];
+
   if (showPlaceholder) {
-    if (position === 'top-mobile') {
-      return (
-        <div className={cn(containerStyles.base, containerStyles.mobile, className)}>
-          <span className="mb-1 text-muted-foreground text-xs">Advertisement</span>
-          <div className={cn(placeholderStyles, 'h-[50px] max-w-[320px]')}>
-            <span className="text-center text-muted-foreground text-xs">
-              Mobile Banner
-              <br />
-              320x50
-            </span>
-          </div>
-        </div>
-      );
-    }
-
-    if (position === 'in-content') {
-      return (
-        <div className={cn(containerStyles.base, containerStyles.inContent, className)}>
-          <div className={placeholderStyles}>
-            <span className="text-muted-foreground text-xs">Advertisement - In-Content (320x100)</span>
-          </div>
-        </div>
-      );
-    }
-
     return (
-      <div className={cn(containerStyles.base, containerStyles.side, className)}>
-        <span className="mb-1 text-muted-foreground text-sm">Advertisement</span>
-        <div className={placeholderStyles}>
-          <span className="text-center text-muted-foreground text-xs">
-            {position === 'left' ? 'Left Ad Space' : 'Right Ad Space'}
-            <br />
-            300x600
-          </span>
-        </div>
+      <div
+        className={cn(
+          'flex flex-col items-center justify-center border border-border border-dashed bg-muted/50',
+          containerStyles[position],
+          className
+        )}
+      >
+        <span className="text-body-small text-muted-foreground">{config.label}</span>
+        <span className="text-body-small text-muted-foreground/60">({config.size})</span>
       </div>
     );
   }
 
   if (!slot || !clientId) return null;
 
-  const isSidebar = position === 'left' || position === 'right';
-  const format = isSidebar ? 'vertical' : 'horizontal';
-  const responsive = !isSidebar;
-
-  const getContainerStyle = () => {
-    if (position === 'top-mobile') return containerStyles.mobile;
-    if (position === 'in-content') return containerStyles.inContent;
-    return containerStyles.side;
-  };
-
   return (
-    <div className={cn(containerStyles.base, getContainerStyle(), className)}>
-      <GoogleAd slot={slot} format={format} responsive={responsive} clientId={clientId} />
+    <div className={cn(containerStyles[position], className)}>
+      <GoogleAd slot={slot} format={config.format} responsive={config.responsive} clientId={clientId} />
     </div>
   );
 };

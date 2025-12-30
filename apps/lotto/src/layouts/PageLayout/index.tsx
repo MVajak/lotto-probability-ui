@@ -18,32 +18,25 @@ export const PageLayout = ({ children }: PageLayoutProps) => {
       <div className="py-4">
         <Header />
 
-        {/* Mobile Top Banner Ad - Only visible on small/medium screens */}
-        {showAds && (
-          <div className="block lg:hidden">
-            <AdSpace position="top-mobile" showPlaceholder={import.meta.env.DEV} />
-          </div>
-        )}
-
-        <div className="flex flex-col gap-4 lg:flex-row">
-          {/* Left Ad Space - Hidden on small/medium screens */}
-          {showAds && (
-            <div className="hidden min-w-[200px] max-w-[250px] lg:block">
-              <AdSpace position="left" showPlaceholder={import.meta.env.DEV} />
-            </div>
-          )}
-
+        <div className="flex gap-6">
           {/* Main Content */}
-          <div className="flex-1 text-muted-foreground leading-[60px]">{children}</div>
+          <div className="min-w-0 flex-1">{children}</div>
 
-          {/* Right Ad Space - Hidden on small/medium screens */}
+          {/* Right Sidebar Ad - Desktop only */}
           {showAds && (
-            <div className="hidden min-w-[200px] max-w-[250px] lg:block">
-              <AdSpace position="right" showPlaceholder={import.meta.env.DEV} />
+            <div className="hidden lg:block">
+              <AdSpace position="sidebar" showPlaceholder={import.meta.env.DEV} />
             </div>
           )}
         </div>
       </div>
+
+      {/* Bottom Mobile Ad - Fixed at bottom, mobile only */}
+      {showAds && (
+        <div className="block lg:hidden">
+          <AdSpace position="bottom-mobile" showPlaceholder={import.meta.env.DEV} />
+        </div>
+      )}
     </div>
   );
 };

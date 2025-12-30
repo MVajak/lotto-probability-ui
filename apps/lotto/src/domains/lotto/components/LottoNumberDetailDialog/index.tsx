@@ -3,7 +3,7 @@ import { Suspense } from 'react';
 import { useSuspenseQuery } from '@tanstack/react-query';
 import { useTranslation } from 'react-i18next';
 
-import { Dialog, DialogBody, DialogContent, DialogHeader, DialogTitle, LottoNumber } from '@lotto/ui';
+import { AdSpace, Dialog, DialogBody, DialogContent, DialogHeader, DialogTitle, LottoNumber } from '@lotto/ui';
 
 import { numberDetailQueryOptions, useLottoStore } from '@/domains/lotto';
 import { UpgradePromptCard, useSubscriptionTier } from '@/domains/subscription';
@@ -111,9 +111,15 @@ const LottoNumberDetailContent: React.FC<LottoNumberDetailContentProps> = ({
           <NumberInsightsCard numberDetail={numberDetail} />
         </div>
       ) : (
-        <div className="col-span-12">
-          <UpgradePromptCard requiredTier="PRO" />
-        </div>
+        <>
+          <div className="col-span-12">
+            <UpgradePromptCard requiredTier="PRO" />
+          </div>
+          {/* Ad for FREE users in dialog */}
+          <div className="col-span-12">
+            <AdSpace position="dialog" showPlaceholder={import.meta.env.DEV} />
+          </div>
+        </>
       )}
     </div>
   );
