@@ -12,6 +12,8 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as UnauthenticatedRouteImport } from './routes/_unauthenticated'
 import { Route as AuthenticatedRouteImport } from './routes/_authenticated'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as SubscriptionSuccessRouteImport } from './routes/subscription.success'
+import { Route as SubscriptionCancelRouteImport } from './routes/subscription.cancel'
 import { Route as UnauthenticatedLoginRouteImport } from './routes/_unauthenticated/login'
 import { Route as AuthenticatedSubscriptionRouteImport } from './routes/_authenticated/subscription'
 import { Route as AuthenticatedProfileRouteImport } from './routes/_authenticated/profile'
@@ -28,6 +30,16 @@ const AuthenticatedRoute = AuthenticatedRouteImport.update({
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SubscriptionSuccessRoute = SubscriptionSuccessRouteImport.update({
+  id: '/subscription/success',
+  path: '/subscription/success',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SubscriptionCancelRoute = SubscriptionCancelRouteImport.update({
+  id: '/subscription/cancel',
+  path: '/subscription/cancel',
   getParentRoute: () => rootRouteImport,
 } as any)
 const UnauthenticatedLoginRoute = UnauthenticatedLoginRouteImport.update({
@@ -58,6 +70,8 @@ export interface FileRoutesByFullPath {
   '/profile': typeof AuthenticatedProfileRoute
   '/subscription': typeof AuthenticatedSubscriptionRoute
   '/login': typeof UnauthenticatedLoginRoute
+  '/subscription/cancel': typeof SubscriptionCancelRoute
+  '/subscription/success': typeof SubscriptionSuccessRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -65,6 +79,8 @@ export interface FileRoutesByTo {
   '/profile': typeof AuthenticatedProfileRoute
   '/subscription': typeof AuthenticatedSubscriptionRoute
   '/login': typeof UnauthenticatedLoginRoute
+  '/subscription/cancel': typeof SubscriptionCancelRoute
+  '/subscription/success': typeof SubscriptionSuccessRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -75,12 +91,28 @@ export interface FileRoutesById {
   '/_authenticated/profile': typeof AuthenticatedProfileRoute
   '/_authenticated/subscription': typeof AuthenticatedSubscriptionRoute
   '/_unauthenticated/login': typeof UnauthenticatedLoginRoute
+  '/subscription/cancel': typeof SubscriptionCancelRoute
+  '/subscription/success': typeof SubscriptionSuccessRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/home' | '/profile' | '/subscription' | '/login'
+  fullPaths:
+    | '/'
+    | '/home'
+    | '/profile'
+    | '/subscription'
+    | '/login'
+    | '/subscription/cancel'
+    | '/subscription/success'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/home' | '/profile' | '/subscription' | '/login'
+  to:
+    | '/'
+    | '/home'
+    | '/profile'
+    | '/subscription'
+    | '/login'
+    | '/subscription/cancel'
+    | '/subscription/success'
   id:
     | '__root__'
     | '/'
@@ -90,12 +122,16 @@ export interface FileRouteTypes {
     | '/_authenticated/profile'
     | '/_authenticated/subscription'
     | '/_unauthenticated/login'
+    | '/subscription/cancel'
+    | '/subscription/success'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AuthenticatedRoute: typeof AuthenticatedRouteWithChildren
   UnauthenticatedRoute: typeof UnauthenticatedRouteWithChildren
+  SubscriptionCancelRoute: typeof SubscriptionCancelRoute
+  SubscriptionSuccessRoute: typeof SubscriptionSuccessRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -119,6 +155,20 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/subscription/success': {
+      id: '/subscription/success'
+      path: '/subscription/success'
+      fullPath: '/subscription/success'
+      preLoaderRoute: typeof SubscriptionSuccessRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/subscription/cancel': {
+      id: '/subscription/cancel'
+      path: '/subscription/cancel'
+      fullPath: '/subscription/cancel'
+      preLoaderRoute: typeof SubscriptionCancelRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_unauthenticated/login': {
@@ -184,6 +234,8 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AuthenticatedRoute: AuthenticatedRouteWithChildren,
   UnauthenticatedRoute: UnauthenticatedRouteWithChildren,
+  SubscriptionCancelRoute: SubscriptionCancelRoute,
+  SubscriptionSuccessRoute: SubscriptionSuccessRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -525,6 +525,14 @@
       "seePreview": "Vaata eelvaadet",
       "seeWhatYouGet": "Vaata, mida saad",
       "demoNote": "Eelvaade kasutab demoandmeid numbri {{number}} jaoks"
+    },
+    "checkout": {
+      "successTitle": "Makse õnnestus!",
+      "successMessage": "Sinu tellimus on aktiveeritud. Suuname edasi...",
+      "activating": "Aktiveerime sinu tellimust...",
+      "cancelTitle": "Makse katkestatud",
+      "cancelMessage": "Tasusid ei võetud. Võid igal ajal uuesti proovida.",
+      "returnToSubscription": "Tagasi tellimuste juurde"
     }
   },
   "home": {

@@ -525,6 +525,14 @@
       "seePreview": "See preview",
       "seeWhatYouGet": "See what you get",
       "demoNote": "Preview using demo data for number {{number}}"
+    },
+    "checkout": {
+      "successTitle": "Payment Successful!",
+      "successMessage": "Your subscription has been activated. Redirecting...",
+      "activating": "Activating your subscription...",
+      "cancelTitle": "Checkout Cancelled",
+      "cancelMessage": "No charges were made. You can try again anytime.",
+      "returnToSubscription": "Return to Subscription"
     }
   },
   "home": {

@@ -5,7 +5,12 @@ import { useTranslation } from 'react-i18next';
 
 import { Badge, Button, CardContent, cn, InteractiveCard } from '@lotto/ui';
 
-import { FeaturePreviewDialog, type SubscriptionTier, useUpdateTierMutation } from '@/domains/subscription';
+import {
+  FeaturePreviewDialog,
+  type SubscriptionTier,
+  useCancelSubscriptionMutation,
+  useCreateCheckoutSessionMutation,
+} from '@/domains/subscription';
 
 interface PricingCardProps {
   tier: SubscriptionTier;
@@ -14,15 +19,27 @@ interface PricingCardProps {
 
 export const PricingCard: React.FC<PricingCardProps> = ({ tier, isCurrentPlan = false }) => {
   const { t } = useTranslation();
-  const { mutate, isPending } = useUpdateTierMutation();
+  const checkoutMutation = useCreateCheckoutSessionMutation();
+  const cancelMutation = useCancelSubscriptionMutation();
   const [showPreview, setShowPreview] = useState(false);
 
   const isHighlighted = tier.code === 'PRO';
+  const isPending = checkoutMutation.isPending || cancelMutation.isPending;
 
   const handleClick = () => {
-    if (!isCurrentPlan && !isPending) {
-      mutate(tier.id);
+    if (isCurrentPlan || isPending) return;
+
+    // FREE tier = cancel subscription (downgrade at period end)
+    if (tier.code === 'FREE') {
+      cancelMutation.mutate();
+      return;
     }
+
+    checkoutMutation.mutate({
+      tierCode: tier.code,
+      successUrl: `${window.location.origin}/subscription/success`,
+      cancelUrl: `${window.location.origin}/subscription/cancel`,
+    });
   };
 
   return (
