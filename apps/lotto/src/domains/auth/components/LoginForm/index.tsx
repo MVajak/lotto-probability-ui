@@ -50,7 +50,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onSubmit, isLoading, error
       <img src="/img/logo_lotto.png" alt="Lotto Logo" className="max-w-[120px]" />
 
       <div className="flex flex-col items-center gap-4 text-center">
-        <h1 className="text-display-small text-light">{t('login.title')}</h1>
+        <h1 className="text-display-small text-foreground">{t('login.title')}</h1>
       </div>
 
       <form className="flex w-full flex-col gap-8" onSubmit={handleSubmit(submit)}>

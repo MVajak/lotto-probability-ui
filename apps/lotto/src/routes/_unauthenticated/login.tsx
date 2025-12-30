@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { createFileRoute, useNavigate } from '@tanstack/react-router';
+import { AnimatePresence, motion } from 'motion/react';
 import { useTranslation } from 'react-i18next';
 
 import { currentUserQuery, requestOtpMutation, useAuthStore, verifyOtpMutation } from '@/domains/auth';
@@ -60,35 +61,53 @@ function LoginPage() {
     verifyOtpMut.reset();
   };
 
+  const renderForm = () => {
+    switch (step) {
+      case 'login':
+        return (
+          <LoginForm
+            onSubmit={handleLogin}
+            isLoading={requestOtpMut.isPending}
+            error={requestOtpMut.error?.message ?? null}
+          />
+        );
+
+      case 'verify':
+        return (
+          <VerifyOtpForm
+            email={submittedEmail}
+            onVerify={handleVerify}
+            onResend={handleResend}
+            onBack={handleBack}
+            isVerifying={verifyOtpMut.isPending}
+            isResending={requestOtpMut.isPending}
+            error={verifyOtpMut.error?.message ?? null}
+          />
+        );
+
+      case 'success':
+        return <SuccessLayout title={t('verifyOtp.verificationSuccessful')} message={t('verifyOtp.redirecting')} />;
+    }
+  };
+
   return (
     <BrandLayout>
       <div className="absolute top-4 right-4">
         <LanguageSelector />
       </div>
 
-      {step === 'login' && (
-        <LoginForm
-          onSubmit={handleLogin}
-          isLoading={requestOtpMut.isPending}
-          error={requestOtpMut.error?.message ?? null}
-        />
-      )}
-
-      {step === 'verify' && (
-        <VerifyOtpForm
-          email={submittedEmail}
-          onVerify={handleVerify}
-          onResend={handleResend}
-          onBack={handleBack}
-          isVerifying={verifyOtpMut.isPending}
-          isResending={requestOtpMut.isPending}
-          error={verifyOtpMut.error?.message ?? null}
-        />
-      )}
-
-      {step === 'success' && (
-        <SuccessLayout title={t('verifyOtp.verificationSuccessful')} message={t('verifyOtp.redirecting')} />
-      )}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={step}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ duration: 0.2 }}
+          className="flex min-h-full w-full items-center justify-center"
+        >
+          {renderForm()}
+        </motion.div>
+      </AnimatePresence>
     </BrandLayout>
   );
 }

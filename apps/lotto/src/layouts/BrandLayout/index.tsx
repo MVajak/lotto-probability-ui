@@ -52,7 +52,7 @@ export const BrandLayout: React.FC<BrandLayoutProps> = ({ children, maxWidth = '
       </div>
 
       <Card
-        className="relative z-10 m-[18px] flex w-full flex-col justify-center"
+        className="relative z-10 m-[18px] flex w-full flex-col justify-center bg-background"
         style={{ maxWidth: `min(100%, ${maxWidth})` }}
       >
         {children}

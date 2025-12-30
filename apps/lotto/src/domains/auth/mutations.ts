@@ -59,12 +59,14 @@ export function useUpdateProfileMutation() {
 }
 
 export function useDeleteAccountMutation() {
+  const queryClient = useQueryClient();
   const logout = useAuthStore((state) => state.logout);
 
   return useMutation({
     mutationFn: () => apiFetch<void>('/users/me', { method: 'DELETE' }),
     onSuccess: () => {
       logout();
+      queryClient.clear();
     },
   });
 }

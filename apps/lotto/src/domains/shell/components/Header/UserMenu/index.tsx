@@ -9,6 +9,7 @@ import {
   SunIcon,
   UserIcon,
 } from '@heroicons/react/24/outline';
+import { useQueryClient } from '@tanstack/react-query';
 import { useNavigate } from '@tanstack/react-router';
 import { useTranslation } from 'react-i18next';
 
@@ -33,6 +34,7 @@ import { useTheme } from '@/domains/theme';
 export const UserMenu: React.FC = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const queryClient = useQueryClient();
   const logout = useAuthStore((state) => state.logout);
   const { theme, setTheme } = useTheme();
 
@@ -46,6 +48,7 @@ export const UserMenu: React.FC = () => {
 
   const handleLogout = () => {
     logout();
+    queryClient.clear();
     void navigate({ to: '/login' });
   };
 
