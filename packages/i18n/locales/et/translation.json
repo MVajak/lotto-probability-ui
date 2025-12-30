@@ -485,6 +485,10 @@
     "alreadyOnPlan": "Oled sellel paketil",
     "choosePlan": "Vali pakett",
     "updating": "Uuendan...",
+    "downgradeScheduled": "Alandamine planeeritud",
+    "endsOn": "Lõpeb {{date}}",
+    "resume": "Jätka tellimust",
+    "resuming": "Jätkamine...",
     "FREE": {
       "name": "Tasuta"
     },

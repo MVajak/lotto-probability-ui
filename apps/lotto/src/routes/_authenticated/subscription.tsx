@@ -27,11 +27,16 @@ function SubscriptionPage() {
   return (
     <PageLayout>
       <div className="p-6">
-        <h1 className="mb-4 text-center text-dark text-title-large">{t('subscription.title')}</h1>
+        <h1 className="mb-4 text-center text-foreground text-title-large">{t('subscription.title')}</h1>
         <p className="mb-8 text-center text-body-default text-muted-foreground">{t('subscription.subtitle')}</p>
         <div className="grid grid-cols-1 justify-center gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {sortedTiers.map((tier) => (
-            <PricingCard key={tier.id} tier={tier} isCurrentPlan={tier.code === currentTierCode} />
+            <PricingCard
+              key={tier.id}
+              tier={tier}
+              isCurrentPlan={tier.code === currentTierCode}
+              currentSubscription={userData.subscription ?? undefined}
+            />
           ))}
         </div>
       </div>

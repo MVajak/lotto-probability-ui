@@ -485,6 +485,10 @@
     "alreadyOnPlan": "You're on this plan",
     "choosePlan": "Choose Plan",
     "updating": "Updating...",
+    "downgradeScheduled": "Downgrade scheduled",
+    "endsOn": "Ends on {{date}}",
+    "resume": "Resume subscription",
+    "resuming": "Resuming...",
     "FREE": {
       "name": "Free"
     },

@@ -19,7 +19,9 @@ export interface Subscription {
   id: string;
   tier: SubscriptionTierCode;
   status: string;
-  expiresAt?: string;
+  cancelAt: string;
+  cancelAtPeriodEnd?: boolean;
+  stripeSubscriptionId?: string;
 }
 
 export interface UpdateProfileInput {

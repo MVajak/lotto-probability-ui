@@ -81,3 +81,48 @@ export function useCancelSubscriptionMutation() {
     },
   });
 }
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Change Tier (PRO ↔ PREMIUM) - also resumes if cancelled
+// ─────────────────────────────────────────────────────────────────────────────
+
+interface ChangeTierRequest {
+  tierCode: 'PRO' | 'PREMIUM';
+}
+
+export function useChangeTierMutation() {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: (data: ChangeTierRequest) =>
+      apiFetch<void>('/subscriptions/change-tier', {
+        method: 'POST',
+        body: JSON.stringify(data),
+      }),
+    onSuccess: async () => {
+      await refreshAuthTokens();
+      void queryClient.invalidateQueries({ queryKey: currentUserQuery.queryKey });
+      void queryClient.invalidateQueries({ queryKey: numberDetailQueryKey });
+    },
+  });
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Resume Subscription (undo cancellation)
+// ─────────────────────────────────────────────────────────────────────────────
+
+export function useResumeSubscriptionMutation() {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: () =>
+      apiFetch<void>('/subscriptions/resume', {
+        method: 'POST',
+      }),
+    onSuccess: async () => {
+      await refreshAuthTokens();
+      void queryClient.invalidateQueries({ queryKey: currentUserQuery.queryKey });
+      void queryClient.invalidateQueries({ queryKey: numberDetailQueryKey });
+    },
+  });
+}
