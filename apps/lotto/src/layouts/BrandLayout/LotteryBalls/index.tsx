@@ -168,7 +168,7 @@ export const LotteryBalls: React.FC<LotteryBallsProps> = ({ width = 800, height 
               x={ball.x}
               y={barY + barHeight + 15}
               textAnchor="middle"
-              fill="color-mix(in srgb, var(--color-primary-foreground) 70%, transparent)"
+              fill="color-mix(in srgb, var(--color-light) 70%, transparent)"
               fontSize="10"
               fontFamily="sans-serif"
             >

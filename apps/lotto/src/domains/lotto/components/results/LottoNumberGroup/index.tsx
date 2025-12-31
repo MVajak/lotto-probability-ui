@@ -39,18 +39,20 @@ export const LottoNumberGroup = ({
   const hiddenNumbers = shouldShowExpandButton ? numbers.slice(maxVisible) : [];
   const hiddenCount = hiddenNumbers.length;
 
-  // If only one number, display it normally
+  // If only one number, display it with same alignment as groups
   if (numbers.length === 1) {
     return (
       <>
-        <LottoNumber
-          digit={numbers[0].digit}
-          index={`single-${index}`}
-          onClick={() => {
-            setSelectedNumberIndex(0);
-            setDrawerOpen(true);
-          }}
-        />
+        <div className="my-1 inline-flex flex-col items-center align-top">
+          <LottoNumber
+            digit={numbers[0].digit}
+            index={`single-${index}`}
+            onClick={() => {
+              setSelectedNumberIndex(0);
+              setDrawerOpen(true);
+            }}
+          />
+        </div>
         <LottoNumberDetailDialog
           open={drawerOpen}
           onClose={() => setDrawerOpen(false)}
