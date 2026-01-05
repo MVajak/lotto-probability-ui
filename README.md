@@ -1,74 +1,100 @@
-# Lotto Probability UI
+# Lotto Probability
 
-A React-based lottery probability calculator built with Vite and TypeScript.
+A lottery probability analysis platform that provides statistical insights and predictions for lottery numbers across multiple games worldwide.
+
+## Features
+
+- **Frequency Analysis** - Track how often each number appears in lottery draws
+- **Hot/Cold Meters** - Identify trending and dormant numbers
+- **Trend Charts** - Visualize number patterns over time
+- **Streak Statistics** - Current streaks, longest streaks, average days between appearances
+- **Advanced Analytics** (Premium) - Markov chains, Monte Carlo simulations, pair analysis, seasonal patterns
+
+### Supported Lotteries
+
+| Region | Lotteries |
+|--------|-----------|
+| Estonia | Eurojackpot, Viking Lotto, Bingo, Keno, Jokker |
+| United Kingdom | UK Lotto, EuroMillions, Thunderball, Set for Life |
+| United States | Powerball, Mega Millions, Cash4Life |
 
 ## Tech Stack
 
 - **Framework**: React 19 with TypeScript
 - **Build Tool**: Vite 6
-- **Package Manager**: pnpm
-- **UI Library**: Material-UI (MUI) v7
-- **State Management**: Redux Toolkit
-- **Testing**: Vitest
-- **Linting & Formatting**: Biome
+- **Package Manager**: pnpm (monorepo)
+- **Routing**: TanStack Router
+- **Data Fetching**: TanStack Query
+- **State Management**: Zustand
+- **Styling**: Tailwind CSS 4
+- **Charts**: Nivo
+- **Forms**: React Hook Form + Zod
 - **Internationalization**: i18next
+- **Linting & Formatting**: Biome
 
 ## Prerequisites
 
-- Node.js (v18 or higher recommended)
-- pnpm (v10 or higher)
+- Node.js 18+
+- pnpm 10+
 
-Install pnpm globally if you haven't already:
 ```bash
 npm install -g pnpm
 ```
 
+## Getting Started
+
+1. Install dependencies:
+   ```bash
+   pnpm install
+   ```
+
+2. Create environment file at `apps/lotto/.env`:
+   ```env
+   VITE_API_URL=http://localhost:3000
+
+   # Google AdSense (optional)
+   VITE_ADSENSE_CLIENT_ID=
+   VITE_ADSENSE_MOBILE_SLOT=
+   VITE_ADSENSE_INCONTENT_SLOT=
+   VITE_ADSENSE_SIDEBAR_SLOT=
+   VITE_SHOW_AD_PLACEHOLDERS=false
+   ```
+
+3. Start the development server:
+   ```bash
+   pnpm dev
+   ```
+
+4. Open [http://localhost:3001](http://localhost:3001)
+
 ## Available Scripts
 
-In the project directory, you can run:
+| Command | Description |
+|---------|-------------|
+| `pnpm dev` | Start development server |
+| `pnpm build` | Build for production |
+| `pnpm preview` | Preview production build |
+| `pnpm storybook` | Run Storybook |
+| `pnpm test` | Run tests |
+| `pnpm typecheck` | Run TypeScript type checking |
+| `pnpm lint` | Check code quality with Biome |
+| `pnpm lint:fix` | Fix linting issues |
+| `pnpm format` | Format code |
 
-### `pnpm dev`
+## Project Structure
 
-Runs the app in development mode using Vite's dev server.\
-Open [http://localhost:3001](http://localhost:3001) to view it in the browser.
-
-The page will hot-reload when you make edits.\
-You will also see any lint errors in the console.
-
-### `pnpm test`
-
-Launches the test runner (Vitest) in watch mode.\
-Use `pnpm test:coverage` to generate a coverage report.
-
-### `pnpm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and filenames include hashes.\
-Your app is ready to be deployed!
-
-### `pnpm preview`
-
-Previews the production build locally.\
-Useful for testing the production build before deployment.
-
-### `pnpm lint`
-
-Runs Biome to check for code quality issues and formatting.
-
-### `pnpm lint:fix`
-
-Automatically fixes linting errors and formats code using Biome.
-
-### `pnpm format`
-
-Formats code only (without linting) using Biome.
-
-## Learn More
-
-- [Vite Documentation](https://vitejs.dev/)
-- [React Documentation](https://react.dev/)
-- [TypeScript Documentation](https://www.typescriptlang.org/)
-- [Material-UI Documentation](https://mui.com/)
-- [Biome Documentation](https://biomejs.dev/)
+```
+├── apps/
+│   └── lotto/              # Main application
+│       └── src/
+│           ├── domains/    # Feature modules
+│           │   ├── api/    # API client
+│           │   ├── auth/   # Authentication
+│           │   ├── lotto/  # Lottery analysis
+│           │   └── subscription/
+│           ├── layouts/    # Page layouts
+│           └── routes/     # File-based routing
+└── packages/
+    ├── storybook/          # Component documentation
+    └── ui/                 # Shared UI components
+```
