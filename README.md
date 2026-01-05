@@ -51,13 +51,6 @@ npm install -g pnpm
 2. Create environment file at `apps/lotto/.env`:
    ```env
    VITE_API_URL=http://localhost:3000
-
-   # Google AdSense (optional)
-   VITE_ADSENSE_CLIENT_ID=
-   VITE_ADSENSE_MOBILE_SLOT=
-   VITE_ADSENSE_INCONTENT_SLOT=
-   VITE_ADSENSE_SIDEBAR_SLOT=
-   VITE_SHOW_AD_PLACEHOLDERS=false
    ```
 
 3. Start the development server:
