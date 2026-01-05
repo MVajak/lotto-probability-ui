@@ -2,7 +2,7 @@ services:
   - type: web
     name: lotto-probability
     runtime: static
-    buildCommand: corepack enable && pnpm install && pnpm --filter @lotto/app exec vite build
+    buildCommand: npm install -g pnpm && pnpm install && pnpm --filter @lotto/app exec vite build
     staticPublishPath: apps/lotto/dist
     envVars:
       - key: VITE_API_URL
