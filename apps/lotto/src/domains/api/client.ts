@@ -1,7 +1,9 @@
+import { config } from '@/config';
+
 import { useAuthStore } from '../auth/store';
 import type { AuthTokens } from '../auth/types';
 
-const API_URL = import.meta.env.VITE_API_URL;
+const API_URL = config.api.url;
 
 /**
  * Track if we're currently refreshing tokens to prevent multiple simultaneous refresh calls.

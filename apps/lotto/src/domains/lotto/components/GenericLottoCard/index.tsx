@@ -1,5 +1,6 @@
 import { AdSpace } from '@lotto/ui';
 
+import { adConfig } from '@/domains/ads/config';
 import type { LotteryConfig } from '@/domains/lotto';
 import { LottoInfoCard, LottoSearchCard, useLotteryData } from '@/domains/lotto';
 import { useSubscriptionTier } from '@/domains/subscription';
@@ -33,7 +34,7 @@ export const GenericLottoCard = ({ config }: GenericLottoCardProps) => {
       />
 
       {/* In-Content Ad - between info and search */}
-      {showAds && <AdSpace position="in-content" showPlaceholder={import.meta.env.DEV} />}
+      {showAds && <AdSpace position="in-content" {...adConfig.getAdProps('in-content')} />}
 
       {/* Search Section */}
       <div className="text-center">

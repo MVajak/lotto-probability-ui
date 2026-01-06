@@ -5,6 +5,7 @@ import { TanStackRouterDevtools } from '@tanstack/react-router-devtools';
 
 import { Toaster } from '@lotto/ui';
 
+import { config } from '@/config';
 import { ThemeApplier, ThemeProvider } from '@/domains/theme';
 
 function RootComponent() {
@@ -13,7 +14,7 @@ function RootComponent() {
       <ThemeApplier />
       <Toaster />
       <Outlet />
-      {import.meta.env.DEV && (
+      {config.isDev && (
         <>
           <TanStackRouterDevtools position="bottom-right" />
           <ReactQueryDevtools buttonPosition="bottom-left" />

@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 
 import { AdSpace, Dialog, DialogBody, DialogContent, DialogHeader, DialogTitle, LottoNumber } from '@lotto/ui';
 
+import { adConfig } from '@/domains/ads/config';
 import { numberDetailQueryOptions, useLottoStore } from '@/domains/lotto';
 import { UpgradePromptCard, useSubscriptionTier } from '@/domains/subscription';
 import { LoadingLayout } from '@/layouts/LoadingLayout';
@@ -117,7 +118,7 @@ const LottoNumberDetailContent: React.FC<LottoNumberDetailContentProps> = ({
           </div>
           {/* Ad for FREE users in dialog */}
           <div className="col-span-12">
-            <AdSpace position="dialog" showPlaceholder={import.meta.env.DEV} />
+            <AdSpace position="dialog" {...adConfig.getAdProps('dialog')} />
           </div>
         </>
       )}

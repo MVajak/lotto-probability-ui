@@ -2,6 +2,7 @@ import type React from 'react';
 
 import { AdSpace } from '@lotto/ui';
 
+import { adConfig } from '@/domains/ads/config';
 import { Header } from '@/domains/shell';
 import { useSubscriptionTier } from '@/domains/subscription';
 
@@ -18,14 +19,14 @@ export const PageLayout = ({ children }: PageLayoutProps) => {
       <div className="py-4">
         <Header />
 
-        <div className="flex gap-6">
+        <div className={`flex${showAds ? ' gap-6' : ''}`}>
           {/* Main Content */}
           <div className="min-w-0 flex-1">{children}</div>
 
           {/* Right Sidebar Ad - Desktop only */}
           {showAds && (
             <div className="hidden lg:block">
-              <AdSpace position="sidebar" showPlaceholder={import.meta.env.DEV} />
+              <AdSpace position="sidebar" {...adConfig.getAdProps('sidebar')} />
             </div>
           )}
         </div>
@@ -34,7 +35,7 @@ export const PageLayout = ({ children }: PageLayoutProps) => {
       {/* Bottom Mobile Ad - Fixed at bottom, mobile only */}
       {showAds && (
         <div className="block lg:hidden">
-          <AdSpace position="bottom-mobile" showPlaceholder={import.meta.env.DEV} />
+          <AdSpace position="bottom-mobile" {...adConfig.getAdProps('bottom-mobile')} />
         </div>
       )}
     </div>
