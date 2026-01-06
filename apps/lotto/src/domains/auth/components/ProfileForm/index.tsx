@@ -30,7 +30,7 @@ interface ProfileFormProps {
 }
 
 export const ProfileForm: React.FC<ProfileFormProps> = ({ user }) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [showDeleteDialog, setShowDeleteDialog] = useState(false);
 
   const updateProfileMutation = useUpdateProfileMutation();
@@ -60,7 +60,7 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({ user }) => {
   };
 
   const displayName = [user.firstName, user.lastName].filter(Boolean).join(' ') || user.email;
-  const memberSince = new Date(user.createdAt).toLocaleDateString(undefined, {
+  const memberSince = new Date(user.createdAt).toLocaleDateString(i18n.language, {
     year: 'numeric',
     month: 'long',
   });
