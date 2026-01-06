@@ -141,7 +141,7 @@ export const PricingCard: React.FC<PricingCardProps> = ({ tier, isCurrentPlan = 
               isHighlighted ? 'text-primary-orange' : 'text-foreground'
             )}
           >
-            {tier.price}
+            ${tier.price}
           </span>
           <span className="ml-1 text-body-small text-muted-foreground">{t('subscription.perMonth')}</span>
         </div>
