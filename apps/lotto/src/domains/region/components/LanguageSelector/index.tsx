@@ -1,41 +1,55 @@
-import type React from 'react';
+import { GlobeAltIcon } from '@heroicons/react/24/outline';
+import { motion } from 'motion/react';
+import { useTranslation } from 'react-i18next';
 
-import i18n, { Language } from '@lotto/i18n';
-import { Select, SelectContent, SelectItem, SelectTrigger, useLocalStorage } from '@lotto/ui';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from '@lotto/ui';
 
-import { RegionStorageKey } from '@/domains/region';
+const languages = [
+  { code: 'en', label: 'English' },
+  { code: 'et', label: 'Eesti' },
+] as const;
 
-import FlagEstonia from '../../assets/flag_estonia.svg';
-import FlagUK from '../../assets/flag_united_kingdom.svg';
-
-const FLAGS: Record<Language, string> = {
-  [Language.ET]: FlagEstonia,
-  [Language.EN]: FlagUK,
-};
-
-export const LanguageSelector: React.FC = () => {
-  const [language, setLanguage] = useLocalStorage<Language>(RegionStorageKey.LANGUAGE, Language.EN);
-
-  const handleLanguageChange = async (value: string) => {
-    const changedLanguage: Language = value as Language;
-
-    await i18n.changeLanguage(changedLanguage);
-    setLanguage(changedLanguage);
-  };
+export function LanguageSelector() {
+  const { t, i18n } = useTranslation();
+  // Handle locale codes like "et-EE" by extracting base language
+  const currentLang = i18n.language.split('-')[0];
 
   return (
-    <Select value={language} onValueChange={handleLanguageChange}>
-      <SelectTrigger className="w-20">
-        <img src={FLAGS[language]} alt={language} width={25} height={15} />
-      </SelectTrigger>
-      <SelectContent>
-        <SelectItem value={Language.ET}>
-          <img src={FlagEstonia} alt="ET" width={25} height={15} />
-        </SelectItem>
-        <SelectItem value={Language.EN}>
-          <img src={FlagUK} alt="EN" width={25} height={15} />
-        </SelectItem>
-      </SelectContent>
-    </Select>
+    <DropdownMenu>
+      <Tooltip>
+        <TooltipTrigger asChild>
+          <DropdownMenuTrigger asChild>
+            <motion.button
+              type="button"
+              className="flex size-10 cursor-pointer items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus:outline-none"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <GlobeAltIcon className="size-5" />
+            </motion.button>
+          </DropdownMenuTrigger>
+        </TooltipTrigger>
+        <TooltipContent>{t('userMenu.language')}</TooltipContent>
+      </Tooltip>
+      <DropdownMenuContent align="end">
+        {languages.map((lang) => (
+          <DropdownMenuItem
+            key={lang.code}
+            onClick={() => i18n.changeLanguage(lang.code)}
+            className={currentLang === lang.code ? 'bg-muted' : ''}
+          >
+            {lang.label}
+          </DropdownMenuItem>
+        ))}
+      </DropdownMenuContent>
+    </DropdownMenu>
   );
-};
+}

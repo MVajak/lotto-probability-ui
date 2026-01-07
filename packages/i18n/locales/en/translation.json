@@ -1,4 +1,9 @@
 {
+  "nav": {
+    "home": "Home",
+    "profile": "Profile",
+    "subscription": "Subscription"
+  },
   "info": {
     "gameRules": "Game rules",
     "buyTickets": "Buy tickets",

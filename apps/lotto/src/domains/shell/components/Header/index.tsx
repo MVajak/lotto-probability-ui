@@ -1,57 +1,129 @@
-import { HomeIcon } from '@heroicons/react/24/outline';
+import { useState } from 'react';
+import { Bars3Icon, CreditCardIcon, HomeIcon, UserIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import { Link } from '@tanstack/react-router';
+import { AnimatePresence, motion } from 'motion/react';
+import { useTranslation } from 'react-i18next';
 
-import { UserMenu } from './UserMenu';
+import { Tooltip, TooltipContent, TooltipTrigger } from '@lotto/ui';
+
+import { LanguageSelector } from '@/domains/region/components/LanguageSelector';
+import { RegionSelector } from '@/domains/region/components/RegionSelector';
+import { ThemeToggle } from '@/domains/theme/components/ThemeToggle';
+
+import { LogoutButton } from './LogoutButton';
+
+const navItems = [
+  { key: 'home', to: '/home', icon: HomeIcon },
+  { key: 'profile', to: '/profile', icon: UserIcon },
+  { key: 'subscription', to: '/subscription', icon: CreditCardIcon },
+] as const;
 
 export function Header() {
+  const { t } = useTranslation();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   return (
-    <header className="mb-4 rounded-xl bg-gradient-to-br from-primary to-primary-light shadow-lg">
-      <div className="container mx-auto max-w-screen-xl px-4">
-        <div className="flex items-center py-3">
-          {/* Desktop Logo */}
-          <Link
-            to="/home"
-            className="mr-2 hidden cursor-pointer transition-transform duration-200 hover:scale-105 md:flex"
-          >
-            <img src="/img/logo_lotto.png" alt="Lotto Logo" className="h-auto max-w-[50px]" />
-          </Link>
-          <Link
-            to="/home"
-            className="mr-4 hidden text-secondary text-title-small-bold tracking-wider no-underline transition-opacity duration-200 hover:opacity-85 md:flex"
-          >
-            LOTTO
-          </Link>
-          <div className="hidden flex-grow md:flex" />
+    <>
+      <header className="fixed top-0 right-0 left-0 z-50 md:left-20 md:right-20">
+        <nav className="glass mx-4 mt-4 rounded-full px-4 py-2 md:mx-8">
+          <div className="flex items-center justify-between">
+            {/* Logo */}
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Link to="/home" className="flex items-center gap-2">
+                <img src="/img/logo_lotto.png" alt="Lotto Logo" className="h-auto max-w-10" />
+                <span className="hidden text-title-small-bold text-foreground md:block">LottoLens</span>
+              </Link>
+            </motion.div>
 
-          {/* Mobile Logo */}
-          <Link
-            to="/home"
-            className="mr-2 flex cursor-pointer transition-transform duration-200 hover:scale-105 md:hidden"
-          >
-            <img src="/img/logo_lotto.png" alt="Lotto Logo" className="h-auto max-w-[50px]" />
-          </Link>
-          <Link
-            to="/home"
-            className="mr-4 flex text-secondary text-title-small-bold tracking-wider no-underline transition-opacity duration-200 hover:opacity-85 md:hidden"
-          >
-            LOTTO
-          </Link>
-          <div className="flex flex-grow md:hidden" />
+            {/* Spacer */}
+            <div className="grow" />
 
-          {/* Home Icon */}
-          <Link
-            to="/home"
-            className="mr-3 flex items-center justify-center rounded-lg p-2 text-secondary transition-colors hover:bg-white/10"
-          >
-            <HomeIcon className="size-6" />
-          </Link>
+            {/* Desktop Navigation Links */}
+            <div className="hidden items-center gap-1 md:flex">
+              {navItems.map((item) => (
+                <Tooltip key={item.key}>
+                  <TooltipTrigger asChild>
+                    <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.95 }}>
+                      <Link
+                        to={item.to}
+                        className="flex size-10 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                      >
+                        <item.icon className="size-5" />
+                      </Link>
+                    </motion.div>
+                  </TooltipTrigger>
+                  <TooltipContent>{t(`nav.${item.key}`)}</TooltipContent>
+                </Tooltip>
+              ))}
+            </div>
 
-          {/* User Menu */}
-          <div className="my-2 flex text-secondary">
-            <UserMenu />
+            {/* Divider (Desktop) */}
+            <div className="mx-2 hidden h-6 w-px bg-border md:block" />
+
+            {/* Desktop Actions */}
+            <div className="hidden items-center gap-1 md:flex">
+              <LanguageSelector />
+              <ThemeToggle />
+              <RegionSelector />
+              <LogoutButton />
+            </div>
+
+            {/* Mobile Menu Button */}
+            <motion.button
+              type="button"
+              className="flex size-10 items-center justify-center rounded-full text-foreground md:hidden"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              aria-label="Toggle menu"
+            >
+              {mobileMenuOpen ? <XMarkIcon className="size-5" /> : <Bars3Icon className="size-5" />}
+            </motion.button>
           </div>
-        </div>
-      </div>
-    </header>
+        </nav>
+
+        {/* Mobile Menu */}
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.2 }}
+              className="glass mx-4 mt-2 rounded-2xl p-6 md:hidden"
+            >
+              <div className="flex flex-col gap-4">
+                {navItems.map((item, index) => (
+                  <motion.div
+                    key={item.key}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.05 }}
+                  >
+                    <Link
+                      to={item.to}
+                      className="flex items-center gap-3 text-title-small-bold text-foreground"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      <item.icon className="size-5" />
+                      {t(`nav.${item.key}`)}
+                    </Link>
+                  </motion.div>
+                ))}
+                <div className="my-2 h-px bg-border" />
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <LanguageSelector />
+                    <ThemeToggle />
+                    <RegionSelector />
+                  </div>
+                  <LogoutButton />
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </header>
+    </>
   );
 }

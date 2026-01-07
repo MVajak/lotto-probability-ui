@@ -16,7 +16,7 @@ export const PageLayout = ({ children }: PageLayoutProps) => {
 
   return (
     <div className="container mx-auto max-w-screen-xl px-4">
-      <div className="py-4">
+      <div className="pt-24 pb-4">
         <Header />
 
         <div className={`flex${showAds ? ' gap-6' : ''}`}>

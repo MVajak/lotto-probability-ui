@@ -1,4 +1,9 @@
 {
+  "nav": {
+    "home": "Avaleht",
+    "profile": "Profiil",
+    "subscription": "Tellimus"
+  },
   "info": {
     "gameRules": "Mängu reeglid",
     "buyTickets": "Osta pilet",
