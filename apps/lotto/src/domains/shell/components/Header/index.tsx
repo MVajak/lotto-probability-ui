@@ -30,7 +30,7 @@ export function Header() {
             {/* Logo */}
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link to="/home" className="flex items-center gap-2">
-                <img src="/img/logo_lotto.png" alt="Lotto Logo" className="h-auto max-w-10" />
+                <img src="/img/lotto_lens.png" alt="Lotto Logo" className="h-auto max-w-10" />
                 <span className="hidden text-title-small-bold text-foreground md:block">LottoLens</span>
               </Link>
             </motion.div>
