@@ -67,7 +67,7 @@ export const MarkovStatsCards: React.FC<MarkovStatsCardsProps> = ({ markovChain 
   return (
     <div className="flex flex-col gap-4">
       <div className="flex flex-col gap-1">
-        <h4 className="text-body-default-bold">{t('numberStats.markov.title')}</h4>
+        <h4 className="text-body-default-bold text-foreground">{t('numberStats.markov.title')}</h4>
         <p className="text-body-small text-muted-foreground">{t('numberStats.markov.description')}</p>
       </div>
       <div className="grid grid-cols-2 gap-2 lg:grid-cols-4">

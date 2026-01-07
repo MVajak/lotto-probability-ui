@@ -140,7 +140,7 @@ export const PairAnalysisCard: React.FC<PairAnalysisCardProps> = ({ pairAnalysis
   return (
     <div className="flex flex-col gap-4">
       <div className="flex flex-col gap-1">
-        <h4 className="text-body-default-bold">{t('numberStats.pairAnalysis.title')}</h4>
+        <h4 className="text-body-default-bold text-foreground">{t('numberStats.pairAnalysis.title')}</h4>
         <p className="text-body-small text-muted-foreground">{t('numberStats.pairAnalysis.description')}</p>
       </div>
 

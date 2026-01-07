@@ -15,10 +15,10 @@
   --color-popover: #ffffff; /* white */
   --color-popover-foreground: #09090b; /* zinc-950 */
   --color-border: #e4e4e7; /* zinc-200 */
-  --color-ring: #64748b; /* slate-500 */
+  --color-ring: #d97706; /* amber-600 */
   --color-input: #e4e4e7; /* zinc-200 */
-  --color-primary: #00347f; /* brand blue dark */
-  --color-primary-light: #004ba3; /* brand blue light */
+  --color-primary: #b45309; /* amber-700 */
+  --color-primary-light: #d97706; /* amber-600 */
   --color-primary-foreground: #fafafa; /* zinc-50 */
   --color-secondary: #f4f4f5; /* zinc-100 */
   --color-secondary-foreground: #18181b; /* zinc-900 */
@@ -58,6 +58,12 @@
   --color-glass-border: rgba(255, 255, 255, 0.3);
   --color-glass-highlight: rgba(255, 255, 255, 0.5);
   --color-glass-shadow: rgba(0, 0, 0, 0.08);
+
+  /* Mesh Background Colors (with alpha) */
+  --color-mesh-gold: rgba(245, 158, 11, 0.12);
+  --color-mesh-amber: rgba(252, 211, 77, 0.1);
+  --color-mesh-orange: rgba(251, 146, 60, 0.08);
+  --color-mesh-warm: rgba(180, 83, 9, 0.05); /* amber-700 accent */
 }
 
 /* Dark Mode Color Overrides */
@@ -74,10 +80,10 @@
   --color-popover: #09090b; /* zinc-950 */
   --color-popover-foreground: #fafafa; /* zinc-50 */
   --color-border: #3f3f46; /* zinc-700 */
-  --color-ring: #94a3b8; /* slate-400 */
+  --color-ring: #fbbf24; /* amber-400 */
   --color-input: #3f3f46; /* zinc-700 */
-  --color-primary: #60a5fa; /* blue-400 */
-  --color-primary-light: #93c5fd; /* blue-300 */
+  --color-primary: #f59e0b; /* amber-500 */
+  --color-primary-light: #fbbf24; /* amber-400 */
   --color-primary-foreground: #18181b; /* zinc-900 */
   --color-secondary: #27272a; /* zinc-800 */
   --color-secondary-foreground: #fafafa; /* zinc-50 */
@@ -117,4 +123,10 @@
   --color-glass-border: rgba(255, 255, 255, 0.1);
   --color-glass-highlight: rgba(255, 255, 255, 0.08);
   --color-glass-shadow: rgba(0, 0, 0, 0.3);
+
+  /* Mesh Background Colors - Dark Mode (higher opacity) */
+  --color-mesh-gold: rgba(245, 158, 11, 0.15);
+  --color-mesh-amber: rgba(252, 211, 77, 0.12);
+  --color-mesh-orange: rgba(251, 146, 60, 0.1);
+  --color-mesh-warm: rgba(180, 83, 9, 0.08); /* amber-700 accent */
 }

@@ -12,14 +12,16 @@ function RootComponent() {
   return (
     <ThemeProvider>
       <ThemeApplier />
-      <Toaster />
-      <Outlet />
-      {config.isDev && (
-        <>
-          <TanStackRouterDevtools position="bottom-right" />
-          <ReactQueryDevtools buttonPosition="bottom-left" />
-        </>
-      )}
+      <div className="min-h-screen bg-background text-foreground bg-glass-mesh">
+        <Toaster />
+        <Outlet />
+        {config.isDev && (
+          <>
+            <TanStackRouterDevtools position="bottom-right" />
+            <ReactQueryDevtools buttonPosition="bottom-left" />
+          </>
+        )}
+      </div>
     </ThemeProvider>
   );
 }

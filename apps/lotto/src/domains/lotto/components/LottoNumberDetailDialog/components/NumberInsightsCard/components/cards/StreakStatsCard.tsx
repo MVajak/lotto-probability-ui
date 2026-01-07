@@ -77,7 +77,7 @@ export const StreakStatsCard: React.FC<StreakStatsProps> = ({ trends }) => {
   return (
     <div className="flex flex-col gap-4">
       <div className="flex flex-col gap-1">
-        <h4 className="text-body-default-bold">{t('numberStats.streakStats.title')}</h4>
+        <h4 className="text-body-default-bold text-foreground">{t('numberStats.streakStats.title')}</h4>
         <p className="text-body-small text-muted-foreground">{t('numberStats.streakStats.description')}</p>
       </div>
       <div className="grid grid-cols-2 gap-2 lg:grid-cols-4">

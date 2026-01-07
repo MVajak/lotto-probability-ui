@@ -57,7 +57,7 @@ export const HotColdMeterCard: React.FC<HotColdMeterProps> = ({ summary }) => {
   return (
     <div className="flex flex-col gap-4">
       <div className="flex flex-col gap-1">
-        <h4 className="text-body-default-bold">{t('numberStats.hotCold.title')}</h4>
+        <h4 className="text-body-default-bold text-foreground">{t('numberStats.hotCold.title')}</h4>
         <p className="text-body-small text-muted-foreground">{t('numberStats.hotCold.description')}</p>
       </div>
 

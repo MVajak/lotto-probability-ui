@@ -74,7 +74,7 @@ export const MonteCarloCard: React.FC<MonteCarloCardProps> = ({ monteCarlo }) =>
     <div className="flex flex-col gap-4">
       {/* Header */}
       <div className="flex flex-col gap-1">
-        <h4 className="text-body-default-bold">{t('numberStats.monteCarlo.title')}</h4>
+        <h4 className="text-body-default-bold text-foreground">{t('numberStats.monteCarlo.title')}</h4>
         <p className="text-body-small text-muted-foreground">{t('numberStats.monteCarlo.description')}</p>
       </div>
 

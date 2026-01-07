@@ -43,7 +43,7 @@ export const RecentDrawsChartCard: React.FC<RecentDrawsChartProps> = ({ timeline
   return (
     <div className="flex flex-col gap-4">
       <div className="flex flex-col gap-1">
-        <h4 className="text-body-default-bold">{t('numberStats.recentPattern.title')}</h4>
+        <h4 className="text-body-default-bold text-foreground">{t('numberStats.recentPattern.title')}</h4>
         <p className="text-body-small text-muted-foreground">
           {t('numberStats.recentPattern.description', { count: sortedTimeline.length })}
         </p>
