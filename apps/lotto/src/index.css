@@ -18,29 +18,24 @@ code {
 }
 
 /* Glassmorphism Utilities */
-@layer components {
-  .glass {
-    background: var(--color-glass);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    border: 1px solid var(--color-glass-border);
-    box-shadow: 0 8px 32px var(--color-glass-shadow);
-  }
+/* Note: Use with Tailwind's backdrop-blur-xl for blur effect */
+.glass {
+  background: var(--color-glass);
+  border: 1px solid var(--color-glass-border);
+  box-shadow: 0 8px 32px var(--color-glass-shadow);
+}
 
-  .glass-hover {
-    background: var(--color-glass);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    border: 1px solid var(--color-glass-border);
-    box-shadow: 0 8px 32px var(--color-glass-shadow);
-    transition: all 0.3s ease;
-  }
+.glass-hover {
+  background: var(--color-glass);
+  border: 1px solid var(--color-glass-border);
+  box-shadow: 0 8px 32px var(--color-glass-shadow);
+  transition: all 0.3s ease;
+}
 
-  .glass-hover:hover {
-    background: var(--color-glass-highlight);
-    box-shadow: 0 16px 48px var(--color-glass-shadow);
-    transform: translateY(-2px);
-  }
+.glass-hover:hover {
+  background: var(--color-glass-highlight);
+  box-shadow: 0 16px 48px var(--color-glass-shadow);
+  transform: translateY(-2px);
 }
 
 /* Background Gradient Mesh for Glass Effect */

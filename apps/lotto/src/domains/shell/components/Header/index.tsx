@@ -25,7 +25,7 @@ export function Header() {
   return (
     <>
       <header className="fixed top-0 right-0 left-0 z-50 md:left-20 md:right-20">
-        <nav className="glass mx-4 mt-4 rounded-full px-4 py-2 md:mx-8">
+        <nav className="glass backdrop-blur-xl mx-4 mt-4 rounded-full px-4 py-2 md:mx-8">
           <div className="flex items-center justify-between">
             {/* Logo */}
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
@@ -90,7 +90,7 @@ export function Header() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.2 }}
-              className="glass mx-4 mt-2 rounded-2xl p-6 md:hidden"
+              className="glass backdrop-blur-xl mx-4 mt-2 rounded-2xl p-6 md:hidden"
             >
               <div className="flex flex-col gap-4">
                 {navItems.map((item, index) => (
