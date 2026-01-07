@@ -156,7 +156,7 @@ export interface NumberDetailDto {
       lift: number;
       isSignificant: boolean;
     }>;
-    interpretation: 'has_avoided' | 'has_companions' | 'no_pattern';
+    interpretation: 'has_avoided' | 'has_companions' | 'no_pattern' | 'random';
   } | null;
   monteCarlo: {
     simulationCount: number;

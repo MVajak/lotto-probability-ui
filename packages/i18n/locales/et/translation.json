@@ -336,12 +336,14 @@
       "interpretation": {
         "has_companions": "On kaaslasi",
         "has_avoided": "On välditavaid numbreid",
-        "no_pattern": "Pole olulisi paare"
+        "no_pattern": "Pole olulisi paare",
+        "random": "Juhuslik paarumine"
       },
       "interpretationDescription": {
         "has_companions": "See number esineb teatud teiste numbritega sagedamini kui juhuslikult oodataks.",
         "has_avoided": "See number esineb teatud teiste numbritega harva - nad näivad teineteist vältivat.",
-        "no_pattern": "See number ei näita olulisi paarumismustreid teiste numbritega."
+        "no_pattern": "See number ei näita olulisi paarumismustreid teiste numbritega.",
+        "random": "See number paarub teiste numbritega juhuslikult - olulisi kaaslasi ega välditavaid numbreid ei tuvastatud."
       }
     },
     "monteCarlo": {

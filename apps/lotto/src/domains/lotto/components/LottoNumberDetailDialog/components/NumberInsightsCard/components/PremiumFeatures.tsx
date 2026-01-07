@@ -51,7 +51,8 @@ export const PremiumFeatures: React.FC<PremiumFeaturesProps> = ({ numberDetail }
           premiumFeatures={{
             MARKOV_CHAIN: Boolean(markovChain),
             AUTOCORRELATION: Boolean(autocorrelation),
-            PAIR_ANALYSIS: Boolean(pairAnalysis),
+            // If we have enough draws but pairAnalysis is null, it's inapplicable (single-number lottery)
+            PAIR_ANALYSIS: Boolean(pairAnalysis) || summary.totalDraws >= 20,
             MONTE_CARLO: Boolean(monteCarlo),
             SEASONAL_PATTERNS: Boolean(seasonalPatterns),
           }}

@@ -120,6 +120,11 @@ export const PairAnalysisCard: React.FC<PairAnalysisCardProps> = ({ pairAnalysis
           variant: 'warning',
           icon: <ExclamationTriangleIcon className="size-5" />,
         };
+      case 'random':
+        return {
+          variant: 'info',
+          icon: <ArrowsRightLeftIcon className="size-5" />,
+        };
       default:
         return {
           variant: 'info',

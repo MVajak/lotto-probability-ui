@@ -336,12 +336,14 @@
       "interpretation": {
         "has_companions": "Has Companion Numbers",
         "has_avoided": "Has Avoided Numbers",
-        "no_pattern": "No Significant Pairs"
+        "no_pattern": "No Significant Pairs",
+        "random": "Random Pairing"
       },
       "interpretationDescription": {
         "has_companions": "This number appears more frequently with certain other numbers than expected by chance.",
         "has_avoided": "This number rarely appears with certain other numbers - they seem to avoid each other.",
-        "no_pattern": "This number doesn't show any significant pairing patterns with other numbers."
+        "no_pattern": "This number doesn't show any significant pairing patterns with other numbers.",
+        "random": "This number pairs randomly with other numbers - no significant companions or avoidances detected."
       }
     },
     "monteCarlo": {
