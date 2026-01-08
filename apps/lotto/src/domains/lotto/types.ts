@@ -41,6 +41,10 @@ export enum DateFormat {
   European = 'DD.MM.YYYY',
 }
 
+export enum LottoStorageKey {
+  SELECTED_LOTTERY = 'selectedLottery',
+}
+
 export enum LottoType {
   // European lotteries (Estonian)
   EURO = 'EURO',

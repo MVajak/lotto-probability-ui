@@ -4,6 +4,10 @@
     "profile": "Profiil",
     "subscription": "Tellimus"
   },
+  "common": {
+    "showDetails": "Näita detaile",
+    "hideDetails": "Peida detailid"
+  },
   "info": {
     "gameRules": "Mängu reeglid",
     "buyTickets": "Osta pilet",
@@ -40,6 +44,18 @@
     "powerball": "Powerball",
     "megaBall": "Mega Ball",
     "cashBall": "Cash Ball",
+    "best": {
+      "result.primaryNumbers": "Parimad primaarnumbrid",
+      "result.secondaryNumbers": "Parimad lisanumbrid",
+      "result.bonusBall": "Parim boonusnumber",
+      "result.luckyStars": "Parimad Lucky Stars",
+      "result.thunderball": "Parim Thunderball",
+      "result.lifeBall": "Parim Life Ball",
+      "result.powerball": "Parim Powerball",
+      "result.megaBall": "Parim Mega Ball",
+      "result.cashBall": "Parim Cash Ball"
+    },
+    "bestNumbersTooltip": "Numbrid, mis esinesid valitud ajavahemikus kõige sagedamini",
     "bingo": {
       "centerGame": "Keskruudumäng",
       "cornerGame": "Nurkademäng",
@@ -47,7 +63,8 @@
       "fullGame": "Täismäng"
     },
     "numbersWithSameProbability": "Numbrid sama tõenäosusega",
-    "seeMore": "Vaata rohkem..."
+    "seeMore": "Vaata rohkem...",
+    "bestNumbersExplanation": "Parimad numbrid mängimiseks ajaloolise sageduse põhjal"
   },
   "statisticsDrawer": {
     "statistics": "Statistika",
@@ -548,6 +565,49 @@
   },
   "home": {
     "selectLottery": "Vali lotomäng",
-    "selectLotteryDescription": "Vali lotomäng, et näha tõenäosusanalüüsi ja numbristatistikat"
+    "selectLotteryDescription": "Vali lotomäng, et näha tõenäosusanalüüsi ja numbristatistikat",
+    "hero": {
+      "welcome": "Tere tulemast LottoLensi",
+      "welcomeBack": "Tere tulemast tagasi, {{name}}",
+      "tagline": "Avasta mustreid lotoajaloos ja tee targemaid valikuid",
+      "stats": {
+        "lotteries": "Loteriid",
+        "draws": "Analüüsitud loosimisi",
+        "regions": "Piirkondi"
+      }
+    },
+    "region": {
+      "estonia": "Eesti",
+      "uk": "Ühendkuningriik",
+      "usa": "Ameerika Ühendriigid"
+    }
+  },
+  "lottery": {
+    "EURO": "EuroJackpot",
+    "VIKINGLOTTO": "Viking Lotto",
+    "KENO": "Keno",
+    "BINGO": "Bingo Loto",
+    "JOKKER": "Jokker",
+    "UK_LOTTO": "The National Lottery",
+    "UK_EUROMILLIONS": "EuroMillions",
+    "UK_THUNDERBALL": "Thunderball",
+    "UK_SET_FOR_LIFE": "Set For Life",
+    "POWERBALL": "Powerball",
+    "MEGA_MILLIONS": "Mega Millions",
+    "CASH4LIFE": "Cash4Life",
+    "frequency": {
+      "EURO": "T & R",
+      "VIKINGLOTTO": "K",
+      "KENO": "Iga päev",
+      "BINGO": "K",
+      "JOKKER": "Iga päev",
+      "UK_LOTTO": "K & L",
+      "UK_EUROMILLIONS": "T & R",
+      "UK_THUNDERBALL": "T, K, R & L",
+      "UK_SET_FOR_LIFE": "E & N",
+      "POWERBALL": "E, K & L",
+      "MEGA_MILLIONS": "T & R",
+      "CASH4LIFE": "Iga päev"
+    }
   }
 }

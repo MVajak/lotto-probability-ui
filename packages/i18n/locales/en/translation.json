@@ -4,6 +4,10 @@
     "profile": "Profile",
     "subscription": "Subscription"
   },
+  "common": {
+    "showDetails": "Show details",
+    "hideDetails": "Hide details"
+  },
   "info": {
     "gameRules": "Game rules",
     "buyTickets": "Buy tickets",
@@ -40,6 +44,18 @@
     "powerball": "Powerball",
     "megaBall": "Mega Ball",
     "cashBall": "Cash Ball",
+    "best": {
+      "result.primaryNumbers": "Best Primary Numbers",
+      "result.secondaryNumbers": "Best Secondary Numbers",
+      "result.bonusBall": "Best Bonus Ball",
+      "result.luckyStars": "Best Lucky Stars",
+      "result.thunderball": "Best Thunderball",
+      "result.lifeBall": "Best Life Ball",
+      "result.powerball": "Best Powerball",
+      "result.megaBall": "Best Mega Ball",
+      "result.cashBall": "Best Cash Ball"
+    },
+    "bestNumbersTooltip": "Numbers that appeared most frequently in the selected date range",
     "bingo": {
       "centerGame": "Center Game",
       "cornerGame": "Corner Game",
@@ -47,7 +63,8 @@
       "fullGame": "Full Game"
     },
     "numbersWithSameProbability": "Numbers with same probability",
-    "seeMore": "See more..."
+    "seeMore": "See more...",
+    "bestNumbersExplanation": "Showing the best numbers to play based on historical frequency"
   },
   "statisticsDrawer": {
     "statistics": "Statistics",
@@ -548,6 +565,49 @@
   },
   "home": {
     "selectLottery": "Select Lottery Game",
-    "selectLotteryDescription": "Choose a lottery game to view probability analysis and number statistics"
+    "selectLotteryDescription": "Choose a lottery game to view probability analysis and number statistics",
+    "hero": {
+      "welcome": "Welcome to LottoLens",
+      "welcomeBack": "Welcome back, {{name}}",
+      "tagline": "Discover patterns in lottery history and make smarter picks",
+      "stats": {
+        "lotteries": "Lotteries",
+        "draws": "Draws Analyzed",
+        "regions": "Regions"
+      }
+    },
+    "region": {
+      "estonia": "Estonia",
+      "uk": "United Kingdom",
+      "usa": "United States"
+    }
+  },
+  "lottery": {
+    "EURO": "EuroJackpot",
+    "VIKINGLOTTO": "Viking Lotto",
+    "KENO": "Keno",
+    "BINGO": "Bingo Loto",
+    "JOKKER": "Jokker",
+    "UK_LOTTO": "The National Lottery",
+    "UK_EUROMILLIONS": "EuroMillions",
+    "UK_THUNDERBALL": "Thunderball",
+    "UK_SET_FOR_LIFE": "Set For Life",
+    "POWERBALL": "Powerball",
+    "MEGA_MILLIONS": "Mega Millions",
+    "CASH4LIFE": "Cash4Life",
+    "frequency": {
+      "EURO": "Tue & Fri",
+      "VIKINGLOTTO": "Wed",
+      "KENO": "Daily",
+      "BINGO": "Wed",
+      "JOKKER": "Daily",
+      "UK_LOTTO": "Wed & Sat",
+      "UK_EUROMILLIONS": "Tue & Fri",
+      "UK_THUNDERBALL": "Tue, Wed, Fri & Sat",
+      "UK_SET_FOR_LIFE": "Mon & Thu",
+      "POWERBALL": "Mon, Wed & Sat",
+      "MEGA_MILLIONS": "Tue & Fri",
+      "CASH4LIFE": "Daily"
+    }
   }
 }

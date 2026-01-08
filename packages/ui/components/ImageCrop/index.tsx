@@ -169,7 +169,7 @@ export const ImageCropContent = ({ className }: ImageCropContentProps) => {
   if (error) {
     return (
       <div className={cn('relative rounded-lg bg-destructive/10 p-4', className)}>
-        <p className="text-center text-destructive text-sm">{error}</p>
+        <p className="text-center text-body-default text-destructive">{error}</p>
       </div>
     );
   }

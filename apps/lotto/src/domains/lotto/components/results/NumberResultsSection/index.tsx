@@ -4,7 +4,8 @@ import { useTranslation } from 'react-i18next';
 
 import { Button } from '@lotto/ui';
 
-import { LottoNumbersDialog } from '../../LottoNumbersDialog';
+import { LottoNumbersDialog } from '@/domains/lotto';
+
 import type { NumberResultsSectionProps } from './types';
 
 export const NumberResultsSection = ({
@@ -18,9 +19,9 @@ export const NumberResultsSection = ({
 
   return (
     <div className="col-span-12">
-      <p className="px-2 py-4 text-title-small-bold">{t(titleKey)}</p>
-      {children}
-      <Button variant="ghost" className="block" onClick={() => setIsDialogOpen(true)}>
+      <h3 className="mb-2 text-foreground text-title-small-bold">{t(titleKey)}</h3>
+      <div className="mb-3">{children}</div>
+      <Button variant="ghost" size="sm" onClick={() => setIsDialogOpen(true)}>
         {t('result.seeMore')}
       </Button>
       <LottoNumbersDialog

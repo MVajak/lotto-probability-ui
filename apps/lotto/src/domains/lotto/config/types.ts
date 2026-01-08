@@ -1,4 +1,4 @@
-import type { GridColSpan } from '../components/results/LottoProbabilityResults/types';
+import type { GridColSpan } from '@/domains/lotto';
 import type { LottoType } from '../types';
 
 /**
@@ -46,6 +46,8 @@ export interface DataTransformConfig {
 export interface LotteryConfig {
   /** Unique lottery type identifier */
   lottoType: LottoType;
+  /** Path to the lottery logo image */
+  logo: string;
   /** External links for game info */
   links: {
     buyTickets: string;

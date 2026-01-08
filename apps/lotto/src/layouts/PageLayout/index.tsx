@@ -19,7 +19,7 @@ export const PageLayout = ({ children }: PageLayoutProps) => {
       <div className="pt-24 pb-4">
         <Header />
 
-        <div className={`flex${showAds ? ' gap-6' : ''}`}>
+        <div className={`flex${showAds ? 'gap-6' : ''}`}>
           {/* Main Content */}
           <div className="min-w-0 flex-1">{children}</div>
 

@@ -108,7 +108,10 @@ export const PricingCard: React.FC<PricingCardProps> = ({ tier, isCurrentPlan = 
     return (
       <Button
         variant={isHighlighted ? 'primary' : 'outline'}
-        className={cn('text-body-default-bold', isHighlighted && 'bg-primary-orange text-primary-foreground hover:bg-gold-dark')}
+        className={cn(
+          'text-body-default-bold',
+          isHighlighted && 'bg-primary-orange text-primary-foreground hover:bg-gold-dark'
+        )}
         disabled={isPending}
         onClick={(e) => {
           e.stopPropagation();

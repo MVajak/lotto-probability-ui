@@ -20,7 +20,11 @@ export const LottoNumber = ({ index, digit, onClick, className }: LottoNumberPro
       aria-describedby={id}
       data-testid={`lotto-button-${index}`}
       onClick={handleClick}
-      className={cn('relative m-1 inline-block align-middle', onClick && 'cursor-pointer', className)}
+      className={cn(
+        'relative m-1 inline-block align-middle transition-all duration-200 ease-out',
+        onClick && 'cursor-pointer hover:scale-[1.02] hover:drop-shadow-[0_0_2px_var(--color-gold-dark)]',
+        className
+      )}
       style={{ width: ballSize, height: ballSize }}
     >
       <svg

@@ -49,7 +49,10 @@ interface AdSpaceProps {
   className?: string;
 }
 
-const positionConfig: Record<AdPosition, { label: string; size: string; format: 'vertical' | 'horizontal' | 'rectangle'; responsive: boolean }> = {
+const positionConfig: Record<
+  AdPosition,
+  { label: string; size: string; format: 'vertical' | 'horizontal' | 'rectangle'; responsive: boolean }
+> = {
   sidebar: { label: 'Sidebar Ad', size: '300x600', format: 'vertical', responsive: false },
   'bottom-mobile': { label: 'Mobile Banner', size: '320x50', format: 'horizontal', responsive: true },
   'in-content': { label: 'In-Content Ad', size: '320x100', format: 'horizontal', responsive: true },
@@ -58,7 +61,8 @@ const positionConfig: Record<AdPosition, { label: string; size: string; format: 
 
 const containerStyles: Record<AdPosition, string> = {
   sidebar: 'sticky top-4 h-[600px] w-[300px]',
-  'bottom-mobile': 'fixed bottom-0 left-0 right-0 z-50 h-[80px] bg-background/95 backdrop-blur-sm border-t border-border',
+  'bottom-mobile':
+    'fixed bottom-0 left-0 right-0 z-50 h-[80px] bg-background/95 backdrop-blur-sm border-t border-border',
   'in-content': 'my-4 min-h-[100px]',
   dialog: 'min-h-[250px]',
 };

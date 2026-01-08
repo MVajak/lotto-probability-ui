@@ -32,6 +32,8 @@ export interface AvatarProps
   displayName?: string;
   icon?: React.ReactNode;
   wrapWithTooltip?: boolean;
+  /** Use 'contain' for logos to show full image without cropping */
+  objectFit?: 'cover' | 'contain';
 }
 
 export const Avatar = ({
@@ -41,11 +43,18 @@ export const Avatar = ({
   color,
   className,
   wrapWithTooltip = false,
+  objectFit = 'cover',
   ...props
 }: AvatarProps) => {
   const content = (
     <AvatarPrimitive.Root className={cn(avatarVariants({ color }), className)} data-slot="avatar" {...props}>
-      {src && <AvatarPrimitive.Image src={src} alt={displayName} className="aspect-square size-full object-cover" />}
+      {src && (
+        <AvatarPrimitive.Image
+          src={src}
+          alt={displayName}
+          className={cn('aspect-square size-full', objectFit === 'contain' ? 'object-contain' : 'object-cover')}
+        />
+      )}
       <AvatarPrimitive.Fallback
         data-slot="avatar-fallback"
         className="flex size-full items-center justify-center rounded-full"

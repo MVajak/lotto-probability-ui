@@ -70,7 +70,7 @@ export const LottoNumberGroup = ({
     <>
       <div className="m-1 inline-flex flex-col items-center gap-1 align-top">
         {/* Grouped numbers in a compact horizontal layout */}
-        <div className="flex flex-wrap items-center gap-1 rounded-3xl border border-primary-light/60 bg-primary-light/30 p-1 backdrop-blur-xl dark:border-primary-light/40 dark:bg-primary-light/20">
+        <div className="flex flex-wrap items-center gap-1 rounded-3xl border border-primary-light/20 bg-primary-light/8 p-1">
           {/* Always visible numbers */}
           {initialNumbers.map((num) => (
             <LottoNumber
@@ -109,10 +109,10 @@ export const LottoNumberGroup = ({
                 <button
                   type="button"
                   onClick={() => setIsExpanded(!isExpanded)}
-                  className="flex size-8 items-center justify-center rounded-full bg-primary/15 transition-transform duration-300 ease-in-out hover:bg-primary/25"
+                  className="flex size-8 items-center justify-center rounded-full bg-muted transition-all duration-200 ease-out hover:bg-muted-foreground/20"
                   style={{ transform: isExpanded ? 'rotate(180deg)' : 'rotate(0deg)' }}
                 >
-                  <ChevronDownIcon className="size-4" />
+                  <ChevronDownIcon className="size-4 text-muted-foreground" />
                 </button>
               </TooltipTrigger>
               <TooltipContent>
@@ -123,7 +123,10 @@ export const LottoNumberGroup = ({
         </div>
 
         {/* Small label indicating they're tied */}
-        <Badge variant="info" className="h-[18px] bg-primary/10 px-1.5 text-body-small-bold text-foreground">
+        <Badge
+          variant="outline"
+          className="h-[18px] border-primary-light/25 bg-primary-light/8 px-1.5 text-body-small text-primary"
+        >
           {t('general.tied')} ({numbers.length})
         </Badge>
       </div>

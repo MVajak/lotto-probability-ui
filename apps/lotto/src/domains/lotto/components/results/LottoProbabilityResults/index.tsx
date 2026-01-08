@@ -1,12 +1,16 @@
 import type React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Card, CardContent, Separator, Spinner } from '@lotto/ui';
+import { Card, CardContent, Spinner } from '@lotto/ui';
 import { safeBig } from '@lotto/ui/utils';
 
-import { analyzeGroupsForDisplay, groupNumbersByFrequency } from '../../../utils/numberGrouping';
-import { LottoNumberGroup } from '../LottoNumberGroup';
-import { NumberResultsSection } from '../NumberResultsSection';
+import {
+  analyzeGroupsForDisplay,
+  groupNumbersByFrequency,
+  LottoNumberGroup,
+  NumberResultsSection,
+} from '@/domains/lotto';
+
 import type { LottoProbabilityResultsProps } from './types';
 
 export const LottoProbabilityResultsCard = (props: LottoProbabilityResultsProps): React.JSX.Element => {
@@ -16,14 +20,16 @@ export const LottoProbabilityResultsCard = (props: LottoProbabilityResultsProps)
   const hasResults = safeBig(totalDraws).gt(0);
 
   return (
-    <Card className="w-full shadow-md">
-      <CardContent>
-        {/* Divider with centered text */}
-        <div className="flex items-center gap-4">
-          <Separator className="flex-1" />
-          <span className="text-body-small text-muted-foreground">{t('result.totalDraws', { totalDraws })}</span>
-          <Separator className="flex-1" />
+    <Card className="w-full">
+      <CardContent className="pt-4">
+        {/* Subtle banner */}
+        <div className="mb-4 flex items-center gap-2 rounded-lg border border-primary-light/30 bg-primary-light/10 px-3 py-2">
+          <span className="text-body-default">💡</span>
+          <p className="text-body-small text-primary">{t('result.bestNumbersExplanation')}</p>
         </div>
+
+        {/* Stats header */}
+        <p className="mb-4 text-body-small text-muted-foreground">{t('result.totalDraws', { totalDraws })}</p>
         <div className="relative">
           {isLoading && (
             <div className="absolute inset-0 z-10 flex items-center justify-center p-8 transition-opacity duration-400 ease-in-out">
@@ -32,7 +38,7 @@ export const LottoProbabilityResultsCard = (props: LottoProbabilityResultsProps)
           )}
           <div className="transition-opacity duration-400 ease-in-out" style={{ opacity: isLoading ? 0 : 1 }}>
             {hasResults ? (
-              <div className="grid grid-cols-12 gap-4 py-2">
+              <div className="grid grid-cols-12 gap-4">
                 {numberStatsResults.map((statResult) => {
                   // First group all numbers by frequency
                   const allGroupedNumbers = groupNumbersByFrequency(statResult.allNumberStats);

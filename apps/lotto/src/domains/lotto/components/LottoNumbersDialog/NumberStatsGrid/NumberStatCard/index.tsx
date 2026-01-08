@@ -44,7 +44,7 @@ export const NumberStatCard: React.FC<NumberStatCardProps> = ({
         category === 'rare' && 'border-primary-blue/50 bg-primary-blue/10',
         category === 'normal' && 'border-border bg-muted/50'
       )}
-      onKeyDown={(e) => e.key === 'Enter' && onClick()}
+      onKeyDown={(e: React.KeyboardEvent) => e.key === 'Enter' && onClick()}
       role="button"
       tabIndex={0}
     >

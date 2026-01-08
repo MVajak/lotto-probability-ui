@@ -72,7 +72,7 @@ export const FeaturePreviewDialog: React.FC<FeaturePreviewDialogProps> = ({ open
         <DialogBody className="flex-1 overflow-y-auto">
           {/* Demo indicator */}
           <div className="mb-6 flex items-center gap-2 rounded-lg border border-muted-foreground/30 border-dashed bg-muted/50 p-3">
-            <LottoNumber digit={demoNumber} index={`preview-${demoNumber}`} className="size-8 text-sm" />
+            <LottoNumber digit={demoNumber} index={`preview-${demoNumber}`} className="size-8 text-body-default" />
             <span className="text-body-small text-muted-foreground">
               {t('subscription.preview.demoNote', { number: demoNumber })}
             </span>

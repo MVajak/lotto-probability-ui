@@ -1,4 +1,5 @@
 import type * as React from 'react';
+import { type HTMLMotionProps, motion } from 'motion/react';
 
 import { cn } from '@lotto/ui/utils';
 
@@ -15,15 +16,26 @@ function Card({ className, ...props }: React.ComponentProps<'div'>) {
     />
   );
 }
-function InteractiveCard({ className, ...props }: React.ComponentProps<typeof Card>) {
+
+interface InteractiveCardProps extends Omit<HTMLMotionProps<'div'>, 'children'> {
+  children?: React.ReactNode;
+}
+
+function InteractiveCard({ className, children, ...props }: InteractiveCardProps) {
   return (
-    <Card
+    <motion.div
+      data-slot="card"
       className={cn(
-        'hover:-translate-y-1 active:-translate-y-0.5 cursor-pointer transition-all duration-200 hover:scale-[1.02] hover:shadow-lg active:scale-[1.01] active:bg-accent',
+        'group flex w-full cursor-pointer flex-col gap-2 rounded-2xl border border-glass-border bg-glass p-4 text-card-foreground backdrop-blur-xl',
         className
       )}
+      whileHover={{ scale: 1.02, y: -2 }}
+      whileTap={{ scale: 0.98 }}
+      transition={{ duration: 0.2 }}
       {...props}
-    />
+    >
+      {children}
+    </motion.div>
   );
 }
 function CardHeader({ className, ...props }: React.ComponentProps<'div'>) {

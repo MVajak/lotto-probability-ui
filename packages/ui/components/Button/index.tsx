@@ -19,6 +19,7 @@ const buttonVariants = cva(
         error: 'bg-secondary-red text-primary-red hover:bg-base-red',
       },
       size: {
+        xs: 'h-8 px-2 text-body-small',
         sm: 'h-9 px-4',
         md: 'h-10 px-4',
         lg: 'h-11 px-8',

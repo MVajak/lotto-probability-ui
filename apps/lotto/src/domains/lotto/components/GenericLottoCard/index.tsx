@@ -1,10 +1,13 @@
+import { motion } from 'motion/react';
+
 import { AdSpace } from '@lotto/ui';
 
 import { adConfig } from '@/domains/ads/config';
 import type { LotteryConfig } from '@/domains/lotto';
-import { LottoInfoCard, LottoSearchCard, useLotteryData } from '@/domains/lotto';
+import { useLotteryData } from '@/domains/lotto';
 import { useSubscriptionTier } from '@/domains/subscription';
 
+import { AnalysisHeader } from '../AnalysisHeader';
 import { LottoPositionalProbabilityResultsCard, LottoProbabilityResultsCard } from '../results';
 
 export interface GenericLottoCardProps {
@@ -26,46 +29,39 @@ export const GenericLottoCard = ({ config }: GenericLottoCardProps) => {
 
   return (
     <div className="flex flex-col gap-4">
-      {/* Lottery Info */}
-      <LottoInfoCard
-        lottoType={config.lottoType}
-        linkBuyTickets={config.links.buyTickets}
-        linkGameRules={config.links.gameRules}
-      />
+      {/* Analysis Header (combines info + search) */}
+      <AnalysisHeader config={config} />
 
-      {/* In-Content Ad - between info and search */}
+      {/* In-Content Ad */}
       {showAds && <AdSpace position="in-content" {...adConfig.getAdProps('in-content')} />}
 
-      {/* Search Section */}
-      <div className="text-center">
-        <LottoSearchCard lottoType={config.lottoType} />
-      </div>
-
-      {/* Results Section - Render based on mode */}
-      {data?.mode === 'positional' ? (
-        <LottoPositionalProbabilityResultsCard
-          isLoading={isLoading}
-          totalDraws={data.totalDraws}
-          allNumberStats={data.allNumberStats}
-          numberStatsByPosition={data.numberStatsByPosition}
-        />
-      ) : (
-        <LottoProbabilityResultsCard
-          isLoading={isLoading}
-          totalDraws={data?.totalDraws ?? 0}
-          numberStatsResults={
-            data?.categories.map((cat) => ({
-              titleKey: cat.config.titleKey,
-              maxNumbersCount: cat.config.maxNumbers,
-              allNumberStats: cat.allNumberStats,
-              displayNumberStats: cat.displayNumberStats,
-              hiddenNumberStats: cat.hiddenNumberStats,
-              containerSize: cat.config.containerSize,
-              isSecondaryNumbers: cat.config.isSecondary,
-            })) ?? []
-          }
-        />
-      )}
+      {/* Results Section */}
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.3, delay: 0.1 }}>
+        {data?.mode === 'positional' ? (
+          <LottoPositionalProbabilityResultsCard
+            isLoading={isLoading}
+            totalDraws={data.totalDraws}
+            allNumberStats={data.allNumberStats}
+            numberStatsByPosition={data.numberStatsByPosition}
+          />
+        ) : (
+          <LottoProbabilityResultsCard
+            isLoading={isLoading}
+            totalDraws={data?.totalDraws ?? 0}
+            numberStatsResults={
+              data?.categories.map((cat) => ({
+                titleKey: cat.config.titleKey,
+                maxNumbersCount: cat.config.maxNumbers,
+                allNumberStats: cat.allNumberStats,
+                displayNumberStats: cat.displayNumberStats,
+                hiddenNumberStats: cat.hiddenNumberStats,
+                containerSize: cat.config.containerSize,
+                isSecondaryNumbers: cat.config.isSecondary,
+              })) ?? []
+            }
+          />
+        )}
+      </motion.div>
     </div>
   );
 };

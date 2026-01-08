@@ -20,6 +20,7 @@ export const LOTTERY_CONFIGS: LotteryConfigRegistry = {
 
   [LottoType.EURO]: {
     lottoType: LottoType.EURO,
+    logo: '/img/lottery/eurojackpot_logo.svg',
     links: {
       buyTickets: 'https://www.eestiloto.ee/et/eurojackpot/#plain',
       gameRules: 'https://eestiloto.zendesk.com/hc/et-ee/articles/15852803719069-Eurojackpoti-m%C3%A4ngujuhend',
@@ -44,6 +45,7 @@ export const LOTTERY_CONFIGS: LotteryConfigRegistry = {
 
   [LottoType.VIKINGLOTTO]: {
     lottoType: LottoType.VIKINGLOTTO,
+    logo: '/img/lottery/vikinglotto_logo.svg',
     links: {
       buyTickets: 'https://www.eestiloto.ee/et/vikinglotto/#plain',
       gameRules: 'https://eestiloto.zendesk.com/hc/et-ee/articles/15852799648413-Vikinglotto-m%C3%A4ngujuhend',
@@ -68,6 +70,7 @@ export const LOTTERY_CONFIGS: LotteryConfigRegistry = {
 
   [LottoType.KENO]: {
     lottoType: LottoType.KENO,
+    logo: '/img/lottery/Keno_logo.svg',
     links: {
       buyTickets: 'https://www.eestiloto.ee/et/keno/#plain',
       gameRules: 'https://eestiloto.zendesk.com/hc/et-ee/articles/15852841307165-Keno-m%C3%A4ngujuhend',
@@ -85,6 +88,7 @@ export const LOTTERY_CONFIGS: LotteryConfigRegistry = {
 
   [LottoType.BINGO]: {
     lottoType: LottoType.BINGO,
+    logo: '/img/lottery/bingo_logo.svg',
     links: {
       buyTickets: 'https://www.eestiloto.ee/et/bingoloto/#plain',
       gameRules: 'https://eestiloto.zendesk.com/hc/et-ee/articles/15852861053469-Bingo-loto-m%C3%A4ngujuhend',
@@ -122,6 +126,7 @@ export const LOTTERY_CONFIGS: LotteryConfigRegistry = {
 
   [LottoType.JOKKER]: {
     lottoType: LottoType.JOKKER,
+    logo: '/img/lottery/jokker_logo.svg',
     links: {
       buyTickets: 'https://www.eestiloto.ee/et/jokker/#plain',
       gameRules: 'https://eestiloto.zendesk.com/hc/et-ee/articles/15852902153757-Jokkeri-m%C3%A4ngujuhend',
@@ -138,6 +143,7 @@ export const LOTTERY_CONFIGS: LotteryConfigRegistry = {
 
   [LottoType.UK_LOTTO]: {
     lottoType: LottoType.UK_LOTTO,
+    logo: '/img/lottery/uk_lotto_logo.svg',
     links: {
       buyTickets: 'https://www.national-lottery.co.uk/games/lotto',
       gameRules: 'https://www.national-lottery.co.uk/games/lotto/game-procedures',
@@ -153,6 +159,7 @@ export const LOTTERY_CONFIGS: LotteryConfigRegistry = {
 
   [LottoType.UK_EUROMILLIONS]: {
     lottoType: LottoType.UK_EUROMILLIONS,
+    logo: '/img/lottery/euromillions_logo.png',
     links: {
       buyTickets: 'https://www.national-lottery.co.uk/games/euromillions',
       gameRules: 'https://www.national-lottery.co.uk/games/euromillions/game-procedures',
@@ -168,6 +175,7 @@ export const LOTTERY_CONFIGS: LotteryConfigRegistry = {
 
   [LottoType.UK_THUNDERBALL]: {
     lottoType: LottoType.UK_THUNDERBALL,
+    logo: '/img/lottery/Thunderball_logo.webp',
     links: {
       buyTickets: 'https://www.national-lottery.co.uk/games/thunderball',
       gameRules: 'https://www.national-lottery.co.uk/games/thunderball/game-procedures',
@@ -183,6 +191,7 @@ export const LOTTERY_CONFIGS: LotteryConfigRegistry = {
 
   [LottoType.UK_SET_FOR_LIFE]: {
     lottoType: LottoType.UK_SET_FOR_LIFE,
+    logo: '/img/lottery/Set_for_Life_logo.svg',
     links: {
       buyTickets: 'https://www.national-lottery.co.uk/games/set-for-life',
       gameRules: 'https://www.national-lottery.co.uk/games/set-for-life/game-procedures',
@@ -200,6 +209,7 @@ export const LOTTERY_CONFIGS: LotteryConfigRegistry = {
 
   [LottoType.POWERBALL]: {
     lottoType: LottoType.POWERBALL,
+    logo: '/img/lottery/Powerball_logo.png',
     links: {
       buyTickets: 'https://www.powerball.com/',
       gameRules: 'https://www.powerball.com/games/powerball',
@@ -215,6 +225,7 @@ export const LOTTERY_CONFIGS: LotteryConfigRegistry = {
 
   [LottoType.MEGA_MILLIONS]: {
     lottoType: LottoType.MEGA_MILLIONS,
+    logo: '/img/lottery/megamillions_logo.svg',
     links: {
       buyTickets: 'https://www.megamillions.com/',
       gameRules: 'https://www.megamillions.com/how-to-play.aspx',
@@ -230,6 +241,7 @@ export const LOTTERY_CONFIGS: LotteryConfigRegistry = {
 
   [LottoType.CASH4LIFE]: {
     lottoType: LottoType.CASH4LIFE,
+    logo: '/img/lottery/Cash4Life_logo.png',
     links: {
       buyTickets: 'https://www.cash4life.org/',
       gameRules: 'https://www.cash4life.org/how-to-play',

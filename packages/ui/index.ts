@@ -20,7 +20,6 @@ export * from './components/InputGroup';
 export * from './components/InputOtp';
 export * from './components/InputTags';
 export * from './components/Label';
-export * from './components/Link';
 export * from './components/LottoNumber';
 export * from './components/Popover';
 export * from './components/Progress';

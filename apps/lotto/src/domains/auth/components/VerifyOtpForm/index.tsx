@@ -76,7 +76,14 @@ export const VerifyOtpForm: React.FC<VerifyOtpFormProps> = ({
           }}
           render={({ field }) => (
             <Field data-invalid={!!errors.otp} className="w-auto">
-              <InputOTP value={field.value} onComplete={handleSubmit(submit)} onChange={field.onChange} maxLength={6} disabled={isVerifying} autoFocus>
+              <InputOTP
+                value={field.value}
+                onComplete={handleSubmit(submit)}
+                onChange={field.onChange}
+                maxLength={6}
+                disabled={isVerifying}
+                autoFocus
+              >
                 <InputOTPGroup>
                   <InputOTPSlot index={0} />
                 </InputOTPGroup>

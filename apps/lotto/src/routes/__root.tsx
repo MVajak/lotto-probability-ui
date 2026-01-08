@@ -5,14 +5,14 @@ import { TanStackRouterDevtools } from '@tanstack/react-router-devtools';
 
 import { Toaster } from '@lotto/ui';
 
-import { config } from '@/config';
 import { ThemeApplier, ThemeProvider } from '@/domains/theme';
+import { config } from '@/config';
 
 function RootComponent() {
   return (
     <ThemeProvider>
       <ThemeApplier />
-      <div className="min-h-screen bg-background text-foreground bg-glass-mesh">
+      <div className="min-h-screen bg-background bg-glass-mesh text-foreground">
         <Toaster />
         <Outlet />
         {config.isDev && (

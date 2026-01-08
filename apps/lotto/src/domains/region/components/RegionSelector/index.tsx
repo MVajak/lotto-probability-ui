@@ -12,6 +12,7 @@ import {
   useLocalStorage,
 } from '@lotto/ui';
 
+import { useLottoStore } from '@/domains/lotto';
 import { Region, RegionStorageKey } from '@/domains/region';
 
 import FlagEstonia from '../../assets/flag_estonia.svg';
@@ -48,6 +49,14 @@ const getInitialRegion = (): Region => {
 export function RegionSelector() {
   const { t } = useTranslation();
   const [region, setRegion] = useLocalStorage<Region>(RegionStorageKey.REGION, getInitialRegion());
+  const setLottoType = useLottoStore((state) => state.setLottoType);
+
+  const handleRegionChange = (newRegion: Region) => {
+    if (newRegion !== region) {
+      setLottoType(null); // Clear lottery selection when region changes
+    }
+    setRegion(newRegion);
+  };
 
   const currentFlag = FLAGS[region];
 
@@ -70,7 +79,7 @@ export function RegionSelector() {
       </Tooltip>
       <DropdownMenuContent align="end">
         {REGIONS.map((r) => (
-          <DropdownMenuItem key={r} onClick={() => setRegion(r)} className={region === r ? 'bg-muted' : ''}>
+          <DropdownMenuItem key={r} onClick={() => handleRegionChange(r)} className={region === r ? 'bg-muted' : ''}>
             <img src={FLAGS[r].src} alt={FLAGS[r].alt} className="size-5 rounded-sm object-cover" />
             <span className="ml-2">{FLAGS[r].alt}</span>
           </DropdownMenuItem>
