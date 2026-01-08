@@ -58,10 +58,10 @@ export const FeaturePreviewDialog: React.FC<FeaturePreviewDialogProps> = ({ open
           <div
             className={cn(
               'flex size-10 items-center justify-center rounded-full',
-              isProTier ? 'bg-primary-orange/10' : 'bg-primary/10'
+              isProTier ? 'bg-gold/10' : 'bg-primary/10'
             )}
           >
-            <EyeIcon className={cn('size-5', isProTier ? 'text-primary-orange' : 'text-primary')} />
+            <EyeIcon className={cn('size-5', isProTier ? 'text-gold' : 'text-primary')} />
           </div>
           <div>
             <DialogTitle>{t('subscription.preview.title', { tier })}</DialogTitle>
@@ -108,7 +108,7 @@ export const FeaturePreviewDialog: React.FC<FeaturePreviewDialogProps> = ({ open
               variant="primary"
               size="sm"
               onClick={handleUpgrade}
-              className={cn(isProTier && 'bg-primary-orange hover:bg-gold-dark')}
+              className={cn(isProTier && 'bg-gold text-background hover:bg-gold-dark')}
             >
               {t('subscription.upgrade.upgradeButton')}
             </Button>

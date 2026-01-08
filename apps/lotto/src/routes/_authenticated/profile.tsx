@@ -1,6 +1,7 @@
 import { Suspense } from 'react';
 import { useSuspenseQuery } from '@tanstack/react-query';
 import { createFileRoute } from '@tanstack/react-router';
+import { motion } from 'motion/react';
 
 import { Card, CardContent, Spinner } from '@lotto/ui';
 
@@ -31,7 +32,7 @@ function ProfileSkeleton() {
   return (
     <Card>
       <CardContent className="flex items-center justify-center p-12">
-        <Spinner className="size-8" />
+        <Spinner className="size-8 text-gold" />
       </CardContent>
     </Card>
   );
@@ -41,10 +42,12 @@ function ProfileContent() {
   const { data } = useSuspenseQuery(currentUserQuery);
 
   return (
-    <Card>
-      <CardContent className="p-6 sm:p-8">
-        <ProfileForm user={data.user} />
-      </CardContent>
-    </Card>
+    <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
+      <Card>
+        <CardContent className="p-6 sm:p-8">
+          <ProfileForm user={data.user} />
+        </CardContent>
+      </Card>
+    </motion.div>
   );
 }

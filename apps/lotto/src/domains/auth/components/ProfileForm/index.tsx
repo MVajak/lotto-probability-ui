@@ -69,7 +69,10 @@ export const ProfileForm: React.FC<ProfileFormProps> = ({ user }) => {
     <>
       {/* Profile Header */}
       <div className="mb-8 flex items-center gap-4">
-        <Avatar displayName={displayName} color="gold" className="size-16 text-title-default" />
+        <div className="relative">
+          <div className="absolute inset-0 scale-125 rounded-full bg-gold/20 blur-xl" />
+          <Avatar displayName={displayName} color="gold" className="relative size-16 text-title-default" />
+        </div>
         <div className="flex-1">
           <h2 className="text-title-default">{displayName}</h2>
           <p className="text-body-small text-muted-foreground">{user.email}</p>

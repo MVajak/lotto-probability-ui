@@ -73,7 +73,7 @@ export const PricingCard: React.FC<PricingCardProps> = ({ tier, isCurrentPlan = 
     if (isCurrentPlan && isCancelled) {
       return (
         <div className="flex flex-col gap-2">
-          <span className="text-body-small text-primary-orange">
+          <span className="text-body-small text-gold">
             {t('subscription.endsOn', { date: formatDate(currentSubscription?.cancelAt, 'long') })}
           </span>
           <Button variant="outline" onClick={handleResume} disabled={resumeMutation.isPending}>
@@ -108,10 +108,7 @@ export const PricingCard: React.FC<PricingCardProps> = ({ tier, isCurrentPlan = 
     return (
       <Button
         variant={isHighlighted ? 'primary' : 'outline'}
-        className={cn(
-          'text-body-default-bold',
-          isHighlighted && 'bg-primary-orange text-primary-foreground hover:bg-gold-dark'
-        )}
+        className={cn('text-body-default-bold', isHighlighted && 'bg-gold text-background hover:bg-gold-dark')}
         disabled={isPending}
         onClick={(e) => {
           e.stopPropagation();
@@ -125,11 +122,11 @@ export const PricingCard: React.FC<PricingCardProps> = ({ tier, isCurrentPlan = 
 
   return (
     <InteractiveCard
-      className={cn('relative h-full border-border', isHighlighted && 'border-2 border-primary-orange')}
+      className={cn('relative h-full border-border', isHighlighted && 'border-2 border-gold')}
       onClick={handleClick}
     >
       {isHighlighted && (
-        <Badge className="-top-3 -translate-x-1/2 absolute left-1/2 bg-primary-orange text-body-small-bold text-primary-foreground tracking-wide">
+        <Badge className="-top-3 -translate-x-1/2 absolute left-1/2 bg-gold text-background text-body-small-bold tracking-wide">
           {t('subscription.popular')}
         </Badge>
       )}
@@ -138,23 +135,16 @@ export const PricingCard: React.FC<PricingCardProps> = ({ tier, isCurrentPlan = 
         <h3 className="text-title-default-bold">{t(`subscription.${tier.code}.name`)}</h3>
 
         <div>
-          <span
-            className={cn(
-              'text-title-large-bold leading-none',
-              isHighlighted ? 'text-primary-orange' : 'text-foreground'
-            )}
-          >
+          <span className={cn('text-title-large-bold leading-none', isHighlighted ? 'text-gold' : 'text-foreground')}>
             ${tier.price}
           </span>
           <span className="ml-1 text-body-small text-muted-foreground">{t('subscription.perMonth')}</span>
         </div>
 
-        <div className="flex-grow">
+        <div className="grow">
           {tier.features.map((feature) => (
             <div key={feature} className="mb-2.5 flex items-start gap-2">
-              <CheckIcon
-                className={cn('mt-0.5 size-4 shrink-0', isHighlighted ? 'text-primary-orange' : 'text-primary-green')}
-              />
+              <CheckIcon className={cn('mt-0.5 size-4 shrink-0', isHighlighted ? 'text-gold' : 'text-primary-green')} />
               <span className="text-body-small text-muted-foreground leading-relaxed">
                 {t(`subscription.features.${feature}`, feature)}
               </span>
