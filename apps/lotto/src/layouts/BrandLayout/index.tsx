@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { motion } from 'motion/react';
 import { useTranslation } from 'react-i18next';
 
-import { Card } from '@lotto/ui';
+import { Card, Separator } from '@lotto/ui';
 
 import { BrandLogo, FeatureList, MobileBranding, PreviewModal, PreviewThumbnail } from './components';
 
@@ -47,6 +47,8 @@ export const BrandLayout: React.FC<BrandLayoutProps> = ({ children, topRight }) 
               </h1>
               <p className="max-w-md text-body-large text-muted-foreground">{t('authLayout.subtitle')}</p>
             </div>
+
+            <Separator className="my-2" />
 
             {/* Features and Preview side by side */}
             <div className="flex items-start gap-12">
