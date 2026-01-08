@@ -26,20 +26,13 @@ export interface NumberStat {
   totalDraws?: number;
   frequency: number;
   interpretation?: Interpretation;
-}
-
-export interface WinningNumberStat {
-  winningNumberStats: NumberStat[];
-  secWinningNumberStats: NumberStat[];
+  /** Win class for games with multiple prize tiers */
+  winClass?: number;
 }
 
 export type MostProbableDigitsByPosition = {
   [position: number]: NumberStat[];
 };
-
-export enum DateFormat {
-  European = 'DD.MM.YYYY',
-}
 
 export enum LottoStorageKey {
   SELECTED_LOTTERY = 'selectedLottery',
@@ -92,6 +85,8 @@ export interface NumberDetailRequestDto {
   dateTo: string;
   useSecondaryNumbers?: boolean;
   position?: number;
+  /** Win class for games with multiple prize tiers (like BINGO) */
+  winClass?: number;
 }
 
 export interface NumberDetailDto {

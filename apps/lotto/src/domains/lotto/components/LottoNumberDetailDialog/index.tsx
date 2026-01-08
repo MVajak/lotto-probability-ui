@@ -63,6 +63,7 @@ const LottoNumberDetailContent: React.FC<LottoNumberDetailContentProps> = ({
       dateTo: searchParams.dateTo,
       position: numberStat.position ?? undefined,
       useSecondaryNumbers: isSecondaryNumbers,
+      winClass: numberStat.winClass,
     })
   );
 

@@ -80,7 +80,7 @@ export const LOTTERY_CONFIGS: LotteryConfigRegistry = {
       categories: [
         {
           titleKey: 'result.primaryNumbers',
-          maxNumbers: 20,
+          maxNumbers: 10,
         },
       ],
     },
@@ -104,7 +104,7 @@ export const LOTTERY_CONFIGS: LotteryConfigRegistry = {
         },
         {
           titleKey: 'result.bingo.cornerGame',
-          maxNumbers: 33,
+          maxNumbers: 4,
           containerSize: { sm: 8 },
           winClass: BINGO_WIN_CLASSES.CORNER_SQUARE,
         },

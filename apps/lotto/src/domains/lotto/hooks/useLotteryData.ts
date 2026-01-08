@@ -1,11 +1,12 @@
 import { useMemo } from 'react';
 import { useQuery } from '@tanstack/react-query';
 
+import { getMostProbableDigitsByPosition, getTopProbabilityStats } from '@/domains/lotto';
+
 import type { LotteryConfig, NumberCategoryConfig } from '../config/types';
 import { probabilityQueryOptions } from '../queries';
 import { useLottoStore } from '../store';
 import type { MostProbableDigitsByPosition, NumberStat } from '../types';
-import { getMostProbableDigitsByPosition, getTopProbabilityStats } from '../utils/probability';
 
 /**
  * Processed category data for standard result display
@@ -110,7 +111,11 @@ export function useLotteryData(config: LotteryConfig): UseLotteryDataResult {
       if (categoryConfig.winClass !== undefined) {
         // Multi-win-class extraction (Bingo)
         const winClassData = rawData.probabilityNumbers.find((p) => p.winClass === categoryConfig.winClass);
-        allNumberStats = winClassData?.winningNumbersCount ?? [];
+        // Tag each NumberStat with the winClass for use in detail requests
+        allNumberStats = (winClassData?.winningNumbersCount ?? []).map((stat) => ({
+          ...stat,
+          winClass: categoryConfig.winClass,
+        }));
       } else {
         // Standard single win class (most lotteries)
         const probabilityNumbers = rawData.probabilityNumbers[0];
