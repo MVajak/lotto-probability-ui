@@ -18,6 +18,7 @@ const avatarVariants = cva('relative flex size-10 shrink-0 overflow-hidden round
       green: 'text-primary-green *:data-[slot="avatar-fallback"]:bg-base-green',
       purple: 'text-primary-purple *:data-[slot="avatar-fallback"]:bg-base-purple',
       red: 'text-primary-red *:data-[slot="avatar-fallback"]:bg-base-red',
+      gold: 'text-gold-dark *:data-[slot="avatar-fallback"]:bg-gold-light/30',
     },
   },
   defaultVariants: {
