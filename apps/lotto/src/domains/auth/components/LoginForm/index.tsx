@@ -1,5 +1,6 @@
 import type React from 'react';
 import { useCallback } from 'react';
+import { motion } from 'motion/react';
 import { Controller, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
@@ -46,14 +47,37 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onSubmit, isLoading, error
   );
 
   return (
-    <div className="flex min-h-full w-full flex-col items-center justify-center gap-8">
-      <img src="/img/lotto_lens.png" alt="Lotto Logo" className="max-w-[120px]" />
+    <div className="flex w-full flex-col items-center gap-8">
+      {/* Logo with glow effect */}
+      <motion.div
+        className="relative"
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.4, ease: 'easeOut' }}
+      >
+        <div className="absolute inset-0 scale-150 rounded-full bg-gold/20 blur-2xl" />
+        <img src="/img/lotto_lens.png" alt="Lotto Lens" className="relative size-24" />
+      </motion.div>
 
-      <div className="flex flex-col items-center gap-4 text-center">
+      {/* Title section */}
+      <motion.div
+        className="flex flex-col items-center gap-2 text-center"
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4, delay: 0.1 }}
+      >
         <h1 className="text-display-small text-foreground">{t('login.title')}</h1>
-      </div>
+        <p className="text-body-default text-muted-foreground">{t('login.subtitle')}</p>
+      </motion.div>
 
-      <form className="flex w-full flex-col gap-8" onSubmit={handleSubmit(submit)}>
+      {/* Form */}
+      <motion.form
+        className="flex w-full flex-col gap-6"
+        onSubmit={handleSubmit(submit)}
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4, delay: 0.2 }}
+      >
         <Controller
           name="email"
           control={control}
@@ -66,7 +90,6 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onSubmit, isLoading, error
               <Input
                 id="email"
                 placeholder={t('login.emailLabel')}
-                className="text-light"
                 type="email"
                 autoComplete="email"
                 autoFocus
@@ -81,7 +104,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onSubmit, isLoading, error
         <Button type="submit" loading={isLoading} variant="primary" size="lg" className="w-full" disabled={!isValid}>
           {t('login.sendCode')}
         </Button>
-      </form>
+      </motion.form>
     </div>
   );
 };

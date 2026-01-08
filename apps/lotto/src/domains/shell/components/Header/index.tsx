@@ -27,12 +27,10 @@ export function Header() {
       <nav className="glass mx-4 mt-4 rounded-full px-4 py-2 backdrop-blur-xl md:mx-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <Link to="/home" className="flex items-center gap-2">
-              <img src="/img/lotto_lens.png" alt="Lotto Logo" className="h-auto max-w-10" />
-              <span className="hidden text-foreground text-title-small-bold md:block">LottoLens</span>
-            </Link>
-          </motion.div>
+          <Link to="/home" className="flex items-center gap-2">
+            <img src="/img/lotto_lens.png" alt="Lotto Logo" className="h-auto max-w-10" />
+            <span className="hidden text-foreground text-title-small-bold md:block">LottoLens</span>
+          </Link>
 
           {/* Spacer */}
           <div className="grow" />

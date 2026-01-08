@@ -91,11 +91,7 @@ function LoginPage() {
   };
 
   return (
-    <BrandLayout>
-      <div className="absolute top-4 right-4">
-        <LanguageSelector />
-      </div>
-
+    <BrandLayout topRight={<LanguageSelector />}>
       <AnimatePresence mode="wait">
         <motion.div
           key={step}
@@ -103,7 +99,7 @@ function LoginPage() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
           transition={{ duration: 0.2 }}
-          className="flex min-h-full w-full items-center justify-center"
+          className="relative flex min-h-[400px] w-full items-center justify-center"
         >
           {renderForm()}
         </motion.div>

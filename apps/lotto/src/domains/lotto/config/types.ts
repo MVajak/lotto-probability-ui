@@ -1,4 +1,5 @@
 import type { GridColSpan } from '@/domains/lotto';
+
 import type { LottoType } from '../types';
 
 /**

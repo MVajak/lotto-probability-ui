@@ -1,56 +1,78 @@
 import type React from 'react';
+import { useState } from 'react';
+import { motion } from 'motion/react';
 import { useTranslation } from 'react-i18next';
 
 import { Card } from '@lotto/ui';
 
-import { LotteryBalls } from './LotteryBalls';
-import { StatisticalCurve } from './StatisticalCurve';
+import { BrandLogo, FeatureList, MobileBranding, PreviewModal, PreviewThumbnail } from './components';
 
 interface BrandLayoutProps {
   children: React.ReactNode;
-  maxWidth?: string;
+  /** Slot for top-right content like language selector */
+  topRight?: React.ReactNode;
 }
 
-export const BrandLayout: React.FC<BrandLayoutProps> = ({ children, maxWidth = '400px' }) => {
+export const BrandLayout: React.FC<BrandLayoutProps> = ({ children, topRight }) => {
   const { t } = useTranslation();
+  const [showPreview, setShowPreview] = useState(false);
 
   return (
-    <div
-      className="relative flex h-screen justify-center overflow-hidden bg-center bg-cover bg-no-repeat md:justify-end"
-      style={{ backgroundImage: 'url(/img/lottery_login_clean.png)' }}
-    >
-      {/* Decorative elements - hidden on mobile */}
-      <div className="hidden md:block">
-        {/* Title and description - top left */}
-        <div className="absolute top-[8%] left-[5%]">
-          <h3 className="mb-2 text-light text-title-default-bold lg:text-display-small-bold">
-            {t('authLayout.title')}
-          </h3>
-          <h6 className="text-primary-foreground/70 text-title-small">{t('authLayout.subtitle')}</h6>
+    <div className="relative min-h-screen bg-background bg-glass-mesh">
+      {/* Decorative gradient orbs */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="-top-1/4 -left-1/4 absolute size-3/4 rounded-full bg-primary/10 blur-3xl" />
+        <div className="-right-1/4 -bottom-1/4 absolute size-3/4 rounded-full bg-gold/10 blur-3xl" />
+      </div>
+
+      {/* Top right slot (e.g., language selector) */}
+      {topRight && <div className="absolute top-4 right-4 z-20">{topRight}</div>}
+
+      {/* Content container with max width */}
+      <div className="relative mx-auto flex min-h-screen max-w-screen-2xl">
+        {/* Left side - Branding (hidden on mobile) */}
+        <div className="relative hidden w-2/3 flex-col p-12 lg:flex">
+          <BrandLogo />
+
+          {/* Main content - pt-20 aligns with form's pt-32 minus logo height */}
+          <motion.div
+            className="relative z-10 flex flex-col gap-8 pt-14"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            <div className="flex flex-col gap-4">
+              <h1 className="max-w-lg text-display-default-bold text-foreground leading-tight">
+                {t('authLayout.headline')}
+              </h1>
+              <p className="max-w-md text-body-large text-muted-foreground">{t('authLayout.subtitle')}</p>
+            </div>
+
+            {/* Features and Preview side by side */}
+            <div className="flex items-start gap-12">
+              <FeatureList />
+              <PreviewThumbnail onClick={() => setShowPreview(true)} />
+            </div>
+          </motion.div>
         </div>
 
-        {/* Lottery balls positioned in upper-left area */}
-        <div className="absolute top-[25%] left-[5%] w-[60%] max-w-[1200px]">
-          <LotteryBalls width={1100} height={400} className="lottery-balls-svg" />
-        </div>
+        {/* Right side - Form */}
+        <div className="relative flex w-full flex-col items-center justify-center p-4 lg:w-1/3 lg:justify-start lg:pt-40">
+          <MobileBranding />
 
-        {/* Statistical curve positioned at bottom */}
-        <div className="absolute bottom-[15%] left-[5%] w-[60%] max-w-[1200px]">
-          <StatisticalCurve width={1100} height={150} startX={0} baseY={75} className="curve-svg" />
-        </div>
-
-        {/* Bottom labels */}
-        <div className="absolute bottom-[8%] left-[5%]">
-          <p className="text-body-small text-light/60 lg:text-body-large">{t('authLayout.features')}</p>
+          {/* Glass card */}
+          <motion.div
+            className="relative z-10 w-full max-w-md"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+          >
+            <Card className="w-full border-glass-border bg-glass p-8 backdrop-blur-xl">{children}</Card>
+          </motion.div>
         </div>
       </div>
 
-      <Card
-        className="relative z-10 m-[18px] flex w-full flex-col justify-center bg-background"
-        style={{ maxWidth: `min(100%, ${maxWidth})` }}
-      >
-        {children}
-      </Card>
+      <PreviewModal open={showPreview} onOpenChange={setShowPreview} />
     </div>
   );
 };

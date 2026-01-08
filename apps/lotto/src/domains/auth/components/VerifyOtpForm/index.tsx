@@ -1,6 +1,7 @@
 import type React from 'react';
 import { useCallback } from 'react';
 import { ArrowLeftIcon } from '@heroicons/react/24/outline';
+import { motion } from 'motion/react';
 import { Controller, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
@@ -53,17 +54,38 @@ export const VerifyOtpForm: React.FC<VerifyOtpFormProps> = ({
   }
 
   return (
-    <div className="relative flex min-h-full w-full flex-col items-center justify-center gap-8">
-      <IconButton label={t('verifyOtp.backToLogin')} size="lg" onClick={onBack} className="absolute top-0 left-0">
-        <ArrowLeftIcon />
-      </IconButton>
+    <div className="flex w-full flex-col items-center gap-8">
+      {/* Back button */}
+      <motion.div
+        className="absolute top-0 left-0"
+        initial={{ opacity: 0, x: -10 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.3 }}
+      >
+        <IconButton label={t('verifyOtp.backToLogin')} size="lg" onClick={onBack}>
+          <ArrowLeftIcon />
+        </IconButton>
+      </motion.div>
 
-      <div className="flex flex-col items-center gap-4 text-center">
+      {/* Title section */}
+      <motion.div
+        className="flex flex-col items-center gap-2 pt-12 text-center"
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4 }}
+      >
         <h1 className="text-display-small text-foreground">{t('verifyOtp.enterCode')}</h1>
-        <p className="text-body-default text-subtle-foreground">{t('verifyOtp.codeSentToEmailPlain', { email })}</p>
-      </div>
+        <p className="text-body-default text-muted-foreground">{t('verifyOtp.codeSentToEmailPlain', { email })}</p>
+      </motion.div>
 
-      <form onSubmit={handleSubmit(submit)} className="flex w-full flex-col items-center gap-8">
+      {/* OTP Form */}
+      <motion.form
+        onSubmit={handleSubmit(submit)}
+        className="flex w-full flex-col items-center gap-8"
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4, delay: 0.1 }}
+      >
         <Controller
           name="otp"
           control={control}
@@ -111,14 +133,20 @@ export const VerifyOtpForm: React.FC<VerifyOtpFormProps> = ({
         <Button type="submit" variant="primary" size="lg" className="w-full" loading={isVerifying}>
           {t('verifyOtp.verify')}
         </Button>
-      </form>
+      </motion.form>
 
-      <div className="flex flex-col items-center gap-1">
-        <p className="text-body-small text-subtle-foreground">{t('verifyOtp.didntReceiveCode')}</p>
-        <Button variant="link" className="text-primary-light" onClick={onResend} disabled={isResending}>
+      {/* Resend section */}
+      <motion.div
+        className="flex flex-col items-center gap-1"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.4, delay: 0.2 }}
+      >
+        <p className="text-body-small text-muted-foreground">{t('verifyOtp.didntReceiveCode')}</p>
+        <Button variant="link" className="text-primary" onClick={onResend} disabled={isResending}>
           {isResending ? t('verifyOtp.resending') : t('verifyOtp.resendCode')}
         </Button>
-      </div>
+      </motion.div>
     </div>
   );
 };

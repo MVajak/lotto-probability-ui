@@ -6,6 +6,7 @@ import { Button, type ButtonProps } from '../Button';
 const iconButtonVariants = cva('rounded-full p-0 [&>svg]:size-4', {
   variants: {
     size: {
+      xs: 'size-6',
       sm: 'size-8',
       md: 'size-9',
       lg: 'size-10',
