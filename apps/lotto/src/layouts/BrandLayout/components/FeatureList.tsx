@@ -31,7 +31,7 @@ export const FeatureList = () => {
   const [showRegions, setShowRegions] = useState(false);
 
   return (
-    <div className="flex w-[360px] flex-col gap-4">
+    <div className="flex w-full max-w-[360px] flex-col gap-4">
       {features.map((feature, index) => (
         <motion.div
           key={feature.key}
@@ -40,11 +40,11 @@ export const FeatureList = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
         >
-          <div className="flex items-center gap-3">
-            <div className="flex size-10 items-center justify-center rounded-full bg-primary/10">
+          <div className="flex items-start gap-3">
+            <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-primary/10">
               <feature.icon className="size-5 text-primary" />
             </div>
-            <span className="text-body-default text-foreground">{t(feature.key)}</span>
+            <span className="pt-2 text-body-default text-foreground">{t(feature.key)}</span>
           </div>
 
           {index === 1 && (

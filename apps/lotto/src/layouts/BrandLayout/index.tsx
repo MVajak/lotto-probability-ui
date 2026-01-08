@@ -59,7 +59,7 @@ export const BrandLayout: React.FC<BrandLayoutProps> = ({ children, topRight }) 
         </div>
 
         {/* Right side - Form */}
-        <div className="relative flex w-full flex-col items-center justify-center p-4 lg:w-1/3 lg:justify-start lg:pt-40">
+        <div className="relative flex w-full flex-col items-center p-4 pt-8 lg:w-1/3 lg:justify-start lg:pt-40">
           <MobileBranding />
 
           {/* Glass card */}
@@ -70,6 +70,27 @@ export const BrandLayout: React.FC<BrandLayoutProps> = ({ children, topRight }) 
             transition={{ duration: 0.5, delay: 0.1 }}
           >
             <Card className="w-full border-glass-border bg-glass p-8 backdrop-blur-xl">{children}</Card>
+          </motion.div>
+
+          {/* Mobile-only features section */}
+          <motion.div
+            className="mt-12 w-full max-w-md pb-8 lg:hidden"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
+            <Separator className="mb-8" />
+
+            <div className="flex flex-col items-center gap-6">
+              <div className="text-center">
+                <h2 className="text-foreground text-title-default-bold">{t('authLayout.headline')}</h2>
+                <p className="mt-2 text-body-small text-muted-foreground">{t('authLayout.subtitle')}</p>
+              </div>
+
+              <FeatureList />
+
+              <PreviewThumbnail onClick={() => setShowPreview(true)} />
+            </div>
           </motion.div>
         </div>
       </div>
