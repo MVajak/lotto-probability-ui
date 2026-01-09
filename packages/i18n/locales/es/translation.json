@@ -410,6 +410,15 @@
     "endsOn": "Termina el {{date}}",
     "resume": "Reanudar suscripción",
     "resuming": "Reanudando...",
+    "FREE": {
+      "name": "Gratis"
+    },
+    "PRO": {
+      "name": "Pro"
+    },
+    "PREMIUM": {
+      "name": "Premium"
+    },
     "features": {
       "STATS_2_MONTHS": "2 meses de estadísticas de lotería",
       "STATS_2_YEARS": "2 años de datos de lotería",

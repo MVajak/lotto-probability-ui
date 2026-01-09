@@ -410,6 +410,15 @@
     "endsOn": "Lõpeb {{date}}",
     "resume": "Jätka tellimust",
     "resuming": "Jätkamine...",
+    "FREE": {
+      "name": "Tasuta"
+    },
+    "PRO": {
+      "name": "Pro"
+    },
+    "PREMIUM": {
+      "name": "Premium"
+    },
     "features": {
       "STATS_2_MONTHS": "2 kuu lotostatistika",
       "STATS_2_YEARS": "2 aastat lotoandmeid",
