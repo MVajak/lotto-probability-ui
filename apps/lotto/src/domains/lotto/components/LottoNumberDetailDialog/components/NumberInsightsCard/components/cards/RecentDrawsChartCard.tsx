@@ -29,7 +29,8 @@ export const RecentDrawsChartCard: React.FC<RecentDrawsChartProps> = ({ timeline
     return [...timeline].sort((a, b) => new Date(a.drawDate).getTime() - new Date(b.drawDate).getTime());
   }, [timeline]);
 
-  // Scroll to the right (newest draws) on mount
+  // Scroll to the right (newest draws) on mount and when data changes
+  // biome-ignore lint/correctness/useExhaustiveDependencies: sortedTimeline triggers re-scroll when data updates
   useEffect(() => {
     if (scrollContainerRef.current) {
       scrollContainerRef.current.scrollLeft = scrollContainerRef.current.scrollWidth;

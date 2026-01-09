@@ -28,8 +28,8 @@ const SPANISH_WIN_CLASSES = {
 export const LOTTERY_CONFIGS: LotteryConfigRegistry = {
   // ===== ESTONIA (EE) =====
 
-  [LottoType.EURO]: {
-    lottoType: LottoType.EURO,
+  [LottoType.EUROJACKPOT]: {
+    lottoType: LottoType.EUROJACKPOT,
     logo: '/img/lottery/eurojackpot_logo.svg',
     links: {
       buyTickets: 'https://www.eestiloto.ee/et/eurojackpot/#plain',
@@ -78,8 +78,8 @@ export const LOTTERY_CONFIGS: LotteryConfigRegistry = {
     },
   },
 
-  [LottoType.KENO]: {
-    lottoType: LottoType.KENO,
+  [LottoType.EST_KENO]: {
+    lottoType: LottoType.EST_KENO,
     logo: '/img/lottery/Keno_logo.svg',
     links: {
       buyTickets: 'https://www.eestiloto.ee/et/keno/#plain',
@@ -96,8 +96,8 @@ export const LOTTERY_CONFIGS: LotteryConfigRegistry = {
     },
   },
 
-  [LottoType.BINGO]: {
-    lottoType: LottoType.BINGO,
+  [LottoType.EST_BINGO]: {
+    lottoType: LottoType.EST_BINGO,
     logo: '/img/lottery/bingo_logo.svg',
     links: {
       buyTickets: 'https://www.eestiloto.ee/et/bingoloto/#plain',
@@ -134,8 +134,8 @@ export const LOTTERY_CONFIGS: LotteryConfigRegistry = {
     },
   },
 
-  [LottoType.JOKKER]: {
-    lottoType: LottoType.JOKKER,
+  [LottoType.EST_JOKKER]: {
+    lottoType: LottoType.EST_JOKKER,
     logo: '/img/lottery/jokker_logo.svg',
     links: {
       buyTickets: 'https://www.eestiloto.ee/et/jokker/#plain',
@@ -167,8 +167,8 @@ export const LOTTERY_CONFIGS: LotteryConfigRegistry = {
     },
   },
 
-  [LottoType.UK_EUROMILLIONS]: {
-    lottoType: LottoType.UK_EUROMILLIONS,
+  [LottoType.EUROMILLIONS]: {
+    lottoType: LottoType.EUROMILLIONS,
     logo: '/img/lottery/euromillions_logo.png',
     links: {
       buyTickets: 'https://www.national-lottery.co.uk/games/euromillions',
@@ -230,8 +230,8 @@ export const LOTTERY_CONFIGS: LotteryConfigRegistry = {
 
   // ===== UNITED STATES (US) =====
 
-  [LottoType.POWERBALL]: {
-    lottoType: LottoType.POWERBALL,
+  [LottoType.US_POWERBALL]: {
+    lottoType: LottoType.US_POWERBALL,
     logo: '/img/lottery/Powerball_logo.png',
     links: {
       buyTickets: 'https://www.powerball.com/',
@@ -246,8 +246,8 @@ export const LOTTERY_CONFIGS: LotteryConfigRegistry = {
     },
   },
 
-  [LottoType.MEGA_MILLIONS]: {
-    lottoType: LottoType.MEGA_MILLIONS,
+  [LottoType.US_MEGA_MILLIONS]: {
+    lottoType: LottoType.US_MEGA_MILLIONS,
     logo: '/img/lottery/megamillions_logo.svg',
     links: {
       buyTickets: 'https://www.megamillions.com/',
@@ -262,8 +262,8 @@ export const LOTTERY_CONFIGS: LotteryConfigRegistry = {
     },
   },
 
-  [LottoType.CASH4LIFE]: {
-    lottoType: LottoType.CASH4LIFE,
+  [LottoType.US_CASH4LIFE]: {
+    lottoType: LottoType.US_CASH4LIFE,
     logo: '/img/lottery/Cash4Life_logo.png',
     links: {
       buyTickets: 'https://www.cash4life.org/',

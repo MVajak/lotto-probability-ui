@@ -40,19 +40,16 @@ export enum LottoStorageKey {
 
 export enum LottoType {
   // European lotteries (Estonian)
-  EURO = 'EURO',
-  VIKINGLOTTO = 'VIKINGLOTTO',
-  BINGO = 'BINGO',
-  KENO = 'KENO',
-  JOKKER = 'JOKKER',
+  EST_BINGO = 'EST_BINGO',
+  EST_KENO = 'EST_KENO',
+  EST_JOKKER = 'EST_JOKKER',
 
   // US lotteries
-  POWERBALL = 'POWERBALL',
-  MEGA_MILLIONS = 'MEGA_MILLIONS',
-  CASH4LIFE = 'CASH4LIFE',
+  US_POWERBALL = 'US_POWERBALL',
+  US_MEGA_MILLIONS = 'US_MEGA_MILLIONS',
+  US_CASH4LIFE = 'US_CASH4LIFE',
 
   // UK lotteries
-  UK_EUROMILLIONS = 'UK_EUROMILLIONS',
   UK_LOTTO = 'UK_LOTTO',
   UK_THUNDERBALL = 'UK_THUNDERBALL',
   UK_SET_FOR_LIFE = 'UK_SET_FOR_LIFE',
@@ -62,6 +59,11 @@ export enum LottoType {
   ES_LA_PRIMITIVA = 'ES_LA_PRIMITIVA',
   ES_BONOLOTO = 'ES_BONOLOTO',
   ES_EL_GORDO = 'ES_EL_GORDO',
+
+  // Shared
+  VIKINGLOTTO = 'VIKINGLOTTO',
+  EUROJACKPOT = 'EUROJACKPOT',
+  EUROMILLIONS = 'EUROMILLIONS',
 }
 
 // DTOs
@@ -91,7 +93,7 @@ export interface NumberDetailRequestDto {
   dateTo: string;
   useSecondaryNumbers?: boolean;
   position?: number;
-  /** Win class for games with multiple prize tiers (like BINGO) */
+  /** Win class for games with multiple prize tiers (like EST_BINGO) */
   winClass?: number;
 }
 
