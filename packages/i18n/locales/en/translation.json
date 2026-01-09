@@ -24,17 +24,16 @@
     "UK_THUNDERBALL": "There are 39 primary numbers in total, from which the user must choose 5. In addition, there are 14 Thunderball numbers, and the user must select 1. The position of the chosen numbers does not matter.",
     "UK_SET_FOR_LIFE": "There are 47 primary numbers in total, from which the user must choose 5. In addition, there are 10 Life Ball numbers, and the user must select 1. The position of the chosen numbers does not matter.",
     "UK_HOT_PICKS": "There are 59 numbers in total, from which the user must choose 1 to 5 numbers. To win, all chosen numbers must match. The position of the chosen numbers does not matter.",
+    "ES_LA_PRIMITIVA": "There are 49 primary numbers in total, from which the user must choose 6. In addition, there is 1 Reintegro number (0-9). The position of the chosen numbers does not matter.",
+    "ES_BONOLOTO": "There are 49 primary numbers in total, from which the user must choose 6. In addition, there is 1 Reintegro number (0-9). The position of the chosen numbers does not matter.",
+    "ES_EL_GORDO": "There are 54 primary numbers in total, from which the user must choose 5. In addition, there is 1 Clave number (0-9). The position of the chosen numbers does not matter.",
     "generalDescription": "The system calculates the probability of {{lottoName}} numbers based on historical data and suggests the best numbers to choose. You can search for historical data by dates."
   },
   "search": {
-    "search": "SEARCH",
-    "dateFrom": "Date from",
-    "dateTo": "Date to",
     "calculate": "Search"
   },
   "result": {
     "totalDraws": "Total: {{totalDraws}} draws",
-    "nothingToShow": "Nothing to show...",
     "noResults": "Select dates and search for statistics",
     "primaryNumbers": "Primary numbers",
     "secondaryNumbers": "Secondary numbers",
@@ -45,18 +44,8 @@
     "powerball": "Powerball",
     "megaBall": "Mega Ball",
     "cashBall": "Cash Ball",
-    "best": {
-      "result.primaryNumbers": "Best Primary Numbers",
-      "result.secondaryNumbers": "Best Secondary Numbers",
-      "result.bonusBall": "Best Bonus Ball",
-      "result.luckyStars": "Best Lucky Stars",
-      "result.thunderball": "Best Thunderball",
-      "result.lifeBall": "Best Life Ball",
-      "result.powerball": "Best Powerball",
-      "result.megaBall": "Best Mega Ball",
-      "result.cashBall": "Best Cash Ball"
-    },
-    "bestNumbersTooltip": "Numbers that appeared most frequently in the selected date range",
+    "reintegro": "Reintegro",
+    "clave": "Clave",
     "bingo": {
       "centerGame": "Center Game",
       "cornerGame": "Corner Game",
@@ -80,7 +69,6 @@
   "general": {
     "digit": "Digit",
     "count": "Count",
-    "probability": "Probability",
     "frequency": "Frequency",
     "number": "Number",
     "numbers": "Numbers",
@@ -100,9 +88,6 @@
     "statusDescriptionFrequent": "This number appears more often than expected",
     "statusDescriptionRare": "This number appears less often than expected",
     "statusDescriptionNormal": "This number appears as expected",
-    "basicStatistics": "Basic Statistics",
-    "outOfDraws": "out of {{totalDraws}} draws",
-    "observedFrequency": "observed frequency",
     "countHelp": "How many times this number appeared",
     "probabilityHelp": "How often this number shows up (as a percentage)",
     "theoreticalHelp": "Expected probability if all numbers were equally likely",
@@ -110,10 +95,8 @@
     "differenceHelp": "How much this number differs from what we'd expect",
     "wilsonConfidenceInterval": "Probability Range",
     "wilsonConfidenceIntervalHelp": "We can be {{confidence}}% confident the true probability falls within this range. Think of it as a 'margin of error' for the number's probability.",
-    "confidenceRange": "{{confidence}}% confidence that true probability is between:",
     "lowerBound": "Lower Bound",
     "upperBound": "Upper Bound",
-    "expectedVsObserved": "Expected vs Observed",
     "theoretical": "Expected",
     "expectedProbability": "expected probability",
     "observed": "Observed",
@@ -124,17 +107,11 @@
     "relativeDeviation": "Relative Deviation",
     "statisticallySignificant": "Statistically Significant",
     "notSignificant": "Not Significant",
-    "significantDescription": "This difference is unlikely to be just random luck - there might be a real pattern here.",
-    "notSignificantDescription": "This difference could easily happen by chance - it's within normal random variation.",
     "analysisSummary": "What Does This Mean?",
     "appearedTimes": "This number appeared <bold>{{count}}</bold> times in <bold>{{total}}</bold> draws.",
     "appearingMoreThanExpected": "Appearing <highlight>{{percent}}%</highlight> more than expected",
     "appearingLessThanExpected": "Appearing <highlight>{{percent}}%</highlight> less than expected",
     "insufficientData": {
-      "autocorrelationTitle": "Pattern Detection (Autocorrelation)",
-      "autocorrelationMessage": "Not enough data for statistical analysis. At least 20 draws are needed to detect meaningful patterns.",
-      "markovTitle": "State Transitions (Markov Chain)",
-      "markovMessage": "Not enough data for statistical analysis. At least 20 draws are needed to analyze state transitions.",
       "generalTitle": "Insufficient Data",
       "generalMessage": "Not enough historical data available for analysis. Try expanding your date range.",
       "premiumFeaturesTitle": "More Data Needed",
@@ -142,7 +119,6 @@
       "currentDraws": "Available draws",
       "needMoreDraws_one": "{{count}} more draw needed to unlock the next feature",
       "needMoreDraws_other": "{{count}} more draws needed to unlock the next feature",
-      "requiresDraws": "Requires at least {{count}} draws",
       "expandDateRange": "Expand your date range to include more draws"
     },
     "lastSeen": {
@@ -211,37 +187,6 @@
       "avgGapValue": "This number typically appears every {{days}} days on average."
     },
     "historicalTrendsTitle": "Historical Trends & Patterns",
-    "loadingHistoricalData": "Loading historical data...",
-    "patternInterpretation": "Pattern Interpretation:",
-    "patternRandom": "No significant patterns detected - appearances are random as expected in a fair lottery.",
-    "patternDetected": "Detected {{pattern}} pattern - this may indicate clustering or dispersion in appearances.",
-    "statsSummary": {
-      "currentStreak": "Current Streak",
-      "longestStreak": "Longest: {{count}}",
-      "currentDrought": "Current Drought",
-      "days": "{{count}} days",
-      "avgDaysBetween": "Avg. Days Between",
-      "steadyStateProb": "Steady State Prob."
-    },
-    "patternAnalysis": {
-      "title": "Pattern Analysis",
-      "autocorrelation": "Autocorrelation: {{interpretation}}",
-      "markov": "Markov: {{interpretation}}"
-    },
-    "monthlyAppearances": {
-      "title": "Monthly Appearances Over Time",
-      "description": "How many times this number appeared each month vs. what we'd expect if it was random",
-      "actualAppearances": "Actual Appearances",
-      "expectedRandom": "Expected (Random)",
-      "month": "Month (YYYY-MM)",
-      "timesAppeared": "Times Appeared",
-      "monthLabel": "Month",
-      "appearancesLabel": "Appearances",
-      "appearedTimes": "Number {{number}} appeared {{count}} time this month",
-      "appearedTimes_plural": "Number {{number}} appeared {{count}} times this month",
-      "didNotAppear": "Number didn't appear this month",
-      "avgExpected": "Average expected if random: {{count}} times"
-    },
     "autocorrelationChart": {
       "title": "Pattern Detection (Autocorrelation)",
       "description": "Checks if this number's appearances are related to previous draws. Bars near zero = random (good!), bars far from zero = potential pattern",
@@ -269,55 +214,9 @@
         "dispersed": "This number tends to spread out its appearances - after showing up, it's less likely to appear in the next few draws. The appearances seem more evenly distributed over time."
       }
     },
-    "markovHeatmap": {
-      "title": "State Transitions (Markov Chain)",
-      "description": "Shows probability of number appearing/not appearing based on previous draw. Darker = higher probability",
-      "afterAppeared": "After Appeared",
-      "appearsAgain": "Appears Again",
-      "doesNotAppear": "Does Not Appear",
-      "afterNotAppeared": "After Not Appeared",
-      "appears": "Appears",
-      "previousState": "Previous State",
-      "probability": "Probability (%) →"
-    },
-    "timeline": {
-      "title": "Appearance Timeline",
-      "description": "Each dot shows when number {{number}} appeared in a draw. Clusters indicate multiple appearances in a short time.",
-      "numberLabel": "Number {{number}}",
-      "date": "Date",
-      "dateLabel": "Date: {{date}}",
-      "occurrence": "Occurrence #{{index}} of {{total}}"
-    },
-    "droughtStreak": {
-      "title": "Drought & Streak Patterns",
-      "description": "Visual comparison of current vs. historical streaks and droughts",
-      "streak": "Streak",
-      "drought": "Drought",
-      "current": "Current",
-      "longest": "Longest",
-      "metric": "Metric",
-      "count": "Count",
-      "value": "Value: {{value}}",
-      "draws": "{{count}} draw",
-      "draws_plural": "{{count}} draws",
-      "consecutiveDraws": "Number of consecutive draws with this number",
-      "maxConsecutive": "Maximum consecutive appearances recorded",
-      "daysSinceAppeared": "Days since this number last appeared",
-      "longestGap": "Longest gap between appearances"
-    },
     "markov": {
       "title": "What Happens Next?",
       "description": "Based on historical patterns, what typically happens after this number appears or doesn't appear?",
-      "matrixTitle": "Transition Matrix",
-      "matrixDescription": "Probability grid showing what happens after each state",
-      "flowTitle": "Transition Flow",
-      "flowDescription": "Visual diagram of how this number transitions between states",
-      "afterAppeared": "After Appeared",
-      "afterNotAppeared": "After Not Appeared",
-      "appears": "Appears",
-      "doesntAppear": "Doesn't Appear",
-      "appeared": "Appeared",
-      "notAppeared": "Didn't",
       "appearedToAppeared": "Repeat",
       "appearedToAppearedDesc": "Appears again after appearing",
       "appearedToNotAppeared": "Skip",
@@ -328,10 +227,6 @@
       "notAppearedToNotAppearedDesc": "Stays absent after being absent",
       "pattern": "Pattern",
       "steadyState": "Long-term probability",
-      "times": "{{count}} time",
-      "times_plural": "{{count}} times",
-      "appearsTransition": "Leads to appearance",
-      "missesTransition": "Leads to miss",
       "interpretation": {
         "memoryless": "Random",
         "persistent": "Tends to repeat",
@@ -368,21 +263,8 @@
       "title": "Reality Check: Is This Normal?",
       "description": "We simulated thousands of lotteries to see if this number's behavior is unusual or just normal randomness.",
       "explanationText": "We ran {{count}} computer-simulated lotteries to see how often this number would typically appear if everything was random.",
-      "expectedLabel": "Simulations showed",
-      "actualLabel": "Actually appeared",
-      "timesLabel": "times",
-      "simulationsLabel": "Simulations",
       "expectedRangeLegend": "Expected range (90% of simulations)",
       "actualValueLegend": "Your actual result",
-      "verdictAbove": "This number appeared {{actual}} times - that's more than the {{max}} times we'd expect in 95% of cases. It's been showing up unusually often!",
-      "verdictBelow": "This number appeared only {{actual}} times - that's less than the {{min}} times we'd expect in 95% of cases. It's been unusually quiet.",
-      "verdictNormal": "This number appeared within the normal range of {{min}}-{{max}} times. Nothing unusual here - it's behaving as expected.",
-      "verdictHot": "🔥 Hot Number!",
-      "verdictHotSubtitle": "This number is on fire - appearing way more than expected",
-      "verdictCold": "❄️ Cold Number",
-      "verdictColdSubtitle": "This number has been quiet - appearing less than expected",
-      "verdictNormalTitle": "✓ Normal",
-      "verdictNormalSubtitle": "This number is behaving exactly as expected",
       "interpretation": {
         "above_expected": "Appearing More Than Expected",
         "below_expected": "Appearing Less Than Expected",
@@ -399,8 +281,6 @@
       "description": "Does this number appear more on certain days or months?",
       "byDayOfWeek": "By Day of Week",
       "byMonth": "By Month",
-      "bestDay": "Best: {{day}}",
-      "bestMonth": "Best: {{month}}",
       "aboveAverage": "Above average",
       "average": "Average",
       "belowAverage": "Below average",
@@ -469,8 +349,7 @@
     "emailLabel": "Email address",
     "emailRequired": "Email is required",
     "emailInvalid": "Please enter a valid email address",
-    "sendCode": "Send Code",
-    "sending": "Sending..."
+    "sendCode": "Send Code"
   },
   "verifyOtp": {
     "enterCode": "Check your inbox",
@@ -485,22 +364,20 @@
     "verify": "Continue",
     "didntReceiveCode": "Didn't receive the code?",
     "resendCode": "Resend code",
-    "resending": "Resending...",
-    "codeResent": "Code sent successfully!"
+    "resending": "Resending..."
   },
   "userMenu": {
-    "profile": "Profile",
-    "subscription": "Subscription",
     "logout": "Log out",
     "language": "Language",
-    "region": "Region",
-    "theme": "Theme",
-    "themeLight": "Light",
-    "themeDark": "Dark",
-    "themeSystem": "System"
+    "region": "Region"
+  },
+  "region": {
+    "EE": "Estonia",
+    "UK": "United Kingdom",
+    "US": "United States",
+    "ES": "Spain"
   },
   "profile": {
-    "title": "Profile",
     "memberSince": "Member since {{date}}",
     "email": "Email",
     "emailCannotBeChanged": "Email address cannot be changed",
@@ -518,15 +395,13 @@
     "deleteConfirmTitle": "Delete your account?",
     "deleteConfirmDescription": "This action cannot be undone. All your data will be permanently removed from our servers.",
     "cancel": "Cancel",
-    "confirmDelete": "Yes, delete my account",
-    "errorLoading": "Unable to load profile data"
+    "confirmDelete": "Yes, delete my account"
   },
   "subscription": {
     "title": "Choose Your Plan",
     "subtitle": "Select the perfect plan for your lottery analysis needs",
     "popular": "MOST POPULAR",
     "perMonth": "/ month",
-    "currentPlan": "Current Plan",
     "alreadyOnPlan": "You're on this plan",
     "choosePlan": "Choose Plan",
     "updating": "Updating...",
@@ -534,15 +409,6 @@
     "endsOn": "Ends on {{date}}",
     "resume": "Resume subscription",
     "resuming": "Resuming...",
-    "FREE": {
-      "name": "Free"
-    },
-    "PRO": {
-      "name": "Pro"
-    },
-    "PREMIUM": {
-      "name": "Premium"
-    },
     "features": {
       "STATS_2_MONTHS": "2 months of lottery statistics",
       "STATS_2_YEARS": "2 years of lottery data",
@@ -586,7 +452,6 @@
   },
   "home": {
     "selectLottery": "Select Lottery Game",
-    "selectLotteryDescription": "Choose a lottery game to view probability analysis and number statistics",
     "hero": {
       "welcome": "Welcome to LottoLens",
       "welcomeBack": "Welcome back, {{name}}",
@@ -596,11 +461,6 @@
         "draws": "Draws Analyzed",
         "regions": "Regions"
       }
-    },
-    "region": {
-      "estonia": "Estonia",
-      "uk": "United Kingdom",
-      "usa": "United States"
     }
   },
   "lottery": {
@@ -617,6 +477,9 @@
     "POWERBALL": "Powerball",
     "MEGA_MILLIONS": "Mega Millions",
     "CASH4LIFE": "Cash4Life",
+    "ES_LA_PRIMITIVA": "La Primitiva",
+    "ES_BONOLOTO": "Bonoloto",
+    "ES_EL_GORDO": "El Gordo",
     "frequency": {
       "EURO": "Tue & Fri",
       "VIKINGLOTTO": "Wed",
@@ -630,7 +493,10 @@
       "UK_HOT_PICKS": "Wed & Sat",
       "POWERBALL": "Mon, Wed & Sat",
       "MEGA_MILLIONS": "Tue & Fri",
-      "CASH4LIFE": "Daily"
+      "CASH4LIFE": "Daily",
+      "ES_LA_PRIMITIVA": "Thu & Sat",
+      "ES_BONOLOTO": "Mon-Sat",
+      "ES_EL_GORDO": "Sun"
     }
   }
 }

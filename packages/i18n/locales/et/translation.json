@@ -24,17 +24,16 @@
     "UK_THUNDERBALL": "Kokku on 39 primaarnumbrit, millest kasutaja peab valima 5. Lisaks on 14 Thunderball numbrit, millest kasutaja peab valima 1. Valitud numbrite asukoht ei ole oluline.",
     "UK_SET_FOR_LIFE": "Kokku on 47 primaarnumbrit, millest kasutaja peab valima 5. Lisaks on 10 Life Ball numbrit, millest kasutaja peab valima 1. Valitud numbrite asukoht ei ole oluline.",
     "UK_HOT_PICKS": "Kokku on 59 numbrit, millest kasutaja peab valima 1 kuni 5 numbrit. Võitmiseks peavad kõik valitud numbrid kattuma. Valitud numbrite asukoht ei ole oluline.",
+    "ES_LA_PRIMITIVA": "Kokku on 49 primaarnumbrit, millest kasutaja peab valima 6. Lisaks on 1 Reintegro number (0-9). Valitud numbrite asukoht ei ole oluline.",
+    "ES_BONOLOTO": "Kokku on 49 primaarnumbrit, millest kasutaja peab valima 6. Lisaks on 1 Reintegro number (0-9). Valitud numbrite asukoht ei ole oluline.",
+    "ES_EL_GORDO": "Kokku on 54 primaarnumbrit, millest kasutaja peab valima 5. Lisaks on 1 Clave number (0-9). Valitud numbrite asukoht ei ole oluline.",
     "generalDescription": "Süsteem arvutab {{lottoName}} loto numbrite esinemise tõenäosuse ajalooliste andmete põhjal ning kuvab parimaid numbreid. Saate määrata ise kuupäevad, mille vahemikus ajaloolisi andmeid kasutatakse."
   },
   "search": {
-    "search": "OTSING",
-    "dateFrom": "Kuupäevast",
-    "dateTo": "Kuupäevani",
     "calculate": "Otsi"
   },
   "result": {
     "totalDraws": "Kokku: {{totalDraws}} loosimist",
-    "nothingToShow": "Pole midagi kuvada...",
     "noResults": "Vali kuupäevad ja otsi",
     "primaryNumbers": "Primaarnumbrid",
     "secondaryNumbers": "Lisanumbrid",
@@ -45,18 +44,8 @@
     "powerball": "Powerball",
     "megaBall": "Mega Ball",
     "cashBall": "Cash Ball",
-    "best": {
-      "result.primaryNumbers": "Parimad primaarnumbrid",
-      "result.secondaryNumbers": "Parimad lisanumbrid",
-      "result.bonusBall": "Parim boonusnumber",
-      "result.luckyStars": "Parimad Lucky Stars",
-      "result.thunderball": "Parim Thunderball",
-      "result.lifeBall": "Parim Life Ball",
-      "result.powerball": "Parim Powerball",
-      "result.megaBall": "Parim Mega Ball",
-      "result.cashBall": "Parim Cash Ball"
-    },
-    "bestNumbersTooltip": "Numbrid, mis esinesid valitud ajavahemikus kõige sagedamini",
+    "reintegro": "Reintegro",
+    "clave": "Clave",
     "bingo": {
       "centerGame": "Keskruudumäng",
       "cornerGame": "Nurkademäng",
@@ -80,7 +69,6 @@
   "general": {
     "digit": "Number",
     "count": "Kogus",
-    "probability": "Tõenäosus",
     "frequency": "Sagedus",
     "number": "Number",
     "numbers": "Numbrit",
@@ -100,9 +88,6 @@
     "statusDescriptionFrequent": "See number esineb sagedamini kui oodatud",
     "statusDescriptionRare": "See number esineb harvemini kui oodatud",
     "statusDescriptionNormal": "See number esineb ootuspäraselt",
-    "basicStatistics": "Põhistatistika",
-    "outOfDraws": "{{totalDraws}} loosimisest",
-    "observedFrequency": "täheldatud sagedus",
     "countHelp": "Mitu korda see number esines",
     "probabilityHelp": "Kui sageli see number ilmub (protsentides)",
     "theoreticalHelp": "Oodatav tõenäosus, kui kõik numbrid oleksid võrdselt tõenäolised",
@@ -110,10 +95,8 @@
     "differenceHelp": "Kui palju see number erineb oodatust",
     "wilsonConfidenceInterval": "Tõenäosuse vahemik",
     "wilsonConfidenceIntervalHelp": "{{confidence}}% kindlusega jääb tegelik tõenäosus sellesse vahemikku. Mõtle sellele kui 'veamarginaali' numbri tõenäosusele.",
-    "confidenceRange": "{{confidence}}% kindlusega on tõeline tõenäosus vahemikus:",
     "lowerBound": "Alumine piir",
     "upperBound": "Ülemine piir",
-    "expectedVsObserved": "Oodatud vs täheldatud",
     "theoretical": "Oodatav",
     "expectedProbability": "oodatud tõenäosus",
     "observed": "Täheldatud",
@@ -124,17 +107,11 @@
     "relativeDeviation": "Suhteline kõrvalekalle",
     "statisticallySignificant": "Statistiliselt oluline",
     "notSignificant": "Pole oluline",
-    "significantDescription": "See erinevus on ebatõenäoliselt lihtsalt juhus - siin võib olla tegelik muster.",
-    "notSignificantDescription": "See erinevus võib kergesti olla juhuslik - see on normaalsete juhulike kõikumiste piires.",
     "analysisSummary": "Mida see tähendab?",
     "appearedTimes": "See number esines <bold>{{count}}</bold> korda <bold>{{total}}</bold> loosimises.",
     "appearingMoreThanExpected": "Esineb <highlight>{{percent}}%</highlight> rohkem kui oodatud",
     "appearingLessThanExpected": "Esineb <highlight>{{percent}}%</highlight> vähem kui oodatud",
     "insufficientData": {
-      "autocorrelationTitle": "Mustrite tuvastamine (autokorrelatsioon)",
-      "autocorrelationMessage": "Statistiliseks analüüsiks pole piisavalt andmeid. Sisukate mustrite tuvastamiseks on vaja vähemalt 20 loosimist.",
-      "markovTitle": "Olekute üleminekud (Markovi ahel)",
-      "markovMessage": "Statistiliseks analüüsiks pole piisavalt andmeid. Olekute üleminekute analüüsimiseks on vaja vähemalt 20 loosimist.",
       "generalTitle": "Ebapiisavad andmed",
       "generalMessage": "Analüüsiks pole piisavalt ajaloolisi andmeid. Proovige kuupäevade vahemikku laiendada.",
       "premiumFeaturesTitle": "Vajatakse rohkem andmeid",
@@ -142,7 +119,6 @@
       "currentDraws": "Saadaolevad loosimised",
       "needMoreDraws_one": "Järgmise funktsiooni avamiseks on vaja veel {{count}} loosimist",
       "needMoreDraws_other": "Järgmise funktsiooni avamiseks on vaja veel {{count}} loosimist",
-      "requiresDraws": "Nõuab vähemalt {{count}} loosimist",
       "expandDateRange": "Laiendage kuupäevade vahemikku, et kaasata rohkem loosimisi"
     },
     "lastSeen": {
@@ -211,37 +187,6 @@
       "avgGapValue": "See number esineb tavaliselt keskmiselt iga {{days}} päeva tagant."
     },
     "historicalTrendsTitle": "Ajaloolised trendid ja mustrid",
-    "loadingHistoricalData": "Ajalooliste andmete laadimine...",
-    "patternInterpretation": "Mustri tõlgendus:",
-    "patternRandom": "Olulisi mustreid ei tuvastatud - esinemised on juhuslikud, nagu ausas loteriis oodatakse.",
-    "patternDetected": "Tuvastatud {{pattern}} muster - see võib viidata klastritele või hajutatusele esinemistes.",
-    "statsSummary": {
-      "currentStreak": "Praegune seeria",
-      "longestStreak": "Pikim: {{count}}",
-      "currentDrought": "Praegune paus",
-      "days": "{{count}} päeva",
-      "avgDaysBetween": "Keskm. päevi vahel",
-      "steadyStateProb": "Püsioleku tõen."
-    },
-    "patternAnalysis": {
-      "title": "Mustrianalüüs",
-      "autocorrelation": "Autokorrelatsioon: {{interpretation}}",
-      "markov": "Markov: {{interpretation}}"
-    },
-    "monthlyAppearances": {
-      "title": "Igakuised esinemised aja jooksul",
-      "description": "Mitu korda see number esines igal kuul võrreldes juhuslikult oodatavaga",
-      "actualAppearances": "Tegelikud esinemised",
-      "expectedRandom": "Oodatav (juhuslik)",
-      "month": "Kuu (AAAA-KK)",
-      "timesAppeared": "Esinemiste arv",
-      "monthLabel": "Kuu",
-      "appearancesLabel": "Esinemised",
-      "appearedTimes": "Number {{number}} esines {{count}} kord sel kuul",
-      "appearedTimes_plural": "Number {{number}} esines {{count}} korda sel kuul",
-      "didNotAppear": "Number ei esinenud sel kuul",
-      "avgExpected": "Keskmine oodatav juhuslikult: {{count}} korda"
-    },
     "autocorrelationChart": {
       "title": "Mustrite tuvastamine (autokorrelatsioon)",
       "description": "Kontrollib, kas selle numbri esinemised on seotud eelmiste loosimistega. Ribad nulli lähedal = juhuslik (hea!), ribad nullist kaugel = võimalik muster",
@@ -269,55 +214,9 @@
         "dispersed": "See number kipub oma esinemisi laiali jaotama - pärast ilmumist on vähem tõenäoline, et see ilmub järgmistes loosimistes. Esinemised tunduvad aja jooksul ühtlasemalt jaotunud."
       }
     },
-    "markovHeatmap": {
-      "title": "Olekute üleminekud (Markovi ahel)",
-      "description": "Näitab numbri esinemise/mitte-esinemise tõenäosust eelmise loosimise põhjal. Tumedam = suurem tõenäosus",
-      "afterAppeared": "Pärast esinemist",
-      "appearsAgain": "Esineb uuesti",
-      "doesNotAppear": "Ei esine",
-      "afterNotAppeared": "Pärast mitte-esinemist",
-      "appears": "Esineb",
-      "previousState": "Eelmine olek",
-      "probability": "Tõenäosus (%) →"
-    },
-    "timeline": {
-      "title": "Esinemiste ajajoon",
-      "description": "Iga punkt näitab, millal number {{number}} loosimises esines. Klastrid viitavad mitmetele esinemistele lühikese aja jooksul.",
-      "numberLabel": "Number {{number}}",
-      "date": "Kuupäev",
-      "dateLabel": "Kuupäev: {{date}}",
-      "occurrence": "Esinemine #{{index}} / {{total}}"
-    },
-    "droughtStreak": {
-      "title": "Pausi ja seeria mustrid",
-      "description": "Praeguste ja ajalooliste seeriate ning pauside visuaalne võrdlus",
-      "streak": "Seeria",
-      "drought": "Paus",
-      "current": "Praegune",
-      "longest": "Pikim",
-      "metric": "Mõõdik",
-      "count": "Arv",
-      "value": "Väärtus: {{value}}",
-      "draws": "{{count}} loosimine",
-      "draws_plural": "{{count}} loosimist",
-      "consecutiveDraws": "Järjestikuste loosimiste arv selle numbriga",
-      "maxConsecutive": "Maksimaalne registreeritud järjestikuste esinemiste arv",
-      "daysSinceAppeared": "Päevi selle numbri viimasest esinemisest",
-      "longestGap": "Pikim vahe esinemiste vahel"
-    },
     "markov": {
       "title": "Mis juhtub edasi?",
       "description": "Ajalooliste mustrite põhjal, mis tavaliselt juhtub pärast selle numbri esinemist või mitte-esinemist?",
-      "matrixTitle": "Üleminekumaatriks",
-      "matrixDescription": "Tõenäosuste ruudustik, mis näitab, mis juhtub pärast iga olekut",
-      "flowTitle": "Üleminekute voog",
-      "flowDescription": "Visuaalne diagramm sellest, kuidas see number olekute vahel liigub",
-      "afterAppeared": "Pärast esinemist",
-      "afterNotAppeared": "Pärast mitte-esinemist",
-      "appears": "Esineb",
-      "doesntAppear": "Ei esine",
-      "appeared": "Esines",
-      "notAppeared": "Ei",
       "appearedToAppeared": "Kordub",
       "appearedToAppearedDesc": "Esineb uuesti pärast esinemist",
       "appearedToNotAppeared": "Vahele",
@@ -328,10 +227,6 @@
       "notAppearedToNotAppearedDesc": "Jääb puuduma pärast puudumist",
       "pattern": "Muster",
       "steadyState": "Pikaajaline tõenäosus",
-      "times": "{{count}} kord",
-      "times_plural": "{{count}} korda",
-      "appearsTransition": "Viib esinemiseni",
-      "missesTransition": "Viib möödalaskmiseni",
       "interpretation": {
         "memoryless": "Juhuslik",
         "persistent": "Kipub korduma",
@@ -368,21 +263,8 @@
       "title": "Reaalsuskontroll: kas see on normaalne?",
       "description": "Simuleerisime tuhandeid loosimisi, et näha, kas selle numbri käitumine on ebatavaline või lihtsalt normaalne juhuslikkus.",
       "explanationText": "Tegime {{count}} arvutisimuleeritud loosimist, et näha, kui sageli see number tavaliselt esineks, kui kõik oleks juhuslik.",
-      "expectedLabel": "Simulatsioonid näitasid",
-      "actualLabel": "Tegelikult esines",
-      "timesLabel": "korda",
-      "simulationsLabel": "Simulatsioone",
       "expectedRangeLegend": "Oodatav vahemik (90% simulatsioonidest)",
       "actualValueLegend": "Sinu tegelik tulemus",
-      "verdictAbove": "See number esines {{actual}} korda - see on rohkem kui {{max}} korda, mida ootaksime 95% juhtudest. See on esinenud ebatavaliselt sageli!",
-      "verdictBelow": "See number esines vaid {{actual}} korda - see on vähem kui {{min}} korda, mida ootaksime 95% juhtudest. See on olnud ebatavaliselt vaikne.",
-      "verdictNormal": "See number esines normaalses vahemikus {{min}}-{{max}} korda. Midagi ebatavalist pole - käitub ootuspäraselt.",
-      "verdictHot": "🔥 Kuum number!",
-      "verdictHotSubtitle": "See number on tules - esineb palju rohkem kui oodatud",
-      "verdictCold": "❄️ Külm number",
-      "verdictColdSubtitle": "See number on olnud vaikne - esineb vähem kui oodatud",
-      "verdictNormalTitle": "✓ Normaalne",
-      "verdictNormalSubtitle": "See number käitub täpselt nii nagu oodatud",
       "interpretation": {
         "above_expected": "Esineb rohkem kui oodatud",
         "below_expected": "Esineb vähem kui oodatud",
@@ -399,8 +281,6 @@
       "description": "Kas see number esineb rohkem teatud päevadel või kuudel?",
       "byDayOfWeek": "Nädalapäeva järgi",
       "byMonth": "Kuu järgi",
-      "bestDay": "Parim: {{day}}",
-      "bestMonth": "Parim: {{month}}",
       "aboveAverage": "Üle keskmise",
       "average": "Keskmine",
       "belowAverage": "Alla keskmise",
@@ -469,8 +349,7 @@
     "emailLabel": "E-posti aadress",
     "emailRequired": "E-post on kohustuslik",
     "emailInvalid": "Palun sisesta kehtiv e-posti aadress",
-    "sendCode": "Saada kood",
-    "sending": "Saadan..."
+    "sendCode": "Saada kood"
   },
   "verifyOtp": {
     "enterCode": "Kontrolli postkasti",
@@ -485,22 +364,20 @@
     "verify": "Jätka",
     "didntReceiveCode": "Ei saanud koodi?",
     "resendCode": "Saada kood uuesti",
-    "resending": "Saadan...",
-    "codeResent": "Kood saadetud!"
+    "resending": "Saadan..."
   },
   "userMenu": {
-    "profile": "Profiil",
-    "subscription": "Tellimus",
     "logout": "Logi välja",
     "language": "Keel",
-    "region": "Piirkond",
-    "theme": "Teema",
-    "themeLight": "Hele",
-    "themeDark": "Tume",
-    "themeSystem": "Süsteem"
+    "region": "Piirkond"
+  },
+  "region": {
+    "EE": "Eesti",
+    "UK": "Ühendkuningriik",
+    "US": "Ameerika Ühendriigid",
+    "ES": "Hispaania"
   },
   "profile": {
-    "title": "Profiil",
     "memberSince": "Liige alates {{date}}",
     "email": "E-post",
     "emailCannotBeChanged": "E-posti aadressi ei saa muuta",
@@ -518,15 +395,13 @@
     "deleteConfirmTitle": "Kustutada oma konto?",
     "deleteConfirmDescription": "Seda toimingut ei saa tagasi võtta. Kõik sinu andmed kustutatakse meie serveritest jäädavalt.",
     "cancel": "Tühista",
-    "confirmDelete": "Jah, kustuta minu konto",
-    "errorLoading": "Profiili andmete laadimine ebaõnnestus"
+    "confirmDelete": "Jah, kustuta minu konto"
   },
   "subscription": {
     "title": "Vali oma pakett",
     "subtitle": "Vali oma lotoanalüüsi vajadustele sobiv pakett",
     "popular": "POPULAARSEIM",
     "perMonth": "/ kuus",
-    "currentPlan": "Praegune pakett",
     "alreadyOnPlan": "Oled sellel paketil",
     "choosePlan": "Vali pakett",
     "updating": "Uuendan...",
@@ -534,15 +409,6 @@
     "endsOn": "Lõpeb {{date}}",
     "resume": "Jätka tellimust",
     "resuming": "Jätkamine...",
-    "FREE": {
-      "name": "Tasuta"
-    },
-    "PRO": {
-      "name": "Pro"
-    },
-    "PREMIUM": {
-      "name": "Premium"
-    },
     "features": {
       "STATS_2_MONTHS": "2 kuu lotostatistika",
       "STATS_2_YEARS": "2 aastat lotoandmeid",
@@ -586,7 +452,6 @@
   },
   "home": {
     "selectLottery": "Vali lotomäng",
-    "selectLotteryDescription": "Vali lotomäng, et näha tõenäosusanalüüsi ja numbristatistikat",
     "hero": {
       "welcome": "Tere tulemast LottoLensi",
       "welcomeBack": "Tere tulemast tagasi, {{name}}",
@@ -596,11 +461,6 @@
         "draws": "Analüüsitud loosimisi",
         "regions": "Piirkondi"
       }
-    },
-    "region": {
-      "estonia": "Eesti",
-      "uk": "Ühendkuningriik",
-      "usa": "Ameerika Ühendriigid"
     }
   },
   "lottery": {
@@ -617,6 +477,9 @@
     "POWERBALL": "Powerball",
     "MEGA_MILLIONS": "Mega Millions",
     "CASH4LIFE": "Cash4Life",
+    "ES_LA_PRIMITIVA": "La Primitiva",
+    "ES_BONOLOTO": "Bonoloto",
+    "ES_EL_GORDO": "El Gordo",
     "frequency": {
       "EURO": "T & R",
       "VIKINGLOTTO": "K",
@@ -630,7 +493,10 @@
       "UK_HOT_PICKS": "K & L",
       "POWERBALL": "E, K & L",
       "MEGA_MILLIONS": "T & R",
-      "CASH4LIFE": "Iga päev"
+      "CASH4LIFE": "Iga päev",
+      "ES_LA_PRIMITIVA": "N & L",
+      "ES_BONOLOTO": "E-L",
+      "ES_EL_GORDO": "P"
     }
   }
 }

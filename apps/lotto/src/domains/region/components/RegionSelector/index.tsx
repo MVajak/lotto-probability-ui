@@ -16,16 +16,18 @@ import { useLottoStore } from '@/domains/lotto';
 import { Region, RegionStorageKey } from '@/domains/region';
 
 import FlagEstonia from '../../assets/flag_estonia.svg';
+import FlagSpain from '../../assets/flag_spain.svg';
 import FlagUK from '../../assets/flag_united_kingdom.svg';
 import FlagUSA from '../../assets/flag_usa.svg';
 
-const FLAGS: Record<Region, { src: string; alt: string }> = {
-  [Region.EE]: { src: FlagEstonia, alt: 'Estonia' },
-  [Region.UK]: { src: FlagUK, alt: 'United Kingdom' },
-  [Region.US]: { src: FlagUSA, alt: 'United States' },
+const FLAGS: Record<Region, string> = {
+  [Region.EE]: FlagEstonia,
+  [Region.UK]: FlagUK,
+  [Region.US]: FlagUSA,
+  [Region.ES]: FlagSpain,
 };
 
-const REGIONS = [Region.EE, Region.UK, Region.US] as const;
+const REGIONS = [Region.EE, Region.UK, Region.US, Region.ES] as const;
 
 const getInitialRegion = (): Region => {
   const storedRegion = localStorage.getItem(RegionStorageKey.REGION);
@@ -39,6 +41,8 @@ const getInitialRegion = (): Region => {
     return Region.EE;
   } else if (timezone.includes('Europe/London') || timezone.includes('Europe/Edinburgh')) {
     return Region.UK;
+  } else if (timezone.includes('Europe/Madrid') || timezone.includes('Atlantic/Canary')) {
+    return Region.ES;
   } else if (timezone.includes('America/')) {
     return Region.US;
   }
@@ -58,8 +62,6 @@ export function RegionSelector() {
     setRegion(newRegion);
   };
 
-  const currentFlag = FLAGS[region];
-
   return (
     <DropdownMenu>
       <Tooltip>
@@ -71,7 +73,7 @@ export function RegionSelector() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <img src={currentFlag.src} alt={currentFlag.alt} className="size-5 rounded-sm object-cover" />
+              <img src={FLAGS[region]} alt={t(`region.${region}`)} className="size-5 rounded-sm object-cover" />
             </motion.button>
           </DropdownMenuTrigger>
         </TooltipTrigger>
@@ -80,8 +82,8 @@ export function RegionSelector() {
       <DropdownMenuContent align="end">
         {REGIONS.map((r) => (
           <DropdownMenuItem key={r} onClick={() => handleRegionChange(r)} className={region === r ? 'bg-muted' : ''}>
-            <img src={FLAGS[r].src} alt={FLAGS[r].alt} className="size-5 rounded-sm object-cover" />
-            <span className="ml-2">{FLAGS[r].alt}</span>
+            <img src={FLAGS[r]} alt={t(`region.${r}`)} className="size-5 rounded-sm object-cover" />
+            <span className="ml-2">{t(`region.${r}`)}</span>
           </DropdownMenuItem>
         ))}
       </DropdownMenuContent>

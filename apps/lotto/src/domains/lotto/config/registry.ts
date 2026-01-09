@@ -267,6 +267,56 @@ export const LOTTERY_CONFIGS: LotteryConfigRegistry = {
       ],
     },
   },
+
+  // ===== SPAIN (ES) =====
+
+  [LottoType.ES_LA_PRIMITIVA]: {
+    lottoType: LottoType.ES_LA_PRIMITIVA,
+    logo: '/img/lottery/la_primitiva_logo.webp',
+    links: {
+      buyTickets: 'https://www.loteriasyapuestas.es/es/la-primitiva',
+      gameRules: 'https://www.loteriasyapuestas.es/es/la-primitiva/como-se-juega',
+    },
+    dataTransform: {
+      mode: 'standard',
+      categories: [
+        { titleKey: 'result.primaryNumbers', maxNumbers: 6, containerSize: { sm: 6 } },
+        { titleKey: 'result.reintegro', maxNumbers: 1, containerSize: { sm: 6 }, isSecondary: true },
+      ],
+    },
+  },
+
+  [LottoType.ES_BONOLOTO]: {
+    lottoType: LottoType.ES_BONOLOTO,
+    logo: '/img/lottery/bonoloto_logo.webp',
+    links: {
+      buyTickets: 'https://www.loteriasyapuestas.es/es/bonoloto',
+      gameRules: 'https://www.loteriasyapuestas.es/es/bonoloto/como-se-juega',
+    },
+    dataTransform: {
+      mode: 'standard',
+      categories: [
+        { titleKey: 'result.primaryNumbers', maxNumbers: 6, containerSize: { sm: 6 } },
+        { titleKey: 'result.reintegro', maxNumbers: 1, containerSize: { sm: 6 }, isSecondary: true },
+      ],
+    },
+  },
+
+  [LottoType.ES_EL_GORDO]: {
+    lottoType: LottoType.ES_EL_GORDO,
+    logo: '/img/lottery/el_gordo_logo.webp',
+    links: {
+      buyTickets: 'https://www.loteriasyapuestas.es/es/el-gordo-de-la-primitiva',
+      gameRules: 'https://www.loteriasyapuestas.es/es/el-gordo-de-la-primitiva/como-se-juega',
+    },
+    dataTransform: {
+      mode: 'standard',
+      categories: [
+        { titleKey: 'result.primaryNumbers', maxNumbers: 5, containerSize: { sm: 6 } },
+        { titleKey: 'result.clave', maxNumbers: 1, containerSize: { sm: 6 }, isSecondary: true },
+      ],
+    },
+  },
 };
 
 /**

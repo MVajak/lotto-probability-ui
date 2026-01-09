@@ -57,6 +57,11 @@ export enum LottoType {
   UK_THUNDERBALL = 'UK_THUNDERBALL',
   UK_SET_FOR_LIFE = 'UK_SET_FOR_LIFE',
   UK_HOT_PICKS = 'UK_HOT_PICKS',
+
+  // Spanish lotteries
+  ES_LA_PRIMITIVA = 'ES_LA_PRIMITIVA',
+  ES_BONOLOTO = 'ES_BONOLOTO',
+  ES_EL_GORDO = 'ES_EL_GORDO',
 }
 
 // DTOs

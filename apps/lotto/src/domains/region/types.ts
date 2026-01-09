@@ -7,4 +7,5 @@ export enum Region {
   EE = 'EE',
   UK = 'UK',
   US = 'US',
+  ES = 'ES',
 }
