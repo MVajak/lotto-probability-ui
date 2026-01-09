@@ -67,8 +67,8 @@ export const UpgradePromptCard: React.FC<UpgradePromptCardProps> = ({ requiredTi
             {t('subscription.upgrade.upgradeToUnlock', { tier: requiredTier })}
           </Badge>
 
-          <div className="flex items-center gap-2">
-            <Button variant="ghost" size="sm" onClick={() => setShowPreview(true)} className="gap-1.5">
+          <div className="flex w-full flex-col gap-2 sm:w-auto sm:flex-row sm:items-center">
+            <Button variant="ghost" size="sm" onClick={() => setShowPreview(true)} className="w-full gap-1.5 sm:w-auto">
               <EyeIcon className="size-4" />
               {t('subscription.preview.seePreview')}
             </Button>
@@ -77,7 +77,7 @@ export const UpgradePromptCard: React.FC<UpgradePromptCardProps> = ({ requiredTi
               variant="primary"
               size="sm"
               onClick={handleUpgrade}
-              className={cn(isProTier && 'bg-primary-orange hover:bg-gold-dark')}
+              className={cn('w-full sm:w-auto', isProTier && 'bg-primary-orange hover:bg-gold-dark')}
             >
               {t('subscription.upgrade.upgradeButton')}
             </Button>
