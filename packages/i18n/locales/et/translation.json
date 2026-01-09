@@ -24,9 +24,9 @@
     "UK_THUNDERBALL": "Kokku on 39 primaarnumbrit, millest kasutaja peab valima 5. Lisaks on 14 Thunderball numbrit, millest kasutaja peab valima 1. Valitud numbrite asukoht ei ole oluline.",
     "UK_SET_FOR_LIFE": "Kokku on 47 primaarnumbrit, millest kasutaja peab valima 5. Lisaks on 10 Life Ball numbrit, millest kasutaja peab valima 1. Valitud numbrite asukoht ei ole oluline.",
     "UK_HOT_PICKS": "Kokku on 59 numbrit, millest kasutaja peab valima 1 kuni 5 numbrit. Võitmiseks peavad kõik valitud numbrid kattuma. Valitud numbrite asukoht ei ole oluline.",
-    "ES_LA_PRIMITIVA": "Kokku on 49 primaarnumbrit, millest kasutaja peab valima 6. Lisaks on 1 Reintegro number (0-9). Valitud numbrite asukoht ei ole oluline.",
-    "ES_BONOLOTO": "Kokku on 49 primaarnumbrit, millest kasutaja peab valima 6. Lisaks on 1 Reintegro number (0-9). Valitud numbrite asukoht ei ole oluline.",
-    "ES_EL_GORDO": "Kokku on 54 primaarnumbrit, millest kasutaja peab valima 5. Lisaks on 1 Clave number (0-9). Valitud numbrite asukoht ei ole oluline.",
+    "ES_LA_PRIMITIVA": "Kokku on 49 primaarnumbrit, millest kasutaja peab valima 6. Lisaks on 1 Complementario number ülejäänud numbrite hulgast ja 1 Reintegro number (0-9). Valitud numbrite asukoht ei ole oluline.",
+    "ES_BONOLOTO": "Kokku on 49 primaarnumbrit, millest kasutaja peab valima 6. Lisaks on 1 Complementario number ülejäänud numbrite hulgast ja 1 Reintegro number (0-9). Valitud numbrite asukoht ei ole oluline.",
+    "ES_EL_GORDO": "Kokku on 54 primaarnumbrit, millest kasutaja peab valima 5. Lisaks on 1 Reintegro number (0-9). Valitud numbrite asukoht ei ole oluline.",
     "generalDescription": "Süsteem arvutab {{lottoName}} loto numbrite esinemise tõenäosuse ajalooliste andmete põhjal ning kuvab parimaid numbreid. Saate määrata ise kuupäevad, mille vahemikus ajaloolisi andmeid kasutatakse."
   },
   "search": {
@@ -45,7 +45,7 @@
     "megaBall": "Mega Ball",
     "cashBall": "Cash Ball",
     "reintegro": "Reintegro",
-    "clave": "Clave",
+    "complementario": "Complementario",
     "bingo": {
       "centerGame": "Keskruudumäng",
       "cornerGame": "Nurkademäng",

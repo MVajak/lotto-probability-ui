@@ -12,6 +12,16 @@ const BINGO_WIN_CLASSES = {
 } as const;
 
 /**
+ * Spanish lottery win class constants
+ * - MAIN_DRAW: 6 main numbers + complementario
+ * - REINTEGRO: Single reintegro number (0-9)
+ */
+const SPANISH_WIN_CLASSES = {
+  MAIN_DRAW: 1,
+  REINTEGRO: 2,
+} as const;
+
+/**
  * Registry of all configured lottery types
  * To add a new lottery: simply add a new entry to this object
  */
@@ -280,8 +290,24 @@ export const LOTTERY_CONFIGS: LotteryConfigRegistry = {
     dataTransform: {
       mode: 'standard',
       categories: [
-        { titleKey: 'result.primaryNumbers', maxNumbers: 6, containerSize: { sm: 6 } },
-        { titleKey: 'result.reintegro', maxNumbers: 1, containerSize: { sm: 6 }, isSecondary: true },
+        {
+          titleKey: 'result.primaryNumbers',
+          maxNumbers: 6,
+          containerSize: { sm: 6 },
+          winClass: SPANISH_WIN_CLASSES.MAIN_DRAW,
+        },
+        {
+          titleKey: 'result.complementario',
+          maxNumbers: 1,
+          containerSize: { sm: 6 },
+          isSecondary: true,
+          winClass: SPANISH_WIN_CLASSES.MAIN_DRAW,
+        },
+        {
+          titleKey: 'result.reintegro',
+          maxNumbers: 1,
+          winClass: SPANISH_WIN_CLASSES.REINTEGRO,
+        },
       ],
     },
   },
@@ -296,8 +322,24 @@ export const LOTTERY_CONFIGS: LotteryConfigRegistry = {
     dataTransform: {
       mode: 'standard',
       categories: [
-        { titleKey: 'result.primaryNumbers', maxNumbers: 6, containerSize: { sm: 6 } },
-        { titleKey: 'result.reintegro', maxNumbers: 1, containerSize: { sm: 6 }, isSecondary: true },
+        {
+          titleKey: 'result.primaryNumbers',
+          maxNumbers: 6,
+          containerSize: { sm: 6 },
+          winClass: SPANISH_WIN_CLASSES.MAIN_DRAW,
+        },
+        {
+          titleKey: 'result.complementario',
+          maxNumbers: 1,
+          containerSize: { sm: 6 },
+          isSecondary: true,
+          winClass: SPANISH_WIN_CLASSES.MAIN_DRAW,
+        },
+        {
+          titleKey: 'result.reintegro',
+          maxNumbers: 1,
+          winClass: SPANISH_WIN_CLASSES.REINTEGRO,
+        },
       ],
     },
   },
@@ -313,7 +355,7 @@ export const LOTTERY_CONFIGS: LotteryConfigRegistry = {
       mode: 'standard',
       categories: [
         { titleKey: 'result.primaryNumbers', maxNumbers: 5, containerSize: { sm: 6 } },
-        { titleKey: 'result.clave', maxNumbers: 1, containerSize: { sm: 6 }, isSecondary: true },
+        { titleKey: 'result.reintegro', maxNumbers: 1, containerSize: { sm: 6 }, isSecondary: true },
       ],
     },
   },

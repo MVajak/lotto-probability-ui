@@ -24,9 +24,9 @@
     "UK_THUNDERBALL": "There are 39 primary numbers in total, from which the user must choose 5. In addition, there are 14 Thunderball numbers, and the user must select 1. The position of the chosen numbers does not matter.",
     "UK_SET_FOR_LIFE": "There are 47 primary numbers in total, from which the user must choose 5. In addition, there are 10 Life Ball numbers, and the user must select 1. The position of the chosen numbers does not matter.",
     "UK_HOT_PICKS": "There are 59 numbers in total, from which the user must choose 1 to 5 numbers. To win, all chosen numbers must match. The position of the chosen numbers does not matter.",
-    "ES_LA_PRIMITIVA": "There are 49 primary numbers in total, from which the user must choose 6. In addition, there is 1 Reintegro number (0-9). The position of the chosen numbers does not matter.",
-    "ES_BONOLOTO": "There are 49 primary numbers in total, from which the user must choose 6. In addition, there is 1 Reintegro number (0-9). The position of the chosen numbers does not matter.",
-    "ES_EL_GORDO": "There are 54 primary numbers in total, from which the user must choose 5. In addition, there is 1 Clave number (0-9). The position of the chosen numbers does not matter.",
+    "ES_LA_PRIMITIVA": "There are 49 primary numbers in total, from which the user must choose 6. In addition, there is 1 Complementario number from the remaining pool and 1 Reintegro number (0-9). The position of the chosen numbers does not matter.",
+    "ES_BONOLOTO": "There are 49 primary numbers in total, from which the user must choose 6. In addition, there is 1 Complementario number from the remaining pool and 1 Reintegro number (0-9). The position of the chosen numbers does not matter.",
+    "ES_EL_GORDO": "There are 54 primary numbers in total, from which the user must choose 5. In addition, there is 1 Reintegro number (0-9). The position of the chosen numbers does not matter.",
     "generalDescription": "The system calculates the probability of {{lottoName}} numbers based on historical data and suggests the best numbers to choose. You can search for historical data by dates."
   },
   "search": {
@@ -45,7 +45,7 @@
     "megaBall": "Mega Ball",
     "cashBall": "Cash Ball",
     "reintegro": "Reintegro",
-    "clave": "Clave",
+    "complementario": "Complementario",
     "bingo": {
       "centerGame": "Center Game",
       "cornerGame": "Corner Game",
