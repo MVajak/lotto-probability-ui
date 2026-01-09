@@ -23,6 +23,7 @@
     "UK_LOTTO": "There are 59 numbers in total, from which the user must choose 6. In addition, there is 1 bonus ball drawn. The position of the chosen numbers does not matter.",
     "UK_THUNDERBALL": "There are 39 primary numbers in total, from which the user must choose 5. In addition, there are 14 Thunderball numbers, and the user must select 1. The position of the chosen numbers does not matter.",
     "UK_SET_FOR_LIFE": "There are 47 primary numbers in total, from which the user must choose 5. In addition, there are 10 Life Ball numbers, and the user must select 1. The position of the chosen numbers does not matter.",
+    "UK_HOT_PICKS": "There are 59 numbers in total, from which the user must choose 1 to 5 numbers. To win, all chosen numbers must match. The position of the chosen numbers does not matter.",
     "generalDescription": "The system calculates the probability of {{lottoName}} numbers based on historical data and suggests the best numbers to choose. You can search for historical data by dates."
   },
   "search": {
@@ -612,6 +613,7 @@
     "UK_EUROMILLIONS": "EuroMillions",
     "UK_THUNDERBALL": "Thunderball",
     "UK_SET_FOR_LIFE": "Set For Life",
+    "UK_HOT_PICKS": "Lotto HotPicks",
     "POWERBALL": "Powerball",
     "MEGA_MILLIONS": "Mega Millions",
     "CASH4LIFE": "Cash4Life",
@@ -625,6 +627,7 @@
       "UK_EUROMILLIONS": "Tue & Fri",
       "UK_THUNDERBALL": "Tue, Wed, Fri & Sat",
       "UK_SET_FOR_LIFE": "Mon & Thu",
+      "UK_HOT_PICKS": "Wed & Sat",
       "POWERBALL": "Mon, Wed & Sat",
       "MEGA_MILLIONS": "Tue & Fri",
       "CASH4LIFE": "Daily"

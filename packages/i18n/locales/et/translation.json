@@ -23,6 +23,7 @@
     "UK_LOTTO": "Kokku on 59 numbrit, millest kasutaja peab valima 6. Lisaks loositakse 1 boonusnumber. Valitud numbrite asukoht ei ole oluline.",
     "UK_THUNDERBALL": "Kokku on 39 primaarnumbrit, millest kasutaja peab valima 5. Lisaks on 14 Thunderball numbrit, millest kasutaja peab valima 1. Valitud numbrite asukoht ei ole oluline.",
     "UK_SET_FOR_LIFE": "Kokku on 47 primaarnumbrit, millest kasutaja peab valima 5. Lisaks on 10 Life Ball numbrit, millest kasutaja peab valima 1. Valitud numbrite asukoht ei ole oluline.",
+    "UK_HOT_PICKS": "Kokku on 59 numbrit, millest kasutaja peab valima 1 kuni 5 numbrit. Võitmiseks peavad kõik valitud numbrid kattuma. Valitud numbrite asukoht ei ole oluline.",
     "generalDescription": "Süsteem arvutab {{lottoName}} loto numbrite esinemise tõenäosuse ajalooliste andmete põhjal ning kuvab parimaid numbreid. Saate määrata ise kuupäevad, mille vahemikus ajaloolisi andmeid kasutatakse."
   },
   "search": {
@@ -612,6 +613,7 @@
     "UK_EUROMILLIONS": "EuroMillions",
     "UK_THUNDERBALL": "Thunderball",
     "UK_SET_FOR_LIFE": "Set For Life",
+    "UK_HOT_PICKS": "Lotto HotPicks",
     "POWERBALL": "Powerball",
     "MEGA_MILLIONS": "Mega Millions",
     "CASH4LIFE": "Cash4Life",
@@ -625,6 +627,7 @@
       "UK_EUROMILLIONS": "T & R",
       "UK_THUNDERBALL": "T, K, R & L",
       "UK_SET_FOR_LIFE": "E & N",
+      "UK_HOT_PICKS": "K & L",
       "POWERBALL": "E, K & L",
       "MEGA_MILLIONS": "T & R",
       "CASH4LIFE": "Iga päev"

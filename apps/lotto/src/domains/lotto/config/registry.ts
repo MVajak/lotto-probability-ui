@@ -205,6 +205,19 @@ export const LOTTERY_CONFIGS: LotteryConfigRegistry = {
     },
   },
 
+  [LottoType.UK_HOT_PICKS]: {
+    lottoType: LottoType.UK_HOT_PICKS,
+    logo: '/img/lottery/hotPicks_logo.svg',
+    links: {
+      buyTickets: 'https://www.national-lottery.co.uk/games/lotto-hotpicks',
+      gameRules: 'https://www.national-lottery.co.uk/games/lotto-hotpicks/game-procedures',
+    },
+    dataTransform: {
+      mode: 'standard',
+      categories: [{ titleKey: 'result.primaryNumbers', maxNumbers: 6 }],
+    },
+  },
+
   // ===== UNITED STATES (US) =====
 
   [LottoType.POWERBALL]: {
