@@ -1,0 +1,503 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "profile": "Perfil",
+    "subscription": "Suscripción"
+  },
+  "common": {
+    "showDetails": "Mostrar detalles",
+    "hideDetails": "Ocultar detalles"
+  },
+  "info": {
+    "gameRules": "Reglas del juego",
+    "buyTickets": "Comprar boletos",
+    "EURO": "Hay 50 números principales en total, de los cuales el usuario debe elegir 5. Además, hay 12 números secundarios, y el usuario debe seleccionar 2. La posición de los números elegidos no importa.",
+    "VIKINGLOTTO": "Hay 48 números principales en total, de los cuales el usuario debe elegir 6. Además, hay 5 números secundarios, y el usuario debe seleccionar 1. La posición de los números elegidos no importa.",
+    "BINGO": "Hay 75 números en total, de los cuales el usuario debe elegir 25. El juego ofrece cinco modos: Cuadrado Central, Esquinas, Diagonales, Cartón Completo y Falta Uno.",
+    "KENO": "Hay 68 números en total, de los cuales el usuario puede elegir 1-10. La posición de los números elegidos no importa.",
+    "JOKKER": "Los usuarios deben seleccionar 7 números del rango 0–9, y la secuencia en la que se eligen los números debe ser correcta.",
+    "POWERBALL": "Hay 69 números principales en total, de los cuales el usuario debe elegir 5. Además, hay 26 números Powerball, y el usuario debe seleccionar 1. La posición de los números elegidos no importa.",
+    "MEGA_MILLIONS": "Hay 70 números principales en total, de los cuales el usuario debe elegir 5. Además, hay 25 números Mega Ball, y el usuario debe seleccionar 1. La posición de los números elegidos no importa.",
+    "CASH4LIFE": "Hay 60 números principales en total, de los cuales el usuario debe elegir 5. Además, hay 4 números Cash Ball, y el usuario debe seleccionar 1. La posición de los números elegidos no importa.",
+    "UK_EUROMILLIONS": "Hay 50 números principales en total, de los cuales el usuario debe elegir 5. Además, hay 12 Estrellas de la Suerte, y el usuario debe seleccionar 2. La posición de los números elegidos no importa.",
+    "UK_LOTTO": "Hay 59 números en total, de los cuales el usuario debe elegir 6. Además, se sortea 1 bola bonus. La posición de los números elegidos no importa.",
+    "UK_THUNDERBALL": "Hay 39 números principales en total, de los cuales el usuario debe elegir 5. Además, hay 14 números Thunderball, y el usuario debe seleccionar 1. La posición de los números elegidos no importa.",
+    "UK_SET_FOR_LIFE": "Hay 47 números principales en total, de los cuales el usuario debe elegir 5. Además, hay 10 números Life Ball, y el usuario debe seleccionar 1. La posición de los números elegidos no importa.",
+    "UK_HOT_PICKS": "Hay 59 números en total, de los cuales el usuario debe elegir de 1 a 5 números. Para ganar, todos los números elegidos deben coincidir. La posición de los números elegidos no importa.",
+    "ES_LA_PRIMITIVA": "Hay 49 números principales en total, de los cuales el usuario debe elegir 6. Además, hay 1 número Complementario del resto del bombo y 1 número Reintegro (0-9). La posición de los números elegidos no importa.",
+    "ES_BONOLOTO": "Hay 49 números principales en total, de los cuales el usuario debe elegir 6. Además, hay 1 número Complementario del resto del bombo y 1 número Reintegro (0-9). La posición de los números elegidos no importa.",
+    "ES_EL_GORDO": "Hay 54 números principales en total, de los cuales el usuario debe elegir 5. Además, hay 1 número Reintegro (0-9). La posición de los números elegidos no importa.",
+    "generalDescription": "El sistema calcula la probabilidad de los números de {{lottoName}} basándose en datos históricos y sugiere los mejores números para elegir. Puedes buscar datos históricos por fechas."
+  },
+  "search": {
+    "calculate": "Buscar"
+  },
+  "result": {
+    "totalDraws": "Total: {{totalDraws}} sorteos",
+    "noResults": "Selecciona fechas y busca estadísticas",
+    "primaryNumbers": "Números principales",
+    "secondaryNumbers": "Números secundarios",
+    "bonusBall": "Bola Bonus",
+    "luckyStars": "Estrellas de la Suerte",
+    "thunderball": "Thunderball",
+    "lifeBall": "Life Ball",
+    "powerball": "Powerball",
+    "megaBall": "Mega Ball",
+    "cashBall": "Cash Ball",
+    "reintegro": "Reintegro",
+    "complementario": "Complementario",
+    "bingo": {
+      "centerGame": "Juego Central",
+      "cornerGame": "Juego de Esquinas",
+      "diagonalGame": "Juego Diagonal",
+      "fullGame": "Juego Completo"
+    },
+    "numbersWithSameProbability": "Números con la misma probabilidad",
+    "seeMore": "Ver más...",
+    "bestNumbersExplanation": "Mostrando los mejores números para jugar según la frecuencia histórica"
+  },
+  "statisticsDrawer": {
+    "statistics": "Estadísticas",
+    "showOnlyAppearingNumbers": "Mostrar solo números que aparecen",
+    "position": "Posición",
+    "sortBy": "Ordenar por",
+    "sortAndFilter": "Ordenar y Filtrar",
+    "filtered": "Filtrado",
+    "clear": "Limpiar",
+    "display": "Mostrar"
+  },
+  "general": {
+    "digit": "Dígito",
+    "count": "Cantidad",
+    "frequency": "Frecuencia",
+    "number": "Número",
+    "numbers": "Números",
+    "tied": "Empate",
+    "showLess": "Mostrar menos",
+    "showMoreTiedNumbers": "Mostrar {{count}} número más empatado",
+    "showMoreTiedNumbers_plural": "Mostrar {{count}} números más empatados",
+    "close": "Cerrar"
+  },
+  "numberStats": {
+    "frequent": "Frecuente",
+    "rare": "Poco frecuente",
+    "normal": "Normal",
+    "frequentNumber": "Número Frecuente",
+    "rareNumber": "Número Poco Frecuente",
+    "normalDistribution": "Distribución Normal",
+    "statusDescriptionFrequent": "Este número aparece más de lo esperado",
+    "statusDescriptionRare": "Este número aparece menos de lo esperado",
+    "statusDescriptionNormal": "Este número aparece según lo esperado",
+    "countHelp": "Cuántas veces ha aparecido este número",
+    "probabilityHelp": "Con qué frecuencia aparece este número (como porcentaje)",
+    "theoreticalHelp": "Probabilidad esperada si todos los números fueran igualmente probables",
+    "difference": "Diferencia",
+    "differenceHelp": "Cuánto difiere este número de lo esperado",
+    "wilsonConfidenceInterval": "Rango de Probabilidad",
+    "wilsonConfidenceIntervalHelp": "Podemos estar {{confidence}}% seguros de que la verdadera probabilidad está dentro de este rango. Piénsalo como un 'margen de error' para la probabilidad del número.",
+    "lowerBound": "Límite Inferior",
+    "upperBound": "Límite Superior",
+    "theoretical": "Esperado",
+    "expectedProbability": "probabilidad esperada",
+    "observed": "Observado",
+    "actualFrequency": "frecuencia real",
+    "deviationAnalysis": "¿Qué tan diferente es esto?",
+    "deviationAnalysisHelp": "Estos números muestran cuánto difiere la aparición de este número de lo que esperaríamos por puro azar.",
+    "absoluteDeviation": "Desviación Absoluta",
+    "relativeDeviation": "Desviación Relativa",
+    "statisticallySignificant": "Estadísticamente Significativo",
+    "notSignificant": "No Significativo",
+    "analysisSummary": "¿Qué significa esto?",
+    "appearedTimes": "Este número apareció <bold>{{count}}</bold> veces en <bold>{{total}}</bold> sorteos.",
+    "appearingMoreThanExpected": "Apareciendo <highlight>{{percent}}%</highlight> más de lo esperado",
+    "appearingLessThanExpected": "Apareciendo <highlight>{{percent}}%</highlight> menos de lo esperado",
+    "insufficientData": {
+      "generalTitle": "Datos Insuficientes",
+      "generalMessage": "No hay suficientes datos históricos disponibles para el análisis. Intenta ampliar tu rango de fechas.",
+      "premiumFeaturesTitle": "Se Necesitan Más Datos",
+      "premiumFeaturesDescription": "Algunas analíticas avanzadas requieren más datos históricos para validez estadística.",
+      "currentDraws": "Sorteos disponibles",
+      "needMoreDraws_one": "Se necesita {{count}} sorteo más para desbloquear la siguiente función",
+      "needMoreDraws_other": "Se necesitan {{count}} sorteos más para desbloquear la siguiente función",
+      "expandDateRange": "Amplía tu rango de fechas para incluir más sorteos"
+    },
+    "lastSeen": {
+      "title": "Última Aparición",
+      "drawsAgo": "Sorteos Atrás",
+      "draws": "sorteos",
+      "drawsAgoHelp": "Cuántos sorteos han pasado desde que este número apareció por última vez",
+      "lastSeenDate": "Fecha de Última Aparición",
+      "lastSeenDateHelp": "La fecha en que este número apareció por última vez en un sorteo",
+      "overdueScore": "Estado de Retraso",
+      "overdueHelp": "Indica cuánto se ha retrasado este número según su frecuencia esperada",
+      "onSchedule": "A Tiempo",
+      "overdue": "Retrasado",
+      "highlyOverdue": "Muy Retrasado"
+    },
+    "hotCold": {
+      "title": "¿Caliente o Frío?",
+      "description": "¿Este número aparece más o menos de lo esperado?",
+      "hot": "Caliente",
+      "cold": "Frío",
+      "neutral": "Normal",
+      "expected": "Esperado",
+      "hotDescription": "Este número aparece {{percent}}% más de lo esperado - ¡está en racha!",
+      "coldDescription": "Este número aparece {{percent}}% menos de lo esperado - ha estado frío últimamente.",
+      "neutralDescription": "Este número aparece cerca de lo que esperaríamos por azar.",
+      "actualFrequency": "Frecuencia Real",
+      "expectedFrequency": "Frecuencia Esperada"
+    },
+    "trend": {
+      "title": "Tendencia Reciente",
+      "description": "¿Cómo ha cambiado la frecuencia de este número con el tiempo?",
+      "increasing": "Aumentando",
+      "decreasing": "Disminuyendo",
+      "stable": "Estable",
+      "totalAppearances": "Total",
+      "avgPerMonth": "Prom/mes",
+      "months": "Meses"
+    },
+    "recentPattern": {
+      "title": "Línea de Tiempo de Sorteos",
+      "description": "Los {{count}} sorteos - desplázate para ver el historial completo",
+      "appeared": "¡Apareció!",
+      "missed": "No apareció",
+      "hits": "{{count}} aciertos",
+      "misses": "{{count}} fallos",
+      "hitRate": "Tasa de aciertos"
+    },
+    "streakStats": {
+      "title": "Rachas e Intervalos",
+      "description": "¿Con qué frecuencia y por cuánto tiempo aparece o desaparece este número?",
+      "daysSinceLastAppearance": "Días Desde la Última",
+      "currentStreak": "Racha Actual",
+      "longestStreak": "Mejor Racha",
+      "longestGap": "Intervalo Más Largo",
+      "days": "días",
+      "draws": "sorteos",
+      "appearedRecently": "¡Acaba de aparecer!",
+      "longWait": "Larga espera...",
+      "normalWait": "Intervalo normal",
+      "noStreak": "Sin racha activa",
+      "bestStreak": "¡En mejor racha!",
+      "activeStreak": "¡En racha!",
+      "longestStreakDesc": "Apariciones consecutivas máximas",
+      "longestGapDesc": "Tiempo más largo sin aparecer",
+      "avgGapLabel": "Intervalo promedio:",
+      "avgGapValue": "Este número típicamente aparece cada {{days}} días en promedio."
+    },
+    "historicalTrendsTitle": "Tendencias y Patrones Históricos",
+    "autocorrelationChart": {
+      "title": "Detección de Patrones (Autocorrelación)",
+      "description": "Verifica si las apariciones de este número están relacionadas con sorteos anteriores. Barras cerca de cero = aleatorio (¡bien!), barras lejos de cero = posible patrón",
+      "lag": "Retraso {{lag}}",
+      "previousDraws": "Sorteos Anteriores",
+      "correlation": "Correlación",
+      "correlationValue": "Correlación: {{value}}",
+      "pValue": "Valor P: {{value}}",
+      "significant": "Estadísticamente significativo - puede indicar un patrón",
+      "notSignificant": "No significativo - parece aleatorio"
+    },
+    "autocorrelation": {
+      "title": "Análisis de Patrones",
+      "description": "¿Este número sigue algún patrón predecible?",
+      "patternDetected": "Posible patrón detectado",
+      "noPattern": "No se detectó patrón",
+      "interpretation": {
+        "random": "Aleatorio",
+        "clustered": "Tiende a Agruparse",
+        "dispersed": "Distribuido Uniformemente"
+      },
+      "explanation": {
+        "random": "Este número aparece aleatoriamente sin patrón detectable. Sus apariciones son independientes de sorteos anteriores - exactamente lo que esperarías en una lotería justa.",
+        "clustered": "Este número tiende a aparecer en grupos - cuando aparece, es más probable que aparezca de nuevo pronto. Esto podría ser una anomalía estadística o una tendencia interesante a observar.",
+        "dispersed": "Este número tiende a espaciar sus apariciones - después de aparecer, es menos probable que aparezca en los próximos sorteos. Las apariciones parecen más uniformemente distribuidas en el tiempo."
+      }
+    },
+    "markov": {
+      "title": "¿Qué Pasa Después?",
+      "description": "Basándose en patrones históricos, ¿qué suele pasar después de que este número aparece o no aparece?",
+      "appearedToAppeared": "Repetir",
+      "appearedToAppearedDesc": "Aparece de nuevo después de aparecer",
+      "appearedToNotAppeared": "Saltar",
+      "appearedToNotAppearedDesc": "No aparece después de aparecer",
+      "notAppearedToAppeared": "Volver",
+      "notAppearedToAppearedDesc": "Aparece después de estar ausente",
+      "notAppearedToNotAppeared": "Permanecer Fuera",
+      "notAppearedToNotAppearedDesc": "Permanece ausente después de estar ausente",
+      "pattern": "Patrón",
+      "steadyState": "Probabilidad a largo plazo",
+      "interpretation": {
+        "memoryless": "Aleatorio",
+        "persistent": "Tiende a repetirse",
+        "alternating": "Tiende a alternar",
+        "gamblers_fallacy": "Pendiente de aparecer",
+        "hot_hand": "En racha caliente"
+      }
+    },
+    "pairAnalysis": {
+      "title": "Números Compañeros",
+      "description": "¿Qué números aparecen frecuentemente junto con este número?",
+      "topCompanions": "Mejores Compañeros",
+      "avoidedNumbers": "Números Evitados",
+      "coOccurrences": "{{count}} veces juntos",
+      "coOccurrencesWithExpected": "{{count}} veces (esp: {{expected}})",
+      "liftTooltip": "Apareció {{actual}} veces pero solo se esperaban {{expected}} basándose en la frecuencia individual de cada número",
+      "noCompanions": "No se encontraron compañeros significativos",
+      "noAvoided": "No hay números significativamente evitados",
+      "liftExplanation": "El lift muestra cuánto más (o menos) probable es que los números aparezcan juntos de lo esperado",
+      "interpretation": {
+        "has_companions": "Tiene Números Compañeros",
+        "has_avoided": "Tiene Números Evitados",
+        "no_pattern": "Sin Parejas Significativas",
+        "random": "Emparejamiento Aleatorio"
+      },
+      "interpretationDescription": {
+        "has_companions": "Este número aparece más frecuentemente con ciertos otros números de lo esperado por azar.",
+        "has_avoided": "Este número raramente aparece con ciertos otros números - parecen evitarse mutuamente.",
+        "no_pattern": "Este número no muestra patrones significativos de emparejamiento con otros números.",
+        "random": "Este número se empareja aleatoriamente con otros números - no se detectaron compañeros ni evitaciones significativas."
+      }
+    },
+    "monteCarlo": {
+      "title": "Verificación de Realidad: ¿Es Esto Normal?",
+      "description": "Simulamos miles de loterías para ver si el comportamiento de este número es inusual o solo aleatoriedad normal.",
+      "explanationText": "Ejecutamos {{count}} loterías simuladas por computadora para ver con qué frecuencia aparecería típicamente este número si todo fuera aleatorio.",
+      "expectedRangeLegend": "Rango esperado (90% de simulaciones)",
+      "actualValueLegend": "Tu resultado real",
+      "interpretation": {
+        "above_expected": "Apareciendo Más de lo Esperado",
+        "below_expected": "Apareciendo Menos de lo Esperado",
+        "within_expected": "Comportándose Normalmente"
+      },
+      "interpretationDescription": {
+        "above_expected": "Este número está apareciendo más de lo que predijeron nuestras simulaciones - ¡está en racha caliente!",
+        "below_expected": "Este número está apareciendo menos de lo que predijeron nuestras simulaciones - ha estado frío últimamente.",
+        "within_expected": "Este número está apareciendo a un ritmo normal - nada inusual comparado con el azar."
+      }
+    },
+    "seasonal": {
+      "title": "Patrones Estacionales",
+      "description": "¿Este número aparece más en ciertos días o meses?",
+      "byDayOfWeek": "Por Día de la Semana",
+      "byMonth": "Por Mes",
+      "aboveAverage": "Por encima del promedio",
+      "average": "Promedio",
+      "belowAverage": "Por debajo del promedio",
+      "days": {
+        "mon": "Lun",
+        "tue": "Mar",
+        "wed": "Mié",
+        "thu": "Jue",
+        "fri": "Vie",
+        "sat": "Sáb",
+        "sun": "Dom"
+      },
+      "months": {
+        "jan": "Ene",
+        "feb": "Feb",
+        "mar": "Mar",
+        "apr": "Abr",
+        "may": "May",
+        "jun": "Jun",
+        "jul": "Jul",
+        "aug": "Ago",
+        "sep": "Sep",
+        "oct": "Oct",
+        "nov": "Nov",
+        "dec": "Dic"
+      },
+      "interpretation": {
+        "no_pattern": "Sin Patrón Estacional",
+        "day_pattern": "Patrón Diario Detectado",
+        "month_pattern": "Patrón Mensual Detectado"
+      },
+      "interpretationDescription": {
+        "no_pattern": "Este número muestra frecuencia consistente en todos los días y meses - sin sesgo estacional.",
+        "day_pattern": "Este número aparece más frecuentemente en ciertos días de la semana.",
+        "month_pattern": "Este número aparece más frecuentemente durante ciertos meses del año."
+      }
+    }
+  },
+  "authLayout": {
+    "title": "Lotto Lens",
+    "headline": "Elige números de lotería más inteligentes con datos",
+    "subtitle": "Analiza sorteos históricos, descubre patrones y elige números respaldados por estadísticas reales.",
+    "feature1": "Análisis histórico de más de 50,000 sorteos de lotería",
+    "feature2": "Cálculos de probabilidad avanzados y predicciones",
+    "feature3": "Cobertura de loterías en 4 regiones",
+    "methodsLabel": "Ver nuestros métodos estadísticos",
+    "method1": "Análisis de Frecuencia",
+    "method2": "Intervalo de Confianza de Wilson",
+    "method3": "Probabilidad Posicional",
+    "method4": "Números Calientes y Fríos",
+    "method5": "Análisis de Tendencias",
+    "method6": "Cadena de Markov",
+    "method7": "Autocorrelación",
+    "method8": "Análisis de Parejas",
+    "method9": "Detección de Patrones",
+    "previewButton": "Ver lo que obtendrás",
+    "previewAlt": "Vista previa de la aplicación Lotto Lens",
+    "regionsLabel": "Ver regiones soportadas",
+    "region1": "Estonia",
+    "region2": "Reino Unido",
+    "region3": "Estados Unidos",
+    "region4": "España"
+  },
+  "login": {
+    "title": "Iniciar sesión",
+    "subtitle": "Ingresa tu correo electrónico para recibir un código de verificación",
+    "emailLabel": "Correo electrónico",
+    "emailRequired": "El correo electrónico es obligatorio",
+    "emailInvalid": "Por favor ingresa un correo electrónico válido",
+    "sendCode": "Enviar Código"
+  },
+  "verifyOtp": {
+    "enterCode": "Revisa tu bandeja de entrada",
+    "codeSentToEmail": "Enviamos un código de 6 dígitos a <strong>{{email}}</strong>",
+    "codeSentToEmailPlain": "Ingresa el código de verificación que enviamos a {{email}}.",
+    "verificationSuccessful": "¡Verificación Exitosa!",
+    "redirecting": "Redirigiendo a la aplicación...",
+    "invalidCode": "Código inválido. Por favor revisa e intenta de nuevo.",
+    "codeRequired": "El código de verificación es obligatorio",
+    "codeMustBe6Digits": "El código debe tener 6 dígitos",
+    "backToLogin": "Volver al Inicio de Sesión",
+    "verify": "Continuar",
+    "didntReceiveCode": "¿No recibiste el código?",
+    "resendCode": "Reenviar código",
+    "resending": "Reenviando..."
+  },
+  "userMenu": {
+    "logout": "Cerrar sesión",
+    "language": "Idioma",
+    "region": "Región"
+  },
+  "region": {
+    "EE": "Estonia",
+    "UK": "Reino Unido",
+    "US": "Estados Unidos",
+    "ES": "España"
+  },
+  "profile": {
+    "memberSince": "Miembro desde {{date}}",
+    "email": "Correo electrónico",
+    "emailCannotBeChanged": "El correo electrónico no se puede cambiar",
+    "firstName": "Nombre",
+    "firstNamePlaceholder": "Ingresa tu nombre",
+    "lastName": "Apellido",
+    "lastNamePlaceholder": "Ingresa tu apellido",
+    "phoneNumber": "Número de Teléfono",
+    "phoneNumberPlaceholder": "Ingresa tu número de teléfono",
+    "country": "País",
+    "countryPlaceholder": "Ingresa tu país",
+    "saveChanges": "Guardar Cambios",
+    "deleteAccount": "Eliminar Cuenta",
+    "deleteAccountDescription": "Eliminar permanentemente tu cuenta y todos los datos asociados",
+    "deleteConfirmTitle": "¿Eliminar tu cuenta?",
+    "deleteConfirmDescription": "Esta acción no se puede deshacer. Todos tus datos serán eliminados permanentemente de nuestros servidores.",
+    "cancel": "Cancelar",
+    "confirmDelete": "Sí, eliminar mi cuenta"
+  },
+  "subscription": {
+    "title": "Elige Tu Plan",
+    "subtitle": "Selecciona el plan perfecto para tus necesidades de análisis de lotería",
+    "popular": "MÁS POPULAR",
+    "perMonth": "/ mes",
+    "alreadyOnPlan": "Estás en este plan",
+    "choosePlan": "Elegir Plan",
+    "updating": "Actualizando...",
+    "downgradeScheduled": "Degradación programada",
+    "endsOn": "Termina el {{date}}",
+    "resume": "Reanudar suscripción",
+    "resuming": "Reanudando...",
+    "features": {
+      "STATS_2_MONTHS": "2 meses de estadísticas de lotería",
+      "STATS_2_YEARS": "2 años de datos de lotería",
+      "STATS_5_YEARS": "5 años de datos de lotería",
+      "BASIC_FREQUENCY": "Análisis de frecuencia básico",
+      "AD_SUPPORTED": "Experiencia con anuncios",
+      "NO_ADS": "Sin anuncios",
+      "TIMELINE": "Visualización de línea de tiempo de sorteos",
+      "TRENDS": "Análisis de tendencias históricas",
+      "WILSON_CI": "Intervalos de confianza de Wilson",
+      "STD_DEVIATION": "Métricas de desviación estándar",
+      "MARKOV_CHAIN": "Análisis de cadena de Markov",
+      "AUTOCORRELATION": "Análisis de autocorrelación",
+      "PAIR_ANALYSIS": "Análisis de parejas de números",
+      "MONTE_CARLO": "Simulaciones Monte Carlo",
+      "SEASONAL_PATTERNS": "Detección de patrones estacionales"
+    },
+    "upgrade": {
+      "proTitle": "Desbloquea Funciones PRO",
+      "proDescription": "Obtén acceso a análisis de tendencias avanzado y herramientas estadísticas",
+      "premiumTitle": "Desbloquea Funciones Premium",
+      "premiumDescription": "Accede a nuestras herramientas de análisis más potentes",
+      "upgradeToUnlock": "Actualiza a {{tier}} para desbloquear",
+      "upgradeButton": "Actualizar Ahora"
+    },
+    "preview": {
+      "title": "Vista Previa: Funciones {{tier}}",
+      "description": "Mira las potentes herramientas de análisis disponibles con {{tier}}",
+      "seePreview": "Ver vista previa",
+      "seeWhatYouGet": "Ver lo que obtienes",
+      "demoNote": "Vista previa usando datos de demostración para el número {{number}}"
+    },
+    "checkout": {
+      "successTitle": "¡Pago Exitoso!",
+      "successMessage": "Tu suscripción ha sido activada. Redirigiendo...",
+      "activating": "Activando tu suscripción...",
+      "cancelTitle": "Pago Cancelado",
+      "cancelMessage": "No se realizó ningún cargo. Puedes intentarlo de nuevo en cualquier momento.",
+      "returnToSubscription": "Volver a Suscripción"
+    }
+  },
+  "home": {
+    "selectLottery": "Seleccionar Juego de Lotería",
+    "hero": {
+      "welcome": "Bienvenido a LottoLens",
+      "welcomeBack": "Bienvenido de nuevo, {{name}}",
+      "tagline": "Descubre patrones en el historial de lotería y haz mejores elecciones",
+      "stats": {
+        "lotteries": "Loterías",
+        "draws": "Sorteos Analizados",
+        "regions": "Regiones"
+      }
+    }
+  },
+  "lottery": {
+    "EURO": "EuroJackpot",
+    "VIKINGLOTTO": "Viking Lotto",
+    "KENO": "Keno",
+    "BINGO": "Bingo Loto",
+    "JOKKER": "Jokker",
+    "UK_LOTTO": "The National Lottery",
+    "UK_EUROMILLIONS": "EuroMillions",
+    "UK_THUNDERBALL": "Thunderball",
+    "UK_SET_FOR_LIFE": "Set For Life",
+    "UK_HOT_PICKS": "Lotto HotPicks",
+    "POWERBALL": "Powerball",
+    "MEGA_MILLIONS": "Mega Millions",
+    "CASH4LIFE": "Cash4Life",
+    "ES_LA_PRIMITIVA": "La Primitiva",
+    "ES_BONOLOTO": "Bonoloto",
+    "ES_EL_GORDO": "El Gordo",
+    "frequency": {
+      "EURO": "Mar y Vie",
+      "VIKINGLOTTO": "Mié",
+      "KENO": "Diario",
+      "BINGO": "Mié",
+      "JOKKER": "Diario",
+      "UK_LOTTO": "Mié y Sáb",
+      "UK_EUROMILLIONS": "Mar y Vie",
+      "UK_THUNDERBALL": "Mar, Mié, Vie y Sáb",
+      "UK_SET_FOR_LIFE": "Lun y Jue",
+      "UK_HOT_PICKS": "Mié y Sáb",
+      "POWERBALL": "Lun, Mié y Sáb",
+      "MEGA_MILLIONS": "Mar y Vie",
+      "CASH4LIFE": "Diario",
+      "ES_LA_PRIMITIVA": "Jue y Sáb",
+      "ES_BONOLOTO": "Lun-Sáb",
+      "ES_EL_GORDO": "Dom"
+    }
+  }
+}
