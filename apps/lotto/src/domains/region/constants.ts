@@ -19,5 +19,11 @@ export const REGION_LOTTERY_TYPES: Record<Region, LottoType[]> = {
     LottoType.UK_HOT_PICKS,
   ],
   [Region.US]: [LottoType.US_POWERBALL, LottoType.US_MEGA_MILLIONS, LottoType.US_CASH4LIFE],
-  [Region.ES]: [LottoType.EUROMILLIONS, LottoType.ES_LA_PRIMITIVA, LottoType.ES_BONOLOTO, LottoType.ES_EL_GORDO],
+  [Region.ES]: [
+    LottoType.EUROMILLIONS,
+    LottoType.EURODREAMS,
+    LottoType.ES_LA_PRIMITIVA,
+    LottoType.ES_BONOLOTO,
+    LottoType.ES_EL_GORDO,
+  ],
 };

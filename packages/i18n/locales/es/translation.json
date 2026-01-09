@@ -27,6 +27,7 @@
     "ES_LA_PRIMITIVA": "Hay 49 números principales en total, de los cuales el usuario debe elegir 6. Además, hay 1 número Complementario del resto del bombo y 1 número Reintegro (0-9). La posición de los números elegidos no importa.",
     "ES_BONOLOTO": "Hay 49 números principales en total, de los cuales el usuario debe elegir 6. Además, hay 1 número Complementario del resto del bombo y 1 número Reintegro (0-9). La posición de los números elegidos no importa.",
     "ES_EL_GORDO": "Hay 54 números principales en total, de los cuales el usuario debe elegir 5. Además, hay 1 número Reintegro (0-9). La posición de los números elegidos no importa.",
+    "EURODREAMS": "Hay 40 números principales en total, de los cuales el usuario debe elegir 6. Además, hay 1 número Dream (1-5). La posición de los números elegidos no importa.",
     "generalDescription": "El sistema calcula la probabilidad de los números de {{lottoName}} basándose en datos históricos y sugiere los mejores números para elegir. Puedes buscar datos históricos por fechas."
   },
   "search": {
@@ -46,6 +47,7 @@
     "cashBall": "Cash Ball",
     "reintegro": "Reintegro",
     "complementario": "Complementario",
+    "dreamNumber": "Número Dream",
     "bingo": {
       "centerGame": "Juego Central",
       "cornerGame": "Juego de Esquinas",
@@ -490,6 +492,7 @@
     "ES_LA_PRIMITIVA": "La Primitiva",
     "ES_BONOLOTO": "Bonoloto",
     "ES_EL_GORDO": "El Gordo",
+    "EURODREAMS": "EuroDreams",
     "frequency": {
       "EUROJACKPOT": "Mar y Vie",
       "VIKINGLOTTO": "Mié",
@@ -506,7 +509,8 @@
       "US_CASH4LIFE": "Diario",
       "ES_LA_PRIMITIVA": "Jue y Sáb",
       "ES_BONOLOTO": "Lun-Sáb",
-      "ES_EL_GORDO": "Dom"
+      "ES_EL_GORDO": "Dom",
+      "EURODREAMS": "Lun y Jue"
     }
   }
 }

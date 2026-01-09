@@ -27,6 +27,7 @@
     "ES_LA_PRIMITIVA": "Kokku on 49 primaarnumbrit, millest kasutaja peab valima 6. Lisaks on 1 Complementario number ülejäänud numbrite hulgast ja 1 Reintegro number (0-9). Valitud numbrite asukoht ei ole oluline.",
     "ES_BONOLOTO": "Kokku on 49 primaarnumbrit, millest kasutaja peab valima 6. Lisaks on 1 Complementario number ülejäänud numbrite hulgast ja 1 Reintegro number (0-9). Valitud numbrite asukoht ei ole oluline.",
     "ES_EL_GORDO": "Kokku on 54 primaarnumbrit, millest kasutaja peab valima 5. Lisaks on 1 Reintegro number (0-9). Valitud numbrite asukoht ei ole oluline.",
+    "EURODREAMS": "Kokku on 40 primaarnumbrit, millest kasutaja peab valima 6. Lisaks on 1 Dream number (1-5). Valitud numbrite asukoht ei ole oluline.",
     "generalDescription": "Süsteem arvutab {{lottoName}} loto numbrite esinemise tõenäosuse ajalooliste andmete põhjal ning kuvab parimaid numbreid. Saate määrata ise kuupäevad, mille vahemikus ajaloolisi andmeid kasutatakse."
   },
   "search": {
@@ -46,6 +47,7 @@
     "cashBall": "Cash Ball",
     "reintegro": "Tagastusnumber",
     "complementario": "Lisanumber",
+    "dreamNumber": "Unenumber",
     "bingo": {
       "centerGame": "Keskruudumäng",
       "cornerGame": "Nurkademäng",
@@ -490,6 +492,7 @@
     "ES_LA_PRIMITIVA": "La Primitiva",
     "ES_BONOLOTO": "Bonoloto",
     "ES_EL_GORDO": "El Gordo",
+    "EURODREAMS": "EuroDreams",
     "frequency": {
       "EUROJACKPOT": "T & R",
       "VIKINGLOTTO": "K",
@@ -506,7 +509,8 @@
       "US_CASH4LIFE": "Iga päev",
       "ES_LA_PRIMITIVA": "N & L",
       "ES_BONOLOTO": "E-L",
-      "ES_EL_GORDO": "P"
+      "ES_EL_GORDO": "P",
+      "EURODREAMS": "E & N"
     }
   }
 }

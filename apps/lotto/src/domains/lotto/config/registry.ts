@@ -359,6 +359,24 @@ export const LOTTERY_CONFIGS: LotteryConfigRegistry = {
       ],
     },
   },
+
+  // ===== SHARED (Multi-region) =====
+
+  [LottoType.EURODREAMS]: {
+    lottoType: LottoType.EURODREAMS,
+    logo: '/img/lottery/eurodreams_logo.svg',
+    links: {
+      buyTickets: 'https://www.euro-dreams.com/',
+      gameRules: 'https://www.euro-dreams.com/en/how-to-play',
+    },
+    dataTransform: {
+      mode: 'standard',
+      categories: [
+        { titleKey: 'result.primaryNumbers', maxNumbers: 6, containerSize: { sm: 6 } },
+        { titleKey: 'result.dreamNumber', maxNumbers: 1, containerSize: { sm: 6 }, isSecondary: true },
+      ],
+    },
+  },
 };
 
 /**
