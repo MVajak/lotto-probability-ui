@@ -93,7 +93,7 @@ export const HotColdMeterCard: React.FC<HotColdMeterProps> = ({ summary }) => {
 
             {/* Visual meter */}
             <div className="items-center gap-2">
-              <div className="relative h-4 overflow-hidden rounded-full bg-gradient-to-r from-primary-blue via-muted-foreground to-primary-orange p-3">
+              <div className="relative h-3 overflow-hidden rounded-full bg-linear-to-r from-primary-blue via-muted-foreground to-primary-orange p-2">
                 {/* Indicator */}
                 <div
                   className="-translate-x-1/2 -translate-y-1/2 absolute top-1/2 size-5 rounded-full border-2 border-background bg-foreground shadow-md transition-all"

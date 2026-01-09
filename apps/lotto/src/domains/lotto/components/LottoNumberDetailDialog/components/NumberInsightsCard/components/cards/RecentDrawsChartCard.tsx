@@ -1,5 +1,5 @@
 import type React from 'react';
-import { useMemo } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 import { CheckIcon, XMarkIcon } from '@heroicons/react/24/solid';
 import { useTranslation } from 'react-i18next';
 
@@ -18,6 +18,7 @@ interface RecentDrawsChartProps {
  */
 export const RecentDrawsChartCard: React.FC<RecentDrawsChartProps> = ({ timeline }) => {
   const { t } = useTranslation();
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   // Sort timeline by date (oldest first for left-to-right display)
   const sortedTimeline = useMemo(() => {
@@ -27,6 +28,13 @@ export const RecentDrawsChartCard: React.FC<RecentDrawsChartProps> = ({ timeline
 
     return [...timeline].sort((a, b) => new Date(a.drawDate).getTime() - new Date(b.drawDate).getTime());
   }, [timeline]);
+
+  // Scroll to the right (newest draws) on mount
+  useEffect(() => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollLeft = scrollContainerRef.current.scrollWidth;
+    }
+  }, [sortedTimeline]);
 
   if (sortedTimeline.length === 0) {
     return null;
@@ -54,7 +62,7 @@ export const RecentDrawsChartCard: React.FC<RecentDrawsChartProps> = ({ timeline
           {/* Scrollable timeline of all draws */}
           <div>
             <TooltipProvider>
-              <div className="overflow-x-auto px-2 py-4">
+              <div ref={scrollContainerRef} className="overflow-x-auto px-2 py-4">
                 <div className="flex min-w-max items-center gap-1">
                   {sortedTimeline.map((draw, index) => (
                     <Tooltip key={`${draw.drawDate}-${index}`}>
@@ -107,8 +115,8 @@ export const RecentDrawsChartCard: React.FC<RecentDrawsChartProps> = ({ timeline
 
           {/* Stats summary */}
           <Card className="rounded">
-            <CardContent className="flex items-center justify-between">
-              <div className="flex items-center gap-4">
+            <CardContent className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+              <div className="flex flex-wrap items-center gap-3 sm:gap-4">
                 <div className="flex items-center gap-2">
                   <div className="size-3 rounded-full bg-primary-green" />
                   <span className="text-body-small text-muted-foreground">
@@ -122,7 +130,7 @@ export const RecentDrawsChartCard: React.FC<RecentDrawsChartProps> = ({ timeline
                   </span>
                 </div>
               </div>
-              <div className="text-right">
+              <div className="sm:text-right">
                 <span className="text-body-small text-muted-foreground">
                   {t('numberStats.recentPattern.hitRate')}:{' '}
                 </span>

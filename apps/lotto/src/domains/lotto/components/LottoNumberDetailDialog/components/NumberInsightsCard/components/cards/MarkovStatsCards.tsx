@@ -84,8 +84,8 @@ export const MarkovStatsCards: React.FC<MarkovStatsCardsProps> = ({ markovChain 
       </div>
 
       {/* Interpretation and steady state */}
-      <div className="flex flex-wrap items-center gap-4">
-        <Card className="w-fit rounded bg-base-blue">
+      <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center">
+        <Card className="w-full rounded bg-base-blue sm:w-fit">
           <CardContent>
             <p className="text-body-small">
               <span className="text-muted-foreground">{t('numberStats.markov.pattern')}: </span>
@@ -95,7 +95,7 @@ export const MarkovStatsCards: React.FC<MarkovStatsCardsProps> = ({ markovChain 
             </p>
           </CardContent>
         </Card>
-        <Card className="w-fit rounded">
+        <Card className="w-full rounded sm:w-fit">
           <CardContent>
             <p className="text-body-small">
               <span className="text-muted-foreground">{t('numberStats.markov.steadyState')}: </span>

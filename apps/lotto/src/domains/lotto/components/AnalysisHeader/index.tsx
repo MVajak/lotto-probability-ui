@@ -69,13 +69,13 @@ export function AnalysisHeader({ config }: AnalysisHeaderProps) {
         </AnimatePresence>
 
         {/* Search Row */}
-        <div className="flex flex-wrap items-end gap-3">
-          <div className="flex items-center gap-2">
+        <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-end">
+          <div className="flex items-center justify-center gap-2 sm:justify-start">
             <DatePicker value={dateFrom} minDate={minAllowedDate} maxDate={dateTo} onChange={setDateFrom} />
             <span className="text-muted-foreground">→</span>
             <DatePicker value={dateTo} minDate={dateFrom} maxDate={new Date()} onChange={setDateTo} />
           </div>
-          <Button variant="primary" onClick={handleSearch}>
+          <Button variant="primary" onClick={handleSearch} className="w-full sm:w-auto">
             {t('search.calculate')}
           </Button>
         </div>
