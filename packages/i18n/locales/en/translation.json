@@ -2,7 +2,8 @@
   "nav": {
     "home": "Home",
     "profile": "Profile",
-    "subscription": "Subscription"
+    "subscription": "Subscription",
+    "support": "Support"
   },
   "common": {
     "showDetails": "Show details",
@@ -473,6 +474,36 @@
         "draws": "Draws Analyzed",
         "regions": "Regions"
       }
+    }
+  },
+  "support": {
+    "title": "Help & Support",
+    "subtitle": "Find answers and get help",
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "q1": "How are the probabilities calculated?",
+      "a1": "We analyze historical lottery draw data using statistical methods including frequency analysis, Wilson confidence intervals, and Monte Carlo simulations to calculate probabilities.",
+      "q2": "How often is the data updated?",
+      "a2": "Lottery draw data is typically updated within 24 hours of each draw. The exact timing may vary depending on the lottery.",
+      "q3": "What does the subscription include?",
+      "a3": "See our subscription page for details on each tier. Higher tiers unlock longer historical data ranges and advanced analytics features.",
+      "q4": "Is this a guarantee to win?",
+      "a4": "No. Lottery results are completely random. Our analysis shows historical patterns and statistical probabilities, but past performance does not predict future results."
+    },
+    "contact": {
+      "title": "Contact Us",
+      "description": "Have a question or feedback? We'd love to hear from you.",
+      "email": "Email",
+      "emailAddress": "support@lottolens.com",
+      "github": "Report an Issue",
+      "githubDescription": "Found a bug? Let us know on GitHub"
+    },
+    "resources": {
+      "title": "Resources",
+      "methodology": "Statistical Methodology",
+      "methodologyDesc": "Learn about our analysis methods",
+      "privacyPolicy": "Privacy Policy",
+      "termsOfService": "Terms of Service"
     }
   },
   "lottery": {

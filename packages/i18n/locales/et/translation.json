@@ -2,7 +2,8 @@
   "nav": {
     "home": "Avaleht",
     "profile": "Profiil",
-    "subscription": "Tellimus"
+    "subscription": "Tellimus",
+    "support": "Tugi"
   },
   "common": {
     "showDetails": "Näita detaile",
@@ -473,6 +474,36 @@
         "draws": "Analüüsitud loosimisi",
         "regions": "Piirkondi"
       }
+    }
+  },
+  "support": {
+    "title": "Abi ja tugi",
+    "subtitle": "Leia vastused ja saa abi",
+    "faq": {
+      "title": "Korduma Kippuvad Küsimused",
+      "q1": "Kuidas tõenäosusi arvutatakse?",
+      "a1": "Analüüsime ajaloolisi loosimisandmeid statistiliste meetodite abil, sealhulgas sagedusanalüüs, Wilsoni usaldusvahemikud ja Monte Carlo simulatsioonid tõenäosuste arvutamiseks.",
+      "q2": "Kui sageli andmeid uuendatakse?",
+      "a2": "Loosimisandmeid uuendatakse tavaliselt 24 tunni jooksul pärast iga loosimist. Täpne aeg võib sõltuvalt loteriist erineda.",
+      "q3": "Mida tellimus sisaldab?",
+      "a3": "Vaata meie tellimuste lehte iga paketi üksikasjade kohta. Kõrgemad paketid avavad pikemad ajalooliste andmete vahemikud ja täpsemad analüüsifunktsioonid.",
+      "q4": "Kas see on võiduga garantii?",
+      "a4": "Ei. Loterii tulemused on täiesti juhuslikud. Meie analüüs näitab ajaloolisi mustreid ja statistilisi tõenäosusi, kuid varasemad tulemused ei ennusta tulevasi."
+    },
+    "contact": {
+      "title": "Võta meiega ühendust",
+      "description": "On küsimus või tagasiside? Tahaksime sinust kuulda.",
+      "email": "E-post",
+      "emailAddress": "support@lottolens.com",
+      "github": "Teata probleemist",
+      "githubDescription": "Leidsid vea? Anna meile GitHubis teada"
+    },
+    "resources": {
+      "title": "Ressursid",
+      "methodology": "Statistiline metoodika",
+      "methodologyDesc": "Tutvu meie analüüsimeetoditega",
+      "privacyPolicy": "Privaatsuspoliitika",
+      "termsOfService": "Teenuse tingimused"
     }
   },
   "lottery": {

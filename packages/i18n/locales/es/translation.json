@@ -2,7 +2,8 @@
   "nav": {
     "home": "Inicio",
     "profile": "Perfil",
-    "subscription": "Suscripción"
+    "subscription": "Suscripción",
+    "support": "Soporte"
   },
   "common": {
     "showDetails": "Mostrar detalles",
@@ -27,7 +28,7 @@
     "ES_LA_PRIMITIVA": "Hay 49 números principales en total, de los cuales el usuario debe elegir 6. Además, hay 1 número Complementario del resto del bombo y 1 número Reintegro (0-9). La posición de los números elegidos no importa.",
     "ES_BONOLOTO": "Hay 49 números principales en total, de los cuales el usuario debe elegir 6. Además, hay 1 número Complementario del resto del bombo y 1 número Reintegro (0-9). La posición de los números elegidos no importa.",
     "ES_EL_GORDO": "Hay 54 números principales en total, de los cuales el usuario debe elegir 5. Además, hay 1 número Reintegro (0-9). La posición de los números elegidos no importa.",
-    "EURODREAMS": "Hay 40 números principales en total, de los cuales el usuario debe elegir 6. Además, hay 1 número Dream (1-5). La posición de los números elegidos no importa.",
+    "EURODREAMS": "Hay 40 números principales en total, de los cuales el usuario debe elegir 6. Además, hay 1 número Sueño (1-5). La posición de los números elegidos no importa.",
     "generalDescription": "El sistema calcula la probabilidad de los números de {{lottoName}} basándose en datos históricos y sugiere los mejores números para elegir. Puedes buscar datos históricos por fechas."
   },
   "search": {
@@ -47,7 +48,7 @@
     "cashBall": "Cash Ball",
     "reintegro": "Reintegro",
     "complementario": "Complementario",
-    "dreamNumber": "Número Dream",
+    "dreamNumber": "Número Sueño",
     "bingo": {
       "centerGame": "Juego Central",
       "cornerGame": "Juego de Esquinas",
@@ -473,6 +474,36 @@
         "draws": "Sorteos Analizados",
         "regions": "Regiones"
       }
+    }
+  },
+  "support": {
+    "title": "Ayuda y Soporte",
+    "subtitle": "Encuentra respuestas y obtén ayuda",
+    "faq": {
+      "title": "Preguntas Frecuentes",
+      "q1": "¿Cómo se calculan las probabilidades?",
+      "a1": "Analizamos datos históricos de sorteos de lotería utilizando métodos estadísticos que incluyen análisis de frecuencia, intervalos de confianza de Wilson y simulaciones Monte Carlo para calcular probabilidades.",
+      "q2": "¿Con qué frecuencia se actualizan los datos?",
+      "a2": "Los datos de los sorteos de lotería se actualizan normalmente dentro de las 24 horas posteriores a cada sorteo. El tiempo exacto puede variar según la lotería.",
+      "q3": "¿Qué incluye la suscripción?",
+      "a3": "Consulta nuestra página de suscripción para obtener detalles sobre cada nivel. Los niveles superiores desbloquean rangos de datos históricos más largos y funciones de análisis avanzadas.",
+      "q4": "¿Es esto una garantía de ganar?",
+      "a4": "No. Los resultados de la lotería son completamente aleatorios. Nuestro análisis muestra patrones históricos y probabilidades estadísticas, pero el rendimiento pasado no predice resultados futuros."
+    },
+    "contact": {
+      "title": "Contáctanos",
+      "description": "¿Tienes alguna pregunta o comentario? Nos encantaría saber de ti.",
+      "email": "Correo electrónico",
+      "emailAddress": "support@lottolens.com",
+      "github": "Reportar un Problema",
+      "githubDescription": "¿Encontraste un error? Háznoslo saber en GitHub"
+    },
+    "resources": {
+      "title": "Recursos",
+      "methodology": "Metodología Estadística",
+      "methodologyDesc": "Aprende sobre nuestros métodos de análisis",
+      "privacyPolicy": "Política de Privacidad",
+      "termsOfService": "Términos de Servicio"
     }
   },
   "lottery": {

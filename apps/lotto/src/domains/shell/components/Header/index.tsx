@@ -1,5 +1,12 @@
 import { useState } from 'react';
-import { Bars3Icon, CreditCardIcon, HomeIcon, UserIcon, XMarkIcon } from '@heroicons/react/24/outline';
+import {
+  Bars3Icon,
+  CreditCardIcon,
+  HomeIcon,
+  QuestionMarkCircleIcon,
+  UserIcon,
+  XMarkIcon,
+} from '@heroicons/react/24/outline';
 import { Link } from '@tanstack/react-router';
 import { AnimatePresence, motion } from 'motion/react';
 import { useTranslation } from 'react-i18next';
@@ -16,6 +23,7 @@ const navItems = [
   { key: 'home', to: '/home', icon: HomeIcon },
   { key: 'profile', to: '/profile', icon: UserIcon },
   { key: 'subscription', to: '/subscription', icon: CreditCardIcon },
+  { key: 'support', to: '/support', icon: QuestionMarkCircleIcon },
 ] as const;
 
 export function Header() {
