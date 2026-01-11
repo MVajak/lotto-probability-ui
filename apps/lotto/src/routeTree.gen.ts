@@ -14,6 +14,8 @@ import { Route as AuthenticatedRouteImport } from './routes/_authenticated'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as SubscriptionSuccessRouteImport } from './routes/subscription.success'
 import { Route as SubscriptionCancelRouteImport } from './routes/subscription.cancel'
+import { Route as UnauthenticatedTermsOfServiceRouteImport } from './routes/_unauthenticated/terms-of-service'
+import { Route as UnauthenticatedPrivacyPolicyRouteImport } from './routes/_unauthenticated/privacy-policy'
 import { Route as UnauthenticatedLoginRouteImport } from './routes/_unauthenticated/login'
 import { Route as AuthenticatedSupportRouteImport } from './routes/_authenticated/support'
 import { Route as AuthenticatedSubscriptionRouteImport } from './routes/_authenticated/subscription'
@@ -43,6 +45,18 @@ const SubscriptionCancelRoute = SubscriptionCancelRouteImport.update({
   path: '/subscription/cancel',
   getParentRoute: () => rootRouteImport,
 } as any)
+const UnauthenticatedTermsOfServiceRoute =
+  UnauthenticatedTermsOfServiceRouteImport.update({
+    id: '/terms-of-service',
+    path: '/terms-of-service',
+    getParentRoute: () => UnauthenticatedRoute,
+  } as any)
+const UnauthenticatedPrivacyPolicyRoute =
+  UnauthenticatedPrivacyPolicyRouteImport.update({
+    id: '/privacy-policy',
+    path: '/privacy-policy',
+    getParentRoute: () => UnauthenticatedRoute,
+  } as any)
 const UnauthenticatedLoginRoute = UnauthenticatedLoginRouteImport.update({
   id: '/login',
   path: '/login',
@@ -77,6 +91,8 @@ export interface FileRoutesByFullPath {
   '/subscription': typeof AuthenticatedSubscriptionRoute
   '/support': typeof AuthenticatedSupportRoute
   '/login': typeof UnauthenticatedLoginRoute
+  '/privacy-policy': typeof UnauthenticatedPrivacyPolicyRoute
+  '/terms-of-service': typeof UnauthenticatedTermsOfServiceRoute
   '/subscription/cancel': typeof SubscriptionCancelRoute
   '/subscription/success': typeof SubscriptionSuccessRoute
 }
@@ -87,6 +103,8 @@ export interface FileRoutesByTo {
   '/subscription': typeof AuthenticatedSubscriptionRoute
   '/support': typeof AuthenticatedSupportRoute
   '/login': typeof UnauthenticatedLoginRoute
+  '/privacy-policy': typeof UnauthenticatedPrivacyPolicyRoute
+  '/terms-of-service': typeof UnauthenticatedTermsOfServiceRoute
   '/subscription/cancel': typeof SubscriptionCancelRoute
   '/subscription/success': typeof SubscriptionSuccessRoute
 }
@@ -100,6 +118,8 @@ export interface FileRoutesById {
   '/_authenticated/subscription': typeof AuthenticatedSubscriptionRoute
   '/_authenticated/support': typeof AuthenticatedSupportRoute
   '/_unauthenticated/login': typeof UnauthenticatedLoginRoute
+  '/_unauthenticated/privacy-policy': typeof UnauthenticatedPrivacyPolicyRoute
+  '/_unauthenticated/terms-of-service': typeof UnauthenticatedTermsOfServiceRoute
   '/subscription/cancel': typeof SubscriptionCancelRoute
   '/subscription/success': typeof SubscriptionSuccessRoute
 }
@@ -112,6 +132,8 @@ export interface FileRouteTypes {
     | '/subscription'
     | '/support'
     | '/login'
+    | '/privacy-policy'
+    | '/terms-of-service'
     | '/subscription/cancel'
     | '/subscription/success'
   fileRoutesByTo: FileRoutesByTo
@@ -122,6 +144,8 @@ export interface FileRouteTypes {
     | '/subscription'
     | '/support'
     | '/login'
+    | '/privacy-policy'
+    | '/terms-of-service'
     | '/subscription/cancel'
     | '/subscription/success'
   id:
@@ -134,6 +158,8 @@ export interface FileRouteTypes {
     | '/_authenticated/subscription'
     | '/_authenticated/support'
     | '/_unauthenticated/login'
+    | '/_unauthenticated/privacy-policy'
+    | '/_unauthenticated/terms-of-service'
     | '/subscription/cancel'
     | '/subscription/success'
   fileRoutesById: FileRoutesById
@@ -182,6 +208,20 @@ declare module '@tanstack/react-router' {
       fullPath: '/subscription/cancel'
       preLoaderRoute: typeof SubscriptionCancelRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/_unauthenticated/terms-of-service': {
+      id: '/_unauthenticated/terms-of-service'
+      path: '/terms-of-service'
+      fullPath: '/terms-of-service'
+      preLoaderRoute: typeof UnauthenticatedTermsOfServiceRouteImport
+      parentRoute: typeof UnauthenticatedRoute
+    }
+    '/_unauthenticated/privacy-policy': {
+      id: '/_unauthenticated/privacy-policy'
+      path: '/privacy-policy'
+      fullPath: '/privacy-policy'
+      preLoaderRoute: typeof UnauthenticatedPrivacyPolicyRouteImport
+      parentRoute: typeof UnauthenticatedRoute
     }
     '/_unauthenticated/login': {
       id: '/_unauthenticated/login'
@@ -241,10 +281,14 @@ const AuthenticatedRouteWithChildren = AuthenticatedRoute._addFileChildren(
 
 interface UnauthenticatedRouteChildren {
   UnauthenticatedLoginRoute: typeof UnauthenticatedLoginRoute
+  UnauthenticatedPrivacyPolicyRoute: typeof UnauthenticatedPrivacyPolicyRoute
+  UnauthenticatedTermsOfServiceRoute: typeof UnauthenticatedTermsOfServiceRoute
 }
 
 const UnauthenticatedRouteChildren: UnauthenticatedRouteChildren = {
   UnauthenticatedLoginRoute: UnauthenticatedLoginRoute,
+  UnauthenticatedPrivacyPolicyRoute: UnauthenticatedPrivacyPolicyRoute,
+  UnauthenticatedTermsOfServiceRoute: UnauthenticatedTermsOfServiceRoute,
 }
 
 const UnauthenticatedRouteWithChildren = UnauthenticatedRoute._addFileChildren(

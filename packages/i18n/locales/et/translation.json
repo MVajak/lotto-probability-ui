@@ -506,6 +506,129 @@
       "termsOfService": "Teenuse tingimused"
     }
   },
+  "legal": {
+    "privacyPolicy": {
+      "title": "Privaatsuspoliitika",
+      "lastUpdated": "Viimati uuendatud: {{date}}",
+      "backToLogin": "Tagasi sisselogimisse",
+      "intro": {
+        "title": "Sissejuhatus",
+        "content": "LottoLens (\"meie\" või \"me\") on pühendunud sinu privaatsuse kaitsmisele. See privaatsuspoliitika selgitab, kuidas me kogume, kasutame ja kaitseme sinu andmeid, kui kasutad meie lotoanalüüsi teenust."
+      },
+      "dataCollection": {
+        "title": "Andmed, mida kogume",
+        "content": "Kogume andmeid, mida meile otse esitad, sealhulgas:",
+        "items": {
+          "email": "E-posti aadress (vajalik konto loomiseks)",
+          "profile": "Profiiliandmed (nimi, telefon, riik - valikuline)",
+          "usage": "Kasutusandmed (loto valikud, analüüsi eelistused)",
+          "payment": "Makseandmed (töödeldakse turvaliselt Stripe'i kaudu)"
+        }
+      },
+      "dataUse": {
+        "title": "Kuidas kasutame sinu andmeid",
+        "content": "Kasutame kogutud andmeid järgmiseks:",
+        "items": {
+          "service": "Teenuste osutamine, haldamine ja parendamine",
+          "communication": "Uuenduste, turvateavituste ja tugisõnumite saatmine",
+          "analytics": "Kasutusmustrite analüüs kasutajakogemuse parendamiseks",
+          "legal": "Seaduslike kohustuste täitmine"
+        }
+      },
+      "dataSharing": {
+        "title": "Andmete jagamine",
+        "content": "Me ei müü sinu isikuandmeid. Võime jagada sinu andmeid järgmistega:",
+        "items": {
+          "stripe": "Stripe (maksete töötlemine)",
+          "analytics": "Analüütika pakkujad (ainult anonüümitud andmed)",
+          "legal": "Õiguskaitseasutused, kui seadus seda nõuab"
+        }
+      },
+      "dataRetention": {
+        "title": "Andmete säilitamine",
+        "content": "Säilitame sinu isikuandmeid seni, kuni sinu konto on aktiivne või vastavalt vajadusele teenuste osutamiseks. Võid taotleda oma konto ja andmete kustutamist igal ajal profiili seadetest."
+      },
+      "yourRights": {
+        "title": "Sinu õigused",
+        "content": "Sul on õigus:",
+        "items": {
+          "access": "Pääseda ligi oma isikuandmetele",
+          "correction": "Taotleda ebatäpsete andmete parandamist",
+          "deletion": "Taotleda oma andmete kustutamist",
+          "export": "Eksportida oma andmeid porditavas formaadis",
+          "withdraw": "Nõusolek igal ajal tagasi võtta"
+        }
+      },
+      "cookies": {
+        "title": "Küpsised ja kohalik salvestusruum",
+        "content": "Kasutame kohalikku salvestusruumi sinu sessiooni ja eelistuste hoidmiseks. Me ei kasuta jälgimisküpsiseid reklaamieesmärkidel."
+      },
+      "contact": {
+        "title": "Võta ühendust",
+        "content": "Kui sul on küsimusi selle privaatsuspoliitika kohta, võta meiega ühendust aadressil support@lottolens.com."
+      }
+    },
+    "termsOfService": {
+      "title": "Teenuse tingimused",
+      "lastUpdated": "Viimati uuendatud: {{date}}",
+      "backToLogin": "Tagasi sisselogimisse",
+      "acceptance": {
+        "title": "Tingimuste nõustumine",
+        "content": "LottoLensi kasutades nõustud nende teenuse tingimustega. Kui sa ei nõustu nende tingimustega, palun ära kasuta meie teenust."
+      },
+      "serviceDescription": {
+        "title": "Teenuse kirjeldus",
+        "content": "LottoLens on lotoanalüüsi tööriist, mis pakub ajalooliste lotoandmete statistilist analüüsi. Aitame kasutajatel analüüsida mustreid ja tõenäosusi varasemate loosimiste põhjal."
+      },
+      "disclaimer": {
+        "title": "Oluline hoiatus",
+        "content": "LottoLens EI ole hasartmänguteenus ja EI garanteeri ühtegi lotovõitu. Lototulemused on täiesti juhuslikud. Meie analüüs põhineb ajaloolistel andmetel ja statistilistel meetoditel, kuid varasemad tulemused ei ennusta tulevasi. Kasuta meie teenust ainult meelelahutuse ja teabe eesmärgil. Palun mängi vastutustundlikult."
+      },
+      "accounts": {
+        "title": "Kasutajakontod",
+        "content": "Oled vastutav oma konto mandaatide konfidentsiaalsuse ja kõigi oma konto all toimuvate tegevuste eest. Konto loomisel pead esitama täpsed andmed."
+      },
+      "subscriptions": {
+        "title": "Tellimused ja maksed",
+        "content": "Mõned funktsioonid nõuavad tasulist tellimust. Makseid töödeldakse turvaliselt Stripe'i kaudu. Tellimused uuenevad automaatselt, kui neid ei tühistata. Tagasimakseid käsitletakse juhtumipõhiselt."
+      },
+      "intellectualProperty": {
+        "title": "Intellektuaalomand",
+        "content": "Kogu LottoLensi sisu, funktsioonid ja funktsionaalsus kuuluvad meile ning on kaitstud autoriõiguse ja muude intellektuaalomandi seadustega. Sa ei tohi paljundada, levitada ega luua tuletatud teoseid ilma meie loata."
+      },
+      "termination": {
+        "title": "Lõpetamine",
+        "content": "Võime sinu konto igal ajal lõpetada või peatada nende tingimuste rikkumise korral. Võid oma konto igal ajal kustutada profiili seadetest."
+      },
+      "liability": {
+        "title": "Vastutuse piiramine",
+        "content": "LottoLens pakutakse \"nagu on\" ilma igasuguste garantiideta. Me ei vastuta ühegi kahju eest, mis tuleneb meie teenuse kasutamisest või mis tahes lototegevustest."
+      },
+      "governingLaw": {
+        "title": "Kohaldatav õigus",
+        "content": "Neid tingimusi reguleerivad Eesti seadused. Vaidlused lahendatakse Eesti kohtutes."
+      },
+      "changes": {
+        "title": "Tingimuste muudatused",
+        "content": "Võime neid tingimusi aeg-ajalt uuendada. Teavitame sind olulistest muudatustest, kuvades rakenduses teate. Jätkuv kasutamine pärast muudatusi tähendab uute tingimuste aktsepteerimist."
+      },
+      "contact": {
+        "title": "Kontakt",
+        "content": "Nende teenuse tingimuste kohta küsimuste esitamiseks võta meiega ühendust aadressil support@lottolens.com."
+      }
+    },
+    "consent": {
+      "title": "Nõustu teenuse tingimustega",
+      "titleUpdated": "Uuendatud teenuse tingimused",
+      "description": "Palun tutvu ja nõustu meie teenuse tingimuste ja privaatsuspoliitikaga, et jätkata LottoLensi kasutamist.",
+      "descriptionUpdated": "Oleme uuendanud oma teenuse tingimusi ja privaatsuspoliitikat. Palun tutvu ja nõustu, et jätkata.",
+      "viewTerms": "Vaata teenuse tingimusi",
+      "viewPrivacy": "Vaata privaatsuspoliitikat",
+      "checkbox": "Olen lugenud ja nõustun teenuse tingimuste ja privaatsuspoliitikaga",
+      "accept": "Jätka",
+      "mustAccept": "Jätkamiseks pead tingimustega nõustuma"
+    }
+  },
   "lottery": {
     "EUROJACKPOT": "EuroJackpot",
     "VIKINGLOTTO": "Viking Lotto",

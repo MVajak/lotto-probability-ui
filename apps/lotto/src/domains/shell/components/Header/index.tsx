@@ -13,6 +13,7 @@ import { useTranslation } from 'react-i18next';
 
 import { Tooltip, TooltipContent, TooltipTrigger } from '@lotto/ui';
 
+import { Logo } from '@/domains/brand';
 import { LanguageSelector } from '@/domains/region/components/LanguageSelector';
 import { RegionSelector } from '@/domains/region/components/RegionSelector';
 import { ThemeToggle } from '@/domains/theme/components/ThemeToggle';
@@ -36,7 +37,7 @@ export function Header() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/home" className="flex items-center gap-2">
-            <img src="/img/lotto_lens.png" alt="Lotto Logo" className="h-auto max-w-10" />
+            <Logo size="sm" />
             <span className="hidden text-foreground text-title-small-bold md:block">LottoLens</span>
           </Link>
 

@@ -1,6 +1,8 @@
 import { motion } from 'motion/react';
 import { useTranslation } from 'react-i18next';
 
+import { Logo } from '@/domains/brand';
+
 export const MobileBranding = () => {
   const { t } = useTranslation();
 
@@ -13,7 +15,7 @@ export const MobileBranding = () => {
     >
       <div className="relative mb-2">
         <div className="absolute inset-0 scale-150 rounded-full bg-gold/20 blur-xl" />
-        <img src="/img/lotto_lens.png" alt="Lotto Lens" className="relative size-16" />
+        <Logo size="lg" className="relative" />
       </div>
       <h1 className="text-foreground text-title-large-bold">{t('authLayout.title')}</h1>
       <p className="text-body-small text-muted-foreground">{t('authLayout.subtitle')}</p>

@@ -5,7 +5,9 @@ import { useTranslation } from 'react-i18next';
 
 import { Card, Separator } from '@lotto/ui';
 
-import { BrandLogo, FeatureList, MobileBranding, PreviewModal, PreviewThumbnail } from './components';
+import { Logo } from '@/domains/brand';
+
+import { FeatureList, MobileBranding, PreviewModal, PreviewThumbnail } from './components';
 
 interface BrandLayoutProps {
   children: React.ReactNode;
@@ -32,7 +34,21 @@ export const BrandLayout: React.FC<BrandLayoutProps> = ({ children, topRight }) 
       <div className="relative mx-auto flex min-h-screen max-w-screen-2xl">
         {/* Left side - Branding (hidden on mobile) */}
         <div className="relative hidden w-2/3 flex-col p-12 lg:flex">
-          <BrandLogo />
+          {/* Brand Logo */}
+          <motion.div
+            className="relative z-10"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="flex items-center gap-3">
+              <div className="relative">
+                <div className="absolute inset-0 scale-150 rounded-full bg-gold/30 blur-xl" />
+                <Logo className="relative" />
+              </div>
+              <span className="text-foreground text-title-large-bold">{t('authLayout.title')}</span>
+            </div>
+          </motion.div>
 
           {/* Main content - pt-20 aligns with form's pt-32 minus logo height */}
           <motion.div

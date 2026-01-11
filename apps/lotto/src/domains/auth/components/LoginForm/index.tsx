@@ -6,6 +6,8 @@ import { useTranslation } from 'react-i18next';
 
 import { Button, Field, FieldError, Input } from '@lotto/ui';
 
+import { Logo } from '@/domains/brand';
+
 interface LoginFormInputs {
   email: string;
 }
@@ -56,7 +58,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onSubmit, isLoading, error
         transition={{ duration: 0.4, ease: 'easeOut' }}
       >
         <div className="absolute inset-0 scale-150 rounded-full bg-gold/20 blur-2xl" />
-        <img src="/img/lotto_lens.png" alt="Lotto Lens" className="relative size-24" />
+        <Logo size="xl" className="relative" />
       </motion.div>
 
       {/* Title section */}

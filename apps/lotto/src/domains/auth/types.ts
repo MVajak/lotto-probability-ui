@@ -13,6 +13,7 @@ export interface User {
   phoneNumber: string | null;
   country: string | null;
   createdAt: string;
+  acceptedTermsVersion: string | null;
 }
 
 export interface Subscription {

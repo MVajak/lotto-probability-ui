@@ -506,6 +506,129 @@
       "termsOfService": "Términos de Servicio"
     }
   },
+  "legal": {
+    "privacyPolicy": {
+      "title": "Política de Privacidad",
+      "lastUpdated": "Última actualización: {{date}}",
+      "backToLogin": "Volver al Inicio de Sesión",
+      "intro": {
+        "title": "Introducción",
+        "content": "LottoLens (\"nosotros\", \"nuestro\" o \"nos\") está comprometido con la protección de tu privacidad. Esta Política de Privacidad explica cómo recopilamos, usamos y protegemos tu información cuando utilizas nuestro servicio de análisis de lotería."
+      },
+      "dataCollection": {
+        "title": "Información que Recopilamos",
+        "content": "Recopilamos información que nos proporcionas directamente, incluyendo:",
+        "items": {
+          "email": "Dirección de correo electrónico (requerido para crear cuenta)",
+          "profile": "Información de perfil (nombre, teléfono, país - opcional)",
+          "usage": "Datos de uso (selecciones de lotería, preferencias de análisis)",
+          "payment": "Información de pago (procesada de forma segura por Stripe)"
+        }
+      },
+      "dataUse": {
+        "title": "Cómo Usamos Tu Información",
+        "content": "Usamos la información que recopilamos para:",
+        "items": {
+          "service": "Proporcionar, mantener y mejorar nuestros servicios",
+          "communication": "Enviarte actualizaciones, alertas de seguridad y mensajes de soporte",
+          "analytics": "Analizar patrones de uso para mejorar la experiencia del usuario",
+          "legal": "Cumplir con obligaciones legales"
+        }
+      },
+      "dataSharing": {
+        "title": "Compartir Información",
+        "content": "No vendemos tu información personal. Podemos compartir tu información con:",
+        "items": {
+          "stripe": "Stripe (procesamiento de pagos)",
+          "analytics": "Proveedores de análisis (solo datos anonimizados)",
+          "legal": "Autoridades legales cuando sea requerido por ley"
+        }
+      },
+      "dataRetention": {
+        "title": "Retención de Datos",
+        "content": "Conservamos tu información personal mientras tu cuenta esté activa o según sea necesario para proporcionarte servicios. Puedes solicitar la eliminación de tu cuenta y datos en cualquier momento a través de la configuración de tu perfil."
+      },
+      "yourRights": {
+        "title": "Tus Derechos",
+        "content": "Tienes derecho a:",
+        "items": {
+          "access": "Acceder a tus datos personales",
+          "correction": "Solicitar corrección de datos inexactos",
+          "deletion": "Solicitar eliminación de tus datos",
+          "export": "Exportar tus datos en un formato portable",
+          "withdraw": "Retirar el consentimiento en cualquier momento"
+        }
+      },
+      "cookies": {
+        "title": "Cookies y Almacenamiento Local",
+        "content": "Usamos almacenamiento local para mantener tu sesión y preferencias. No usamos cookies de seguimiento con fines publicitarios."
+      },
+      "contact": {
+        "title": "Contáctanos",
+        "content": "Si tienes preguntas sobre esta Política de Privacidad, contáctanos en support@lottolens.com."
+      }
+    },
+    "termsOfService": {
+      "title": "Términos de Servicio",
+      "lastUpdated": "Última actualización: {{date}}",
+      "backToLogin": "Volver al Inicio de Sesión",
+      "acceptance": {
+        "title": "Aceptación de los Términos",
+        "content": "Al acceder o usar LottoLens, aceptas estar sujeto a estos Términos de Servicio. Si no estás de acuerdo con estos términos, por favor no uses nuestro servicio."
+      },
+      "serviceDescription": {
+        "title": "Descripción del Servicio",
+        "content": "LottoLens es una herramienta de análisis de lotería que proporciona análisis estadístico de datos históricos de lotería. Ayudamos a los usuarios a analizar patrones y probabilidades basados en sorteos anteriores."
+      },
+      "disclaimer": {
+        "title": "Aviso Importante",
+        "content": "LottoLens NO es un servicio de apuestas y NO garantiza ningún premio de lotería. Los resultados de la lotería son completamente aleatorios. Nuestro análisis se basa en datos históricos y métodos estadísticos, pero el rendimiento pasado no predice resultados futuros. Usa nuestro servicio solo con fines de entretenimiento e información. Por favor, juega de manera responsable."
+      },
+      "accounts": {
+        "title": "Cuentas de Usuario",
+        "content": "Eres responsable de mantener la confidencialidad de las credenciales de tu cuenta y de todas las actividades que ocurran bajo tu cuenta. Debes proporcionar información precisa al crear tu cuenta."
+      },
+      "subscriptions": {
+        "title": "Suscripciones y Pagos",
+        "content": "Algunas funciones requieren una suscripción de pago. Los pagos se procesan de forma segura a través de Stripe. Las suscripciones se renuevan automáticamente a menos que se cancelen. Los reembolsos se manejan caso por caso."
+      },
+      "intellectualProperty": {
+        "title": "Propiedad Intelectual",
+        "content": "Todo el contenido, características y funcionalidad de LottoLens son de nuestra propiedad y están protegidos por derechos de autor y otras leyes de propiedad intelectual. No puedes reproducir, distribuir o crear obras derivadas sin nuestro permiso."
+      },
+      "termination": {
+        "title": "Terminación",
+        "content": "Podemos terminar o suspender tu cuenta en cualquier momento por violación de estos términos. Puedes eliminar tu cuenta en cualquier momento a través de la configuración de tu perfil."
+      },
+      "liability": {
+        "title": "Limitación de Responsabilidad",
+        "content": "LottoLens se proporciona \"tal cual\" sin garantías de ningún tipo. No somos responsables de ninguna pérdida resultante del uso de nuestro servicio o cualquier actividad de lotería."
+      },
+      "governingLaw": {
+        "title": "Ley Aplicable",
+        "content": "Estos términos se rigen por las leyes de Estonia. Cualquier disputa se resolverá en los tribunales de Estonia."
+      },
+      "changes": {
+        "title": "Cambios en los Términos",
+        "content": "Podemos actualizar estos términos de vez en cuando. Te notificaremos de cambios significativos mostrando un aviso en la aplicación. El uso continuado después de los cambios constituye la aceptación de los nuevos términos."
+      },
+      "contact": {
+        "title": "Contacto",
+        "content": "Para preguntas sobre estos Términos de Servicio, contáctanos en support@lottolens.com."
+      }
+    },
+    "consent": {
+      "title": "Aceptar Términos de Servicio",
+      "titleUpdated": "Términos de Servicio Actualizados",
+      "description": "Por favor revisa y acepta nuestros Términos de Servicio y Política de Privacidad para continuar usando LottoLens.",
+      "descriptionUpdated": "Hemos actualizado nuestros Términos de Servicio y Política de Privacidad. Por favor revisa y acepta para continuar.",
+      "viewTerms": "Ver Términos de Servicio",
+      "viewPrivacy": "Ver Política de Privacidad",
+      "checkbox": "He leído y acepto los Términos de Servicio y la Política de Privacidad",
+      "accept": "Continuar",
+      "mustAccept": "Debes aceptar los términos para continuar"
+    }
+  },
   "lottery": {
     "EUROJACKPOT": "EuroJackpot",
     "VIKINGLOTTO": "Viking Lotto",

@@ -56,6 +56,7 @@ async function refreshTokens(): Promise<AuthTokens> {
 /**
  * Handle token refresh with deduplication.
  * Multiple concurrent 401s will share the same refresh request.
+ * Internal use only - use refreshAuthTokens from auth/mutations for external calls.
  */
 async function handleTokenRefresh(): Promise<AuthTokens> {
   if (isRefreshing && refreshPromise) {
@@ -103,6 +104,15 @@ export async function apiFetch<T>(endpoint: string, options: RequestInit = {}): 
   }
 
   if (!response.ok) {
+    // Handle 403 Forbidden - check for terms not accepted
+    if (response.status === 403) {
+      const data = await response.json().catch(() => ({}));
+      if (data.code === 'TERMS_NOT_ACCEPTED') {
+        // Dispatch event to trigger user data refresh (which will show consent screen)
+        window.dispatchEvent(new CustomEvent('terms-not-accepted'));
+        throw new Error('Terms not accepted');
+      }
+    }
     throw new Error(`API Error: ${response.status}`);
   }
 

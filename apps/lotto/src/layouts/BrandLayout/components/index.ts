@@ -1,4 +1,3 @@
-export { BrandLogo } from './BrandLogo';
 export { FeatureList } from './FeatureList';
 export { MobileBranding } from './MobileBranding';
 export { PreviewModal } from './PreviewModal';
