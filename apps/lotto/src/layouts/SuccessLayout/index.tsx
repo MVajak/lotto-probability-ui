@@ -10,7 +10,7 @@ interface SuccessLayoutProps {
 
 export const SuccessLayout: React.FC<SuccessLayoutProps> = ({ title, message, children }) => {
   return (
-    <div className="flex flex-col items-center gap-6 text-center">
+    <div className="absolute inset-0 flex flex-col items-center justify-center gap-6 text-center">
       {/* Icon with glow */}
       <motion.div
         className="relative"
