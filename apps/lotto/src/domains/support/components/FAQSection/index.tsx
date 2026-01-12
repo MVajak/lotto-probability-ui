@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import { ChevronDownIcon } from '@heroicons/react/24/outline';
+import { Link } from '@tanstack/react-router';
 import { AnimatePresence, motion } from 'motion/react';
-import { useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 
 import { Card } from '@lotto/ui';
 
-const faqKeys = ['q1', 'q2', 'q3', 'q4'] as const;
+const faqKeys = ['q1', 'q2', 'q3', 'q4', 'q6', 'q7', 'q5', 'q8', 'q9', 'q10', 'q11'] as const;
 
 export function FAQSection() {
   const { t } = useTranslation();
@@ -42,7 +43,26 @@ export function FAQSection() {
                 >
                   <div className="border-border border-t px-4 pt-3 pb-4">
                     <p className="text-body-medium text-muted-foreground">
-                      {t(`support.faq.a${index + 1}` as 'support.faq.a1')}
+                      {key === 'q10' ? (
+                        <Trans
+                          i18nKey="support.faq.a10"
+                          components={{
+                            methodology: (
+                              <Link to="/methodology" className="text-primary underline hover:text-primary/80" />
+                            ),
+                          }}
+                        />
+                      ) : key === 'q11' ? (
+                        <Trans
+                          i18nKey="support.faq.a11"
+                          components={{
+                            b: <strong className="text-foreground" />,
+                            br: <br />,
+                          }}
+                        />
+                      ) : (
+                        t(`support.faq.a${key.slice(1)}` as 'support.faq.a1')
+                      )}
                     </p>
                   </div>
                 </motion.div>

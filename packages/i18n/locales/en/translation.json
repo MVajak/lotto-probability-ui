@@ -495,15 +495,29 @@
       "q3": "What does the subscription include?",
       "a3": "See our subscription page for details on each tier. Higher tiers unlock longer historical data ranges and advanced analytics features.",
       "q4": "Is this a guarantee to win?",
-      "a4": "No. Lottery results are completely random. Our analysis shows historical patterns and statistical probabilities, but past performance does not predict future results."
+      "a4": "No. Lottery results are completely random. Our analysis shows historical patterns and statistical probabilities, but past performance does not predict future results.",
+      "q5": "What does 'tied numbers' mean?",
+      "a5": "When multiple numbers have the same historical frequency, they're considered 'tied' - equally likely based on past data. We show all tied numbers together so you don't miss any equally probable options.",
+      "q6": "What are 'Hot' and 'Cold' numbers?",
+      "a6": "Hot numbers appear more frequently than expected in recent draws. Cold numbers appear less often than expected. Normal numbers are close to their expected frequency. This helps identify current trends in the data.",
+      "q7": "How does the app suggest which numbers to play?",
+      "a7": "We analyze historical draw data and show the numbers with the highest appearance frequency. The number of suggestions matches what you need to pick for each lottery (e.g., 5 main numbers for EuroJackpot). Numbers with identical frequencies are shown together as ties.",
+      "q8": "Which lotteries are supported?",
+      "a8": "We support 22 lotteries across 5 regions: Estonia, United Kingdom, United States, Spain, and Ireland. This includes popular games like EuroJackpot, EuroMillions, Powerball, Mega Millions, and many more.",
+      "q9": "Can I analyze data from specific time periods?",
+      "a9": "Yes! You can select custom date ranges to focus your analysis on specific periods. This helps you see how number patterns have changed over time.",
+      "q10": "What statistical methods do you use?",
+      "a10": "We use multiple statistical methods including frequency analysis, Wilson confidence intervals, trend analysis, and Monte Carlo simulations. For detailed explanations, visit our <methodology>Statistical Methodology</methodology> page.",
+      "q11": "What's the difference between subscription tiers?",
+      "a11": "<b>Free</b> — 2 months of data with basic frequency analysis.<br/><b>Pro</b> — 2 years of data, plus trends, confidence intervals, and deviation metrics.<br/><b>Premium</b> — 5 years of data with all advanced analytics including Markov chains, pair analysis, and seasonal patterns."
     },
     "contact": {
       "title": "Contact Us",
       "description": "Have a question or feedback? We'd love to hear from you.",
       "email": "Email",
       "emailAddress": "support@lottolens.com",
-      "github": "Report an Issue",
-      "githubDescription": "Found a bug? Let us know on GitHub"
+      "bugReport": "Report a Bug",
+      "bugReportDescription": "Found a bug? Let us know via email"
     },
     "resources": {
       "title": "Resources",
