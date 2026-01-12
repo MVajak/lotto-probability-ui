@@ -26,4 +26,13 @@ export const REGION_LOTTERY_TYPES: Record<Region, LottoType[]> = {
     LottoType.ES_BONOLOTO,
     LottoType.ES_EL_GORDO,
   ],
+  [Region.IE]: [
+    LottoType.EUROMILLIONS,
+    LottoType.EURODREAMS,
+    LottoType.IE_LOTTO,
+    LottoType.IE_LOTTO_PLUS_1,
+    LottoType.IE_LOTTO_PLUS_2,
+    LottoType.IE_DAILY_MILLION,
+    LottoType.IE_DAILY_MILLION_PLUS,
+  ],
 };

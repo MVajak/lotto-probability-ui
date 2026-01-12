@@ -29,6 +29,11 @@
     "ES_BONOLOTO": "Kokku on 49 primaarnumbrit, millest kasutaja peab valima 6. Lisaks on 1 Complementario number ülejäänud numbrite hulgast ja 1 Reintegro number (0-9). Valitud numbrite asukoht ei ole oluline.",
     "ES_EL_GORDO": "Kokku on 54 primaarnumbrit, millest kasutaja peab valima 5. Lisaks on 1 Reintegro number (0-9). Valitud numbrite asukoht ei ole oluline.",
     "EURODREAMS": "Kokku on 40 primaarnumbrit, millest kasutaja peab valima 6. Lisaks on 1 Dream number (1-5). Valitud numbrite asukoht ei ole oluline.",
+    "IE_LOTTO": "Kokku on 47 numbrit, millest kasutaja peab valima 6. Lisaks loositakse 1 boonusnumber ülejäänud numbrite hulgast. Valitud numbrite asukoht ei ole oluline.",
+    "IE_LOTTO_PLUS_1": "Kokku on 47 numbrit, millest kasutaja peab valima 6. Lisaks loositakse 1 boonusnumber ülejäänud numbrite hulgast. Sama formaat nagu Iiri Loto, eraldi loosimine.",
+    "IE_LOTTO_PLUS_2": "Kokku on 47 numbrit, millest kasutaja peab valima 6. Lisaks loositakse 1 boonusnumber ülejäänud numbrite hulgast. Sama formaat nagu Iiri Loto, eraldi loosimine.",
+    "IE_DAILY_MILLION": "Kokku on 39 numbrit, millest kasutaja peab valima 6. Lisaks loositakse 1 boonusnumber ülejäänud numbrite hulgast. Valitud numbrite asukoht ei ole oluline.",
+    "IE_DAILY_MILLION_PLUS": "Kokku on 39 numbrit, millest kasutaja peab valima 6. Lisaks loositakse 1 boonusnumber ülejäänud numbrite hulgast. Sama formaat nagu Daily Million, eraldi loosimine.",
     "generalDescription": "Süsteem arvutab {{lottoName}} loto numbrite esinemise tõenäosuse ajalooliste andmete põhjal ning kuvab parimaid numbreid. Saate määrata ise kuupäevad, mille vahemikus ajaloolisi andmeid kasutatakse."
   },
   "search": {
@@ -328,7 +333,7 @@
     "subtitle": "Analüüsi ajaloolisi loosimisi, avasta mustreid ja vali numbreid, mida toetab päris statistika.",
     "feature1": "Üle 50 000 loosimise ajalooline analüüs",
     "feature2": "Täiustatud tõenäosusarvutused ja ennustused",
-    "feature3": "Loteriide tugi 4 piirkonnas",
+    "feature3": "Loteriide tugi 5 piirkonnas",
     "methodsLabel": "Vaata meie statistilisi meetodeid",
     "method1": "Sagedusanalüüs",
     "method2": "Wilsoni usaldusvahemik",
@@ -345,7 +350,8 @@
     "region1": "Eesti",
     "region2": "Ühendkuningriik",
     "region3": "Ameerika Ühendriigid",
-    "region4": "Hispaania"
+    "region4": "Hispaania",
+    "region5": "Iirimaa"
   },
   "login": {
     "title": "Logi sisse",
@@ -379,7 +385,8 @@
     "EE": "Eesti",
     "UK": "Ühendkuningriik",
     "US": "Ameerika Ühendriigid",
-    "ES": "Hispaania"
+    "ES": "Hispaania",
+    "IE": "Iirimaa"
   },
   "profile": {
     "memberSince": "Liige alates {{date}}",
@@ -510,7 +517,7 @@
     "privacyPolicy": {
       "title": "Privaatsuspoliitika",
       "lastUpdated": "Viimati uuendatud: {{date}}",
-      "backToLogin": "Tagasi sisselogimisse",
+      "back": "Tagasi",
       "intro": {
         "title": "Sissejuhatus",
         "content": "LottoLens (\"meie\" või \"me\") on pühendunud sinu privaatsuse kaitsmisele. See privaatsuspoliitika selgitab, kuidas me kogume, kasutame ja kaitseme sinu andmeid, kui kasutad meie lotoanalüüsi teenust."
@@ -521,7 +528,9 @@
         "items": {
           "email": "E-posti aadress (vajalik konto loomiseks)",
           "profile": "Profiiliandmed (nimi, telefon, riik - valikuline)",
-          "usage": "Kasutusandmed (loto valikud, analüüsi eelistused)",
+          "preferences": "Eelistused (keel, piirkond, analüüsi seaded)",
+          "activity": "Konto tegevus",
+          "referral": "Soovitusandmed (kui tulid soovituse kaudu)",
           "payment": "Makseandmed (töödeldakse turvaliselt Stripe'i kaudu)"
         }
       },
@@ -540,7 +549,6 @@
         "content": "Me ei müü sinu isikuandmeid. Võime jagada sinu andmeid järgmistega:",
         "items": {
           "stripe": "Stripe (maksete töötlemine)",
-          "analytics": "Analüütika pakkujad (ainult anonüümitud andmed)",
           "legal": "Õiguskaitseasutused, kui seadus seda nõuab"
         }
       },
@@ -555,7 +563,6 @@
           "access": "Pääseda ligi oma isikuandmetele",
           "correction": "Taotleda ebatäpsete andmete parandamist",
           "deletion": "Taotleda oma andmete kustutamist",
-          "export": "Eksportida oma andmeid porditavas formaadis",
           "withdraw": "Nõusolek igal ajal tagasi võtta"
         }
       },
@@ -563,15 +570,27 @@
         "title": "Küpsised ja kohalik salvestusruum",
         "content": "Kasutame kohalikku salvestusruumi sinu sessiooni ja eelistuste hoidmiseks. Me ei kasuta jälgimisküpsiseid reklaamieesmärkidel."
       },
+      "childrenPrivacy": {
+        "title": "Laste privaatsus",
+        "content": "LottoLens on mõeldud kasutajatele, kes on vähemalt 18-aastased. Me ei kogu teadlikult isikuandmeid alla 18-aastastelt. Kui oled alla 18-aastane, palun ära kasuta meie teenust ega esita isikuandmeid."
+      },
+      "security": {
+        "title": "Andmete turvalisus",
+        "content": "Rakendame asjakohaseid tehnilisi ja organisatsioonilisi meetmeid sinu isikuandmete kaitsmiseks volitamata juurdepääsu, muutmise, avaldamise või hävitamise eest. Siiski ei ole ükski andmeedastusviis internetis 100% turvaline."
+      },
+      "changes": {
+        "title": "Muudatused selles poliitikas",
+        "content": "Võime seda privaatsuspoliitikat aeg-ajalt uuendada. Teavitame sind olulistest muudatustest, kuvades rakenduses teate. Jätkuv kasutamine pärast muudatusi tähendab uuendatud poliitika aktsepteerimist."
+      },
       "contact": {
         "title": "Võta ühendust",
-        "content": "Kui sul on küsimusi selle privaatsuspoliitika kohta, võta meiega ühendust aadressil support@lottolens.com."
+        "content": "Kui sul on küsimusi selle privaatsuspoliitika kohta, võta meiega ühendust aadressil <email>support@lottolens.com</email>."
       }
     },
     "termsOfService": {
       "title": "Teenuse tingimused",
       "lastUpdated": "Viimati uuendatud: {{date}}",
-      "backToLogin": "Tagasi sisselogimisse",
+      "back": "Tagasi",
       "acceptance": {
         "title": "Tingimuste nõustumine",
         "content": "LottoLensi kasutades nõustud nende teenuse tingimustega. Kui sa ei nõustu nende tingimustega, palun ära kasuta meie teenust."
@@ -614,7 +633,7 @@
       },
       "contact": {
         "title": "Kontakt",
-        "content": "Nende teenuse tingimuste kohta küsimuste esitamiseks võta meiega ühendust aadressil support@lottolens.com."
+        "content": "Nende teenuse tingimuste kohta küsimuste esitamiseks võta meiega ühendust aadressil <email>support@lottolens.com</email>."
       }
     },
     "consent": {
@@ -627,6 +646,69 @@
       "checkbox": "Olen lugenud ja nõustun teenuse tingimuste ja privaatsuspoliitikaga",
       "accept": "Jätka",
       "mustAccept": "Jätkamiseks pead tingimustega nõustuma"
+    }
+  },
+  "methodology": {
+    "title": "Statistiline metoodika",
+    "subtitle": "Kuidas me lotoandmeid analüüsime",
+    "intro": "LottoLens kasutab ajalooliste lotoandmete analüüsimiseks mitmeid statistilisi meetodeid. Meie eesmärk on aidata sul mõista mustreid ja tõenäosusi, alati meeles pidades, et lototulemused on põhimõtteliselt juhuslikud.",
+    "howItHelps": "Kuidas see aitab",
+    "back": "Tagasi",
+    "methods": {
+      "frequencyAnalysis": {
+        "title": "Sagedusanalüüs",
+        "description": "Loendame, mitu korda iga number on ajaloolistes loosimistes esinenud, ja arvutame selle sageduse protsentides. See näitab, millised numbrid on loositud keskmisest sagedamini või harvemini.",
+        "helps": "Tuvastab numbrid, mis esinevad ajalooliste andmete põhjal oodatust sagedamini või harvemini."
+      },
+      "wilsonConfidenceInterval": {
+        "title": "Wilsoni usaldusvahemik",
+        "description": "See statistiline meetod arvutab vahemiku, kuhu numbri tegelik tõenäosus tõenäoliselt jääb, arvestades valimi suurust. See on täpsem kui lihtsad protsendid, eriti väiksemate andmekogumite puhul.",
+        "helps": "Annab usaldusväärse tõenäosusvahemiku koos usaldustasemega, pakkudes täpsemat pilti kui toorandmed."
+      },
+      "hotColdNumbers": {
+        "title": "Kuumad ja külmad numbrid",
+        "description": "Numbrid liigitatakse 'kuumadeks' (esinevad oodatust rohkem), 'külmadeks' (esinevad oodatust vähem) või 'normaalseteks' nende kõrvalekalde põhjal oodatud sagedusest.",
+        "helps": "Tuvastab kiiresti, millised numbrid on hetkel seerial või peaks hiljutiste trendide põhjal ilmuma."
+      },
+      "trendAnalysis": {
+        "title": "Trendianalüüs",
+        "description": "Analüüsime, kuidas iga numbri sagedus on aja jooksul muutunud, vaadates, kas see kasvab, kahaneb või püsib stabiilsena erinevatel ajaperioodidel.",
+        "helps": "Näitab, kas numbri esinemissagedus muutub, aidates märgata tekkivaid mustreid."
+      },
+      "streaksGaps": {
+        "title": "Seeriad ja pausid",
+        "description": "Jälgime iga numbri järjestikuseid esinemisi (seeriaid) ja järjestikuseid puudumisi (pause), sealhulgas pikim seeria, pikim paus ja keskmine aeg esinemiste vahel.",
+        "helps": "Paljastab mustrid selles, kuidas numbrid aja jooksul klasterduvad või hajuvad."
+      },
+      "markovChain": {
+        "title": "Markovi ahela analüüs",
+        "description": "See meetod analüüsib, mis tavaliselt juhtub pärast numbri esinemist või mitte-esinemist. See arvutab üleminekutõenäosused, et näha, kas numbrid kipuvad korduma, vahelduma või käituma juhuslikult.",
+        "helps": "Ennustab numbri esinemise tõenäosust selle eelmise oleku põhjal (esines või ei esinenud)."
+      },
+      "autocorrelation": {
+        "title": "Autokorrelatsioonanalüüs",
+        "description": "Kontrollime, kas numbri esinemised on seotud selle esinemistega eelmistes loosimistes. See tuvastab, kas numbrid kipuvad klasterduma, ühtlaselt hajuma või esinema juhuslikult.",
+        "helps": "Tuvastab peidetud mustreid, mis võivad viidata mittejuhuslikule käitumisele numbrijadades."
+      },
+      "pairAnalysis": {
+        "title": "Numbripaaride analüüs",
+        "description": "Analüüsime, millised numbrid esinevad sageli koos ja millised harva kattuvad. Kasutades lift-arvutusi, määrame, kas paarid esinevad juhuslikult oodatust sagedamini või harvemini.",
+        "helps": "Tuvastab kaasnumbrid, mis kipuvad koos esinema, ja paarid, mis näivad teineteist vältivat."
+      },
+      "monteCarlo": {
+        "title": "Monte Carlo simulatsioon",
+        "description": "Teeme tuhandeid simuleeritud loosimisi, et kindlaks teha, milline näeb välja 'normaalne' juhuslik käitumine. Sinu tegelikke tulemusi võrreldakse seejärel selle simuleeritud baasiga.",
+        "helps": "Kinnitab, kas täheldatud mustrid on statistiliselt olulised või lihtsalt normaalne juhuslik variatsioon."
+      },
+      "seasonalPatterns": {
+        "title": "Hooajaliste mustrite tuvastamine",
+        "description": "Analüüsime, kas teatud numbrid esinevad sagedamini kindlatel nädalapäevadel või aastakuudel, otsides andmetest ajalisi mustreid.",
+        "helps": "Paljastab, kas numbritel on korrelatsioone kalendrimustritega nagu nädalapäevad või aastaajad."
+      }
+    },
+    "disclaimer": {
+      "title": "Oluline meeldetuletus",
+      "content": "Kuigi need statistilised meetodid pakuvad huvitavaid teadmisi ajalooliste mustrite kohta, on lototulemused põhimõtteliselt juhuslikud. Varasemad tulemused ei ennusta tulevasi. Kasuta seda teavet ainult meelelahutuse ja hariduse eesmärgil. Palun mängi vastutustundlikult."
     }
   },
   "lottery": {
@@ -647,6 +729,11 @@
     "ES_BONOLOTO": "Bonoloto",
     "ES_EL_GORDO": "El Gordo",
     "EURODREAMS": "EuroDreams",
+    "IE_LOTTO": "Iiri Loto",
+    "IE_LOTTO_PLUS_1": "Lotto Plus 1",
+    "IE_LOTTO_PLUS_2": "Lotto Plus 2",
+    "IE_DAILY_MILLION": "Daily Million",
+    "IE_DAILY_MILLION_PLUS": "Daily Million Plus",
     "frequency": {
       "EUROJACKPOT": "T & R",
       "VIKINGLOTTO": "K",
@@ -664,7 +751,12 @@
       "ES_LA_PRIMITIVA": "N & L",
       "ES_BONOLOTO": "E-L",
       "ES_EL_GORDO": "P",
-      "EURODREAMS": "E & N"
+      "EURODREAMS": "E & N",
+      "IE_LOTTO": "K & L",
+      "IE_LOTTO_PLUS_1": "K & L",
+      "IE_LOTTO_PLUS_2": "K & L",
+      "IE_DAILY_MILLION": "Kaks korda päevas",
+      "IE_DAILY_MILLION_PLUS": "Kaks korda päevas"
     }
   }
 }

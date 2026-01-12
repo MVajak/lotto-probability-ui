@@ -19,15 +19,17 @@ import FlagEstonia from '../../assets/flag_estonia.svg';
 import FlagSpain from '../../assets/flag_spain.svg';
 import FlagUK from '../../assets/flag_united_kingdom.svg';
 import FlagUSA from '../../assets/flag_usa.svg';
+import FlagIreland from '../../assets/flag_ireland.svg';
 
 const FLAGS: Record<Region, string> = {
   [Region.EE]: FlagEstonia,
   [Region.UK]: FlagUK,
   [Region.US]: FlagUSA,
   [Region.ES]: FlagSpain,
+  [Region.IE]: FlagIreland,
 };
 
-const REGIONS = [Region.EE, Region.UK, Region.US, Region.ES] as const;
+const REGIONS = [Region.EE, Region.UK, Region.US, Region.ES, Region.IE] as const;
 
 const getInitialRegion = (): Region => {
   const storedRegion = localStorage.getItem(RegionStorageKey.REGION);

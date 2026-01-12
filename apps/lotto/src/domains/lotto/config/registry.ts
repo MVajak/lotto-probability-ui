@@ -30,7 +30,7 @@ export const LOTTERY_CONFIGS: LotteryConfigRegistry = {
 
   [LottoType.EUROJACKPOT]: {
     lottoType: LottoType.EUROJACKPOT,
-    logo: '/img/lottery/eurojackpot_logo.svg',
+    logo: '/img/lottery/shared/eurojackpot.svg',
     links: {
       buyTickets: 'https://www.eestiloto.ee/et/eurojackpot/#plain',
       gameRules: 'https://eestiloto.zendesk.com/hc/et-ee/articles/15852803719069-Eurojackpoti-m%C3%A4ngujuhend',
@@ -55,7 +55,7 @@ export const LOTTERY_CONFIGS: LotteryConfigRegistry = {
 
   [LottoType.VIKINGLOTTO]: {
     lottoType: LottoType.VIKINGLOTTO,
-    logo: '/img/lottery/vikinglotto_logo.svg',
+    logo: '/img/lottery/shared/vikinglotto.svg',
     links: {
       buyTickets: 'https://www.eestiloto.ee/et/vikinglotto/#plain',
       gameRules: 'https://eestiloto.zendesk.com/hc/et-ee/articles/15852799648413-Vikinglotto-m%C3%A4ngujuhend',
@@ -80,7 +80,7 @@ export const LOTTERY_CONFIGS: LotteryConfigRegistry = {
 
   [LottoType.EST_KENO]: {
     lottoType: LottoType.EST_KENO,
-    logo: '/img/lottery/Keno_logo.svg',
+    logo: '/img/lottery/ee/keno.svg',
     links: {
       buyTickets: 'https://www.eestiloto.ee/et/keno/#plain',
       gameRules: 'https://eestiloto.zendesk.com/hc/et-ee/articles/15852841307165-Keno-m%C3%A4ngujuhend',
@@ -98,7 +98,7 @@ export const LOTTERY_CONFIGS: LotteryConfigRegistry = {
 
   [LottoType.EST_BINGO]: {
     lottoType: LottoType.EST_BINGO,
-    logo: '/img/lottery/bingo_logo.svg',
+    logo: '/img/lottery/ee/bingo.svg',
     links: {
       buyTickets: 'https://www.eestiloto.ee/et/bingoloto/#plain',
       gameRules: 'https://eestiloto.zendesk.com/hc/et-ee/articles/15852861053469-Bingo-loto-m%C3%A4ngujuhend',
@@ -136,7 +136,7 @@ export const LOTTERY_CONFIGS: LotteryConfigRegistry = {
 
   [LottoType.EST_JOKKER]: {
     lottoType: LottoType.EST_JOKKER,
-    logo: '/img/lottery/jokker_logo.svg',
+    logo: '/img/lottery/ee/jokker.svg',
     links: {
       buyTickets: 'https://www.eestiloto.ee/et/jokker/#plain',
       gameRules: 'https://eestiloto.zendesk.com/hc/et-ee/articles/15852902153757-Jokkeri-m%C3%A4ngujuhend',
@@ -153,7 +153,7 @@ export const LOTTERY_CONFIGS: LotteryConfigRegistry = {
 
   [LottoType.UK_LOTTO]: {
     lottoType: LottoType.UK_LOTTO,
-    logo: '/img/lottery/uk_lotto_logo.svg',
+    logo: '/img/lottery/uk/lotto.svg',
     links: {
       buyTickets: 'https://www.national-lottery.co.uk/games/lotto',
       gameRules: 'https://www.national-lottery.co.uk/games/lotto/game-procedures',
@@ -169,7 +169,7 @@ export const LOTTERY_CONFIGS: LotteryConfigRegistry = {
 
   [LottoType.EUROMILLIONS]: {
     lottoType: LottoType.EUROMILLIONS,
-    logo: '/img/lottery/euromillions_logo.png',
+    logo: '/img/lottery/shared/euromillions.png',
     links: {
       buyTickets: 'https://www.national-lottery.co.uk/games/euromillions',
       gameRules: 'https://www.national-lottery.co.uk/games/euromillions/game-procedures',
@@ -185,7 +185,7 @@ export const LOTTERY_CONFIGS: LotteryConfigRegistry = {
 
   [LottoType.UK_THUNDERBALL]: {
     lottoType: LottoType.UK_THUNDERBALL,
-    logo: '/img/lottery/Thunderball_logo.webp',
+    logo: '/img/lottery/uk/thunderball.webp',
     links: {
       buyTickets: 'https://www.national-lottery.co.uk/games/thunderball',
       gameRules: 'https://www.national-lottery.co.uk/games/thunderball/game-procedures',
@@ -201,7 +201,7 @@ export const LOTTERY_CONFIGS: LotteryConfigRegistry = {
 
   [LottoType.UK_SET_FOR_LIFE]: {
     lottoType: LottoType.UK_SET_FOR_LIFE,
-    logo: '/img/lottery/Set_for_Life_logo.svg',
+    logo: '/img/lottery/uk/set_for_life.svg',
     links: {
       buyTickets: 'https://www.national-lottery.co.uk/games/set-for-life',
       gameRules: 'https://www.national-lottery.co.uk/games/set-for-life/game-procedures',
@@ -217,7 +217,7 @@ export const LOTTERY_CONFIGS: LotteryConfigRegistry = {
 
   [LottoType.UK_HOT_PICKS]: {
     lottoType: LottoType.UK_HOT_PICKS,
-    logo: '/img/lottery/hotPicks_logo.svg',
+    logo: '/img/lottery/uk/hotpicks.svg',
     links: {
       buyTickets: 'https://www.national-lottery.co.uk/games/lotto-hotpicks',
       gameRules: 'https://www.national-lottery.co.uk/games/lotto-hotpicks/game-procedures',
@@ -232,7 +232,7 @@ export const LOTTERY_CONFIGS: LotteryConfigRegistry = {
 
   [LottoType.US_POWERBALL]: {
     lottoType: LottoType.US_POWERBALL,
-    logo: '/img/lottery/Powerball_logo.png',
+    logo: '/img/lottery/us/powerball.png',
     links: {
       buyTickets: 'https://www.powerball.com/',
       gameRules: 'https://www.powerball.com/games/powerball',
@@ -248,7 +248,7 @@ export const LOTTERY_CONFIGS: LotteryConfigRegistry = {
 
   [LottoType.US_MEGA_MILLIONS]: {
     lottoType: LottoType.US_MEGA_MILLIONS,
-    logo: '/img/lottery/megamillions_logo.svg',
+    logo: '/img/lottery/us/megamillions.svg',
     links: {
       buyTickets: 'https://www.megamillions.com/',
       gameRules: 'https://www.megamillions.com/how-to-play.aspx',
@@ -264,7 +264,7 @@ export const LOTTERY_CONFIGS: LotteryConfigRegistry = {
 
   [LottoType.US_CASH4LIFE]: {
     lottoType: LottoType.US_CASH4LIFE,
-    logo: '/img/lottery/Cash4Life_logo.png',
+    logo: '/img/lottery/us/cash4life.png',
     links: {
       buyTickets: 'https://www.cash4life.org/',
       gameRules: 'https://www.cash4life.org/how-to-play',
@@ -282,7 +282,7 @@ export const LOTTERY_CONFIGS: LotteryConfigRegistry = {
 
   [LottoType.ES_LA_PRIMITIVA]: {
     lottoType: LottoType.ES_LA_PRIMITIVA,
-    logo: '/img/lottery/la_primitiva_logo.webp',
+    logo: '/img/lottery/es/la_primitiva.webp',
     links: {
       buyTickets: 'https://www.loteriasyapuestas.es/es/la-primitiva',
       gameRules: 'https://www.loteriasyapuestas.es/es/la-primitiva/como-se-juega',
@@ -314,7 +314,7 @@ export const LOTTERY_CONFIGS: LotteryConfigRegistry = {
 
   [LottoType.ES_BONOLOTO]: {
     lottoType: LottoType.ES_BONOLOTO,
-    logo: '/img/lottery/bonoloto_logo.webp',
+    logo: '/img/lottery/es/bonoloto.webp',
     links: {
       buyTickets: 'https://www.loteriasyapuestas.es/es/bonoloto',
       gameRules: 'https://www.loteriasyapuestas.es/es/bonoloto/como-se-juega',
@@ -346,7 +346,7 @@ export const LOTTERY_CONFIGS: LotteryConfigRegistry = {
 
   [LottoType.ES_EL_GORDO]: {
     lottoType: LottoType.ES_EL_GORDO,
-    logo: '/img/lottery/el_gordo_logo.webp',
+    logo: '/img/lottery/es/el_gordo.webp',
     links: {
       buyTickets: 'https://www.loteriasyapuestas.es/es/el-gordo-de-la-primitiva',
       gameRules: 'https://www.loteriasyapuestas.es/es/el-gordo-de-la-primitiva/como-se-juega',
@@ -360,11 +360,93 @@ export const LOTTERY_CONFIGS: LotteryConfigRegistry = {
     },
   },
 
+  // ===== IRELAND (IE) =====
+
+  [LottoType.IE_LOTTO]: {
+    lottoType: LottoType.IE_LOTTO,
+    logo: '/img/lottery/ie/lotto.svg',
+    links: {
+      buyTickets: 'https://www.lottery.ie/play/lotto',
+      gameRules: 'https://www.lottery.ie/useful-info/game-rules',
+    },
+    dataTransform: {
+      mode: 'standard',
+      categories: [
+        { titleKey: 'result.primaryNumbers', maxNumbers: 6, containerSize: { sm: 6 } },
+        { titleKey: 'result.bonusBall', maxNumbers: 1, containerSize: { sm: 6 }, isSecondary: true },
+      ],
+    },
+  },
+
+  [LottoType.IE_LOTTO_PLUS_1]: {
+    lottoType: LottoType.IE_LOTTO_PLUS_1,
+    logo: '/img/lottery/ie/lotto_plus1.svg',
+    links: {
+      buyTickets: 'https://www.lottery.ie/play/lotto',
+      gameRules: 'https://www.lottery.ie/useful-info/game-rules',
+    },
+    dataTransform: {
+      mode: 'standard',
+      categories: [
+        { titleKey: 'result.primaryNumbers', maxNumbers: 6, containerSize: { sm: 6 } },
+        { titleKey: 'result.bonusBall', maxNumbers: 1, containerSize: { sm: 6 }, isSecondary: true },
+      ],
+    },
+  },
+
+  [LottoType.IE_LOTTO_PLUS_2]: {
+    lottoType: LottoType.IE_LOTTO_PLUS_2,
+    logo: '/img/lottery/ie/lotto_plus2.svg',
+    links: {
+      buyTickets: 'https://www.lottery.ie/play/lotto',
+      gameRules: 'https://www.lottery.ie/useful-info/game-rules',
+    },
+    dataTransform: {
+      mode: 'standard',
+      categories: [
+        { titleKey: 'result.primaryNumbers', maxNumbers: 6, containerSize: { sm: 6 } },
+        { titleKey: 'result.bonusBall', maxNumbers: 1, containerSize: { sm: 6 }, isSecondary: true },
+      ],
+    },
+  },
+
+  [LottoType.IE_DAILY_MILLION]: {
+    lottoType: LottoType.IE_DAILY_MILLION,
+    logo: '/img/lottery/ie/daily_million.svg',
+    links: {
+      buyTickets: 'https://www.lottery.ie/play/daily-million',
+      gameRules: 'https://www.lottery.ie/useful-info/game-rules',
+    },
+    dataTransform: {
+      mode: 'standard',
+      categories: [
+        { titleKey: 'result.primaryNumbers', maxNumbers: 6, containerSize: { sm: 6 } },
+        { titleKey: 'result.bonusBall', maxNumbers: 1, containerSize: { sm: 6 }, isSecondary: true },
+      ],
+    },
+  },
+
+  [LottoType.IE_DAILY_MILLION_PLUS]: {
+    lottoType: LottoType.IE_DAILY_MILLION_PLUS,
+    logo: '/img/lottery/ie/daily_million_plus.svg',
+    links: {
+      buyTickets: 'https://www.lottery.ie/play/daily-million',
+      gameRules: 'https://www.lottery.ie/useful-info/game-rules',
+    },
+    dataTransform: {
+      mode: 'standard',
+      categories: [
+        { titleKey: 'result.primaryNumbers', maxNumbers: 6, containerSize: { sm: 6 } },
+        { titleKey: 'result.bonusBall', maxNumbers: 1, containerSize: { sm: 6 }, isSecondary: true },
+      ],
+    },
+  },
+
   // ===== SHARED (Multi-region) =====
 
   [LottoType.EURODREAMS]: {
     lottoType: LottoType.EURODREAMS,
-    logo: '/img/lottery/eurodreams_logo.svg',
+    logo: '/img/lottery/shared/eurodreams.svg',
     links: {
       buyTickets: 'https://www.euro-dreams.com/',
       gameRules: 'https://www.euro-dreams.com/en/how-to-play',

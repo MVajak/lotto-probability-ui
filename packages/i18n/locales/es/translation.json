@@ -29,6 +29,11 @@
     "ES_BONOLOTO": "Hay 49 números principales en total, de los cuales el usuario debe elegir 6. Además, hay 1 número Complementario del resto del bombo y 1 número Reintegro (0-9). La posición de los números elegidos no importa.",
     "ES_EL_GORDO": "Hay 54 números principales en total, de los cuales el usuario debe elegir 5. Además, hay 1 número Reintegro (0-9). La posición de los números elegidos no importa.",
     "EURODREAMS": "Hay 40 números principales en total, de los cuales el usuario debe elegir 6. Además, hay 1 número Sueño (1-5). La posición de los números elegidos no importa.",
+    "IE_LOTTO": "Hay 47 números en total, de los cuales el usuario debe elegir 6. Además, se sortea 1 bola bonus de los números restantes. La posición de los números elegidos no importa.",
+    "IE_LOTTO_PLUS_1": "Hay 47 números en total, de los cuales el usuario debe elegir 6. Además, se sortea 1 bola bonus de los números restantes. Mismo formato que Irish Lotto, sorteo separado.",
+    "IE_LOTTO_PLUS_2": "Hay 47 números en total, de los cuales el usuario debe elegir 6. Además, se sortea 1 bola bonus de los números restantes. Mismo formato que Irish Lotto, sorteo separado.",
+    "IE_DAILY_MILLION": "Hay 39 números en total, de los cuales el usuario debe elegir 6. Además, se sortea 1 bola bonus de los números restantes. La posición de los números elegidos no importa.",
+    "IE_DAILY_MILLION_PLUS": "Hay 39 números en total, de los cuales el usuario debe elegir 6. Además, se sortea 1 bola bonus de los números restantes. Mismo formato que Daily Million, sorteo separado.",
     "generalDescription": "El sistema calcula la probabilidad de los números de {{lottoName}} basándose en datos históricos y sugiere los mejores números para elegir. Puedes buscar datos históricos por fechas."
   },
   "search": {
@@ -328,7 +333,7 @@
     "subtitle": "Analiza sorteos históricos, descubre patrones y elige números respaldados por estadísticas reales.",
     "feature1": "Análisis histórico de más de 50,000 sorteos de lotería",
     "feature2": "Cálculos de probabilidad avanzados y predicciones",
-    "feature3": "Cobertura de loterías en 4 regiones",
+    "feature3": "Cobertura de loterías en 5 regiones",
     "methodsLabel": "Ver nuestros métodos estadísticos",
     "method1": "Análisis de Frecuencia",
     "method2": "Intervalo de Confianza de Wilson",
@@ -345,7 +350,8 @@
     "region1": "Estonia",
     "region2": "Reino Unido",
     "region3": "Estados Unidos",
-    "region4": "España"
+    "region4": "España",
+    "region5": "Irlanda"
   },
   "login": {
     "title": "Iniciar sesión",
@@ -379,7 +385,8 @@
     "EE": "Estonia",
     "UK": "Reino Unido",
     "US": "Estados Unidos",
-    "ES": "España"
+    "ES": "España",
+    "IE": "Irlanda"
   },
   "profile": {
     "memberSince": "Miembro desde {{date}}",
@@ -510,7 +517,7 @@
     "privacyPolicy": {
       "title": "Política de Privacidad",
       "lastUpdated": "Última actualización: {{date}}",
-      "backToLogin": "Volver al Inicio de Sesión",
+      "back": "Volver",
       "intro": {
         "title": "Introducción",
         "content": "LottoLens (\"nosotros\", \"nuestro\" o \"nos\") está comprometido con la protección de tu privacidad. Esta Política de Privacidad explica cómo recopilamos, usamos y protegemos tu información cuando utilizas nuestro servicio de análisis de lotería."
@@ -540,7 +547,6 @@
         "content": "No vendemos tu información personal. Podemos compartir tu información con:",
         "items": {
           "stripe": "Stripe (procesamiento de pagos)",
-          "analytics": "Proveedores de análisis (solo datos anonimizados)",
           "legal": "Autoridades legales cuando sea requerido por ley"
         }
       },
@@ -555,7 +561,6 @@
           "access": "Acceder a tus datos personales",
           "correction": "Solicitar corrección de datos inexactos",
           "deletion": "Solicitar eliminación de tus datos",
-          "export": "Exportar tus datos en un formato portable",
           "withdraw": "Retirar el consentimiento en cualquier momento"
         }
       },
@@ -563,15 +568,27 @@
         "title": "Cookies y Almacenamiento Local",
         "content": "Usamos almacenamiento local para mantener tu sesión y preferencias. No usamos cookies de seguimiento con fines publicitarios."
       },
+      "childrenPrivacy": {
+        "title": "Privacidad de Menores",
+        "content": "LottoLens está destinado a usuarios mayores de 18 años. No recopilamos conscientemente información personal de menores de 18 años. Si eres menor de 18 años, por favor no uses nuestro servicio ni proporciones información personal."
+      },
+      "security": {
+        "title": "Seguridad de Datos",
+        "content": "Implementamos medidas técnicas y organizativas apropiadas para proteger tu información personal contra acceso no autorizado, alteración, divulgación o destrucción. Sin embargo, ningún método de transmisión por Internet es 100% seguro."
+      },
+      "changes": {
+        "title": "Cambios en Esta Política",
+        "content": "Podemos actualizar esta Política de Privacidad de vez en cuando. Te notificaremos de cambios significativos mostrando un aviso en la aplicación. El uso continuado después de los cambios constituye la aceptación de la política actualizada."
+      },
       "contact": {
         "title": "Contáctanos",
-        "content": "Si tienes preguntas sobre esta Política de Privacidad, contáctanos en support@lottolens.com."
+        "content": "Si tienes preguntas sobre esta Política de Privacidad, contáctanos en <email>support@lottolens.com</email>."
       }
     },
     "termsOfService": {
       "title": "Términos de Servicio",
       "lastUpdated": "Última actualización: {{date}}",
-      "backToLogin": "Volver al Inicio de Sesión",
+      "back": "Volver",
       "acceptance": {
         "title": "Aceptación de los Términos",
         "content": "Al acceder o usar LottoLens, aceptas estar sujeto a estos Términos de Servicio. Si no estás de acuerdo con estos términos, por favor no uses nuestro servicio."
@@ -614,7 +631,7 @@
       },
       "contact": {
         "title": "Contacto",
-        "content": "Para preguntas sobre estos Términos de Servicio, contáctanos en support@lottolens.com."
+        "content": "Para preguntas sobre estos Términos de Servicio, contáctanos en <email>support@lottolens.com</email>."
       }
     },
     "consent": {
@@ -627,6 +644,69 @@
       "checkbox": "He leído y acepto los Términos de Servicio y la Política de Privacidad",
       "accept": "Continuar",
       "mustAccept": "Debes aceptar los términos para continuar"
+    }
+  },
+  "methodology": {
+    "title": "Metodología Estadística",
+    "subtitle": "Cómo analizamos los datos de lotería",
+    "intro": "LottoLens utiliza una combinación de métodos estadísticos para analizar datos históricos de lotería. Nuestro objetivo es ayudarte a entender patrones y probabilidades, siempre recordando que los resultados de lotería son fundamentalmente aleatorios.",
+    "howItHelps": "Cómo ayuda",
+    "back": "Volver",
+    "methods": {
+      "frequencyAnalysis": {
+        "title": "Análisis de Frecuencia",
+        "description": "Contamos cuántas veces ha aparecido cada número en sorteos históricos y calculamos su frecuencia como porcentaje. Esto muestra qué números han sido sorteados más o menos que el promedio.",
+        "helps": "Identifica números que aparecen más o menos frecuentemente de lo esperado según datos históricos."
+      },
+      "wilsonConfidenceInterval": {
+        "title": "Intervalo de Confianza de Wilson",
+        "description": "Este método estadístico calcula un rango dentro del cual probablemente se encuentra la verdadera probabilidad de un número, considerando el tamaño de la muestra. Es más preciso que los porcentajes simples, especialmente con conjuntos de datos pequeños.",
+        "helps": "Proporciona un rango de probabilidad confiable con un nivel de confianza, dándote una imagen más precisa que los porcentajes brutos."
+      },
+      "hotColdNumbers": {
+        "title": "Números Calientes y Fríos",
+        "description": "Los números se clasifican como 'calientes' (aparecen más de lo esperado), 'fríos' (aparecen menos de lo esperado) o 'normales' según su desviación de la frecuencia esperada.",
+        "helps": "Identifica rápidamente qué números están actualmente en racha o pendientes de aparecer según tendencias recientes."
+      },
+      "trendAnalysis": {
+        "title": "Análisis de Tendencias",
+        "description": "Analizamos cómo ha cambiado la frecuencia de cada número a lo largo del tiempo, observando si está aumentando, disminuyendo o permaneciendo estable en diferentes períodos.",
+        "helps": "Muestra si la tasa de aparición de un número está cambiando, ayudándote a detectar patrones emergentes."
+      },
+      "streaksGaps": {
+        "title": "Análisis de Rachas e Intervalos",
+        "description": "Rastreamos apariciones consecutivas (rachas) y ausencias consecutivas (intervalos) para cada número, incluyendo la racha más larga, el intervalo más largo y el tiempo promedio entre apariciones.",
+        "helps": "Revela patrones en cómo los números se agrupan o se dispersan a lo largo del tiempo."
+      },
+      "markovChain": {
+        "title": "Análisis de Cadena de Markov",
+        "description": "Este método analiza qué sucede típicamente después de que un número aparece o no aparece. Calcula probabilidades de transición para ver si los números tienden a repetirse, alternarse o comportarse aleatoriamente.",
+        "helps": "Predice la probabilidad de que un número aparezca basándose en su estado anterior (apareció o no apareció)."
+      },
+      "autocorrelation": {
+        "title": "Análisis de Autocorrelación",
+        "description": "Verificamos si las apariciones de un número están relacionadas con sus apariciones en sorteos anteriores. Esto detecta si los números tienden a agruparse, dispersarse uniformemente o aparecer aleatoriamente.",
+        "helps": "Detecta patrones ocultos que podrían indicar comportamiento no aleatorio en secuencias de números."
+      },
+      "pairAnalysis": {
+        "title": "Análisis de Parejas de Números",
+        "description": "Analizamos qué números aparecen frecuentemente juntos y cuáles raramente coinciden. Usando cálculos de lift, determinamos si las parejas ocurren más o menos de lo esperado por azar.",
+        "helps": "Identifica números compañeros que tienden a aparecer juntos y parejas que parecen evitarse mutuamente."
+      },
+      "monteCarlo": {
+        "title": "Simulación Monte Carlo",
+        "description": "Ejecutamos miles de sorteos simulados para establecer cómo se ve el comportamiento aleatorio 'normal'. Tus resultados reales se comparan entonces con esta línea base simulada.",
+        "helps": "Valida si los patrones observados son estadísticamente significativos o solo variación aleatoria normal."
+      },
+      "seasonalPatterns": {
+        "title": "Detección de Patrones Estacionales",
+        "description": "Analizamos si ciertos números aparecen más frecuentemente en días específicos de la semana o meses del año, buscando patrones temporales en los datos.",
+        "helps": "Revela si los números tienen alguna correlación con patrones del calendario como días de la semana o estaciones."
+      }
+    },
+    "disclaimer": {
+      "title": "Recordatorio Importante",
+      "content": "Aunque estos métodos estadísticos proporcionan información interesante sobre patrones históricos, los resultados de lotería son fundamentalmente aleatorios. El rendimiento pasado no predice resultados futuros. Usa esta información solo con fines de entretenimiento y educación. Por favor, juega de manera responsable."
     }
   },
   "lottery": {
@@ -647,6 +727,11 @@
     "ES_BONOLOTO": "Bonoloto",
     "ES_EL_GORDO": "El Gordo",
     "EURODREAMS": "EuroDreams",
+    "IE_LOTTO": "Irish Lotto",
+    "IE_LOTTO_PLUS_1": "Lotto Plus 1",
+    "IE_LOTTO_PLUS_2": "Lotto Plus 2",
+    "IE_DAILY_MILLION": "Daily Million",
+    "IE_DAILY_MILLION_PLUS": "Daily Million Plus",
     "frequency": {
       "EUROJACKPOT": "Mar y Vie",
       "VIKINGLOTTO": "Mié",
@@ -664,7 +749,12 @@
       "ES_LA_PRIMITIVA": "Jue y Sáb",
       "ES_BONOLOTO": "Lun-Sáb",
       "ES_EL_GORDO": "Dom",
-      "EURODREAMS": "Lun y Jue"
+      "EURODREAMS": "Lun y Jue",
+      "IE_LOTTO": "Mié y Sáb",
+      "IE_LOTTO_PLUS_1": "Mié y Sáb",
+      "IE_LOTTO_PLUS_2": "Mié y Sáb",
+      "IE_DAILY_MILLION": "Dos veces al día",
+      "IE_DAILY_MILLION_PLUS": "Dos veces al día"
     }
   }
 }
