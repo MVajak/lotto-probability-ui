@@ -38,6 +38,9 @@
     "DE_KENO": "Kokku on 70 numbrit, millest kasutaja saab valida 2-10. Iga päev loositakse 20 numbrit. Valitud numbrite asukoht ei ole oluline.",
     "DE_SPIEL77": "Kasutajad peavad sobitama 7-kohalise numbri vahemikus 0000000 kuni 9999999. Auhindu antakse selle alusel, mitu numbrit paremalt vasakule kattuvad.",
     "DE_SUPER6": "Kasutajad peavad sobitama 6-kohalise numbri vahemikus 000000 kuni 999999. Auhindu antakse selle alusel, mitu numbrit paremalt vasakule kattuvad.",
+    "FR_LOTO": "Kokku on 49 primaarnumbrit, millest kasutaja peab valima 5. Lisaks on 1 Õnnenumber (1-10). Valitud numbrite asukoht ei ole oluline.",
+    "FR_JOKER": "Kasutajad peavad sobitama 7-kohalise numbri vahemikus 0000000 kuni 9999999. Auhindu antakse selle alusel, mitu numbrit paremalt vasakule kattuvad.",
+    "FR_KENO": "Kokku on 70 numbrit, millest kasutaja saab valida 2-10. Iga päev loositakse 20 numbrit. Valitud numbrite asukoht ei ole oluline.",
     "generalDescription": "Süsteem arvutab {{lottoName}} loto numbrite esinemise tõenäosuse ajalooliste andmete põhjal ning kuvab parimaid numbreid. Saate määrata ise kuupäevad, mille vahemikus ajaloolisi andmeid kasutatakse."
   },
   "search": {
@@ -61,6 +64,7 @@
     "complementario": "Lisanumber",
     "dreamNumber": "Unenumber",
     "superzahl": "Superzahl",
+    "numeroChance": "Õnnenumber",
     "bingo": {
       "centerGame": "Keskruudumäng",
       "cornerGame": "Nurkademäng",
@@ -394,7 +398,8 @@
     "US": "Ameerika Ühendriigid",
     "ES": "Hispaania",
     "IE": "Iirimaa",
-    "DE": "Saksamaa"
+    "DE": "Saksamaa",
+    "FR": "Prantsusmaa"
   },
   "profile": {
     "memberSince": "Liige alates {{date}}",
@@ -767,6 +772,9 @@
     "DE_KENO": "Keno",
     "DE_SPIEL77": "Spiel 77",
     "DE_SUPER6": "Super 6",
+    "FR_LOTO": "Loto",
+    "FR_JOKER": "Joker+",
+    "FR_KENO": "Keno Gagnant à Vie",
     "frequency": {
       "EUROJACKPOT": "T & R",
       "VIKINGLOTTO": "K",
@@ -793,7 +801,10 @@
       "DE_LOTTO_6AUS49": "K & L",
       "DE_KENO": "Iga päev",
       "DE_SPIEL77": "K & L",
-      "DE_SUPER6": "K & L"
+      "DE_SUPER6": "K & L",
+      "FR_LOTO": "E, K & L",
+      "FR_JOKER": "E, K & L",
+      "FR_KENO": "Iga päev"
     }
   }
 }

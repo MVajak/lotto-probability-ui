@@ -169,7 +169,7 @@ export const LOTTERY_CONFIGS: LotteryConfigRegistry = {
 
   [LottoType.EUROMILLIONS]: {
     lottoType: LottoType.EUROMILLIONS,
-    logo: '/img/lottery/shared/euromillions.png',
+    logo: '/img/lottery/shared/euromillions.svg',
     links: {
       buyTickets: 'https://www.national-lottery.co.uk/games/euromillions',
       gameRules: 'https://www.national-lottery.co.uk/games/euromillions/game-procedures',
@@ -502,6 +502,54 @@ export const LOTTERY_CONFIGS: LotteryConfigRegistry = {
       positional: {
         maxNumbersPerPosition: 3,
       },
+    },
+  },
+
+  // ===== FRANCE (FR) =====
+
+  [LottoType.FR_LOTO]: {
+    lottoType: LottoType.FR_LOTO,
+    logo: '/img/lottery/fr/loto.svg',
+    links: {
+      buyTickets: 'https://www.fdj.fr/jeux-de-tirage/loto',
+      gameRules: 'https://www.fdj.fr/jeux-de-tirage/loto/reglement',
+    },
+    dataTransform: {
+      mode: 'standard',
+      categories: [
+        { titleKey: 'result.primaryNumbers', maxNumbers: 5, containerSize: { sm: 6 } },
+        { titleKey: 'result.numeroChance', maxNumbers: 1, containerSize: { sm: 6 }, isSecondary: true },
+      ],
+    },
+  },
+
+  [LottoType.FR_JOKER]: {
+    lottoType: LottoType.FR_JOKER,
+    logo: '/img/lottery/fr/joker.svg',
+    links: {
+      buyTickets: 'https://www.fdj.fr/jeux-de-tirage/jokerplus',
+      gameRules: 'https://www.fdj.fr/jeux-de-tirage/jokerplus/reglement',
+    },
+    dataTransform: {
+      mode: 'positional',
+      positional: {
+        maxNumbersPerPosition: 3,
+      },
+    },
+  },
+
+  [LottoType.FR_KENO]: {
+    lottoType: LottoType.FR_KENO,
+    logo: '/img/lottery/fr/keno.webp',
+    links: {
+      buyTickets: 'https://www.fdj.fr/jeux-de-tirage/keno-gagnant-a-vie',
+      gameRules: 'https://www.fdj.fr/jeux-de-tirage/keno-gagnant-a-vie/reglement',
+    },
+    dataTransform: {
+      mode: 'standard',
+      categories: [
+        { titleKey: 'result.primaryNumbers', maxNumbers: 10 },
+      ],
     },
   },
 

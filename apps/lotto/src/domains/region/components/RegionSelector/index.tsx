@@ -21,6 +21,7 @@ import FlagUK from '../../assets/flag_united_kingdom.svg';
 import FlagUSA from '../../assets/flag_usa.svg';
 import FlagIreland from '../../assets/flag_ireland.svg';
 import FlagGermany from '../../assets/flag_germany.svg';
+import FlagFrance from '../../assets/flag_france.svg';
 
 const FLAGS: Record<Region, string> = {
   [Region.EE]: FlagEstonia,
@@ -29,9 +30,10 @@ const FLAGS: Record<Region, string> = {
   [Region.ES]: FlagSpain,
   [Region.IE]: FlagIreland,
   [Region.DE]: FlagGermany,
+  [Region.FR]: FlagFrance,
 };
 
-const REGIONS = [Region.EE, Region.UK, Region.US, Region.ES, Region.IE, Region.DE] as const;
+const REGIONS = [Region.EE, Region.UK, Region.US, Region.ES, Region.IE, Region.DE, Region.FR] as const;
 
 const getInitialRegion = (): Region => {
   const storedRegion = localStorage.getItem(RegionStorageKey.REGION);
@@ -51,6 +53,8 @@ const getInitialRegion = (): Region => {
     return Region.DE;
   } else if (timezone.includes('Europe/Dublin')) {
     return Region.IE;
+  } else if (timezone.includes('Europe/Paris')) {
+    return Region.FR;
   } else if (timezone.includes('America/')) {
     return Region.US;
   }

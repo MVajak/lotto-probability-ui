@@ -73,6 +73,11 @@ export enum LottoType {
   DE_SPIEL77 = 'DE_SPIEL77',
   DE_SUPER6 = 'DE_SUPER6',
 
+  // French lotteries
+  FR_LOTO = 'FR_LOTO',
+  FR_JOKER = 'FR_JOKER',
+  FR_KENO = 'FR_KENO',
+
   // Shared
   VIKINGLOTTO = 'VIKINGLOTTO',
   EUROJACKPOT = 'EUROJACKPOT',

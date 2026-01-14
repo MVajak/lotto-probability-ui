@@ -38,6 +38,9 @@
     "DE_KENO": "Hay 70 números en total, de los cuales el usuario puede elegir de 2 a 10 números. Se sortean 20 números. La posición de los números elegidos no importa.",
     "DE_SPIEL77": "Los usuarios deben seleccionar 7 dígitos del rango 0-9. Se compara con el número ganador de derecha a izquierda, y la secuencia debe ser correcta.",
     "DE_SUPER6": "Los usuarios deben seleccionar 6 dígitos del rango 0-9. Se compara con el número ganador de derecha a izquierda, y la secuencia debe ser correcta.",
+    "FR_LOTO": "Hay 49 números principales en total, de los cuales el usuario debe elegir 5. Además, hay 1 Número de la Suerte (1-10). La posición de los números elegidos no importa.",
+    "FR_JOKER": "Los usuarios deben seleccionar 7 dígitos del rango 0-9. Se compara con el número ganador de derecha a izquierda, y la secuencia debe ser correcta.",
+    "FR_KENO": "Hay 70 números en total, de los cuales el usuario puede elegir de 2 a 10 números. Se sortean 20 números cada día. La posición de los números elegidos no importa.",
     "generalDescription": "El sistema calcula la probabilidad de los números de {{lottoName}} basándose en datos históricos y sugiere los mejores números para elegir. Puedes buscar datos históricos por fechas."
   },
   "search": {
@@ -61,6 +64,7 @@
     "complementario": "Complementario",
     "dreamNumber": "Número Sueño",
     "superzahl": "Superzahl",
+    "numeroChance": "Número de la Suerte",
     "bingo": {
       "centerGame": "Juego Central",
       "cornerGame": "Juego de Esquinas",
@@ -394,7 +398,8 @@
     "US": "Estados Unidos",
     "ES": "España",
     "IE": "Irlanda",
-    "DE": "Alemania"
+    "DE": "Alemania",
+    "FR": "Francia"
   },
   "profile": {
     "memberSince": "Miembro desde {{date}}",
@@ -765,6 +770,9 @@
     "DE_KENO": "Keno",
     "DE_SPIEL77": "Spiel 77",
     "DE_SUPER6": "Super 6",
+    "FR_LOTO": "Loto",
+    "FR_JOKER": "Joker+",
+    "FR_KENO": "Keno Gagnant à Vie",
     "frequency": {
       "EUROJACKPOT": "Mar y Vie",
       "VIKINGLOTTO": "Mié",
@@ -791,7 +799,10 @@
       "DE_LOTTO_6AUS49": "Mié y Sáb",
       "DE_KENO": "Diario",
       "DE_SPIEL77": "Mié y Sáb",
-      "DE_SUPER6": "Mié y Sáb"
+      "DE_SUPER6": "Mié y Sáb",
+      "FR_LOTO": "Lun, Mié y Sáb",
+      "FR_JOKER": "Lun, Mié y Sáb",
+      "FR_KENO": "Diario"
     }
   }
 }

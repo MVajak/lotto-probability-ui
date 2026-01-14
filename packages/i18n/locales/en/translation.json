@@ -38,6 +38,9 @@
     "DE_KENO": "There are 70 numbers in total, from which the user can choose 2-10. 20 numbers are drawn each day. The position of the chosen numbers does not matter.",
     "DE_SPIEL77": "Users must match a 7-digit number from 0000000 to 9999999. Prizes are awarded based on how many digits match from right to left.",
     "DE_SUPER6": "Users must match a 6-digit number from 000000 to 999999. Prizes are awarded based on how many digits match from right to left.",
+    "FR_LOTO": "There are 49 primary numbers in total, from which the user must choose 5. In addition, there is 1 Chance number (1-10). The position of the chosen numbers does not matter.",
+    "FR_JOKER": "Users must match a 7-digit number from 0000000 to 9999999. Prizes are awarded based on how many digits match from right to left.",
+    "FR_KENO": "There are 70 numbers in total, from which the user can choose 2-10. 20 numbers are drawn each day. The position of the chosen numbers does not matter.",
     "generalDescription": "The system calculates the probability of {{lottoName}} numbers based on historical data and suggests the best numbers to choose. You can search for historical data by dates."
   },
   "search": {
@@ -61,6 +64,7 @@
     "complementario": "Complementary Number",
     "dreamNumber": "Dream Number",
     "superzahl": "Superzahl",
+    "numeroChance": "Chance Number",
     "bingo": {
       "centerGame": "Center Game",
       "cornerGame": "Corner Game",
@@ -394,7 +398,8 @@
     "US": "United States",
     "ES": "Spain",
     "IE": "Ireland",
-    "DE": "Germany"
+    "DE": "Germany",
+    "FR": "France"
   },
   "profile": {
     "memberSince": "Member since {{date}}",
@@ -767,6 +772,9 @@
     "DE_KENO": "Keno",
     "DE_SPIEL77": "Spiel 77",
     "DE_SUPER6": "Super 6",
+    "FR_LOTO": "Loto",
+    "FR_JOKER": "Joker+",
+    "FR_KENO": "Keno Gagnant à Vie",
     "frequency": {
       "EUROJACKPOT": "Tue & Fri",
       "VIKINGLOTTO": "Wed",
@@ -793,7 +801,10 @@
       "DE_LOTTO_6AUS49": "Wed & Sat",
       "DE_KENO": "Daily",
       "DE_SPIEL77": "Wed & Sat",
-      "DE_SUPER6": "Wed & Sat"
+      "DE_SUPER6": "Wed & Sat",
+      "FR_LOTO": "Mon, Wed & Sat",
+      "FR_JOKER": "Mon, Wed & Sat",
+      "FR_KENO": "Daily"
     }
   }
 }

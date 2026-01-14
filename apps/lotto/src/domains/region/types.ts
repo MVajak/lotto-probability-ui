@@ -10,4 +10,5 @@ export enum Region {
   ES = 'ES',
   IE = 'IE',
   DE = 'DE',
+  FR = 'FR',
 }
