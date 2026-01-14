@@ -45,6 +45,8 @@
   },
   "result": {
     "totalDraws": "Total: {{totalDraws}} draws",
+    "totalDrawsLimited": "Showing {{totalDraws}} of {{totalDrawsInRange}} draws",
+    "upgradeForMore": "Upgrade for more",
     "noResults": "Select dates and search for statistics",
     "primaryNumbers": "Primary numbers",
     "secondaryNumbers": "Secondary numbers",
@@ -441,9 +443,9 @@
       "name": "Premium"
     },
     "features": {
-      "STATS_2_MONTHS": "2 months of lottery statistics",
-      "STATS_2_YEARS": "2 years of lottery data",
-      "STATS_5_YEARS": "5 years of lottery data",
+      "STATS_5_DRAWS": "5 most recent draws",
+      "STATS_100_DRAWS": "100 draws of lottery data",
+      "STATS_ALL_DRAWS": "All draws since 2021",
       "BASIC_FREQUENCY": "Basic frequency analysis",
       "AD_SUPPORTED": "Ad-supported experience",
       "NO_ADS": "No advertisements",
@@ -522,7 +524,7 @@
       "q11": "What statistical methods do you use?",
       "a11": "We use multiple statistical methods including frequency analysis, Wilson confidence intervals, trend analysis, and Monte Carlo simulations. For detailed explanations, visit our <methodology>Statistical Methodology</methodology> page.",
       "q12": "What's the difference between subscription tiers?",
-      "a12": "<b>Free</b> — 2 months of data with basic frequency analysis.<br/><b>Pro</b> — 2 years of data, plus trends, confidence intervals, and deviation metrics.<br/><b>Premium</b> — 5 years of data with all advanced analytics including Markov chains, pair analysis, and seasonal patterns."
+      "a12": "<b>Free</b> — 5 most recent draws with basic frequency analysis.<br/><b>Pro</b> — 100 draws of data, plus trends, confidence intervals, and deviation metrics.<br/><b>Premium</b> — All draws since 2021 with all advanced analytics including Markov chains, pair analysis, and seasonal patterns."
     },
     "contact": {
       "title": "Contact Us",

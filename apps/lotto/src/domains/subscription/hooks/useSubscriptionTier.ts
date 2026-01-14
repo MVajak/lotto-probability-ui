@@ -3,7 +3,7 @@ import { useSuspenseQuery } from '@tanstack/react-query';
 import { currentUserQuery } from '@/domains/auth';
 
 import type { SubscriptionFeature, SubscriptionTierCode } from '../types';
-import { getMaxDateRange, getMinAllowedDate, hasFeature } from '../utils/featureGate';
+import { getMinAllowedDate, hasFeature } from '../utils/featureGate';
 
 /**
  * Hook to access the current user's subscription tier and feature access.
@@ -19,9 +19,6 @@ export function useSubscriptionTier() {
 
     /** Check if user has access to a specific feature */
     hasFeature: (feature: SubscriptionFeature) => hasFeature(tierCode, feature),
-
-    /** Maximum date range in months for the current tier */
-    maxDateRangeMonths: getMaxDateRange(tierCode),
 
     /** Minimum allowed date for searches based on tier */
     minAllowedDate: getMinAllowedDate(tierCode),

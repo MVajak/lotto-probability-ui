@@ -84,7 +84,10 @@ export enum LottoType {
 
 export interface LottoProbabilityDto {
   lottoType: LottoType | null;
+  /** Number of draws included in the analysis (limited by tier) */
   totalDraws: number;
+  /** Total draws available in the selected date range (before tier limit) */
+  totalDrawsInRange: number;
   probabilityNumbers: LottoProbabilityNumbersDto[];
 }
 

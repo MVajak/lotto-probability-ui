@@ -1,4 +1,5 @@
 import type React from 'react';
+import { Link } from '@tanstack/react-router';
 import { useTranslation } from 'react-i18next';
 
 import { Card, CardContent, Spinner } from '@lotto/ui';
@@ -15,7 +16,8 @@ import type { LottoProbabilityResultsProps } from './types';
 
 export const LottoProbabilityResultsCard = (props: LottoProbabilityResultsProps): React.JSX.Element => {
   const { t } = useTranslation();
-  const { totalDraws, numberStatsResults, isLoading } = props;
+  const { totalDraws, totalDrawsInRange, numberStatsResults, isLoading } = props;
+  const isLimited = totalDrawsInRange && totalDrawsInRange > totalDraws;
 
   const hasResults = safeBig(totalDraws).gt(0);
 
@@ -29,7 +31,19 @@ export const LottoProbabilityResultsCard = (props: LottoProbabilityResultsProps)
         </div>
 
         {/* Stats header */}
-        <p className="mb-4 text-body-small text-muted-foreground">{t('result.totalDraws', { totalDraws })}</p>
+        <p className="mb-4 text-body-small text-muted-foreground">
+          {isLimited ? (
+            <>
+              {t('result.totalDrawsLimited', { totalDraws, totalDrawsInRange })}
+              {' · '}
+              <Link to="/subscription" className="text-primary underline hover:text-primary/80">
+                {t('result.upgradeForMore')}
+              </Link>
+            </>
+          ) : (
+            t('result.totalDraws', { totalDraws })
+          )}
+        </p>
         <div className="relative">
           {isLoading && (
             <div className="absolute inset-0 z-10 flex items-center justify-center p-8 transition-opacity duration-400 ease-in-out">

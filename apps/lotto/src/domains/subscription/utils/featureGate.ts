@@ -45,12 +45,15 @@ export const TIER_FEATURES: Record<SubscriptionTierCode, SubscriptionFeature[]> 
   PREMIUM: Object.keys(FEATURE_CONFIG) as AnalysisFeature[],
 };
 /**
- * Maximum date range in months for each tier.
+ * Date range limits for each tier.
+ * - FREE: Max 5 weeks back (covers ~5 weekly draws)
+ * - PRO: Max 2 years back
+ * - PREMIUM: Since Jan 1, 2021
  */
-export const DATE_RANGE_MONTHS: Record<SubscriptionTierCode, number> = {
-  FREE: 2,
-  PRO: 24,
-  PREMIUM: 60,
+export const DATE_RANGE_LIMITS: Record<SubscriptionTierCode, { days?: number; minDate?: Date }> = {
+  FREE: { days: 35 },
+  PRO: { days: 730 },
+  PREMIUM: { minDate: new Date('2021-01-01') },
 };
 
 /**
@@ -61,18 +64,19 @@ export function hasFeature(tier: SubscriptionTierCode, feature: SubscriptionFeat
 }
 
 /**
- * Get the maximum date range in months for a tier.
- */
-export function getMaxDateRange(tier: SubscriptionTierCode): number {
-  return DATE_RANGE_MONTHS[tier] ?? 2;
-}
-
-/**
  * Get the minimum allowed date for searches based on tier.
+ * - FREE: 1 week back from today
+ * - PRO: 2 years back from today
+ * - PREMIUM: Jan 1, 2021
  */
 export function getMinAllowedDate(tier: SubscriptionTierCode): Date {
-  const months = getMaxDateRange(tier);
+  const limit = DATE_RANGE_LIMITS[tier];
+
+  if (limit.minDate) {
+    return limit.minDate;
+  }
+
   const date = new Date();
-  date.setMonth(date.getMonth() - months);
+  date.setDate(date.getDate() - (limit.days ?? 7));
   return date;
 }

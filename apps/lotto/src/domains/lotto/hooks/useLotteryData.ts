@@ -25,6 +25,8 @@ export interface StandardResultData {
   mode: 'standard';
   categories: ProcessedCategory[];
   totalDraws: number;
+  /** Total draws available in the selected date range (before tier limit) */
+  totalDrawsInRange: number;
 }
 
 /**
@@ -35,6 +37,8 @@ export interface PositionalResultData {
   allNumberStats: NumberStat[];
   numberStatsByPosition: MostProbableDigitsByPosition;
   totalDraws: number;
+  /** Total draws available in the selected date range (before tier limit) */
+  totalDrawsInRange: number;
 }
 
 /**
@@ -93,6 +97,7 @@ export function useLotteryData(config: LotteryConfig): UseLotteryDataResult {
           allNumberStats: [],
           numberStatsByPosition: {},
           totalDraws: 0,
+          totalDrawsInRange: 0,
         };
       }
 
@@ -101,6 +106,7 @@ export function useLotteryData(config: LotteryConfig): UseLotteryDataResult {
         allNumberStats: probabilityNumbers.winningNumbersCount,
         numberStatsByPosition: getMostProbableDigitsByPosition(probabilityNumbers.winningNumbersCount),
         totalDraws: rawData.totalDraws,
+        totalDrawsInRange: rawData.totalDrawsInRange,
       };
     }
 
@@ -143,6 +149,7 @@ export function useLotteryData(config: LotteryConfig): UseLotteryDataResult {
       mode: 'standard',
       categories,
       totalDraws: rawData.totalDraws,
+      totalDrawsInRange: rawData.totalDrawsInRange,
     };
   }, [rawData, config]);
 

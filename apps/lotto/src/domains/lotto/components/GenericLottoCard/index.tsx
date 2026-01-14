@@ -43,26 +43,26 @@ export const GenericLottoCard = ({ config }: GenericLottoCardProps) => {
           <LottoPositionalProbabilityResultsCard
             isLoading={isLoading}
             totalDraws={data.totalDraws}
+            totalDrawsInRange={data.totalDrawsInRange}
             allNumberStats={data.allNumberStats}
             numberStatsByPosition={data.numberStatsByPosition}
           />
-        ) : (
+        ) : data?.mode === 'standard' ? (
           <LottoProbabilityResultsCard
             isLoading={isLoading}
-            totalDraws={data?.totalDraws ?? 0}
-            numberStatsResults={
-              data?.categories.map((cat) => ({
-                titleKey: cat.config.titleKey,
-                maxNumbersCount: cat.config.maxNumbers,
-                allNumberStats: cat.allNumberStats,
-                displayNumberStats: cat.displayNumberStats,
-                hiddenNumberStats: cat.hiddenNumberStats,
-                containerSize: cat.config.containerSize,
-                isSecondaryNumbers: cat.config.isSecondary,
-              })) ?? []
-            }
+            totalDraws={data.totalDraws}
+            totalDrawsInRange={data.totalDrawsInRange}
+            numberStatsResults={data.categories.map((cat) => ({
+              titleKey: cat.config.titleKey,
+              maxNumbersCount: cat.config.maxNumbers,
+              allNumberStats: cat.allNumberStats,
+              displayNumberStats: cat.displayNumberStats,
+              hiddenNumberStats: cat.hiddenNumberStats,
+              containerSize: cat.config.containerSize,
+              isSecondaryNumbers: cat.config.isSecondary,
+            }))}
           />
-        )}
+        ) : null}
       </motion.div>
     </div>
   );

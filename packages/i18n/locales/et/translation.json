@@ -45,6 +45,8 @@
   },
   "result": {
     "totalDraws": "Kokku: {{totalDraws}} loosimist",
+    "totalDrawsLimited": "Näitan {{totalDraws}}/{{totalDrawsInRange}} loosimist",
+    "upgradeForMore": "Uuenda, et näha rohkem",
     "noResults": "Vali kuupäevad ja otsi",
     "primaryNumbers": "Primaarnumbrid",
     "secondaryNumbers": "Lisanumbrid",
@@ -441,9 +443,9 @@
       "name": "Premium"
     },
     "features": {
-      "STATS_2_MONTHS": "2 kuu lotostatistika",
-      "STATS_2_YEARS": "2 aastat lotoandmeid",
-      "STATS_5_YEARS": "5 aastat lotoandmeid",
+      "STATS_5_DRAWS": "5 viimast loosimist",
+      "STATS_100_DRAWS": "100 loosimist lotoandmeid",
+      "STATS_ALL_DRAWS": "Kõik loosimised alates 2021",
       "BASIC_FREQUENCY": "Põhiline sagedusanalüüs",
       "AD_SUPPORTED": "Reklaamidega kogemus",
       "NO_ADS": "Reklaame ei ole",
@@ -522,7 +524,7 @@
       "q11": "Milliseid statistilisi meetodeid kasutate?",
       "a11": "Kasutame mitmeid statistilisi meetodeid, sealhulgas sagedusanalüüs, Wilsoni usaldusvahemikud, trendianalüüs ja Monte Carlo simulatsioonid. Üksikasjalike selgituste jaoks külasta meie <methodology>Statistilise metoodika</methodology> lehte.",
       "q12": "Mis vahe on tellimuspakettidel?",
-      "a12": "<b>Tasuta</b> — 2 kuu andmed põhilise sagedusanalüüsiga.<br/><b>Pro</b> — 2 aasta andmed, pluss trendid, usaldusvahemikud ja kõrvalekalde mõõdikud.<br/><b>Premium</b> — 5 aasta andmed kõigi täiustatud analüüsidega, sealhulgas Markovi ahelad, paaranalüüs ja hooajalised mustrid."
+      "a12": "<b>Tasuta</b> — 5 viimast loosimist põhilise sagedusanalüüsiga.<br/><b>Pro</b> — 100 loosimist andmeid, pluss trendid, usaldusvahemikud ja kõrvalekalde mõõdikud.<br/><b>Premium</b> — Kõik loosimised alates 2021 kõigi täiustatud analüüsidega, sealhulgas Markovi ahelad, paaranalüüs ja hooajalised mustrid."
     },
     "contact": {
       "title": "Võta meiega ühendust",

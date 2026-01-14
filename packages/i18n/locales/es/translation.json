@@ -45,6 +45,8 @@
   },
   "result": {
     "totalDraws": "Total: {{totalDraws}} sorteos",
+    "totalDrawsLimited": "Mostrando {{totalDraws}} de {{totalDrawsInRange}} sorteos",
+    "upgradeForMore": "Actualiza para ver más",
     "noResults": "Selecciona fechas y busca estadísticas",
     "primaryNumbers": "Números principales",
     "secondaryNumbers": "Números secundarios",
@@ -441,9 +443,9 @@
       "name": "Premium"
     },
     "features": {
-      "STATS_2_MONTHS": "2 meses de estadísticas de lotería",
-      "STATS_2_YEARS": "2 años de datos de lotería",
-      "STATS_5_YEARS": "5 años de datos de lotería",
+      "STATS_5_DRAWS": "5 sorteos más recientes",
+      "STATS_100_DRAWS": "100 sorteos de datos",
+      "STATS_ALL_DRAWS": "Todos los sorteos desde 2021",
       "BASIC_FREQUENCY": "Análisis de frecuencia básico",
       "AD_SUPPORTED": "Experiencia con anuncios",
       "NO_ADS": "Sin anuncios",
@@ -522,7 +524,7 @@
       "q11": "¿Qué métodos estadísticos utilizan?",
       "a11": "Utilizamos múltiples métodos estadísticos incluyendo análisis de frecuencia, intervalos de confianza de Wilson, análisis de tendencias y simulaciones Monte Carlo. Para explicaciones detalladas, visita nuestra página de <methodology>Metodología Estadística</methodology>.",
       "q12": "¿Cuál es la diferencia entre los niveles de suscripción?",
-      "a12": "<b>Gratis</b> — 2 meses de datos con análisis de frecuencia básico.<br/><b>Pro</b> — 2 años de datos, más tendencias, intervalos de confianza y métricas de desviación.<br/><b>Premium</b> — 5 años de datos con todos los análisis avanzados incluyendo cadenas de Markov, análisis de parejas y patrones estacionales."
+      "a12": "<b>Gratis</b> — 5 sorteos más recientes con análisis de frecuencia básico.<br/><b>Pro</b> — 100 sorteos de datos, más tendencias, intervalos de confianza y métricas de desviación.<br/><b>Premium</b> — Todos los sorteos desde 2021 con todos los análisis avanzados incluyendo cadenas de Markov, análisis de parejas y patrones estacionales."
     },
     "contact": {
       "title": "Contáctanos",

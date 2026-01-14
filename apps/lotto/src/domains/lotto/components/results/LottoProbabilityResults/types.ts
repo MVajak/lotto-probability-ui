@@ -15,6 +15,8 @@ export interface LottoNumberResults {
 
 export interface LottoProbabilityResultsProps {
   totalDraws: number;
+  /** Total draws available in range (before tier limit) */
+  totalDrawsInRange: number;
   isLoading: boolean;
   numberStatsResults: LottoNumberResults[];
 }
