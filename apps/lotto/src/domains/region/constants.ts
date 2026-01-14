@@ -35,4 +35,11 @@ export const REGION_LOTTERY_TYPES: Record<Region, LottoType[]> = {
     LottoType.IE_DAILY_MILLION,
     LottoType.IE_DAILY_MILLION_PLUS,
   ],
+  [Region.DE]: [
+    LottoType.EUROJACKPOT,
+    LottoType.DE_LOTTO_6AUS49,
+    LottoType.DE_KENO,
+    LottoType.DE_SPIEL77,
+    LottoType.DE_SUPER6,
+  ],
 };

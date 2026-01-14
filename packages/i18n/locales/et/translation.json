@@ -34,6 +34,10 @@
     "IE_LOTTO_PLUS_2": "Kokku on 47 numbrit, millest kasutaja peab valima 6. Lisaks loositakse 1 boonusnumber ülejäänud numbrite hulgast. Sama formaat nagu Iiri Loto, eraldi loosimine.",
     "IE_DAILY_MILLION": "Kokku on 39 numbrit, millest kasutaja peab valima 6. Lisaks loositakse 1 boonusnumber ülejäänud numbrite hulgast. Valitud numbrite asukoht ei ole oluline.",
     "IE_DAILY_MILLION_PLUS": "Kokku on 39 numbrit, millest kasutaja peab valima 6. Lisaks loositakse 1 boonusnumber ülejäänud numbrite hulgast. Sama formaat nagu Daily Million, eraldi loosimine.",
+    "DE_LOTTO_6AUS49": "Kokku on 49 primaarnumbrit, millest kasutaja peab valima 6. Lisaks on 1 Superzahl number (0-9). Valitud numbrite asukoht ei ole oluline.",
+    "DE_KENO": "Kokku on 70 numbrit, millest kasutaja saab valida 2-10. Iga päev loositakse 20 numbrit. Valitud numbrite asukoht ei ole oluline.",
+    "DE_SPIEL77": "Kasutajad peavad sobitama 7-kohalise numbri vahemikus 0000000 kuni 9999999. Auhindu antakse selle alusel, mitu numbrit paremalt vasakule kattuvad.",
+    "DE_SUPER6": "Kasutajad peavad sobitama 6-kohalise numbri vahemikus 000000 kuni 999999. Auhindu antakse selle alusel, mitu numbrit paremalt vasakule kattuvad.",
     "generalDescription": "Süsteem arvutab {{lottoName}} loto numbrite esinemise tõenäosuse ajalooliste andmete põhjal ning kuvab parimaid numbreid. Saate määrata ise kuupäevad, mille vahemikus ajaloolisi andmeid kasutatakse."
   },
   "search": {
@@ -54,6 +58,7 @@
     "reintegro": "Tagastusnumber",
     "complementario": "Lisanumber",
     "dreamNumber": "Unenumber",
+    "superzahl": "Superzahl",
     "bingo": {
       "centerGame": "Keskruudumäng",
       "cornerGame": "Nurkademäng",
@@ -386,7 +391,8 @@
     "UK": "Ühendkuningriik",
     "US": "Ameerika Ühendriigid",
     "ES": "Hispaania",
-    "IE": "Iirimaa"
+    "IE": "Iirimaa",
+    "DE": "Saksamaa"
   },
   "profile": {
     "memberSince": "Liige alates {{date}}",
@@ -748,6 +754,10 @@
     "IE_LOTTO_PLUS_2": "Lotto Plus 2",
     "IE_DAILY_MILLION": "Daily Million",
     "IE_DAILY_MILLION_PLUS": "Daily Million Plus",
+    "DE_LOTTO_6AUS49": "Lotto 6aus49",
+    "DE_KENO": "Keno",
+    "DE_SPIEL77": "Spiel 77",
+    "DE_SUPER6": "Super 6",
     "frequency": {
       "EUROJACKPOT": "T & R",
       "VIKINGLOTTO": "K",
@@ -770,7 +780,11 @@
       "IE_LOTTO_PLUS_1": "K & L",
       "IE_LOTTO_PLUS_2": "K & L",
       "IE_DAILY_MILLION": "Kaks korda päevas",
-      "IE_DAILY_MILLION_PLUS": "Kaks korda päevas"
+      "IE_DAILY_MILLION_PLUS": "Kaks korda päevas",
+      "DE_LOTTO_6AUS49": "K & L",
+      "DE_KENO": "Iga päev",
+      "DE_SPIEL77": "K & L",
+      "DE_SUPER6": "K & L"
     }
   }
 }

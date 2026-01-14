@@ -442,6 +442,69 @@ export const LOTTERY_CONFIGS: LotteryConfigRegistry = {
     },
   },
 
+  // ===== GERMANY (DE) =====
+
+  [LottoType.DE_LOTTO_6AUS49]: {
+    lottoType: LottoType.DE_LOTTO_6AUS49,
+    logo: '/img/lottery/de/lotto_6aus49.svg',
+    links: {
+      buyTickets: 'https://www.lotto.de/lotto-6aus49',
+      gameRules: 'https://www.lotto.de/lotto-6aus49/spielregeln',
+    },
+    dataTransform: {
+      mode: 'standard',
+      categories: [
+        { titleKey: 'result.primaryNumbers', maxNumbers: 6, containerSize: { sm: 6 } },
+        { titleKey: 'result.superzahl', maxNumbers: 1, containerSize: { sm: 6 }, isSecondary: true },
+      ],
+    },
+  },
+
+  [LottoType.DE_KENO]: {
+    lottoType: LottoType.DE_KENO,
+    logo: '/img/lottery/de/keno.webp',
+    links: {
+      buyTickets: 'https://www.lotto.de/keno',
+      gameRules: 'https://www.lotto.de/keno/spielregeln',
+    },
+    dataTransform: {
+      mode: 'standard',
+      categories: [
+        { titleKey: 'result.primaryNumbers', maxNumbers: 10 },
+      ],
+    },
+  },
+
+  [LottoType.DE_SPIEL77]: {
+    lottoType: LottoType.DE_SPIEL77,
+    logo: '/img/lottery/de/spiel77.svg',
+    links: {
+      buyTickets: 'https://www.lotto.de/spiel77',
+      gameRules: 'https://www.lotto.de/spiel77/spielregeln',
+    },
+    dataTransform: {
+      mode: 'positional',
+      positional: {
+        maxNumbersPerPosition: 3,
+      },
+    },
+  },
+
+  [LottoType.DE_SUPER6]: {
+    lottoType: LottoType.DE_SUPER6,
+    logo: '/img/lottery/de/super6.svg',
+    links: {
+      buyTickets: 'https://www.lotto.de/super6',
+      gameRules: 'https://www.lotto.de/super6/spielregeln',
+    },
+    dataTransform: {
+      mode: 'positional',
+      positional: {
+        maxNumbersPerPosition: 3,
+      },
+    },
+  },
+
   // ===== SHARED (Multi-region) =====
 
   [LottoType.EURODREAMS]: {

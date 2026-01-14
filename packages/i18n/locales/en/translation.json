@@ -34,6 +34,10 @@
     "IE_LOTTO_PLUS_2": "There are 47 numbers in total, from which the user must choose 6. In addition, there is 1 bonus ball drawn from the remaining numbers. Same format as Irish Lotto, drawn separately.",
     "IE_DAILY_MILLION": "There are 39 numbers in total, from which the user must choose 6. In addition, there is 1 bonus ball drawn from the remaining numbers. The position of the chosen numbers does not matter.",
     "IE_DAILY_MILLION_PLUS": "There are 39 numbers in total, from which the user must choose 6. In addition, there is 1 bonus ball drawn from the remaining numbers. Same format as Daily Million, drawn separately.",
+    "DE_LOTTO_6AUS49": "There are 49 primary numbers in total, from which the user must choose 6. In addition, there is 1 Superzahl number (0-9). The position of the chosen numbers does not matter.",
+    "DE_KENO": "There are 70 numbers in total, from which the user can choose 2-10. 20 numbers are drawn each day. The position of the chosen numbers does not matter.",
+    "DE_SPIEL77": "Users must match a 7-digit number from 0000000 to 9999999. Prizes are awarded based on how many digits match from right to left.",
+    "DE_SUPER6": "Users must match a 6-digit number from 000000 to 999999. Prizes are awarded based on how many digits match from right to left.",
     "generalDescription": "The system calculates the probability of {{lottoName}} numbers based on historical data and suggests the best numbers to choose. You can search for historical data by dates."
   },
   "search": {
@@ -54,6 +58,7 @@
     "reintegro": "Refund Number",
     "complementario": "Complementary Number",
     "dreamNumber": "Dream Number",
+    "superzahl": "Superzahl",
     "bingo": {
       "centerGame": "Center Game",
       "cornerGame": "Corner Game",
@@ -386,7 +391,8 @@
     "UK": "United Kingdom",
     "US": "United States",
     "ES": "Spain",
-    "IE": "Ireland"
+    "IE": "Ireland",
+    "DE": "Germany"
   },
   "profile": {
     "memberSince": "Member since {{date}}",
@@ -748,6 +754,10 @@
     "IE_LOTTO_PLUS_2": "Lotto Plus 2",
     "IE_DAILY_MILLION": "Daily Million",
     "IE_DAILY_MILLION_PLUS": "Daily Million Plus",
+    "DE_LOTTO_6AUS49": "Lotto 6aus49",
+    "DE_KENO": "Keno",
+    "DE_SPIEL77": "Spiel 77",
+    "DE_SUPER6": "Super 6",
     "frequency": {
       "EUROJACKPOT": "Tue & Fri",
       "VIKINGLOTTO": "Wed",
@@ -770,7 +780,11 @@
       "IE_LOTTO_PLUS_1": "Wed & Sat",
       "IE_LOTTO_PLUS_2": "Wed & Sat",
       "IE_DAILY_MILLION": "Twice Daily",
-      "IE_DAILY_MILLION_PLUS": "Twice Daily"
+      "IE_DAILY_MILLION_PLUS": "Twice Daily",
+      "DE_LOTTO_6AUS49": "Wed & Sat",
+      "DE_KENO": "Daily",
+      "DE_SPIEL77": "Wed & Sat",
+      "DE_SUPER6": "Wed & Sat"
     }
   }
 }
