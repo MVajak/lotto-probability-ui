@@ -3,6 +3,7 @@ import { motion } from 'motion/react';
 import { AdSpace } from '@lotto/ui';
 
 import { adConfig } from '@/domains/ads/config';
+import { useFeatureFlags } from '@/domains/featureFlags';
 import type { LotteryConfig } from '@/domains/lotto';
 import { useLotteryData } from '@/domains/lotto';
 import { useSubscriptionTier } from '@/domains/subscription';
@@ -25,7 +26,8 @@ export interface GenericLottoCardProps {
 export const GenericLottoCard = ({ config }: GenericLottoCardProps) => {
   const { data, isLoading } = useLotteryData(config);
   const { isPro } = useSubscriptionTier();
-  const showAds = !isPro;
+  const { adsEnabled } = useFeatureFlags();
+  const showAds = !isPro && adsEnabled;
 
   return (
     <div className="flex flex-col gap-4">

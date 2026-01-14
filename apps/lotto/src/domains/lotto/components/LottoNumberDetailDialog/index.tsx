@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { AdSpace, Dialog, DialogBody, DialogContent, DialogHeader, DialogTitle, LottoNumber } from '@lotto/ui';
 
 import { adConfig } from '@/domains/ads/config';
+import { useFeatureFlags } from '@/domains/featureFlags';
 import { numberDetailQueryOptions, useLottoStore } from '@/domains/lotto';
 import { UpgradePromptCard, useSubscriptionTier } from '@/domains/subscription';
 import { LoadingLayout } from '@/layouts/LoadingLayout';
@@ -49,6 +50,8 @@ const LottoNumberDetailContent: React.FC<LottoNumberDetailContentProps> = ({
 }) => {
   const searchParams = useLottoStore((state) => state.searchParams);
   const { isPro } = useSubscriptionTier();
+  const { adsEnabled } = useFeatureFlags();
+  const showAds = !isPro && adsEnabled;
 
   // Guard: lottoType must be set to fetch number detail
   if (!searchParams.lottoType) {
@@ -118,9 +121,11 @@ const LottoNumberDetailContent: React.FC<LottoNumberDetailContentProps> = ({
             <UpgradePromptCard requiredTier="PRO" />
           </div>
           {/* Ad for FREE users in dialog */}
-          <div className="col-span-12">
-            <AdSpace position="dialog" {...adConfig.getAdProps('dialog')} />
-          </div>
+          {showAds && (
+            <div className="col-span-12">
+              <AdSpace position="dialog" {...adConfig.getAdProps('dialog')} />
+            </div>
+          )}
         </>
       )}
     </div>

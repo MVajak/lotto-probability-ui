@@ -3,6 +3,8 @@ import { createFileRoute } from '@tanstack/react-router';
 import { motion } from 'motion/react';
 import { useTranslation } from 'react-i18next';
 
+import { Badge } from '@lotto/ui';
+
 import { currentUserQuery } from '@/domains/auth';
 import { subscriptionTiersQuery } from '@/domains/subscription';
 import { PricingCard } from '@/domains/subscription/components/PricingCard';
@@ -37,6 +39,19 @@ function SubscriptionPage() {
         >
           <h1 className="mb-3 text-display-small-bold text-foreground">{t('subscription.title')}</h1>
           <p className="mx-auto max-w-md text-body-large text-muted-foreground">{t('subscription.subtitle')}</p>
+
+          {/* Value proposition badges */}
+          <div className="mt-6 flex flex-wrap justify-center gap-3">
+            <Badge variant="outline" className="text-body-small">
+              {t('subscription.valueProposition.cost')}
+            </Badge>
+            <Badge variant="outline" className="text-body-small">
+              {t('subscription.valueProposition.noUpfront')}
+            </Badge>
+            <Badge variant="outline" className="text-body-small">
+              {t('subscription.valueProposition.cancel')}
+            </Badge>
+          </div>
         </motion.div>
 
         {/* Pricing cards */}

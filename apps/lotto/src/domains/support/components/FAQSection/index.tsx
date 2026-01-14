@@ -6,7 +6,7 @@ import { Trans, useTranslation } from 'react-i18next';
 
 import { Card } from '@lotto/ui';
 
-const faqKeys = ['q1', 'q2', 'q3', 'q4', 'q6', 'q7', 'q5', 'q8', 'q9', 'q10', 'q11'] as const;
+const faqKeys = ['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 'q8', 'q9', 'q10', 'q11', 'q12'] as const;
 
 export function FAQSection() {
   const { t } = useTranslation();
@@ -43,18 +43,18 @@ export function FAQSection() {
                 >
                   <div className="border-border border-t px-4 pt-3 pb-4">
                     <p className="text-body-medium text-muted-foreground">
-                      {key === 'q10' ? (
+                      {key === 'q11' ? (
                         <Trans
-                          i18nKey="support.faq.a10"
+                          i18nKey="support.faq.a11"
                           components={{
                             methodology: (
                               <Link to="/methodology" className="text-primary underline hover:text-primary/80" />
                             ),
                           }}
                         />
-                      ) : key === 'q11' ? (
+                      ) : key === 'q12' ? (
                         <Trans
-                          i18nKey="support.faq.a11"
+                          i18nKey="support.faq.a12"
                           components={{
                             b: <strong className="text-foreground" />,
                             br: <br />,

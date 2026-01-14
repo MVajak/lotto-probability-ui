@@ -7,6 +7,7 @@ import { Badge, Button, CardContent, cn, InteractiveCard } from '@lotto/ui';
 
 import type { Subscription } from '@/domains/auth';
 import { formatDate } from '@/domains/date';
+import { useFeatureFlags } from '@/domains/featureFlags';
 import {
   FeaturePreviewDialog,
   type SubscriptionTier,
@@ -29,8 +30,14 @@ export const PricingCard: React.FC<PricingCardProps> = ({ tier, isCurrentPlan = 
   const changeTierMutation = useChangeTierMutation();
   const resumeMutation = useResumeSubscriptionMutation();
   const [showPreview, setShowPreview] = useState(false);
+  const { adsEnabled } = useFeatureFlags();
 
   const isHighlighted = tier.code === 'PRO';
+
+  // Filter out ad-related features when ads are globally disabled
+  const displayFeatures = adsEnabled
+    ? tier.features
+    : tier.features.filter((f) => f !== 'AD_SUPPORTED' && f !== 'NO_ADS');
   const isCancelled = currentSubscription?.cancelAtPeriodEnd ?? false;
   const hasStripeSubscription = !!currentSubscription?.stripeSubscriptionId;
   const isPending =
@@ -142,7 +149,7 @@ export const PricingCard: React.FC<PricingCardProps> = ({ tier, isCurrentPlan = 
         </div>
 
         <div className="grow">
-          {tier.features.map((feature) => (
+          {displayFeatures.map((feature) => (
             <div key={feature} className="mb-2.5 flex items-start gap-2">
               <CheckIcon className={cn('mt-0.5 size-4 shrink-0', isHighlighted ? 'text-gold' : 'text-primary-green')} />
               <span className="text-body-small text-muted-foreground leading-relaxed">

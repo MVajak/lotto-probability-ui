@@ -3,6 +3,7 @@ import type React from 'react';
 import { AdSpace } from '@lotto/ui';
 
 import { adConfig } from '@/domains/ads/config';
+import { useFeatureFlags } from '@/domains/featureFlags';
 import { Header } from '@/domains/shell';
 import { useSubscriptionTier } from '@/domains/subscription';
 
@@ -12,7 +13,8 @@ export interface PageLayoutProps {
 
 export const PageLayout = ({ children }: PageLayoutProps) => {
   const { isPro } = useSubscriptionTier();
-  const showAds = !isPro;
+  const { adsEnabled } = useFeatureFlags();
+  const showAds = !isPro && adsEnabled;
 
   return (
     <div className="container mx-auto max-w-screen-xl px-4">

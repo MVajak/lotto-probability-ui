@@ -3,6 +3,7 @@ import { createFileRoute, Outlet, redirect } from '@tanstack/react-router';
 import { useEffect } from 'react';
 
 import { currentUserQuery, useAuthStore } from '@/domains/auth';
+import { featureFlagsQuery } from '@/domains/featureFlags';
 import { CURRENT_TERMS_VERSION, TermsConsentScreen } from '@/domains/legal';
 import { safeBig } from '@lotto/ui/utils';
 
@@ -20,6 +21,9 @@ function AuthenticatedLayout() {
   const queryClient = useQueryClient();
   const { data } = useSuspenseQuery(currentUserQuery);
   const user = data.user;
+
+  // Prefetch feature flags for the app
+  useSuspenseQuery(featureFlagsQuery);
 
   // Listen for terms-not-accepted event from API client (backend fallback)
   useEffect(() => {
