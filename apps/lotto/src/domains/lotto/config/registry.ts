@@ -485,7 +485,7 @@ export const LOTTERY_CONFIGS: LotteryConfigRegistry = {
     dataTransform: {
       mode: 'positional',
       positional: {
-        maxNumbersPerPosition: 3,
+        maxNumbersPerPosition: 1,
       },
     },
   },
@@ -500,7 +500,7 @@ export const LOTTERY_CONFIGS: LotteryConfigRegistry = {
     dataTransform: {
       mode: 'positional',
       positional: {
-        maxNumbersPerPosition: 3,
+        maxNumbersPerPosition: 1,
       },
     },
   },
