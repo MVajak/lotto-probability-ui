@@ -535,7 +535,6 @@
       "title": "Contact Us",
       "description": "Have a question or feedback? We'd love to hear from you.",
       "email": "Email",
-      "emailAddress": "support@lottolens.com",
       "bugReport": "Report a Bug",
       "bugReportDescription": "Found a bug? Let us know via email"
     },
