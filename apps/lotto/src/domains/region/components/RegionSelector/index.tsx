@@ -22,6 +22,8 @@ import FlagUSA from '../../assets/flag_usa.svg';
 import FlagIreland from '../../assets/flag_ireland.svg';
 import FlagGermany from '../../assets/flag_germany.svg';
 import FlagFrance from '../../assets/flag_france.svg';
+import FlagCanada from '../../assets/flag_canada.png';
+import FlagAustralia from '../../assets/flag_australia.png';
 
 const FLAGS: Record<Region, string> = {
   [Region.EE]: FlagEstonia,
@@ -31,9 +33,11 @@ const FLAGS: Record<Region, string> = {
   [Region.IE]: FlagIreland,
   [Region.DE]: FlagGermany,
   [Region.FR]: FlagFrance,
+  [Region.CA]: FlagCanada,
+  [Region.AU]: FlagAustralia,
 };
 
-const REGIONS = [Region.EE, Region.UK, Region.US, Region.ES, Region.IE, Region.DE, Region.FR] as const;
+const REGIONS = [Region.EE, Region.UK, Region.US, Region.ES, Region.IE, Region.DE, Region.FR, Region.CA, Region.AU] as const;
 
 const getInitialRegion = (): Region => {
   const storedRegion = localStorage.getItem(RegionStorageKey.REGION);

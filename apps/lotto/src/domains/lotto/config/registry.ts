@@ -228,6 +228,38 @@ export const LOTTERY_CONFIGS: LotteryConfigRegistry = {
     },
   },
 
+  [LottoType.UK_49S_LUNCHTIME]: {
+    lottoType: LottoType.UK_49S_LUNCHTIME,
+    logo: '/img/lottery/uk/49s.png',
+    links: {
+      buyTickets: 'https://www.49s.co.uk/',
+      gameRules: 'https://www.49s.co.uk/how-to-play',
+    },
+    dataTransform: {
+      mode: 'standard',
+      categories: [
+        { titleKey: 'result.primaryNumbers', maxNumbers: 6, containerSize: { sm: 6 } },
+        { titleKey: 'result.booster', maxNumbers: 1, containerSize: { sm: 6 }, isSecondary: true },
+      ],
+    },
+  },
+
+  [LottoType.UK_49S_TEATIME]: {
+    lottoType: LottoType.UK_49S_TEATIME,
+    logo: '/img/lottery/uk/49s.png',
+    links: {
+      buyTickets: 'https://www.49s.co.uk/',
+      gameRules: 'https://www.49s.co.uk/how-to-play',
+    },
+    dataTransform: {
+      mode: 'standard',
+      categories: [
+        { titleKey: 'result.primaryNumbers', maxNumbers: 6, containerSize: { sm: 6 } },
+        { titleKey: 'result.booster', maxNumbers: 1, containerSize: { sm: 6 }, isSecondary: true },
+      ],
+    },
+  },
+
   // ===== UNITED STATES (US) =====
 
   [LottoType.US_POWERBALL]: {
@@ -274,6 +306,85 @@ export const LOTTERY_CONFIGS: LotteryConfigRegistry = {
       categories: [
         { titleKey: 'result.primaryNumbers', maxNumbers: 5, containerSize: { sm: 6 } },
         { titleKey: 'result.cashBall', maxNumbers: 1, containerSize: { sm: 6 }, isSecondary: true },
+      ],
+    },
+  },
+
+  [LottoType.US_LOTTO_AMERICA]: {
+    lottoType: LottoType.US_LOTTO_AMERICA,
+    logo: '/img/lottery/us/lotto_america.png',
+    links: {
+      buyTickets: 'https://www.lottoamerica.com/',
+      gameRules: 'https://www.lottoamerica.com/how-to-play',
+    },
+    dataTransform: {
+      mode: 'standard',
+      categories: [
+        { titleKey: 'result.primaryNumbers', maxNumbers: 5, containerSize: { sm: 6 } },
+        { titleKey: 'result.starBall', maxNumbers: 1, containerSize: { sm: 6 }, isSecondary: true },
+      ],
+    },
+  },
+
+  [LottoType.US_LUCKY_FOR_LIFE]: {
+    lottoType: LottoType.US_LUCKY_FOR_LIFE,
+    logo: '/img/lottery/us/lucky_for_life.png',
+    links: {
+      buyTickets: 'https://www.luckyforlife.us/',
+      gameRules: 'https://www.luckyforlife.us/how-to-play',
+    },
+    dataTransform: {
+      mode: 'standard',
+      categories: [
+        { titleKey: 'result.primaryNumbers', maxNumbers: 5, containerSize: { sm: 6 } },
+        { titleKey: 'result.luckyBall', maxNumbers: 1, containerSize: { sm: 6 }, isSecondary: true },
+      ],
+    },
+  },
+
+  [LottoType.US_CA_SUPERLOTTO]: {
+    lottoType: LottoType.US_CA_SUPERLOTTO,
+    logo: '/img/lottery/us/superlotto_plus.webp',
+    links: {
+      buyTickets: 'https://www.calottery.com/draw-games/superlotto-plus',
+      gameRules: 'https://www.calottery.com/draw-games/superlotto-plus#section-content-2-3',
+    },
+    dataTransform: {
+      mode: 'standard',
+      categories: [
+        { titleKey: 'result.primaryNumbers', maxNumbers: 5, containerSize: { sm: 6 } },
+        { titleKey: 'result.megaBall', maxNumbers: 1, containerSize: { sm: 6 }, isSecondary: true },
+      ],
+    },
+  },
+
+  [LottoType.US_NY_LOTTO]: {
+    lottoType: LottoType.US_NY_LOTTO,
+    logo: '/img/lottery/us/ny_lotto.png',
+    links: {
+      buyTickets: 'https://nylottery.ny.gov/draw-game?game=lotto',
+      gameRules: 'https://nylottery.ny.gov/draw-game?game=lotto',
+    },
+    dataTransform: {
+      mode: 'standard',
+      categories: [
+        { titleKey: 'result.primaryNumbers', maxNumbers: 6, containerSize: { sm: 6 } },
+        { titleKey: 'result.bonusBall', maxNumbers: 1, containerSize: { sm: 6 }, isSecondary: true },
+      ],
+    },
+  },
+
+  [LottoType.US_TX_LOTTO]: {
+    lottoType: LottoType.US_TX_LOTTO,
+    logo: '/img/lottery/us/tx_lotto.png',
+    links: {
+      buyTickets: 'https://www.txlottery.org/export/sites/lottery/Games/Lotto_Texas/',
+      gameRules: 'https://www.txlottery.org/export/sites/lottery/Games/Lotto_Texas/',
+    },
+    dataTransform: {
+      mode: 'standard',
+      categories: [
+        { titleKey: 'result.primaryNumbers', maxNumbers: 6 },
       ],
     },
   },
@@ -550,6 +661,246 @@ export const LOTTERY_CONFIGS: LotteryConfigRegistry = {
       categories: [
         { titleKey: 'result.primaryNumbers', maxNumbers: 10 },
       ],
+    },
+  },
+
+  // ===== CANADA (CA) =====
+
+  [LottoType.CA_LOTTO_MAX]: {
+    lottoType: LottoType.CA_LOTTO_MAX,
+    logo: '/img/lottery/ca/lotto_max.png',
+    links: {
+      buyTickets: 'https://www.olg.ca/en/lottery/play-lotto-max-702702702702.html',
+      gameRules: 'https://www.olg.ca/en/lottery/play-lotto-max-702702702702.html',
+    },
+    dataTransform: {
+      mode: 'standard',
+      categories: [
+        { titleKey: 'result.primaryNumbers', maxNumbers: 7, containerSize: { sm: 6 } },
+        { titleKey: 'result.bonusBall', maxNumbers: 1, containerSize: { sm: 6 }, isSecondary: true },
+      ],
+    },
+  },
+
+  [LottoType.CA_LOTTO_649]: {
+    lottoType: LottoType.CA_LOTTO_649,
+    logo: '/img/lottery/ca/lotto_649.png',
+    links: {
+      buyTickets: 'https://www.olg.ca/en/lottery/play-lotto-649-702702702702.html',
+      gameRules: 'https://www.olg.ca/en/lottery/play-lotto-649-702702702702.html',
+    },
+    dataTransform: {
+      mode: 'standard',
+      categories: [
+        { titleKey: 'result.primaryNumbers', maxNumbers: 6, containerSize: { sm: 6 } },
+        { titleKey: 'result.bonusBall', maxNumbers: 1, containerSize: { sm: 6 }, isSecondary: true },
+      ],
+    },
+  },
+
+  [LottoType.CA_DAILY_GRAND]: {
+    lottoType: LottoType.CA_DAILY_GRAND,
+    logo: '/img/lottery/ca/daily_grand.png',
+    links: {
+      buyTickets: 'https://www.olg.ca/en/lottery/play-daily-grand-702702702702.html',
+      gameRules: 'https://www.olg.ca/en/lottery/play-daily-grand-702702702702.html',
+    },
+    dataTransform: {
+      mode: 'standard',
+      categories: [
+        { titleKey: 'result.primaryNumbers', maxNumbers: 5, containerSize: { sm: 6 } },
+        { titleKey: 'result.grandNumber', maxNumbers: 1, containerSize: { sm: 6 }, isSecondary: true },
+      ],
+    },
+  },
+
+  [LottoType.CA_LOTTARIO]: {
+    lottoType: LottoType.CA_LOTTARIO,
+    logo: '/img/lottery/ca/lottario.webp',
+    links: {
+      buyTickets: 'https://www.olg.ca/en/lottery/play-lottario-702702702702.html',
+      gameRules: 'https://www.olg.ca/en/lottery/play-lottario-702702702702.html',
+    },
+    dataTransform: {
+      mode: 'standard',
+      categories: [
+        { titleKey: 'result.primaryNumbers', maxNumbers: 6, containerSize: { sm: 6 } },
+        { titleKey: 'result.bonusBall', maxNumbers: 1, containerSize: { sm: 6 }, isSecondary: true },
+      ],
+    },
+  },
+
+  [LottoType.CA_BC_49]: {
+    lottoType: LottoType.CA_BC_49,
+    logo: '/img/lottery/ca/bc_49.svg',
+    links: {
+      buyTickets: 'https://www.bclc.com/play-lottery/bc-49.html',
+      gameRules: 'https://www.bclc.com/play-lottery/bc-49.html',
+    },
+    dataTransform: {
+      mode: 'standard',
+      categories: [
+        { titleKey: 'result.primaryNumbers', maxNumbers: 6, containerSize: { sm: 6 } },
+        { titleKey: 'result.bonusBall', maxNumbers: 1, containerSize: { sm: 6 }, isSecondary: true },
+      ],
+    },
+  },
+
+  [LottoType.CA_QUEBEC_49]: {
+    lottoType: LottoType.CA_QUEBEC_49,
+    logo: '/img/lottery/ca/quebec_49.webp',
+    links: {
+      buyTickets: 'https://loteries.lotoquebec.com/en/lotteries/quebec-49',
+      gameRules: 'https://loteries.lotoquebec.com/en/lotteries/quebec-49',
+    },
+    dataTransform: {
+      mode: 'standard',
+      categories: [
+        { titleKey: 'result.primaryNumbers', maxNumbers: 6, containerSize: { sm: 6 } },
+        { titleKey: 'result.bonusBall', maxNumbers: 1, containerSize: { sm: 6 }, isSecondary: true },
+      ],
+    },
+  },
+
+  [LottoType.CA_ATLANTIC_49]: {
+    lottoType: LottoType.CA_ATLANTIC_49,
+    logo: '/img/lottery/ca/atlantic_49.svg',
+    links: {
+      buyTickets: 'https://www.alc.ca/content/alc/en/play-online/lottery/atlantic-49.html',
+      gameRules: 'https://www.alc.ca/content/alc/en/play-online/lottery/atlantic-49.html',
+    },
+    dataTransform: {
+      mode: 'standard',
+      categories: [
+        { titleKey: 'result.primaryNumbers', maxNumbers: 6, containerSize: { sm: 6 } },
+        { titleKey: 'result.bonusBall', maxNumbers: 1, containerSize: { sm: 6 }, isSecondary: true },
+      ],
+    },
+  },
+
+  // ===== AUSTRALIA (AU) =====
+
+  [LottoType.AU_POWERBALL]: {
+    lottoType: LottoType.AU_POWERBALL,
+    logo: '/img/lottery/au/powerball.svg',
+    links: {
+      buyTickets: 'https://www.thelott.com/powerball',
+      gameRules: 'https://www.thelott.com/powerball/how-to-play',
+    },
+    dataTransform: {
+      mode: 'standard',
+      categories: [
+        { titleKey: 'result.primaryNumbers', maxNumbers: 7, containerSize: { sm: 6 } },
+        { titleKey: 'result.powerball', maxNumbers: 1, containerSize: { sm: 6 }, isSecondary: true },
+      ],
+    },
+  },
+
+  [LottoType.AU_SATURDAY_LOTTO]: {
+    lottoType: LottoType.AU_SATURDAY_LOTTO,
+    logo: '/img/lottery/au/saturday_lotto.svg',
+    links: {
+      buyTickets: 'https://www.thelott.com/saturday-lotto',
+      gameRules: 'https://www.thelott.com/saturday-lotto/how-to-play',
+    },
+    dataTransform: {
+      mode: 'standard',
+      categories: [
+        { titleKey: 'result.primaryNumbers', maxNumbers: 6, containerSize: { sm: 6 } },
+        { titleKey: 'result.supplementary', maxNumbers: 2, containerSize: { sm: 6 }, isSecondary: true },
+      ],
+    },
+  },
+
+  [LottoType.AU_OZ_LOTTO]: {
+    lottoType: LottoType.AU_OZ_LOTTO,
+    logo: '/img/lottery/au/oz_lotto.png',
+    links: {
+      buyTickets: 'https://www.thelott.com/oz-lotto',
+      gameRules: 'https://www.thelott.com/oz-lotto/how-to-play',
+    },
+    dataTransform: {
+      mode: 'standard',
+      categories: [
+        { titleKey: 'result.primaryNumbers', maxNumbers: 7, containerSize: { sm: 6 } },
+        { titleKey: 'result.supplementary', maxNumbers: 2, containerSize: { sm: 6 }, isSecondary: true },
+      ],
+    },
+  },
+
+  [LottoType.AU_SET_FOR_LIFE]: {
+    lottoType: LottoType.AU_SET_FOR_LIFE,
+    logo: '/img/lottery/au/set_for_life.png',
+    links: {
+      buyTickets: 'https://www.thelott.com/set-for-life',
+      gameRules: 'https://www.thelott.com/set-for-life/how-to-play',
+    },
+    dataTransform: {
+      mode: 'standard',
+      categories: [
+        { titleKey: 'result.primaryNumbers', maxNumbers: 8 },
+      ],
+    },
+  },
+
+  [LottoType.AU_WEEKDAY_WINDFALL]: {
+    lottoType: LottoType.AU_WEEKDAY_WINDFALL,
+    logo: '/img/lottery/au/weekday_windfall.webp',
+    links: {
+      buyTickets: 'https://www.thelott.com/mon-wed-lotto',
+      gameRules: 'https://www.thelott.com/mon-wed-lotto/how-to-play',
+    },
+    dataTransform: {
+      mode: 'standard',
+      categories: [
+        { titleKey: 'result.primaryNumbers', maxNumbers: 6, containerSize: { sm: 6 } },
+        { titleKey: 'result.supplementary', maxNumbers: 2, containerSize: { sm: 6 }, isSecondary: true },
+      ],
+    },
+  },
+
+  [LottoType.AU_CASH_3]: {
+    lottoType: LottoType.AU_CASH_3,
+    logo: '/img/lottery/au/cash_3.png',
+    links: {
+      buyTickets: 'https://www.thelott.com/cash-3',
+      gameRules: 'https://www.thelott.com/cash-3/how-to-play',
+    },
+    dataTransform: {
+      mode: 'positional',
+      positional: {
+        maxNumbersPerPosition: 1,
+      },
+    },
+  },
+
+  [LottoType.AU_SUPER_66]: {
+    lottoType: LottoType.AU_SUPER_66,
+    logo: '/img/lottery/au/super_66.png',
+    links: {
+      buyTickets: 'https://www.thelott.com/super-66',
+      gameRules: 'https://www.thelott.com/super-66/how-to-play',
+    },
+    dataTransform: {
+      mode: 'positional',
+      positional: {
+        maxNumbersPerPosition: 1,
+      },
+    },
+  },
+
+  [LottoType.AU_LOTTO_STRIKE]: {
+    lottoType: LottoType.AU_LOTTO_STRIKE,
+    logo: '/img/lottery/au/lotto_strike.png',
+    links: {
+      buyTickets: 'https://www.thelott.com/lotto-strike',
+      gameRules: 'https://www.thelott.com/lotto-strike/how-to-play',
+    },
+    dataTransform: {
+      mode: 'positional',
+      positional: {
+        maxNumbersPerPosition: 1,
+      },
     },
   },
 
