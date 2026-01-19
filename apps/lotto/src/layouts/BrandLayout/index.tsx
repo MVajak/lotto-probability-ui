@@ -26,7 +26,7 @@ export const BrandLayout: React.FC<BrandLayoutProps> = ({ children, topRight }) 
 
       {/* Logo */}
       <motion.div
-        className="relative z-10 mb-8 mt-8"
+        className="relative z-10 mt-8 mb-8"
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}

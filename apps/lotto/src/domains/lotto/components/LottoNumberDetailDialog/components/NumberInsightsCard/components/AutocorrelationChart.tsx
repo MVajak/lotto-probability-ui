@@ -57,7 +57,7 @@ export const AutocorrelationChart: React.FC<AutocorrelationChartProps> = ({ auto
   return (
     <div className="flex flex-col gap-4">
       <div className="flex flex-col gap-1">
-        <h4 className="text-body-default-bold">{t('numberStats.autocorrelation.title')}</h4>
+        <h4 className="text-body-default-bold text-foreground">{t('numberStats.autocorrelation.title')}</h4>
         <p className="text-body-small text-muted-foreground">{t('numberStats.autocorrelation.description')}</p>
       </div>
 

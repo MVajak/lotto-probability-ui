@@ -13,11 +13,5 @@ interface LogoProps {
 }
 
 export function Logo({ size = 'md', className }: LogoProps) {
-  return (
-    <img
-      src="/img/lotto_lens.png"
-      alt="LottoLens"
-      className={cn(sizeClasses[size], className)}
-    />
-  );
+  return <img src="/img/lotto_lens.png" alt="LottoLens" className={cn(sizeClasses[size], className)} />;
 }

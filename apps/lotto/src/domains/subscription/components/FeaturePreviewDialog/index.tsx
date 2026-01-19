@@ -51,7 +51,7 @@ export const FeaturePreviewDialog: React.FC<FeaturePreviewDialogProps> = ({ open
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent
-        className="flex max-h-[90vh] min-h-[60vh] flex-col gap-0 overflow-hidden sm:max-w-3xl"
+        className="flex max-h-[90vh] min-h-[60vh] flex-col gap-0 overflow-hidden sm:max-w-5xl"
         aria-describedby={undefined}
       >
         <DialogHeader className="flex-row items-center gap-3">

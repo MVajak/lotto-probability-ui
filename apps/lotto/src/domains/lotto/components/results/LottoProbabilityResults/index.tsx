@@ -34,8 +34,7 @@ export const LottoProbabilityResultsCard = (props: LottoProbabilityResultsProps)
         <p className="mb-4 text-body-small text-muted-foreground">
           {isLimited ? (
             <>
-              {t('result.totalDrawsLimited', { totalDraws, totalDrawsInRange })}
-              {' · '}
+              {t('result.totalDrawsLimited', { totalDraws, totalDrawsInRange })} ·{' '}
               <Link to="/subscription" className="text-primary underline hover:text-primary/80">
                 {t('result.upgradeForMore')}
               </Link>

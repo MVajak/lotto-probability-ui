@@ -383,9 +383,7 @@ export const LOTTERY_CONFIGS: LotteryConfigRegistry = {
     },
     dataTransform: {
       mode: 'standard',
-      categories: [
-        { titleKey: 'result.primaryNumbers', maxNumbers: 6 },
-      ],
+      categories: [{ titleKey: 'result.primaryNumbers', maxNumbers: 6 }],
     },
   },
 
@@ -580,9 +578,7 @@ export const LOTTERY_CONFIGS: LotteryConfigRegistry = {
     },
     dataTransform: {
       mode: 'standard',
-      categories: [
-        { titleKey: 'result.primaryNumbers', maxNumbers: 10 },
-      ],
+      categories: [{ titleKey: 'result.primaryNumbers', maxNumbers: 10 }],
     },
   },
 
@@ -658,9 +654,7 @@ export const LOTTERY_CONFIGS: LotteryConfigRegistry = {
     },
     dataTransform: {
       mode: 'standard',
-      categories: [
-        { titleKey: 'result.primaryNumbers', maxNumbers: 10 },
-      ],
+      categories: [{ titleKey: 'result.primaryNumbers', maxNumbers: 10 }],
     },
   },
 
@@ -837,9 +831,7 @@ export const LOTTERY_CONFIGS: LotteryConfigRegistry = {
     },
     dataTransform: {
       mode: 'standard',
-      categories: [
-        { titleKey: 'result.primaryNumbers', maxNumbers: 8 },
-      ],
+      categories: [{ titleKey: 'result.primaryNumbers', maxNumbers: 8 }],
     },
   },
 

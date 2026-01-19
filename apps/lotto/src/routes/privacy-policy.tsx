@@ -46,7 +46,7 @@ function PrivacyPolicyPage() {
               </Button>
             </Link>
             <div>
-              <h1 className="text-title-large-bold text-foreground">{t('legal.privacyPolicy.title')}</h1>
+              <h1 className="text-foreground text-title-large-bold">{t('legal.privacyPolicy.title')}</h1>
               <p className="text-body-small text-muted-foreground">
                 {t('legal.privacyPolicy.lastUpdated', { date: 'January 10, 2026' })}
               </p>
@@ -55,9 +55,9 @@ function PrivacyPolicyPage() {
 
           {/* Content */}
           <div className="space-y-6">
-                {sections.map((section) => (
+            {sections.map((section) => (
               <section key={section}>
-                <h2 className="mb-2 text-title-medium-bold text-foreground">
+                <h2 className="mb-2 text-foreground text-title-medium-bold">
                   {t(`legal.privacyPolicy.${section}.title`)}
                 </h2>
                 {section === 'contact' ? (
@@ -66,6 +66,7 @@ function PrivacyPolicyPage() {
                       i18nKey="legal.privacyPolicy.contact.content"
                       components={{
                         email: (
+                          // biome-ignore lint/a11y/useAnchorContent: Trans component provides children
                           <a
                             href="mailto:support@lottolens.io"
                             className="text-primary underline hover:text-primary/80"
@@ -75,7 +76,9 @@ function PrivacyPolicyPage() {
                     />
                   </p>
                 ) : (
-                  <p className="text-body-medium text-muted-foreground">{t(`legal.privacyPolicy.${section}.content`)}</p>
+                  <p className="text-body-medium text-muted-foreground">
+                    {t(`legal.privacyPolicy.${section}.content`)}
+                  </p>
                 )}
                 {section === 'dataCollection' ||
                 section === 'dataUse' ||

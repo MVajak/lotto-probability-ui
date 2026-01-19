@@ -53,13 +53,7 @@ export const REGION_LOTTERY_TYPES: Record<Region, LottoType[]> = {
     LottoType.DE_SPIEL77,
     LottoType.DE_SUPER6,
   ],
-  [Region.FR]: [
-    LottoType.EUROMILLIONS,
-    LottoType.EURODREAMS,
-    LottoType.FR_LOTO,
-    LottoType.FR_JOKER,
-    LottoType.FR_KENO,
-  ],
+  [Region.FR]: [LottoType.EUROMILLIONS, LottoType.EURODREAMS, LottoType.FR_LOTO, LottoType.FR_JOKER, LottoType.FR_KENO],
   [Region.CA]: [
     LottoType.CA_LOTTO_MAX,
     LottoType.CA_LOTTO_649,

@@ -45,7 +45,7 @@ function MethodologyPage() {
               </Button>
             </Link>
             <div>
-              <h1 className="text-title-large-bold text-foreground">{t('methodology.title')}</h1>
+              <h1 className="text-foreground text-title-large-bold">{t('methodology.title')}</h1>
               <p className="text-body-small text-muted-foreground">{t('methodology.subtitle')}</p>
             </div>
           </div>
@@ -58,14 +58,12 @@ function MethodologyPage() {
           {/* Methods */}
           <div className="space-y-8">
             {methods.map((method, index) => (
-              <section key={method} className="border-b border-border pb-6 last:border-0 last:pb-0">
+              <section key={method} className="border-border border-b pb-6 last:border-0 last:pb-0">
                 <div className="mb-2 flex items-center gap-3">
                   <span className="flex size-8 items-center justify-center rounded-full bg-primary/10 text-body-small-bold text-primary">
                     {index + 1}
                   </span>
-                  <h2 className="text-title-medium-bold text-foreground">
-                    {t(`methodology.methods.${method}.title`)}
-                  </h2>
+                  <h2 className="text-foreground text-title-medium-bold">{t(`methodology.methods.${method}.title`)}</h2>
                 </div>
                 <div className="ml-11">
                   <p className="mb-3 text-body-medium text-muted-foreground">
@@ -84,7 +82,7 @@ function MethodologyPage() {
 
           {/* Disclaimer */}
           <div className="mt-8 rounded-lg bg-base-yellow p-4">
-            <h3 className="mb-2 text-title-small-bold text-primary-yellow">{t('methodology.disclaimer.title')}</h3>
+            <h3 className="mb-2 text-primary-yellow text-title-small-bold">{t('methodology.disclaimer.title')}</h3>
             <p className="text-body-small text-muted-foreground">{t('methodology.disclaimer.content')}</p>
           </div>
 

@@ -129,8 +129,7 @@ export const PricingCard: React.FC<PricingCardProps> = ({ tier, isCurrentPlan = 
 
   return (
     <InteractiveCard
-      className={cn('relative h-full border-border', isHighlighted && 'border-2 border-gold')}
-      onClick={handleClick}
+      className={cn('relative h-full cursor-default border-border', isHighlighted && 'border-2 border-gold')}
     >
       {isHighlighted && (
         <Badge className="-top-3 -translate-x-1/2 absolute left-1/2 bg-gold text-background text-body-small-bold tracking-wide">

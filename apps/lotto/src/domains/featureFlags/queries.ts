@@ -1,7 +1,6 @@
 import { queryOptions } from '@tanstack/react-query';
 
 import { apiFetch } from '../api/client';
-
 import type { FeatureFlags } from './types';
 
 export const featureFlagsQuery = queryOptions({

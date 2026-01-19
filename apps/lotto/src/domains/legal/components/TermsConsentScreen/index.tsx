@@ -38,7 +38,7 @@ export function TermsConsentScreen({ isUpdate = false }: TermsConsentScreenProps
         transition={{ duration: 0.3 }}
         className="relative z-10 w-full max-w-lg"
       >
-        <Card className="border-glass-border bg-glass p-8 backdrop-blur-xl gap-4">
+        <Card className="gap-4 border-glass-border bg-glass p-8 backdrop-blur-xl">
           {/* Logo */}
           <div className="flex justify-center">
             <Logo size="lg" />
@@ -46,7 +46,7 @@ export function TermsConsentScreen({ isUpdate = false }: TermsConsentScreenProps
 
           {/* Title */}
           <div className="flex flex-col gap-4">
-            <h1 className="text-center text-title-large-bold text-foreground">
+            <h1 className="text-center text-foreground text-title-large-bold">
               {isUpdate ? t('legal.consent.titleUpdated') : t('legal.consent.title')}
             </h1>
 
@@ -57,7 +57,7 @@ export function TermsConsentScreen({ isUpdate = false }: TermsConsentScreenProps
           </div>
 
           {/* Links to documents */}
-          <div className="flex flex-col gap-2 mb-6">
+          <div className="mb-6 flex flex-col gap-2">
             <Link
               to="/terms-of-service"
               target="_blank"

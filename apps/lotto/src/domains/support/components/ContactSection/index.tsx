@@ -1,9 +1,9 @@
 import { BugAntIcon, EnvelopeIcon } from '@heroicons/react/24/outline';
 import { useTranslation } from 'react-i18next';
 
-import { EMAILS } from '../../constants';
-
 import { Card } from '@lotto/ui';
+
+import { EMAILS } from '../../constants';
 
 export function ContactSection() {
   const { t } = useTranslation();

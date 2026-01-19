@@ -1,3 +1,3 @@
-export * from './types';
-export * from './queries';
 export * from './hooks/useFeatureFlags';
+export * from './queries';
+export * from './types';

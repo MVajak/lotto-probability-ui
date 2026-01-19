@@ -46,7 +46,7 @@ function TermsOfServicePage() {
               </Button>
             </Link>
             <div>
-              <h1 className="text-title-large-bold text-foreground">{t('legal.termsOfService.title')}</h1>
+              <h1 className="text-foreground text-title-large-bold">{t('legal.termsOfService.title')}</h1>
               <p className="text-body-small text-muted-foreground">
                 {t('legal.termsOfService.lastUpdated', { date: 'January 10, 2026' })}
               </p>
@@ -56,7 +56,7 @@ function TermsOfServicePage() {
           {/* Content */}
           <div className="space-y-6">
             {sections.map((section) => (
-                <section key={section} className={section === 'disclaimer' ? 'rounded-lg bg-base-yellow p-4' : ''}>
+              <section key={section} className={section === 'disclaimer' ? 'rounded-lg bg-base-yellow p-4' : ''}>
                 <h2
                   className={`mb-2 text-title-medium-bold ${section === 'disclaimer' ? 'text-primary-yellow' : 'text-foreground'}`}
                 >
@@ -68,8 +68,9 @@ function TermsOfServicePage() {
                       i18nKey="legal.termsOfService.contact.content"
                       components={{
                         email: (
+                          // biome-ignore lint/a11y/useAnchorContent: Trans component provides children
                           <a
-                            href="mailto:support@lottolens.cio"
+                            href="mailto:support@lottolens.io"
                             className="text-primary underline hover:text-primary/80"
                           />
                         ),
@@ -77,7 +78,9 @@ function TermsOfServicePage() {
                     />
                   </p>
                 ) : (
-                  <p className="text-body-medium text-muted-foreground">{t(`legal.termsOfService.${section}.content`)}</p>
+                  <p className="text-body-medium text-muted-foreground">
+                    {t(`legal.termsOfService.${section}.content`)}
+                  </p>
                 )}
               </section>
             ))}
