@@ -646,7 +646,7 @@
       },
       "contact": {
         "title": "Võta ühendust",
-        "content": "Kui sul on küsimusi selle privaatsuspoliitika kohta, võta meiega ühendust aadressil <email>support@lottolens.com</email>."
+        "content": "Kui sul on küsimusi selle privaatsuspoliitika kohta, võta meiega ühendust aadressil <email>support@lottolens.io</email>."
       }
     },
     "termsOfService": {
@@ -695,7 +695,7 @@
       },
       "contact": {
         "title": "Kontakt",
-        "content": "Nende teenuse tingimuste kohta küsimuste esitamiseks võta meiega ühendust aadressil <email>support@lottolens.com</email>."
+        "content": "Nende teenuse tingimuste kohta küsimuste esitamiseks võta meiega ühendust aadressil <email>support@lottolens.io</email>."
       }
     },
     "consent": {

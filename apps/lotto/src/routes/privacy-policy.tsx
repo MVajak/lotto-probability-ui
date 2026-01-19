@@ -67,7 +67,7 @@ function PrivacyPolicyPage() {
                       components={{
                         email: (
                           <a
-                            href="mailto:support@lottolens.com"
+                            href="mailto:support@lottolens.io"
                             className="text-primary underline hover:text-primary/80"
                           />
                         ),
