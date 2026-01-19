@@ -479,7 +479,7 @@
     "features": {
       "STATS_5_DRAWS": "5 sorteos más recientes",
       "STATS_100_DRAWS": "100 sorteos de datos",
-      "STATS_ALL_DRAWS": "Todos los sorteos desde 2021",
+      "STATS_UNLIMITED": "Todos los sorteos desde 2021",
       "BASIC_FREQUENCY": "Análisis de frecuencia básico",
       "AD_SUPPORTED": "Experiencia con anuncios",
       "NO_ADS": "Sin anuncios",

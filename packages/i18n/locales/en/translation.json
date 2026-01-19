@@ -479,7 +479,7 @@
     "features": {
       "STATS_5_DRAWS": "5 most recent draws",
       "STATS_100_DRAWS": "100 draws of lottery data",
-      "STATS_ALL_DRAWS": "All draws since 2021",
+      "STATS_UNLIMITED": "All draws since 2021",
       "BASIC_FREQUENCY": "Basic frequency analysis",
       "AD_SUPPORTED": "Ad-supported experience",
       "NO_ADS": "No advertisements",
