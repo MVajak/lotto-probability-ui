@@ -63,6 +63,9 @@
     "AU_CASH_3": "Users must select 3 numbers from the range 0–9, and the sequence in which the numbers are chosen must be correct.",
     "AU_SUPER_66": "Users must match a 6-digit number from 000000 to 999999. Prizes are awarded based on how many digits match from right to left.",
     "AU_LOTTO_STRIKE": "Users must match 4 numbers in exact order from the first 4 numbers drawn in Saturday Lotto. The sequence must be correct to win.",
+    "ZA_DAILY_LOTTO": "There are 36 numbers in total, from which the user must choose 5. The position of the chosen numbers does not matter.",
+    "ZA_LOTTO": "There are 52 numbers in total, from which the user must choose 6. In addition, there is 1 bonus ball drawn from the remaining numbers. The position of the chosen numbers does not matter.",
+    "ZA_POWERBALL": "There are 50 primary numbers in total, from which the user must choose 5. In addition, there are 20 Powerball numbers, and the user must select 1. The position of the chosen numbers does not matter.",
     "generalDescription": "The system calculates the probability of {{lottoName}} numbers based on historical data and suggests the best numbers to choose. You can search for historical data by dates."
   },
   "search": {
@@ -428,7 +431,8 @@
     "DE": "Germany",
     "FR": "France",
     "CA": "Canada",
-    "AU": "Australia"
+    "AU": "Australia",
+    "ZA": "South Africa"
   },
   "profile": {
     "memberSince": "Member since {{date}}",
@@ -825,6 +829,9 @@
     "AU_CASH_3": "Cash 3",
     "AU_SUPER_66": "Super 66",
     "AU_LOTTO_STRIKE": "Lotto Strike",
+    "ZA_DAILY_LOTTO": "Daily Lotto",
+    "ZA_LOTTO": "Lotto",
+    "ZA_POWERBALL": "SA Powerball",
     "frequency": {
       "EUROJACKPOT": "Tue & Fri",
       "VIKINGLOTTO": "Wed",
@@ -876,7 +883,10 @@
       "AU_WEEKDAY_WINDFALL": "Mon & Wed",
       "AU_CASH_3": "Daily",
       "AU_SUPER_66": "Sat",
-      "AU_LOTTO_STRIKE": "Sat"
+      "AU_LOTTO_STRIKE": "Sat",
+      "ZA_DAILY_LOTTO": "Daily",
+      "ZA_LOTTO": "Wed & Sat",
+      "ZA_POWERBALL": "Tue & Fri"
     }
   }
 }

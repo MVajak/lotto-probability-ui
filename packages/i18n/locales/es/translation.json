@@ -63,6 +63,9 @@
     "AU_CASH_3": "Los usuarios deben seleccionar 3 números del rango 0–9, y la secuencia en la que se eligen los números debe ser correcta.",
     "AU_SUPER_66": "Los usuarios deben seleccionar 6 dígitos del rango 0-9. Se compara con el número ganador de derecha a izquierda, y la secuencia debe ser correcta.",
     "AU_LOTTO_STRIKE": "Los usuarios deben seleccionar 4 números en orden exacto de los primeros 4 números sorteados en Saturday Lotto. La secuencia debe ser correcta para ganar.",
+    "ZA_DAILY_LOTTO": "Hay 36 números en total, de los cuales el usuario debe elegir 5. La posición de los números elegidos no importa.",
+    "ZA_LOTTO": "Hay 52 números en total, de los cuales el usuario debe elegir 6. Además, se sortea 1 bola bonus de los números restantes. La posición de los números elegidos no importa.",
+    "ZA_POWERBALL": "Hay 50 números principales en total, de los cuales el usuario debe elegir 5. Además, hay 20 números Powerball, y el usuario debe seleccionar 1. La posición de los números elegidos no importa.",
     "generalDescription": "El sistema calcula la probabilidad de los números de {{lottoName}} basándose en datos históricos y sugiere los mejores números para elegir. Puedes buscar datos históricos por fechas."
   },
   "search": {
@@ -428,7 +431,8 @@
     "DE": "Alemania",
     "FR": "Francia",
     "CA": "Canadá",
-    "AU": "Australia"
+    "AU": "Australia",
+    "ZA": "Sudáfrica"
   },
   "profile": {
     "memberSince": "Miembro desde {{date}}",
@@ -823,6 +827,9 @@
     "AU_CASH_3": "Cash 3",
     "AU_SUPER_66": "Super 66",
     "AU_LOTTO_STRIKE": "Lotto Strike",
+    "ZA_DAILY_LOTTO": "Daily Lotto",
+    "ZA_LOTTO": "SA Lotto",
+    "ZA_POWERBALL": "SA Powerball",
     "frequency": {
       "EUROJACKPOT": "Mar y Vie",
       "VIKINGLOTTO": "Mié",
@@ -874,7 +881,10 @@
       "AU_WEEKDAY_WINDFALL": "Lun y Mié",
       "AU_CASH_3": "Diario",
       "AU_SUPER_66": "Sáb",
-      "AU_LOTTO_STRIKE": "Sáb"
+      "AU_LOTTO_STRIKE": "Sáb",
+      "ZA_DAILY_LOTTO": "Diario",
+      "ZA_LOTTO": "Mié y Sáb",
+      "ZA_POWERBALL": "Mar y Vie"
     }
   }
 }

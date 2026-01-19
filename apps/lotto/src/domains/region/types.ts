@@ -13,4 +13,5 @@ export enum Region {
   FR = 'FR',
   CA = 'CA',
   AU = 'AU',
+  ZA = 'ZA',
 }

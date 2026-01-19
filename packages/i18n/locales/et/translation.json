@@ -63,6 +63,9 @@
     "AU_CASH_3": "Kasutajad peavad valima 3 numbrit vahemikust 0–9 ja numbrite valimise järjestus peab olema õige.",
     "AU_SUPER_66": "Kasutajad peavad sobitama 6-kohalise numbri vahemikus 000000 kuni 999999. Auhindu antakse selle alusel, mitu numbrit paremalt vasakule kattuvad.",
     "AU_LOTTO_STRIKE": "Kasutajad peavad sobitama 4 numbrit täpses järjekorras Saturday Lotto esimesest 4 loositud numbrist. Võitmiseks peab järjestus olema õige.",
+    "ZA_DAILY_LOTTO": "Kokku on 36 numbrit, millest kasutaja peab valima 5. Valitud numbrite asukoht ei ole oluline.",
+    "ZA_LOTTO": "Kokku on 52 numbrit, millest kasutaja peab valima 6. Lisaks loositakse 1 boonusnumber ülejäänud numbrite hulgast. Valitud numbrite asukoht ei ole oluline.",
+    "ZA_POWERBALL": "Kokku on 50 primaarnumbrit, millest kasutaja peab valima 5. Lisaks on 20 Powerball numbrit, millest kasutaja peab valima 1. Valitud numbrite asukoht ei ole oluline.",
     "generalDescription": "Süsteem arvutab {{lottoName}} loto numbrite esinemise tõenäosuse ajalooliste andmete põhjal ning kuvab parimaid numbreid. Saate määrata ise kuupäevad, mille vahemikus ajaloolisi andmeid kasutatakse."
   },
   "search": {
@@ -428,7 +431,8 @@
     "DE": "Saksamaa",
     "FR": "Prantsusmaa",
     "CA": "Kanada",
-    "AU": "Austraalia"
+    "AU": "Austraalia",
+    "ZA": "Lõuna-Aafrika"
   },
   "profile": {
     "memberSince": "Liige alates {{date}}",
@@ -825,6 +829,9 @@
     "AU_CASH_3": "Cash 3",
     "AU_SUPER_66": "Super 66",
     "AU_LOTTO_STRIKE": "Lotto Strike",
+    "ZA_DAILY_LOTTO": "Daily Lotto",
+    "ZA_LOTTO": "Lotto",
+    "ZA_POWERBALL": "Powerball",
     "frequency": {
       "EUROJACKPOT": "T & R",
       "VIKINGLOTTO": "K",
@@ -876,7 +883,10 @@
       "AU_WEEKDAY_WINDFALL": "E & K",
       "AU_CASH_3": "Iga päev",
       "AU_SUPER_66": "L",
-      "AU_LOTTO_STRIKE": "L"
+      "AU_LOTTO_STRIKE": "L",
+      "ZA_DAILY_LOTTO": "Iga päev",
+      "ZA_LOTTO": "K & L",
+      "ZA_POWERBALL": "T & R"
     }
   }
 }

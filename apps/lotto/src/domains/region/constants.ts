@@ -73,4 +73,11 @@ export const REGION_LOTTERY_TYPES: Record<Region, LottoType[]> = {
     LottoType.AU_SUPER_66,
     LottoType.AU_LOTTO_STRIKE,
   ],
+  [Region.ZA]: [
+    LottoType.ZA_DAILY_LOTTO,
+    LottoType.ZA_LOTTO,
+    LottoType.ZA_POWERBALL,
+    LottoType.UK_49S_LUNCHTIME,
+    LottoType.UK_49S_TEATIME,
+  ],
 };

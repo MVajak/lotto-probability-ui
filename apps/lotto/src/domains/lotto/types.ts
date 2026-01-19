@@ -104,6 +104,11 @@ export enum LottoType {
   AU_SUPER_66 = 'AU_SUPER_66',
   AU_LOTTO_STRIKE = 'AU_LOTTO_STRIKE',
 
+  // South African lotteries
+  ZA_DAILY_LOTTO = 'ZA_DAILY_LOTTO',
+  ZA_LOTTO = 'ZA_LOTTO',
+  ZA_POWERBALL = 'ZA_POWERBALL',
+
   // Shared
   VIKINGLOTTO = 'VIKINGLOTTO',
   EUROJACKPOT = 'EUROJACKPOT',

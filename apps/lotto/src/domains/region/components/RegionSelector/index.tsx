@@ -21,6 +21,7 @@ import FlagEstonia from '../../assets/flag_estonia.svg';
 import FlagFrance from '../../assets/flag_france.svg';
 import FlagGermany from '../../assets/flag_germany.svg';
 import FlagIreland from '../../assets/flag_ireland.svg';
+import FlagSouthAfrica from '../../assets/flag_south_africa.png';
 import FlagSpain from '../../assets/flag_spain.svg';
 import FlagUK from '../../assets/flag_united_kingdom.svg';
 import FlagUSA from '../../assets/flag_usa.svg';
@@ -35,6 +36,7 @@ const FLAGS: Record<Region, string> = {
   [Region.FR]: FlagFrance,
   [Region.CA]: FlagCanada,
   [Region.AU]: FlagAustralia,
+  [Region.ZA]: FlagSouthAfrica,
 };
 
 const REGIONS = [
@@ -47,6 +49,7 @@ const REGIONS = [
   Region.FR,
   Region.CA,
   Region.AU,
+  Region.ZA,
 ] as const;
 
 const getInitialRegion = (): Region => {
@@ -69,6 +72,8 @@ const getInitialRegion = (): Region => {
     return Region.IE;
   } else if (timezone.includes('Europe/Paris')) {
     return Region.FR;
+  } else if (timezone.includes('Africa/Johannesburg')) {
+    return Region.ZA;
   } else if (timezone.includes('America/')) {
     return Region.US;
   }

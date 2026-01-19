@@ -6,9 +6,9 @@ import { useTranslation } from 'react-i18next';
 import { currentUserQuery } from '@/domains/auth';
 
 const stats = [
-  { icon: SparklesIcon, labelKey: 'home.hero.stats.lotteries', value: '12' },
+  { icon: SparklesIcon, labelKey: 'home.hero.stats.lotteries', value: '54' },
   { icon: ChartBarIcon, labelKey: 'home.hero.stats.draws', value: '50K+' },
-  { icon: GlobeAltIcon, labelKey: 'home.hero.stats.regions', value: '3' },
+  { icon: GlobeAltIcon, labelKey: 'home.hero.stats.regions', value: '10' },
 ];
 
 export function HeroSection() {

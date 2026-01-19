@@ -896,6 +896,53 @@ export const LOTTERY_CONFIGS: LotteryConfigRegistry = {
     },
   },
 
+  // ===== SOUTH AFRICA (ZA) =====
+
+  [LottoType.ZA_DAILY_LOTTO]: {
+    lottoType: LottoType.ZA_DAILY_LOTTO,
+    logo: '/img/lottery/za/daily_lotto.png',
+    links: {
+      buyTickets: 'https://www.nationallottery.co.za/daily-lotto',
+      gameRules: 'https://www.nationallottery.co.za/daily-lotto/how-to-play',
+    },
+    dataTransform: {
+      mode: 'standard',
+      categories: [{ titleKey: 'result.primaryNumbers', maxNumbers: 5 }],
+    },
+  },
+
+  [LottoType.ZA_LOTTO]: {
+    lottoType: LottoType.ZA_LOTTO,
+    logo: '/img/lottery/za/lotto.png',
+    links: {
+      buyTickets: 'https://www.nationallottery.co.za/lotto',
+      gameRules: 'https://www.nationallottery.co.za/lotto/how-to-play',
+    },
+    dataTransform: {
+      mode: 'standard',
+      categories: [
+        { titleKey: 'result.primaryNumbers', maxNumbers: 6, containerSize: { sm: 6 } },
+        { titleKey: 'result.bonusBall', maxNumbers: 1, containerSize: { sm: 6 }, isSecondary: true },
+      ],
+    },
+  },
+
+  [LottoType.ZA_POWERBALL]: {
+    lottoType: LottoType.ZA_POWERBALL,
+    logo: '/img/lottery/za/powerball.png',
+    links: {
+      buyTickets: 'https://www.nationallottery.co.za/powerball',
+      gameRules: 'https://www.nationallottery.co.za/powerball/how-to-play',
+    },
+    dataTransform: {
+      mode: 'standard',
+      categories: [
+        { titleKey: 'result.primaryNumbers', maxNumbers: 5, containerSize: { sm: 6 } },
+        { titleKey: 'result.powerball', maxNumbers: 1, containerSize: { sm: 6 }, isSecondary: true },
+      ],
+    },
+  },
+
   // ===== SHARED (Multi-region) =====
 
   [LottoType.EURODREAMS]: {
