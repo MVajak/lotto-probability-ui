@@ -374,7 +374,7 @@
     "subtitle": "Analüüsi ajaloolisi loosimisi, avasta mustreid ja vali numbreid, mida toetab päris statistika.",
     "feature1": "Üle 50 000 loosimise ajalooline analüüs",
     "feature2": "Täiustatud tõenäosusarvutused ja ennustused",
-    "feature3": "Loteriide tugi 5 piirkonnas",
+    "feature3": "Loteriide tugi 10 piirkonnas",
     "methodsLabel": "Vaata meie statistilisi meetodeid",
     "method1": "Sagedusanalüüs",
     "method2": "Wilsoni usaldusvahemik",
@@ -392,7 +392,12 @@
     "region2": "Ühendkuningriik",
     "region3": "Ameerika Ühendriigid",
     "region4": "Hispaania",
-    "region5": "Iirimaa"
+    "region5": "Iirimaa",
+    "region6": "Saksamaa",
+    "region7": "Prantsusmaa",
+    "region8": "Kanada",
+    "region9": "Austraalia",
+    "region10": "Lõuna-Aafrika"
   },
   "login": {
     "title": "Logi sisse",

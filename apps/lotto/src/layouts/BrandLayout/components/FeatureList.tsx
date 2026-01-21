@@ -23,7 +23,18 @@ const methods = [
   'authLayout.method9',
 ];
 
-const regions = ['authLayout.region1', 'authLayout.region2', 'authLayout.region3'];
+const regions = [
+  'authLayout.region1',
+  'authLayout.region2',
+  'authLayout.region3',
+  'authLayout.region4',
+  'authLayout.region5',
+  'authLayout.region6',
+  'authLayout.region7',
+  'authLayout.region8',
+  'authLayout.region9',
+  'authLayout.region10',
+];
 
 export const FeatureList = () => {
   const { t } = useTranslation();

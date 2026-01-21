@@ -374,7 +374,7 @@
     "subtitle": "Analiza sorteos históricos, descubre patrones y elige números respaldados por estadísticas reales.",
     "feature1": "Análisis histórico de más de 50,000 sorteos de lotería",
     "feature2": "Cálculos de probabilidad avanzados y predicciones",
-    "feature3": "Cobertura de loterías en 5 regiones",
+    "feature3": "Cobertura de loterías en 10 regiones",
     "methodsLabel": "Ver nuestros métodos estadísticos",
     "method1": "Análisis de Frecuencia",
     "method2": "Intervalo de Confianza de Wilson",
@@ -392,7 +392,12 @@
     "region2": "Reino Unido",
     "region3": "Estados Unidos",
     "region4": "España",
-    "region5": "Irlanda"
+    "region5": "Irlanda",
+    "region6": "Alemania",
+    "region7": "Francia",
+    "region8": "Canadá",
+    "region9": "Australia",
+    "region10": "Sudáfrica"
   },
   "login": {
     "title": "Iniciar sesión",

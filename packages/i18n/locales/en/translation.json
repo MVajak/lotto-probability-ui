@@ -374,7 +374,7 @@
     "subtitle": "Analyze historical draws, discover patterns, and pick numbers backed by real statistics.",
     "feature1": "Historical analysis of 50,000+ lottery draws",
     "feature2": "Advanced probability calculations & predictions",
-    "feature3": "Coverage for lotteries across 5 regions",
+    "feature3": "Coverage for lotteries across 10 regions",
     "methodsLabel": "See our statistical methods",
     "method1": "Frequency Analysis",
     "method2": "Wilson Confidence Interval",
@@ -392,7 +392,12 @@
     "region2": "United Kingdom",
     "region3": "United States",
     "region4": "Spain",
-    "region5": "Ireland"
+    "region5": "Ireland",
+    "region6": "Germany",
+    "region7": "France",
+    "region8": "Canada",
+    "region9": "Australia",
+    "region10": "South Africa"
   },
   "login": {
     "title": "Sign in",
