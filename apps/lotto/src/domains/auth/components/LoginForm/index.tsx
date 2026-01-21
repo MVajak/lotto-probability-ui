@@ -33,7 +33,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onSubmit, isLoading, error
     formState: { errors, isValid },
   } = useForm<LoginFormInputs>({
     defaultValues: { email: '' },
-    mode: 'onChange',
+    mode: 'onBlur',
   });
 
   // Set form error when API returns error
