@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 import { AnimatePresence, motion } from 'motion/react';
 import { useTranslation } from 'react-i18next';
 
-import { Dialog, DialogContent, DialogTitle, IconButton } from '@lotto/ui';
+import { Dialog, DialogContent, DialogTitle, IconButton, Spinner } from '@lotto/ui';
 
 const demoImages = [
   '/img/demo/home_page_1.png',
@@ -11,6 +11,21 @@ const demoImages = [
   '/img/demo/number_detail_1.png',
   '/img/demo/number_detail_2.png',
 ];
+
+// Preload all images and return a promise that resolves when all are loaded
+const preloadImages = (urls: string[]): Promise<void[]> => {
+  return Promise.all(
+    urls.map(
+      (url) =>
+        new Promise<void>((resolve) => {
+          const img = new Image();
+          img.onload = () => resolve();
+          img.onerror = () => resolve(); // Resolve even on error to not block
+          img.src = url;
+        })
+    )
+  );
+};
 
 interface PreviewModalProps {
   open: boolean;
@@ -20,6 +35,14 @@ interface PreviewModalProps {
 export const PreviewModal = ({ open, onOpenChange }: PreviewModalProps) => {
   const { t } = useTranslation();
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+
+  // Preload all images when dialog opens
+  useEffect(() => {
+    if (open && !imagesLoaded) {
+      preloadImages(demoImages).then(() => setImagesLoaded(true));
+    }
+  }, [open, imagesLoaded]);
 
   const goToPrevious = () => {
     setCurrentIndex((prev) => (prev === 0 ? demoImages.length - 1 : prev - 1));
@@ -36,18 +59,24 @@ export const PreviewModal = ({ open, onOpenChange }: PreviewModalProps) => {
         <div className="relative">
           {/* Image carousel */}
           <div className="relative w-full overflow-hidden rounded-2xl bg-background">
-            <AnimatePresence mode="wait">
-              <motion.img
-                key={currentIndex}
-                src={demoImages[currentIndex]}
-                alt={t('authLayout.previewAlt')}
-                className="w-full"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.2 }}
-              />
-            </AnimatePresence>
+            {!imagesLoaded ? (
+              <div className="flex aspect-16/10 items-center justify-center">
+                <Spinner className="size-10 text-gold" />
+              </div>
+            ) : (
+              <AnimatePresence mode="wait">
+                <motion.img
+                  key={currentIndex}
+                  src={demoImages[currentIndex]}
+                  alt={t('authLayout.previewAlt')}
+                  className="w-full"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                />
+              </AnimatePresence>
+            )}
 
             {/* Navigation arrows */}
             <div className="absolute inset-y-0 left-2 flex items-center">
