@@ -1,5 +1,5 @@
 import { ArrowLeftIcon } from '@heroicons/react/24/outline';
-import { createFileRoute, Link } from '@tanstack/react-router';
+import { createFileRoute } from '@tanstack/react-router';
 import { motion } from 'motion/react';
 import { Trans, useTranslation } from 'react-i18next';
 
@@ -40,11 +40,9 @@ function PrivacyPolicyPage() {
         <Card className="p-6 md:p-8">
           {/* Header */}
           <div className="mb-6 flex items-center gap-4">
-            <Link to="/login">
-              <Button variant="ghost" size="sm" className="size-9 p-0">
-                <ArrowLeftIcon className="size-5" />
-              </Button>
-            </Link>
+            <Button variant="ghost" size="sm" className="size-9 p-0" onClick={() => window.history.back()}>
+              <ArrowLeftIcon className="size-5" />
+            </Button>
             <div>
               <h1 className="text-foreground text-title-large-bold">{t('legal.privacyPolicy.title')}</h1>
               <p className="text-body-small text-muted-foreground">
@@ -98,9 +96,9 @@ function PrivacyPolicyPage() {
 
           {/* Back button */}
           <div className="mt-8">
-            <Link to="/login">
-              <Button variant="outline">{t('legal.privacyPolicy.back')}</Button>
-            </Link>
+            <Button variant="outline" onClick={() => window.history.back()}>
+              {t('legal.privacyPolicy.back')}
+            </Button>
           </div>
         </Card>
       </motion.div>

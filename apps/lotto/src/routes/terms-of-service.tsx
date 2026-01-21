@@ -1,5 +1,5 @@
 import { ArrowLeftIcon } from '@heroicons/react/24/outline';
-import { createFileRoute, Link } from '@tanstack/react-router';
+import { createFileRoute } from '@tanstack/react-router';
 import { motion } from 'motion/react';
 import { Trans, useTranslation } from 'react-i18next';
 
@@ -40,11 +40,9 @@ function TermsOfServicePage() {
         <Card className="p-6 md:p-8">
           {/* Header */}
           <div className="mb-6 flex items-center gap-4">
-            <Link to="/login">
-              <Button variant="ghost" size="sm" className="size-9 p-0">
-                <ArrowLeftIcon className="size-5" />
-              </Button>
-            </Link>
+            <Button variant="ghost" size="sm" className="size-9 p-0" onClick={() => window.history.back()}>
+              <ArrowLeftIcon className="size-5" />
+            </Button>
             <div>
               <h1 className="text-foreground text-title-large-bold">{t('legal.termsOfService.title')}</h1>
               <p className="text-body-small text-muted-foreground">
@@ -88,9 +86,9 @@ function TermsOfServicePage() {
 
           {/* Back button */}
           <div className="mt-8">
-            <Link to="/login">
-              <Button variant="outline">{t('legal.termsOfService.back')}</Button>
-            </Link>
+            <Button variant="outline" onClick={() => window.history.back()}>
+              {t('legal.termsOfService.back')}
+            </Button>
           </div>
         </Card>
       </motion.div>
